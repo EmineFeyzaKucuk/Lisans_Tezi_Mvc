@@ -82,6 +82,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         //değişklik yaptık 
         //commit ekliyoruz
         // tümünü işle diyoruz
+        //gönder diyoruz
     }
 
 }
