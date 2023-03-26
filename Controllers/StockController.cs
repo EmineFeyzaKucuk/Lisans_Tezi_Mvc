@@ -78,12 +78,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml");
         }
 
-        //test
-        //değişklik yaptık 
-        //commit ekliyoruz
-        // tümünü işle diyoruz
-        //gönder diyoruz
-    }
+        // tamam :)
 
 }
 
