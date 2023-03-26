@@ -16,7 +16,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml");
         }
-    
+
         public IActionResult StockCard2()
         {
             return View("~/Views/Stock/StockCardRecords/StockCard2.cshtml");
@@ -29,8 +29,8 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCardRecords/Price.cshtml");
         }
-       
-       
+
+
         public IActionResult LocalWarehouseBalance()
         {
             return View("~/Views/Stock/StockCardRecords/LocalWarehouseBalance.cshtml");
@@ -44,7 +44,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCardRecords/PrescriptionInfo.cshtml");
         }
-       
+
         //Stock Hareket Kayıtları
 
         public IActionResult stockTransactionRecords()
@@ -58,7 +58,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCodeRecords/GroupCodeRecords.cshtml");
         }
-     
+
         public IActionResult Stock_GroupCodeDefine()
         {
             return View("~/Views/Stock/StockCodeRecords/Stock_GroupCodeDefine.cshtml");
@@ -80,5 +80,6 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         // tamam :)
 
+    }
 }
 
