@@ -78,8 +78,42 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml");
         }
 
-        // tamam :)
+        //DEPO İŞLEMLERİ
+      
+
+       public IActionResult Inter_WarehouseTransferReceipt()
+        {
+            return View("~/Views/Stock/WarehouseOperations/Inter_WarehouseTransferReceipt.cshtml");
+        }
+        public IActionResult WarehouseDefinition()
+        {
+            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml");
+        }
+        //STOK FİYAT İŞLEMLERİ
+        public IActionResult StockPrice()
+        {
+            return View("~/Views/Stock/StockPriceTransaction/StockPrice.cshtml");
+        }
+        
+        //STOK GİRİŞ ÇIKIŞ HAREKETLERİ
+        public IActionResult StockEntryExitMovements()
+        {
+            return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements.cshtml");
+        }
+        //PERSONEL TANIMLAMA
+        public IActionResult EmployeeDefinition()
+        {
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition.cshtml");
+        }
+        //RİSKLİ MALZEME GRUBU TANIMLAMA
+              public IActionResult RiskyMaterialGroupDefinition()
+        {
+            return View("~/Views/Stock/RiskyMaterialGroupDefinition/RiskyMaterialGroupDefinition.cshtml");
+        }
+
+  
 
     }
+
 }
 

@@ -1,0 +1,179 @@
+﻿
+@{
+    Layout = "~/Views/Stock/RiskyMaterialGroupDefinition/_LayoutRiskyMaterialGroupDefinition.cshtml";
+    ViewData["Title"] = "RiskyMaterialGroupDefinition";
+}
+
+   <div class="container" style="background-color: grey;">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="post">
+                    
+                    <div class="row">
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <label>RİSKLİ ÜRÜN GRUBU TANIMLAMALARI</label>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                       
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div class="row mt-1">
+                                                   <div class="col-md-6">
+                                                <label for="stok_kodu">Grup Kodu:</label>
+                                                   </div>
+                                                 <div class="col-md-4 text-start">
+                                                 <input class="form-control " id="stok_kodu" type="text">
+                                                 </div>
+                                               <div class="col-md-1 text-start">
+                                                 <button type="button" class="btn btn-success">Seçiniz</button>
+                                            </div>
+                                               </div>
+                                               </div>
+                                           
+                                           <div class="col-md-6">
+                                               <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                <label for="stok_kodu">Grup Adı:</label>
+                                                   </div>
+                                                 <div class="col-md-6 text-start">
+                                                 <input class="form-control " id="stok_kodu" type="text">
+                                                 </div>
+                                               </div>
+
+                                           </div>
+
+
+                                           <div class="row">
+                                               <div class="col-md-12">
+                                                    <div class="row mt-2">
+                                                <div class="col-md-6">
+                                                <label for="stok_kodu">Uyarı Mesajı:</label>
+                                                   </div>
+                                                 <div class="col-md-10 text-start">
+                                                 <input class="form-control " id="stok_kodu" type="text">
+                                                 </div>
+                                             
+                                               </div>
+                                            </div>
+                                               </div>
+                                               
+                                           </div>
+
+
+                                  
+                                     <div class="row">
+                                       <div class="row mt-4">
+                                           <div class="col-md-12">
+                                               <label for="stok_kodu">Uyarı Verilecek Ekranlar:</label>
+                                           </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Alış İrsaliyesi
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Ambar Çıkış Fişi
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Satış İrsaliyesi
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Serbest Üretim Sonu Kaydı
+                                      </label>
+                                    </div>
+                                    
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Depolar Arası Transfer
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Kalite Kontrol Kaydı
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Ambar Giriş Fişi
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Üretim Akış Kaydı
+                                      </label>
+                                    </div>
+                                            </div>
+                                       </div>
+                                     </div>
+
+                                        <div class="row mt-1">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Grup Kodu</th>
+                                        <th scope="col">Grup Adı</th>
+                                        <th scope="col">Uyarı Mesajı</th>
+                                        
+                                     
+                                        
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>mdo</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>fat</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>twitter</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                            </div>
+                        </div>
+                                       </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </form>
+                    </div>
+            </div>
+        </div>
+
+

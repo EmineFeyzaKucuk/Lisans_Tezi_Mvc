@@ -1,0 +1,165 @@
+﻿
+@{
+    Layout = "~/Views/Report/StockLatestStatusList/_LayoutStockLatestStatusList.cshtml";
+    ViewData["Title"] = "StockLatestStatusList";
+}
+<div class="container" style="background-color: grey;">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label>STOK SON DURUM LİSTESİ</label>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Stok Kodu:</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Grup Kodu:</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+
+                                                    <p>Bakiye Filtresi:</p>
+                                                    <input type="radio" id="html" name="fav_language" value="HTML">
+                                                    <label for="html">Tüm Kodlar</label><br>
+                                                    <input type="radio" id="css" name="fav_language" value="CSS">
+                                                    <label for="css">Stokta Mevcut Olanlar</label><br>
+                                                    <input type="radio" id="css" name="fav_language" value="CSS">
+                                                    <label for="css">Serbest Miktarı Olanlar</label><br>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="card">
+
+                                                    <h5 class="card-header"> Rapor İçeriği</h5>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-md-6">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4">
+                                                    <label for="stok_kodu">Rapor Birimi:</label>
+                                                </div>
+
+
+                                                <select name="cars" id="cars">
+                                                    <option selected disabled value="">Seçiniz...</option>
+                                                    <option value="volvo">Adet</option>
+                                                    <option value="saab">Kilogram</option>
+                                                    <option value="mercedes">Litre</option>
+                                                    <option value="audi">Metre</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Stok Kodu  </th>
+                                                            <th scope="col">Stok Açıklama </th>
+                                                            <th scope="col">Depo  </th>
+                                                            <th scope="col">Toplam Giren Miktar </th>
+                                                            <th scope="col">Toplam Çıkan Miktar</th>
+                                                            <th scope="col">Toplam Kalan Miktar</th>
+                                                            <th scope="col">Toplam Serbest Miktar</th>
+                                                            <th scope="col">Birim</th>
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+                                                            <td>Otto</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Jacob</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td colspan="2">Larry the Bird</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

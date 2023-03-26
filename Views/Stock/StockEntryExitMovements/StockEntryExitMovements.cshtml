@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = "~/Views/Stock/StockEntryExitMovements/_LayoutStockEntryExitMovements.cshtml";
+    ViewData["Title"] = "StockEntryExitMovements";
+}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12"><label>STOK GİRİŞ/ÇIKIŞ HAREKETLERİ</label></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="row mt-2">
+                                            <div class="col-md-4">
+                                                <label for="stok_kodu">Fiş No:</label>
+                                            </div>
+                                            <div class="col-md-5 text-start">
+                                                <input class="form-control " id="stok_kodu" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="row mt-2">
+                                            <div class="col-md-3">
+                                                <label for="stok_kodu">Tarih:</label>
+                                            </div>
+                                            <div class="col-md-6 text-start">
+                                                <input class="form-control " id="stok_kodu" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="row mt-1">
+                                            <label for="cars">Depo:</label>
+
+                                            <select name="cars" id="cars">
+                                                <option selected disabled value="">Seçiniz...</option>
+                                                <option value="volvo">MM</option>
+                                                <option value="saab">YM</option>
+                                                <option value="mercedes">HM</option>
+                                                <option value="audi">IM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="row mt-2">
+                                            <div class="col-md-3">
+                                                <label for="stok_kodu">Not:</label>
+                                            </div>
+                                            <div class="col-md-6 text-start">
+                                                <input class="form-control " id="stok_kodu" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <h5 class="card-header">Detay</h5>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="row mt-2">
+                                                            <div class="col-md-4">
+
+
+                                                                <label for="cars">Stok Kodu:</label>
+
+                                                                <select name="cars" id="cars">
+                                                                    <option selected disabled value="">Seçiniz</option>
+                                                                    <option value="volvo">1</option>
+                                                                    <option value="saab">2</option>
+                                                                    <option value="mercedes">3</option>
+                                                                    <option value="audi">4</option>
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="col-md-4">
+
+
+                                                                <label for="stok_kodu">Stok Adı:</label>
+
+                                                                <div class="col-md-6 text-start">
+                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+
+
+                                                                <label for="stok_kodu">Parti No:</label>
+
+                                                                <div class="col-md-6 text-start">
+                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="row mt-2">
+                                                            <div class="col-md-4">
+
+
+                                                                <label for="stok_kodu">Gelen Miktar:</label>
+
+                                                                <div class="col-md-6 text-start">
+                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+
+
+                                                                <label for="stok_kodu">Çıkan Miktar:</label>
+
+                                                                <div class="col-md-6 text-start">
+                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-md-4">
+
+                                                                <div class="col-md-4">
+                                                                    <label for="stok_kodu">İşlem Birimi:</label>
+                                                                </div>
+
+
+                                                                <select name="cars" id="cars">
+                                                                    <option selected disabled value="">Seçiniz...</option>
+                                                                    <option value="volvo">Adet</option>
+                                                                    <option value="saab">Kilogram</option>
+                                                                    <option value="mercedes">Litre</option>
+                                                                    <option value="audi">Metre</option>
+                                                                </select>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-md-1 text-start">
+                                                    <button type="button" class="btn btn-success">Kaydet</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

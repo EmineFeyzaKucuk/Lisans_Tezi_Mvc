@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="container shadow stockcard py-2">
+    <div class="row " style="background-color:grey">
+        <div class="col-md-12 d-flex justify-content-center">
+            <ul class="nav nav-tabs tabmenu py-2">
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="WarehouseDefinition" asp-controller="Stock">Depo Tanımlama</a>
+                </li>
+                    <a class="nav-link" asp-action="Inter_WarehouseTransferReceipt" asp-controller="Stock">Depolar Arası Transfer Fişi</a>
+                </li>
+
+              
+            
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @RenderBody()
+        </div>
+    </div>
+</div>
