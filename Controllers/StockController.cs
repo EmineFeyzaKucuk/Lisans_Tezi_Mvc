@@ -78,7 +78,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml");
         }
 
-
+        //test
 
     }
 
