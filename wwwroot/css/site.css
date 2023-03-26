@@ -1,0 +1,45 @@
+a{
+    text-decoration:none;
+    color:rgb(64,64,64) !important;
+}
+.tabmenu {
+    font-size:10px !important;
+    margin-right:0!important; 
+}
+.container {
+    font-size: 10px !important;
+    margin-right: 0 !important;
+}
+.btn {
+    font-size: 10px;
+    margin-right: 0 !important;
+    background-color: #69AB3D;
+}
+
+
+.treeview .list-group-item {
+    cursor: pointer
+}
+
+.treeview span.indent {
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.treeview span.icon {
+    width: 12px;
+    margin-right: 5px
+}
+
+.treeview .node-disabled {
+    color: silver;
+    cursor: not-allowed
+}
+
+.node-treeview1 {
+}
+
+    .node-treeview1:not(.node-disabled):hover {
+        background-color: #F5F5F5;
+    }
+

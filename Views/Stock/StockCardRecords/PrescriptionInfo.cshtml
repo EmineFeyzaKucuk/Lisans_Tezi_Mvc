@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
+    ViewData["Title"] = "PrescriptionInfo";
+}
+
+<div class="container" style="background-color: grey; ">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+
+                            <label for="stok_kodu">Stok kodu:</label>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+
+                        <div class="col-md-6 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Yap.Kod.</th>
+                                    <th scope="col">Yap.Açık.</th>
+                                    <th scope="col">Mamülmü</th>
+                                    <th scope="col">Bileşenmi</th>
+                                    <th scope="col">Reçete Toplamı</th>
+                                    <th scope="col">Otomatik Reçete</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+

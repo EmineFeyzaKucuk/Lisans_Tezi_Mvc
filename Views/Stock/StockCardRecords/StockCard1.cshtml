@@ -1,0 +1,197 @@
+﻿
+@{
+    Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
+    ViewData["Title"] = "StockCard1";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row mt-2">
+                            <div class="col-md-2">
+                                <label for="stok_kodu">Stok kodu:</label>
+                            </div>
+                            <div class="col-md-8 text-start">
+                                <input class="form-control " id="stok_kodu" type="text">
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-success">btn</button>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-2">
+                                <label for="stok_adi">Stok Adı:</label>
+                            </div>
+                            <div class="col-md-10 text-start">
+                                <input class="form-control " id="stok_adi" type="text">
+                            </div>
+
+                        </div>
+                    
+
+                        <div class="row mt-1">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        KDV
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="stok_kodu">Satış KDV Oranı</label>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-1">
+                                            <div class="col">
+                                                <label for="stok_kodu">Alış KDV Oranı</label>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-1">
+                            <div class="col">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="stok_kodu">Risk Süresi</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+                                            <div class="col-3">
+                                                <label for="stok_kodu">Muhasebe Detay</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="stok_kodu">Zaman Birimi</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input class="form-control " id="stok_kodu" type="text">
+                                            </div>
+
+                                            <div class="col-3">
+                                                <label for="stok_kodu">Depo Kodu</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-3">
+                        <div class="row" style="margin-top:15px";>
+                        <div class="col-3">
+                            <label for="stok_kodu">Ana/Detay</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="custom-select">
+                                <select>
+                                    <option value="0">Ad:</option>
+                                    <option value="1">Ad</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <label for="stok_kodu">Aktif/Pasif</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="custom-select">
+                                <select>
+                                    <option value="0">Ad:</option>
+                                    <option value="1">Ad</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row mt-1">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Stok Kodu</th>
+                                    <th scope="col">Stok Adı</th>
+                                    <th scope="col">Ölçübr1</th>
+                                    <th scope="col">Ölçübr2</th>
+                                    <th scope="col">Pay1</th>
+                                    <th scope="col">Payda1</th>
+                                    <th scope="col">Ölçübr3</th>
+                                    <th scope="col">Pay2</th>
+                                    <th scope="col">Payda2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>01</td>
+                                    <td>Kumas-A</td>
+                                    <td>AD</td>
+                                    <td>KG</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>7</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>02</td>
+                                    <td>Kumas-B</td>
+                                    <td>M</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>02</td>
+                                    <td>Kumas-c</td>
+                                    <td>M</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

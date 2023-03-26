@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<div class="container shadow stockcard py-2">
+    <div class="row " style="background-color:grey">
+        <div class="col-md-12 d-flex justify-content-center">
+            <ul class="nav nav-tabs tabmenu py-2">
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="StockCard1" asp-controller="Stock">Stok Kart-1</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="StockCard2" asp-controller="Stock">Stok Kartı-2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Price" asp-controller="Stock">Fiyatlar</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="StockInfo" asp-controller="Stock">Stok Bilgisi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="LocalWareHouseBalance" asp-controller="Stock">Lokal Depo Bakiye</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="PriceInfo" asp-controller="Stock">Fiyat Bilgileri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="PrescriptionInfo" asp-controller="Stock">Reçete Bilgileri</a>
+                </li>
+                
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+

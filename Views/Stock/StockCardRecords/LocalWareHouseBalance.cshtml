@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
+    ViewData["Title"] = "LocalWareHouseBalance";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+
+                            <label for="stok_kodu">Stok kodu:</label>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+
+                        <div class="col-md-6 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-1">
+
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Depo Kodu</th>
+                                    <th scope="col">Depo İsmi</th>
+                                    <th scope="col">Toplam Giriş Miktarı</th>
+                                    <th scope="col">Toplam Çıkış Miktarı</th>
+                                    <th scope="col">Bakiye</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>01</td>
+                                    <td>A</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>02</td>
+                                    <td>B</td>
+                                    <td>12</td>
+                                    <td>12</td>
+                                    <td>100</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Hücre Bakiyeleri
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Hücre Kodu</th>
+                                            <th scope="col">Hücre Bakiye</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>

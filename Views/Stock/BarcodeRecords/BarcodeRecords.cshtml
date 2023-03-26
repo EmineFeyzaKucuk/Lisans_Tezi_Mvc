@@ -1,0 +1,199 @@
+﻿
+@{
+
+    Layout = "~/Views/Stock/BarcodeRecords/_LayoutBarcodeRecords.cshtml";
+    ViewData["Title"] = "BarcodeRecords";
+}
+
+    <div class="container"  >
+        <div class="row">
+            <div class="col-md-12">
+                <form action="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                  
+
+
+                            <div class="row mt-2">
+                                <div class="col-md-2">
+                                    <label for="stok_kodu">Stok Kodu:</label>
+                                </div>
+                                <div class="col-md-3 text-start">
+                                    <input class="form-control " id="stok_kodu" type="text">
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-success">btn</button>
+                                </div>
+                            <div class="col-3">
+                                <div class="row" style="margin-top:15px" ;>
+                                    <div class="col-3">
+                                        <label for="stok_kodu">Ana/Detay</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="custom-select">
+                                            <select>
+                                                <option value="0">Ad:</option>
+                                                <option value="1">Ad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <label for="stok_kodu">Aktif/Pasif</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="custom-select">
+                                            <select>
+                                                <option value="0">Ad:</option>
+                                                <option value="1">Ad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                             
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                   
+                                       
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label for="stok_kodu">Barkod</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+                                       
+                                        </div>
+
+                                        <div class="row mt-1">
+                                            <div class="col-md-2">
+                                                <label for="stok_kodu">Açıklama</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="stok_kodu">Kayıt Tarihi</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control " id="stok_kodu" type="number">
+                                            </div>
+                                       
+                                        </div>
+
+                                        
+                                        <div class="row mt-1">
+                                            <div class="col-md-2">
+                                                <label for="stok_kodu">Barkod Tipi</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="custom-select">
+                                                    <select>
+                                                      <option value="0">EA-12LKF:</option>
+                                                      <option value="1">Ad</option>
+                                                    </select>
+                                                  </div>
+                                            </div>
+                                           
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                      Kilit
+                                                    </label>
+                                                  </div>
+                                            </div>
+                                       
+                                        </div>
+
+                                        <div class="row mt-1">
+                                            <div class="col-md-2">
+                                                <label for="stok_kodu">Ölçü Birimi</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="custom-select">
+                                                    <select>
+                                                      <option value="0">AAAAA:</option>
+                                                      <option value="1">Ad</option>
+                                                    </select>
+                                                  </div>
+                                            </div>
+                                      
+                                       
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Stok Kodu</th>
+                                        <th scope="col">Stok Adı</th>
+                                        <th scope="col">Barkod</th>
+                                        <th scope="col">Açıklama</th>
+                                        <th scope="col">Kayot Tarihi</th>
+                                        <th scope="col">Barkod Tipi</th>
+                                        <th scope="col">Ölçü Birimi</th>
+                                        <th scope="col">Kilit</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>01</td>
+                                        <td>AB</td>
+                                        <td>234566</td>
+                                        <td>a</td>
+                                        <td>23.01.2023</td>
+                                        <td>kk</td>
+                                        <td>AD</td>
+                                        <td>0</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">2</th>
+                                        <td>02</td>
+                                        <td>BB</td>
+                                        <td>88889</td>
+                                        <td>b</td>
+                                        <td>23.01.2023</td>
+                                        <td>kk</td>
+                                        <td>KG</td>
+                                        <td>0</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">3</th>
+                                        <td>04</td>
+                                        <td>CC</td>
+                                        <td>444446</td>
+                                        <td>c</td>
+                                        <td>23.01.2023</td>
+                                        <td>kk</td>
+                                        <td>M</td>
+                                        <td>0</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                            </div>
+                        </div>
+              </div>
+                </div>
+            </form>
+              </div>    
+            </div>
+        </div>
