@@ -138,25 +138,35 @@
                             </li>
 
                             <li class="border-top my-3"> </li>
+                        
                             <li class="mb-1">
-                                <button class="btn btn-toggle align-items-center rounded collapsed" style="background-color:white;font-size:18px" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" style="background-color:white;font-size:18px" data-bs-toggle="collapse" data-bs-target="#stock-collapse" aria-expanded="true">
                                     Raporlar
                                 </button>
-                                <div class="collapse" id="account-collapse">
+                                <div class="collapse show mx-4" id="stock-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li> <a asp-action="StockTransactionRecordsReport" asp-controller="Report" class="link-dark rounded"> Stok Hareket Kayıtları</a> </li>
-                                        <li> <a asp-action="StockLatestStatusList" asp-controller="Report" class="link-dark rounded">Stok Son Durum Listesi</a> </li>
+                                        <li>
 
-                                        
+                                            <div class="collapse show mx-4" id="saved_collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                    <li> <a asp-action="StockTransactionRecordsReport" asp-controller="Report" class="link-dark rounded"> Stok Hareket Kayıtları</a> </li>
+                                                    <li> <a asp-action="StockLatestStatusList" asp-controller="Report" class="link-dark rounded">Stok Son Durum Listesi</a> </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </li>
+
+
                                     </ul>
                                 </div>
+
                             </li>
+
+
                         </ul>
                     </div>
-
-
-
-                        
+           
              </div>
 
                 <div class="col-md-9" >
