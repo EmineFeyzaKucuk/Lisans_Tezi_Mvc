@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class PRICE_LIST
+    public class PRICE_LIST : BaseEntity
     {
         public int KOD{ get; set; }
         public char TIP{ get; set; }

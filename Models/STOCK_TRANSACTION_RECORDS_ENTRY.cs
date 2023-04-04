@@ -1,11 +1,11 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class STOCK_TRANSACTION_RECORDS_ENTRY
+    public class STOCK_TRANSACTION_RECORDS_ENTRY : BaseEntity
     {
         public int STOK_HAREKET_KAYITLARI_ID { get; set; }
         public string STOK_KODU { get; set; }
         public string STOK_ADI { get; set; }
-        public datetime TARIH { get; set; }
+        public DateTime TARIH { get; set; }
         public char FIS_NO { get; set; }
         public char TIP { get; set; }
         public decimal FIYAT { get; set; }

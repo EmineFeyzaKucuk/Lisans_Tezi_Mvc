@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class WAREHOUSE_DEFINITIONS
+    public class WAREHOUSE_DEFINITIONS : BaseEntity
     {
         public int DEPO_KODU_ID { get; set; }
         public int DEPO_KODU { get; set; }

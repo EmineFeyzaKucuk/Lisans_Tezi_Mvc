@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class INTER_WAREHOUSE_TRANSFER_RECEIPT
+    public class INTER_WAREHOUSE_TRANSFER_RECEIPT : BaseEntity
     {
         public char FIS_NO { get; set; }
         public DateTime TARIH { get; set; }

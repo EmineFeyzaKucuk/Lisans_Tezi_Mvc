@@ -1,3 +1,9 @@
+using Lisans_Tezi_Mvc.Data;
+using Lisans_Tezi_Mvc.Repository;
+using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
+
 namespace Lisans_Tezi_Mvc
 {
     public class Program
@@ -9,7 +15,15 @@ namespace Lisans_Tezi_Mvc
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnecion")
+
+                ));
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddTransient(IStockInformationRepository, StockInformationRepository);
             var app = builder.Build();
+
+            
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

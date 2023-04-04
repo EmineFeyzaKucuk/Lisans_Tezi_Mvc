@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class PRICES
+    public class PRICES : BaseEntity
     {
         public int STOK_KODU { get; set; }
         public string STOK_ADI { get; set; }

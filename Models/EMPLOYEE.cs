@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class EMPLOYEE
+    public class EMPLOYEE : BaseEntity
     {
         public int PERSONELLER_ID { get; set; }
         public int PERSONEL_ID { get; set; }

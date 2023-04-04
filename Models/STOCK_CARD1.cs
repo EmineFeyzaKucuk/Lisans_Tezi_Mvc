@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class STOCK_CARD1
+    public class STOCK_CARD1 : BaseEntity
     {
         public int STOCK_CARD1_ID { get; set; }
         public string STOK_KODU{ get; set; }

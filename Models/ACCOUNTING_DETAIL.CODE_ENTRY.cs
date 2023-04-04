@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class ACCOUNTING_DETAIL
+    public class ACCOUNTING_DETAIL:BaseEntity
     {
         public int MUHASEBE_DETAY_KOD_ID { get; set; }
         public int DETAY_KODU { get; set; }

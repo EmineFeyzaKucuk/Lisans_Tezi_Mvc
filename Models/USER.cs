@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class User
+    public class User : BaseEntity
     {
         public int ID { get; set; }
         public string AD_SOYAD { get; set; }

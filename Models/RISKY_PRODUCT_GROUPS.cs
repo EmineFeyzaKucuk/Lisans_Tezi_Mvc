@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class RISKY_PRODUCT_GROUPS
+    public class RISKY_PRODUCT_GROUPS : BaseEntity
     {
         public int GRUP_KODU{ get; set; }
         public string GRUP_ADI { get; set; }

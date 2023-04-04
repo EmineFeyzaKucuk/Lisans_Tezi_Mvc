@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class NOTIFICATION
+    public class NOTIFICATION : BaseEntity
     {
         public int ID { get; set; }
         public int UYGULAMA_ID { get; set; }

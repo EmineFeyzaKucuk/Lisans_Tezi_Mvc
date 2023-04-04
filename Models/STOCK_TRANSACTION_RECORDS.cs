@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class STOCK_TRANSACTION_RECORDS
+    public class STOCK_TRANSACTION_RECORDS : BaseEntity
     {
         public string STOK_KODU { get; set; }
         public int GRUP_KODU{ get; set; }

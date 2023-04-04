@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class BARCODE_RECORDS
+    public class BARCODE_RECORDS : BaseEntity
     {
         public int BARKOD_KAYITLARI_ID { get; set; }
         public string STOK_KODU { get; set; }

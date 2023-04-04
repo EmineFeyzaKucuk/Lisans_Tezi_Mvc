@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class STOCK_IN_AND_OUT
+    public class STOCK_IN_AND_OUT : BaseEntity
     {
         public int FIS_NO { get; set; }
         public DateTime TARIH { get; set; }
