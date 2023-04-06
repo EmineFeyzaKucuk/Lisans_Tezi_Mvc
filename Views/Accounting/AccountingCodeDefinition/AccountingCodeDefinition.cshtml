@@ -1,4 +1,72 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@{
+    Layout = "~/Views/Accounting/AccountingCodeDefinition/_LayoutAccountingCodeDefinition.cshtml";
+    ViewData["Title"] = "AccountingCodeDefinition";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+
+                            <label for="stok_kodu">Muhasebe Kodu:</label>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+                        <div class="col-md-2">
+
+                            <label for="stok_kodu">Muhasebe Adı:</label>
+                        </div>
+
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="stok_kodu" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Muhasebe Kodu</th>
+                                    <th scope="col">Muhasebe Adı</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
