@@ -17,7 +17,11 @@ namespace Lisans_Tezi_Mvc.Repository.StockInformationRepo
             
         }
 
-      
-
+        public STOCK_INFORMATION GetByName(string name)
+        {
+           var data = _appDbContext.StokBilgisi_TBL.ToList();
+            var stockinfo = data.First(x=>x.STOK_ADI == name);
+            return stockinfo;
+        }
     }
 }

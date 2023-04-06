@@ -1,22 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
+using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
     public class StockController : Controller
     {
+        private readonly IStockInformationRepository _stockInformationRepository;
 
+        private readonly IStockCard1Repository _stockCard1Repository;
+
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository)
+        {
+            _stockInformationRepository = stockInformationRepository;
+            _stockCard1Repository = stockCard1Repository;
+        }
 
         public IActionResult Index()
         {
             return View();
         }
         //STOCK CARD RECORDS
+        public IActionResult StockDefinition()
+        {
+            return View("~/Views/Stock/StockCardRecords/StockDefinition.cshtml");
+        }
 
         public IActionResult StockCard1()
         {
-            return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml");
+            var data = _stockInformationRepository.GetAll();
+            return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml",data);
         }
 
+        public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
+        {
+            var stokkodu = _stockInformationRepository.GetByName(stockCard1.STOK_ADI);
+            stockCard1.STOK_KODU = stokkodu.STOK_KODU;
+            _stockCard1Repository.Add(stockCard1);
+            return RedirectToAction("StockCard1");
+
+        }
         public IActionResult StockCard2()
         {
             return View("~/Views/Stock/StockCardRecords/StockCard2.cshtml");

@@ -4,7 +4,7 @@ namespace Lisans_Tezi_Mvc.Repository
 {
     public interface IRepository<TEntity> where TEntity : BaseEntity,new()
     {
-        IEnumerable<TEntity> GetAll();
+        List<TEntity> GetAll();
 
         TEntity GetById(int id);
 

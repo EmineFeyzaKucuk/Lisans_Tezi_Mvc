@@ -4,34 +4,32 @@
     ViewData["Title"] = "StockCard1";
 }
 
+@model dynamic
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-action="AddStockCard1">
                 <div class="row">
                     <div class="col-md-7">
+
+
                         <div class="row mt-2">
                             <div class="col-md-2">
-                                <label for="stok_kodu">Stok kodu:</label>
+                                <label for="stok_kodu">Stok kodu</label>
                             </div>
-                            <div class="col-md-8 text-start">
-                                <input class="form-control " id="stok_kodu" type="text">
-                            </div>
-                            <div class="col-2">
-                                <button type="button" class="btn btn-success">btn</button>
+                            <div class="col-10">
+                                <label for="STOK_ADI">Stok Adı</label>
+                                <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                    <option value="">Seçiniz</option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option value="@item.STOK_ADI">@item.STOK_KODU</option>
+                                    }
+                                </select>
+                               
                             </div>
                         </div>
-                        <div class="row mt-1">
-                            <div class="col-md-2">
-                                <label for="stok_adi">Stok Adı:</label>
-                            </div>
-                            <div class="col-md-10 text-start">
-                                <input class="form-control " id="stok_adi" type="text">
-                            </div>
-
-                        </div>
-                    
 
                         <div class="row mt-1">
                             <div class="col">
@@ -45,7 +43,7 @@
                                                 <label for="stok_kodu">Satış KDV Oranı</label>
                                             </div>
                                             <div class="col">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " id="SATIS_KDV_ORANI" name="SATIS_KDV_ORANI" type="number">
                                             </div>
                                         </div>
 
@@ -54,7 +52,7 @@
                                                 <label for="stok_kodu">Alış KDV Oranı</label>
                                             </div>
                                             <div class="col">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " id="ALIS_KDV_ORANI" name="ALIS_KDV_ORANI" type="number">
                                             </div>
 
                                         </div>
@@ -75,13 +73,13 @@
                                                 <label for="stok_kodu">Risk Süresi</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " id="RISK_SURESI" name="RISK_SURESI" type="number">
                                             </div>
                                             <div class="col-3">
                                                 <label for="stok_kodu">Muhasebe Detay</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " id="MUH_DETAY" name="MUH_DETAY" type="number">
                                             </div>
 
 
@@ -93,19 +91,20 @@
                                                 <label for="stok_kodu">Zaman Birimi</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="stok_kodu" type="text">
+                                                <input class="form-control " id="ZAMAN_BIRIMI" name="ZAMAN_BIRIMI" type="text">
                                             </div>
 
                                             <div class="col-3">
                                                 <label for="stok_kodu">Depo Kodu</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " id="DEPO_KODU" name="DEPO_KODU" type="number">
                                             </div>
 
                                         </div>
 
 
+                                        <button type="submit">ekle</button>
 
                                     </div>
                                 </div>
@@ -120,10 +119,10 @@
                             <label for="stok_kodu">Ana/Detay</label>
                         </div>
                         <div class="col-3">
-                            <div class="custom-select">
+                                <div class="custom-select" id="A_D" name="A_D">
                                 <select>
-                                    <option value="0">Ad:</option>
-                                    <option value="1">Ad</option>
+                                    <option value="0">A</option>
+                                    <option value="1">D</option>
                                 </select>
                             </div>
                         </div>
@@ -132,10 +131,10 @@
                             <label for="stok_kodu">Aktif/Pasif</label>
                         </div>
                         <div class="col-3">
-                            <div class="custom-select">
+                                <div class="custom-select" id="A_P" name="A_P">
                                 <select>
-                                    <option value="0">Ad:</option>
-                                    <option value="1">Ad</option>
+                                    <option value="0">A</option>
+                                    <option value="1">P</option>
                                 </select>
                             </div>
                         </div>
@@ -195,3 +194,4 @@
         </div>
     </div>
 </div>
+

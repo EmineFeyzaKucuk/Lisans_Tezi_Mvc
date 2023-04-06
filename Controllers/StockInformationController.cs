@@ -18,48 +18,31 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             var data  = _stockInformationRepository.GetAll();
 
-            return View(data);
+            if (data.Count>0)
+            {
+                return View(data);
+            }
+            return Ok("Liste Boş");
 
         }
-    }
-}
-public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity, new()
-{
-    protected readonly AppDbContext _appDbContext;
+        public IActionResult Add(STOCK_INFORMATION stockInfo) {
+            try
+            {
+                _stockInformationRepository.Add(stockInfo);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
 
-    public GenericRepository(AppDbContext appDbContext)
-    {
-        _appDbContext = appDbContext;
-    }
+                return BadRequest("Eklenemedi");
+            }
+        
+        }
+        //public IActionResult GetAll()
+        //{
+        //    var data = _stockInformationRepository.GetAll();
+        //    return PartialView("~/Views/Stock/StockCardRecords/_StockCodeList.cshtml", data);
+        //}
 
-    public TEntity Add(TEntity entity)
-    {
-        _appDbContext.Set<TEntity>().Add(entity);
-        _appDbContext.SaveChanges();
-        return entity;
-    }
-
-    public void Delete(int id)
-    {
-        TEntity entity = new TEntity { Id = id };
-        _appDbContext.Set<TEntity>().Remove(entity);
-        _appDbContext.SaveChanges();
-    }
-
-    public IEnumerable<TEntity> GetAll()
-    {
-        var data = _appDbContext.Set<TEntity>().ToList();
-        return data;
-    }
-
-    public TEntity GetById(int id)
-    {
-        return _appDbContext.Set<TEntity>().First(x => x.Id == id);
-    }
-
-    public void Update(TEntity entity, int id)
-    {
-        _appDbContext.Set<TEntity>().Update(entity);
-        _appDbContext.SaveChanges();
     }
 }

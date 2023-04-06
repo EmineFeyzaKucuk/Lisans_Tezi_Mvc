@@ -1,5 +1,6 @@
 using Lisans_Tezi_Mvc.Data;
 using Lisans_Tezi_Mvc.Repository;
+using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,10 @@ namespace Lisans_Tezi_Mvc
 
                 ));
             builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
-            builder.Services.AddTransient(IStockInformationRepository, StockInformationRepository);
+            builder.Services.AddScoped<IStockInformationRepository, StockInformationRepository>();
+
+            builder.Services.AddScoped<IStockCard1Repository, StockCard1Repository>();
+
             var app = builder.Build();
 
             

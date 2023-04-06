@@ -9,7 +9,9 @@ namespace Lisans_Tezi_Mvc.Data
         {
             
         }
-        public DbSet<STOCK_INFORMATION> STOCK_INFORMATION_TBL { get; set; }
+        public DbSet<STOCK_INFORMATION> StokBilgisi_TBL { get; set; }
+
+        public DbSet<STOCK_CARD1> StokKart1_TBL { get; set; }
 
 
     }

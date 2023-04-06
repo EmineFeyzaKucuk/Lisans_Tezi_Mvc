@@ -6,5 +6,10 @@ namespace Lisans_Tezi_Mvc.Repository.StockInformationRepo
     {
         //stock_information a özel bir method burada tanımlanabilir.
        // void GetByStockInfoName(string name);
+
+
+        STOCK_INFORMATION  GetByName(string name);
     }
+
+
 }

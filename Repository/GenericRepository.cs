@@ -26,7 +26,7 @@ namespace Lisans_Tezi_Mvc.Repository {
             _appDbContext.SaveChanges();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public List<TEntity> GetAll()
         {
             var data = _appDbContext.Set<TEntity>().ToList();
             return data;
