@@ -49,11 +49,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCardRecords/StockInfo.cshtml");
         }
-        public IActionResult Price()
-        {
-            return View("~/Views/Stock/StockCardRecords/Price.cshtml");
-        }
-
+      
 
         public IActionResult LocalWarehouseBalance()
         {
