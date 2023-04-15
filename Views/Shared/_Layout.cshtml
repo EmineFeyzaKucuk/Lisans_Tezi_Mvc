@@ -101,6 +101,9 @@
                                 </button>
                                 <div class="collapse mx-4" id="dashboard-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                       
+                                        
+                                        <li> <a asp-action="CurrentCardIdentification" asp-controller="Accounting" class="link-dark rounded"> Cari Kart Tanımlama</a> </li>
                                         <li> <a asp-action="AccountingCodeDefinition" asp-controller="Accounting" class="link-dark rounded"> Muhasebe Kod Tanımlama</a> </li>
                                         <li> <a href="#" class="link-dark rounded"> Weekly</a> </li>
                                         <li> <a href="#" class="link-dark rounded"> Monthly</a> </li>
@@ -163,6 +166,34 @@
 
                             </li>
 
+                            <li class="border-top my-3"> </li>
+
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" style="background-color:white;font-size:18px" data-bs-toggle="collapse" data-bs-target="#stock-collapse" aria-expanded="true">
+                                    Genel İşlemler
+                                </button>
+                                <div class="collapse show mx-4" id="stock-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li>
+
+                                            <div class="collapse show mx-4" id="saved_collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                    <li> <a asp-action="BarcodeTypeDefinition" asp-controller="GeneralOperations" class="link-dark rounded"> Barkod Tipi Tanımlama</a> </li>
+                                                    <li> <a asp-action="CurrencyDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Para Birimi Tanımlama</a> </li>
+                                                    <li> <a asp-action="TypeDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Tip Tanımlama</a> </li>
+                                                    <li> <a asp-action="UnitofMeasureDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Ölçü Birimi Tanımlama</a> </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+
+                            </li>
+
 
                         </ul>
                     </div>
@@ -170,68 +201,7 @@
              </div>
 
                 <div class="col-md-9" >
-                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow m" style="float:left;background-color:#295D09">
-                        <div class="container-fluid" style="background-color:#295D09">
-
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                                <ul class="navbar-nav flex-grow-1">
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">undo</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">redo</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">delete</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">delete</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">topic</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">save</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">delete</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">add</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">check</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">edit</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">mail</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">analytics</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">domain</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">description</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">help</i></button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button type="button" class="iconButton" asp-area="" asp-controller="Home" asp-action="Privacy" style="background-color:#295D09;color:white; height:60px;width:68px" text="ddddddddd"><i class="material-icons">eco</i></button>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
+                 
                     <div class="col-md-12" style="background-color:white">@RenderBody()</div>
 
                 </div>

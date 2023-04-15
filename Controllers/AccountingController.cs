@@ -18,5 +18,12 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Accounting/AccountingCodeDefinition/AccountingCodeDefinition.cshtml");
         }
 
+        //Cari kart tanımlama
+
+        public IActionResult CurrentCardIdentification()
+        {
+            return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml");
+        }
+
     }
 }
