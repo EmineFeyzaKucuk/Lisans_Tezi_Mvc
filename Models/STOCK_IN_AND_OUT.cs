@@ -3,7 +3,7 @@
     public class STOCK_IN_AND_OUT : BaseEntity
     {
 
-        public int Id { get; set; }
+      
         public int FIS_NO { get; set; }
         public DateTime TARIH { get; set; }
         public char DEPO { get; set; }

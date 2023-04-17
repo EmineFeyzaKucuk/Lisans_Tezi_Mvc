@@ -2,8 +2,9 @@
 {
     public class STOCK_CARD1 : BaseEntity
     {
-        public int Id { get; set; }
+      
         public string STOK_KODU{ get; set; }
+        public string STOK_ADI { get; set; }
         public int SATIS_KDV_ORANI { get; set; }
         public int ALIS_KDV_ORANI { get; set; }
         public string RISK_SURESI { get; set; }

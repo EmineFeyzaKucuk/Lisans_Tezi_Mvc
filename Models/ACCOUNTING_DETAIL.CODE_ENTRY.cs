@@ -2,7 +2,7 @@
 {
     public class ACCOUNTING_DETAIL:BaseEntity
     {
-        public int Id { get; set; }
+    
         public int DETAY_KODU { get; set; }
         public string ALIS_HESABI { get; set; }
         public string ALISTAN_IADE_HESABI { get; set; }

@@ -2,7 +2,6 @@
 {
     public class NOTIFICATION : BaseEntity
     {
-        public int Id { get; set; }
         public int UYGULAMA_ID { get; set; }
         public string MESAJ{ get; set; }
         public DateTime TARIH { get; set; }

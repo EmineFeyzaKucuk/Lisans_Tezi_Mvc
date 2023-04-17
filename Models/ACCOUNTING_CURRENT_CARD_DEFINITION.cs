@@ -2,7 +2,7 @@
 {
     public class ACCOUNTING_CURRENT_CARD_DEFINITION
     {
-        public int Id { get; set; }
+     
         public int CARI_KODU { get; set; }
         public string UNVAN { get; set; }
         public string ADRES { get; set; }

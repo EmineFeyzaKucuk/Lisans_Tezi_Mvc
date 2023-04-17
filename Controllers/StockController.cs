@@ -1,4 +1,5 @@
 ﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,13 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IStockInformationRepository _stockInformationRepository;
 
         private readonly IStockCard1Repository _stockCard1Repository;
+        private readonly IEmployeeDefinitionRepository _employeeDefinitionRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository)
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository)
         {
             _stockInformationRepository = stockInformationRepository;
             _stockCard1Repository = stockCard1Repository;
+            _employeeDefinitionRepository = employeeDefinitionRepository;
         }
 
         public IActionResult Index()
@@ -41,10 +44,16 @@ namespace Lisans_Tezi_Mvc.Controllers
             return RedirectToAction("StockCard1");
 
         }
+
         public IActionResult StockCard2()
         {
             return View("~/Views/Stock/StockCardRecords/StockCard2.cshtml");
         }
+        public IActionResult StockPriceTransaction()
+        {
+            return View("~/Views/Stock/StockCardRecords/StockPriceTransaction.cshtml");
+        }
+        
         public IActionResult StockInfo()
         {
             return View("~/Views/Stock/StockCardRecords/StockInfo.cshtml");
@@ -107,14 +116,12 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
         public IActionResult WarehouseDefinition()
         {
-            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml");
-        }
-        //STOK FİYAT İŞLEMLERİ
-        public IActionResult StockPrice()
-        {
-            return View("~/Views/Stock/StockPriceTransaction/StockPrice.cshtml");
+            var data = _employeeDefinitionRepository.GetAll();
+            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml",data);
         }
         
+     
+
         //STOK GİRİŞ ÇIKIŞ HAREKETLERİ
         public IActionResult StockEntryExitMovements()
         {

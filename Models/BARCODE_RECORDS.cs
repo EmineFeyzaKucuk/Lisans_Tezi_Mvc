@@ -2,7 +2,7 @@
 {
     public class BARCODE_RECORDS : BaseEntity
     {
-        public int Id { get; set; }
+
         public string STOK_KODU { get; set; }
     
         public int BARKOD { get; set; }

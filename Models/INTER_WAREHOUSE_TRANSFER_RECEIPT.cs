@@ -2,7 +2,7 @@
 {
     public class INTER_WAREHOUSE_TRANSFER_RECEIPT : BaseEntity
     {
-        public char Id { get; set; }
+       
         public char FIS_NO { get; set; }
         public DateTime TARIH { get; set; }
         public char GONDEREN_DEPO { get; set; }

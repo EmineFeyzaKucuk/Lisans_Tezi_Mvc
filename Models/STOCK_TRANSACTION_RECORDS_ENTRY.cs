@@ -2,7 +2,7 @@
 {
     public class STOCK_TRANSACTION_RECORDS_ENTRY : BaseEntity
     {
-        public int STOK_HAREKET_KAYITLARI_ID { get; set; }
+    
         public string STOK_KODU { get; set; }
         public string STOK_ADI { get; set; }
         public DateTime TARIH { get; set; }

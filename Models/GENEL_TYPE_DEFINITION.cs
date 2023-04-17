@@ -1,8 +1,8 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class GENERAL_TYPEDEFINITION
+    public class GENEL_TYPE_DEFINITION
     {
-        public int Id { get; set; }
+      
         public string TIP_KODU  { get; set; }
 
         public string TIP_ADI{ get; set; }

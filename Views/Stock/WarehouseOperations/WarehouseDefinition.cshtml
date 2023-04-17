@@ -3,11 +3,12 @@
     Layout = "~/Views/Stock/WareHouseOperations/_LayoutWarehouseOperations.cshtml";
     ViewData["Title"] = "WarehouseDefinition";
 }
+@model dynamic
 
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="WarehouseDefinition" asp-action="CreateWarehouseDefinition">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -24,30 +25,23 @@
                                         <div class="col-md-6">
                                             <div class="row mt-2">
                                                 <div class="col-md-3">
-                                                    <label for="stok_kodu">Depo Kodu:</label>
+                                                    <label for="DEPO_KODU_LBL">Depo Kodu:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " name="DEPO_KODU" type="text">
                                                 </div>
-                                                <div class="col-md-1 text-start">
-                                                    <button type="button" class="btn btn-success">Seçiniz</button>
-                                                </div>
+                                             
                                             </div>
 
 
-
-
                                         </div>
-
-
-
                                         <div class="col-md-6">
                                             <div class="row mt-2">
                                                 <div class="col-md-3">
-                                                    <label for="stok_kodu">Depo Adı:</label>
+                                                    <label for="DEPO_ADI_TBL">Depo Adı:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " name="DEPO_ADI" type="text">
                                                 </div>
 
                                             </div>
@@ -63,8 +57,8 @@
                                                         <div class="row mt-3">
                                                             <div class="col">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                    <input class="form-check-input" type="checkbox" value="true" name="E_TICARET" id="E_TICARET">
+                                                                    <label class="form-check-label" for="E_TICARET">
                                                                         E-ticaret için kullanılacak mı?
                                                                     </label>
                                                                 </div>
@@ -76,26 +70,22 @@
 
                                                         <div class="row mt-2">
                                                             <div class="col-md-3">
-                                                                <label for="stok_kodu">Hangi Tesisin, Şubenin Deposu?:</label>
+                                                                <label for="TESIS_KODU">Hangi Tesisin, Şubenin Deposu?:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="TESIS_KODU" type="text">
                                                             </div>
-                                                            <div class="col-md-1 text-start">
-                                                                <button type="button" class="btn btn-success">Seçiniz</button>
-                                                            </div>
+                                                          
                                                         </div>
 
                                                         <div class="row mt-2">
                                                             <div class="col-md-3">
-                                                                <label for="stok_kodu">Depo Lokasyonu Kodu:</label>
+                                                                <label for="LOKASYON_KODU">Depo Lokasyonu Kodu:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="LOKASYON_KODU" id="LOKASYON_KODU" type="text">
                                                             </div>
-                                                            <div class="col-md-1 text-start">
-                                                                <button type="button" class="btn btn-success">Seçiniz</button>
-                                                            </div>
+                                                        
                                                         </div>
 
 
@@ -115,42 +105,36 @@
                                                     <h5 class="card-header">İlgili Kişiler</h5>
                                                     <div class="card-body">
 
-                                                        <div class="row mt-3">
-                                                            <div class="col">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                                        A/P
-                                                                    </label>
+
+                                                        <div class="row mt-2">
+                                                            <div class="col-md-3">
+                                                                <label for="stok_kodu">İlgili Personel</label>
+                                                            </div>
+                                                          
+                                                            
+                                                                <div class="col-md-9 text-start">
+                                                                <select id="PERSONEL_ID" name="PERSONEL_ID" class="form-control">
+                                                                    <option value="">Seçiniz</option>
+                                                                    @foreach (var item in Model)
+                                                                    {
+                                                                        <option value="@item.Id">@item.PERSONEL_ISIM</option>
+                                                                    }
+                                                                </select>
+
                                                                 </div>
 
-
-                                                            </div>
-
+                                                         
+                                                          
                                                         </div>
 
                                                         <div class="row mt-2">
                                                             <div class="col-md-3">
-                                                                <label for="stok_kodu">İlgili Personel ID:</label>
+                                                                <label for="PERSONEL_IS">İlgili Personel İş Tanımı:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="PERSONEL_IS"id="PERSONEL_IS" type="text">
                                                             </div>
-                                                            <div class="col-md-1 text-start">
-                                                                <button type="button" class="btn btn-success">Seçiniz</button>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row mt-2">
-                                                            <div class="col-md-3">
-                                                                <label for="stok_kodu">İlgili Personel İş Tanımı:</label>
-                                                            </div>
-                                                            <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
-                                                            </div>
-                                                            <div class="col-md-1 text-start">
-                                                                <button type="button" class="btn btn-success">Seçiniz</button>
-                                                            </div>
+                                                          
                                                         </div>
 
 
@@ -161,7 +145,7 @@
 
                                         <div class="row mt-2">
                                             <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-success">Kaydet</button>
+                                                <button type="submit" class="btn btn-success">Ekle</button>
                                             </div>
                                         </div>
 

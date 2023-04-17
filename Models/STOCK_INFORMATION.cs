@@ -3,7 +3,6 @@
     public class STOCK_INFORMATION : BaseEntity
     {
 
-        public int Id { get; set; }
         public string STOK_KODU { get; set; }
         public string STOK_ADI { get; set; }
     }

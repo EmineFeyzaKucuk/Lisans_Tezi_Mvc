@@ -2,7 +2,6 @@
 {
     public class ACCOUNTING_DETAIL_CODE: BaseEntity
     {
-        public int Id { get; set; }
         public int MUHASEBE_KODU { get; set; }
         public int DETAY_KODU { get; set; }
        

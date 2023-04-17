@@ -3,7 +3,7 @@
     public class STOCK_CARD2 : BaseEntity
     {
 
-        public int Id{ get; set; }
+       
         public string STOK_KODU{ get; set; }
         public int CARI_KODU { get; set; }
         public int URETICI_KOD { get; set; }
