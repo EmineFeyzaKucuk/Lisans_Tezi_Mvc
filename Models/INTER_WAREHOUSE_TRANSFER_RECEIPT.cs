@@ -2,12 +2,12 @@
 {
     public class INTER_WAREHOUSE_TRANSFER_RECEIPT : BaseEntity
     {
+        public char Id { get; set; }
         public char FIS_NO { get; set; }
         public DateTime TARIH { get; set; }
         public char GONDEREN_DEPO { get; set; }
         public char ALAN_DEPO { get; set; }
         public string STOK_KODU { get; set; }
-        public string STOK_ADI { get; set; }
         public int PARTI_NO{ get; set; }
         public int ISLEM_MIKTARI{ get; set; }
         public string ISLEM_BIRIMI { get; set; }

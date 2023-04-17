@@ -2,7 +2,7 @@
 {
     public class User : BaseEntity
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string AD_SOYAD { get; set; }
         public string GSM { get; set; }
         public string KULLANICI_ADI { get; set; }

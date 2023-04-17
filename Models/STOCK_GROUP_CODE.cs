@@ -2,7 +2,7 @@
 {
     public class STOCK_GROUP_CODE : BaseEntity
     {
-        public int STOCK_GROUP_KODU_ID { get; set; }
+        public int Id { get; set; }
         public string STOK_KODU{ get; set; }
         public string STOK_ADI { get; set; }
         public string GRUP_KODU{ get; set; }

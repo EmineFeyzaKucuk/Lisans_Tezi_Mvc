@@ -10,6 +10,8 @@
         public char TIP { get; set; }
         public decimal FIYAT { get; set; }
         public char STOK_HAREKET_DURUMU{ get; set; }
+
+        public string DEPO_KODU{ get; set; }
         public string MALIYET { get; set; }
         public string ACIKLAMA { get; set; }
         public string MALIYET_FIYATI { get; set; }

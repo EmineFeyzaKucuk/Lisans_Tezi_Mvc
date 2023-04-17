@@ -2,7 +2,7 @@
 {
     public class MEASURE_REGISTERS : BaseEntity
     {
-        public int OLCU_BIRIMI_KAYITLARI_ID { get; set; }
+        public int Id { get; set; }
         public char KOD_TURU { get; set; }
         public string KOD { get; set; }
         public char OLCU_BIRIMI { get; set; }
