@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class GENEL_BARCOD_TYPE_DEFINITION
+    public class GENERAL_BARCODE_TYPE_DEFINITION :BaseEntity
     {
         public string BARKOD_TIPI { get; set; }
 

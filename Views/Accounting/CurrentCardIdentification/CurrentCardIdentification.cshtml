@@ -2,10 +2,12 @@
     Layout = "~/Views/Accounting/CurrentCardIdentification/_LayoutCurrentCardIdentification.cshtml";
     ViewData["Title"] = "CurrentCardIdentification";
 }
+@model dynamic
+
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="AccountingCurrentCardIdentificationController" asp-action="CreateAccountingCurrentCardDefinition">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -22,32 +24,24 @@
                                         <div class="col-md-4">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Cari Kodu:</label>
+                                                    <label for="CARI_KODU">Cari Kodu:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " name="CARI_KODU" type="text">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Ünvan:</label>
+                                                    <label for="UNVAN">Ünvan:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " name="UNVAN" type="text">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="row mt-1">
-
-                                                <div class="col-md-8 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                     
                                         <div class="row mt-2">
                                             <div class="col-md-8">
                                                 <div class="card">
@@ -55,75 +49,75 @@
                                                     <div class="card-body">
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Adres:</label>
+                                                                <label for="ADRES">Adres:</label>
                                                             </div>
                                                             <div class="col-md-8 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="ADRES" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Posta Kodu:</label>
+                                                                <label for="POSTA_KODU">Posta Kodu:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="POSTA_KODU" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Vergi Dairesi:</label>
+                                                                <label for="VERGI_DAIRESI">Vergi Dairesi:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="VERGI_DAIRESI" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Vergi No:</label>
+                                                                <label for="VERGI_NO">Vergi No:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="VERGI_NO" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Telefon:</label>
+                                                                <label for="TELEFON">Telefon:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="TELEFON" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Fax:</label>
+                                                                <label for="FAX">Fax:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="FAX" type="text">
                                                             </div>
                                                         </div>
 
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Muhasebe Detay Kodu:</label>
+                                                                <label for="MUH_DETAY">Muhasebe Detay Kodu:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " id="stok_kodu" type="text">
+                                                                <input class="form-control " name="MUH_DETAY" type="text">
                                                             </div>
                                                         </div>
 
                                                         <div class="row mt-2">
                                                             <div class="col-md-4">
-                                                                <label for="stok_kodu">Varsayılan İşlem Para Birimi:</label>
+                                                                <label for="PARA_BIRIMI">Varsayılan İşlem Para Birimi:</label>
                                                             </div>
 
 
                                                             <div class="col-md-4">
-                                                                <select name="cars" id="cars">
-                                                                    <option selected disabled value=""> Seçiniz..</option>
-                                                                    <option value="volvo">TL</option>
-                                                                    <option value="saab">EUR</option>
-                                                                    <option value="mercedes">USD</option>
-
+                                                                 <select id="Id" name="Id" class="form-control">
+                                                                    <option value="">Seçiniz</option>
+                                                                    @foreach (var item in Model)
+                                                                    {
+                                                                        <option value="@item.Id">@item.PARA_BIRIMI</option>
+                                                                    }
                                                                 </select>
                                                             </div>
                                                         </div>

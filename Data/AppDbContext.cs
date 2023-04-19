@@ -14,6 +14,11 @@ namespace Lisans_Tezi_Mvc.Data
 
         public DbSet<EMPLOYEE_DEFINITION> Personel_TBL { get; set; }
 
+        public DbSet<GENERAL_CURRENCY_DEFINITION> Genel_ParaBirimiTanimlama_TBL { get; set; }
+        public DbSet<GENERAL_BARCODE_TYPE_DEFINITION> Genel_BarkodTipiTanimlama_TBL { get; set; }
+        
+        public DbSet<GENERAL_MEASUREMENT_UNIT> Genel_OlcuBirimiTanimlama_TBL { get; set; }
+        public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama { get; set; }
         public DbSet<WAREHOUSE_DEFINITION> DepoTanimlama_TBL { get; set; }
         public DbSet<STOCK_CARD1> StokKart1_TBL { get; set; }
 

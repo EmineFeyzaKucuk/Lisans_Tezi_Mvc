@@ -118,10 +118,9 @@
                                 </button>
                                 <div class="collapse mx-4" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li> <a href="#" class="link-dark rounded"> New</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Processed</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Shipped</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Returned</a> </li>
+                                        
+                                        <li> <a asp-action="PrescriptionRegistration" asp-controller="Production" class="link-dark rounded">Reçete Kaydı</a> </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
@@ -178,10 +177,10 @@
 
                                             <div class="collapse show mx-4" id="saved_collapse">
                                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                                    <li> <a asp-action="BarcodeTypeDefinition" asp-controller="GeneralOperations" class="link-dark rounded"> Barkod Tipi Tanımlama</a> </li>
-                                                    <li> <a asp-action="CurrencyDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Para Birimi Tanımlama</a> </li>
+                                                    <li> <a asp-action="BarcodeTypeDefinition" asp-controller="BarcodeTypeDefinition" class="link-dark rounded"> Barkod Tipi Tanımlama</a> </li>
+                                                    <li> <a asp-action="CurrencyDefinition" asp-controller="CurrencyDefinition" class="link-dark rounded">Para Birimi Tanımlama</a> </li>
                                                     <li> <a asp-action="TypeDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Tip Tanımlama</a> </li>
-                                                    <li> <a asp-action="UnitofMeasureDefinition" asp-controller="GeneralOperations" class="link-dark rounded">Ölçü Birimi Tanımlama</a> </li>
+                                                    <li> <a asp-action="UnitofMeasureDefinition" asp-controller="UnitofMeasureDefinition" class="link-dark rounded">Ölçü Birimi Tanımlama</a> </li>
 
 
                                                 </ul>

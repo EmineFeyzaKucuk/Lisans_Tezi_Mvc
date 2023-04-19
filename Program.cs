@@ -1,9 +1,13 @@
 using Lisans_Tezi_Mvc.Data;
 using Lisans_Tezi_Mvc.Repository;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +32,11 @@ namespace Lisans_Tezi_Mvc
             builder.Services.AddScoped<IAccountingCodeDefinitionRepository, AccountingCodeDefinitionRepository>();
             builder.Services.AddScoped<IEmployeeDefinitionRepository, EmployeeDefinitionRepository>();
             builder.Services.AddScoped<IWarehouseDefinitionRepository, WarehouseDefinitonRepository>();
+            builder.Services.AddScoped<IBarcodeTypeDefinitionRepository, BarcodeTypeDefinitionRepository>();
+            builder.Services.AddScoped<IWarehouseDefinitionRepository, WarehouseDefinitonRepository>();
+            builder.Services.AddScoped<ICurrencyDefinitionRepository, CurrencyDefinitionRepository>();
+            builder.Services.AddScoped<IUnitofMeasureDefinitionRepository, UnitofMeasureDefinitionRepository>();
+            builder.Services.AddScoped<ICurrentCardIdentificationRepository, CurrentCardIdentificationRepository>();
             builder.Services.AddScoped<IStockCard1Repository, StockCard1Repository>();
 
             var app = builder.Build();

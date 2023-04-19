@@ -1,6 +1,6 @@
 ﻿namespace Lisans_Tezi_Mvc.Models
 {
-    public class GENEL_TYPE_DEFINITION
+    public class GENERAL_TYPE_DEFINITION : BaseEntity
     {
       
         public string TIP_KODU  { get; set; }
