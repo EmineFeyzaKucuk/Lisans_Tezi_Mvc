@@ -2,7 +2,9 @@
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -12,12 +14,14 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         private readonly IStockCard1Repository _stockCard1Repository;
         private readonly IEmployeeDefinitionRepository _employeeDefinitionRepository;
+        private readonly IWarehouseDefinitionRepository _warehouseDefinitionRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository)
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository)
         {
             _stockInformationRepository = stockInformationRepository;
             _stockCard1Repository = stockCard1Repository;
             _employeeDefinitionRepository = employeeDefinitionRepository;
+            _warehouseDefinitionRepository = warehouseDefinitionRepository;
         }
 
         public IActionResult Index()
@@ -32,16 +36,24 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult StockCard1()
         {
-            var data = _stockInformationRepository.GetAll();
-            return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml",data);
+            ViewBag.data1 = _stockInformationRepository.GetAll();
+            ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
+            return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml");
         }
 
         public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
         {
+            var depokodu = _warehouseDefinitionRepository.GetById(stockCard1.DEPO_KODU);
+            stockCard1.DEPO_KODU = depokodu.DEPO_KODU;
+
             var stokkodu = _stockInformationRepository.GetByName(stockCard1.STOK_ADI);
             stockCard1.STOK_KODU = stokkodu.STOK_KODU;
             _stockCard1Repository.Add(stockCard1);
             return RedirectToAction("StockCard1");
+
+
+     
+     
 
         }
 

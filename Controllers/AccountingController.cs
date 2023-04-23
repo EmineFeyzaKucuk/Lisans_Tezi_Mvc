@@ -10,6 +10,7 @@ namespace Lisans_Tezi_Mvc.Controllers
     {
         private readonly ICurrencyDefinitionRepository _currencyDefinitionRepository;
 
+
         public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository)
         {
             _currencyDefinitionRepository = currencyDefinitionRepository;
@@ -32,9 +33,9 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult CurrentCardIdentification()
         {
 
-
+    
             var data = _currencyDefinitionRepository.GetAll();
-            return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml");
+            return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml",data);
         }
 
     }

@@ -9,17 +9,12 @@ namespace Lisans_Tezi_Mvc.Controllers
 {
     public class AccountingCurrentCardIdentificationController:Controller
     {
-
-
-
         private readonly ICurrentCardIdentificationRepository _currentCardIdentificationRepository;
-        private readonly ICurrencyDefinitionRepository _currencyDefinitionRepository;
+
 
         public AccountingCurrentCardIdentificationController(ICurrentCardIdentificationRepository currentCardIdentificationRepository)
         {
             _currentCardIdentificationRepository = currentCardIdentificationRepository;
-
-      
         }
         public IActionResult CurrentCardIdentification()
         {
@@ -36,7 +31,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             try
             {
-                //  return Ok(warehouseDefinitionRepository);
+               // return Ok(currentCardIdentificationRepository);
                 _currentCardIdentificationRepository.Add(currentCardIdentificationRepository);
                 return RedirectToAction("CurrentCardIdentification", "Accounting");
             }

@@ -19,10 +19,10 @@
                                 <label for="stok_kodu">Stok kodu</label>
                             </div>
                             <div class="col-10">
-                                <label for="STOK_ADI">Stok Adı</label>
+                            
                                 <select id="STOK_ADI" name="STOK_ADI" class="form-control">
                                     <option value="">Seçiniz</option>
-                                    @foreach (var item in Model)
+                                    @foreach (var item in ViewBag.data1)
                                     {
                                         <option value="@item.STOK_ADI">@item.STOK_KODU</option>
                                     }
@@ -40,7 +40,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <label for="stok_kodu">Satış KDV Oranı</label>
+                                                <label for="SATIS_KDV_ORANI">Satış KDV Oranı</label>
                                             </div>
                                             <div class="col">
                                                 <input class="form-control " id="SATIS_KDV_ORANI" name="SATIS_KDV_ORANI" type="number">
@@ -49,7 +49,7 @@
 
                                         <div class="row mt-1">
                                             <div class="col">
-                                                <label for="stok_kodu">Alış KDV Oranı</label>
+                                                <label for="ALIS_KDV_ORANI">Alış KDV Oranı</label>
                                             </div>
                                             <div class="col">
                                                 <input class="form-control " id="ALIS_KDV_ORANI" name="ALIS_KDV_ORANI" type="number">
@@ -70,7 +70,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-3">
-                                                <label for="stok_kodu">Risk Süresi</label>
+                                                <label for="RISK_SURESI">Risk Süresi</label>
                                             </div>
                                             <div class="col-3">
                                                 <input class="form-control " id="RISK_SURESI" name="RISK_SURESI" type="number">
@@ -79,7 +79,10 @@
                                                 <label for="stok_kodu">Muhasebe Detay</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="MUH_DETAY" name="MUH_DETAY" type="number">
+                                                <select id="MUH_DETAY_KODU" name="MUH_DETAY_KODU" class="form-control">
+                                                    <option value="">Seçiniz</option>
+                                                 
+                                                </select>
                                             </div>
 
 
@@ -88,17 +91,23 @@
 
                                         <div class="row">
                                             <div class="col-3">
-                                                <label for="stok_kodu">Zaman Birimi</label>
+                                                <label for="ZAMAN_BIRIMI">Zaman Birimi</label>
                                             </div>
                                             <div class="col-3">
                                                 <input class="form-control " id="ZAMAN_BIRIMI" name="ZAMAN_BIRIMI" type="text">
                                             </div>
 
                                             <div class="col-3">
-                                                <label for="stok_kodu">Depo Kodu</label>
+                                                <label for="DEPO_KODU">Depo Kodu</label>
                                             </div>
                                             <div class="col-3">
-                                                <input class="form-control " id="DEPO_KODU" name="DEPO_KODU" type="number">
+                                                <select id="DEPO_KODU" name="DEPO_KODU" class="form-control">
+                                                    <option value="">Seçiniz</option>
+                                                    @foreach (var item in ViewBag.data2)
+                                                    {
+                                                        <option value="@item.DEPO_KODU">@item.DEPO_ADI</option>
+                                                    }
+                                                </select>
                                             </div>
 
                                         </div>

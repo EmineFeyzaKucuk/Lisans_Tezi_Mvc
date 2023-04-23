@@ -7,7 +7,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="AccountingCurrentCardIdentificationController" asp-action="CreateAccountingCurrentCardDefinition">
+            <form method="post" asp-controller="AccountingCurrentCardIdentification" asp-action="CreateAccountingCurrentCardDefinition">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -26,6 +26,7 @@
                                                 <div class="col-md-6">
                                                     <label for="CARI_KODU">Cari Kodu:</label>
                                                 </div>
+
                                                 <div class="col-md-6 text-start">
                                                     <input class="form-control " name="CARI_KODU" type="text">
                                                 </div>
@@ -65,10 +66,10 @@
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
-                                                                <label for="VERGI_DAIRESI">Vergi Dairesi:</label>
+                                                                <label for="VERGI_ADRESI">Vergi Dairesi:</label>
                                                             </div>
                                                             <div class="col-md-4 text-start">
-                                                                <input class="form-control " name="VERGI_DAIRESI" type="text">
+                                                                <input class="form-control " name="VERGI_ADRESI" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
@@ -107,16 +108,16 @@
 
                                                         <div class="row mt-2">
                                                             <div class="col-md-4">
-                                                                <label for="PARA_BIRIMI">Varsayılan İşlem Para Birimi:</label>
+                                                                <label for="PARA_BIRIMI_ADI">Varsayılan İşlem Para Birimi:</label>
                                                             </div>
 
 
                                                             <div class="col-md-4">
-                                                                 <select id="Id" name="Id" class="form-control">
+                                                                <select id="PARA_BIRIMI" name="PARA_BIRIMI" class="form-control">
                                                                     <option value="">Seçiniz</option>
                                                                     @foreach (var item in Model)
                                                                     {
-                                                                        <option value="@item.Id">@item.PARA_BIRIMI</option>
+                                                                        <option value="@item.PARA_BIRIMI_KODU">@item.PARA_BIRIMI_KODU</option>
                                                                     }
                                                                 </select>
                                                             </div>
@@ -128,10 +129,18 @@
                                         </div>
 
 
+
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-1 text-start">
+                                        <button type="submit" class="btn btn-success">Ekle</button>
                                     </div>
                                 </div>
                             </div>
+                           
                         </div>
+                    
                     </div>
                 </div>
 
