@@ -1,5 +1,6 @@
 ﻿using Lisans_Tezi_Mvc.Models;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
@@ -27,8 +28,10 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IUnitofMeasureDefinitionRepository _unitofMeasureDefinitionRepository;
         private readonly IStockTransactionRecordsRepository _stockTransactionRecordsRepository;
         private readonly IGroupCodeRecordsRepository _groupCodeRecordsRepository;
+        private readonly IAccountingDetailCodeEntryRepository _accountingDetailCodeEntryRepository;
+        private readonly IAccountingCodeDefinitionRepository _accountingCodeDefinitionRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository )
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository)
         {
         
             _stockInformationRepository = stockInformationRepository;
@@ -40,6 +43,8 @@ namespace Lisans_Tezi_Mvc.Controllers
             _unitofMeasureDefinitionRepository = unitofMeasureDefinitionRepository;
             _stockTransactionRecordsRepository = stockTransactionRecordsRepository;
             _groupCodeRecordsRepository = groupCodeRecordsRepository;
+            _accountingDetailCodeEntryRepository = accountingDetailCodeEntryRepository;
+            _accountingCodeDefinitionRepository = accountingCodeDefinitionRepository;
         }
 
         public IActionResult Index()
@@ -135,6 +140,15 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
         public IActionResult AccountingDetailCodeEntry()
         {
+
+            ViewBag.data1 = _accountingCodeDefinitionRepository.GetAll();
+            ViewBag.data2 = _accountingCodeDefinitionRepository.GetAll();
+            ViewBag.data3 = _accountingCodeDefinitionRepository.GetAll();
+            ViewBag.data4 = _accountingCodeDefinitionRepository.GetAll();
+            ViewBag.data5 = _accountingCodeDefinitionRepository.GetAll();
+            ViewBag.data6= _accountingDetailCodeEntryRepository.GetAll();
+        
+
             return View("~/Views/Stock/AccountingDetailCodeEntry/AccountingDetailCodeEntry.cshtml");
         }
         //BARKOD KAYITLARI

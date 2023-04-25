@@ -1,6 +1,7 @@
 using Lisans_Tezi_Mvc.Data;
 using Lisans_Tezi_Mvc.Repository;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
@@ -44,7 +45,9 @@ namespace Lisans_Tezi_Mvc
             builder.Services.AddScoped<IGroupCodeRecordsRepository, GroupCodeRecordsRepository>();
             builder.Services.AddScoped<IStockCard1Repository, StockCard1Repository>();
             builder.Services.AddScoped<IStockTransactionRecordsRepository, StockTransactionRecordsRepository>();
+            builder.Services.AddScoped<IAccountingDetailCodeEntryRepository, AccountingDetailCodeEntryRepository>();
             
+
 
             var app = builder.Build();
 
