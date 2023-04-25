@@ -7,5 +7,8 @@ namespace Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo
 
 
         WAREHOUSE_DEFINITION GetByName(string name);
+        WAREHOUSE_DEFINITION GetById(int id);
+
+
     }
 }

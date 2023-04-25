@@ -51,10 +51,6 @@ namespace Lisans_Tezi_Mvc.Controllers
             _stockCard1Repository.Add(stockCard1);
             return RedirectToAction("StockCard1");
 
-
-     
-     
-
         }
 
         public IActionResult StockCard2()
