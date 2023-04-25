@@ -115,7 +115,7 @@
                                                                 <div class="col-md-9 text-start">
                                                                 <select id="PERSONEL_ID" name="PERSONEL_ID" class="form-control">
                                                                     <option value="">Seçiniz</option>
-                                                                    @foreach (var item in Model)
+                                                                    @foreach (var item in ViewBag.data2)
                                                                     {
                                                                         <option value="@item.Id">@item.PERSONEL_ISIM</option>
                                                                     }
@@ -159,54 +159,56 @@
                     </div>
                 </div>
 
+    
+
             </form>
 
+            <div class="row mt-3">
+                <div class="col">
 
-        </div>
- @*       <div class="row mt-3">
-            <div class="col">
-
-                @if (Model != null && Model.Count > 0)
-                {
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Depo Kodu</th>
-                                <th scope="col">E-Ticaret</th>
-                                <th scope="col">Tesis Kodu</th>
-                                <th scope="col">Lokasyon Kodu</th>
-                                <th scope="col">Personel Id</th>
-                                <th scope="col">Personel İş</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+                    @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <th scope="row">@item.Id</th>
-                                    <td>@item.DEPO_KODU</td>
-                                    <td>@item.DEPO_ADI</td>
-                                    <td>@item.E_TICARET</td>
-                                    <td>@item.TESIS_KODU</td>
-                                    <td>@item.LOKASYON_KODU</td>
-                                    <td>@item.PERSONEL_ID</td>
-                                    <td>@item.PERSONEL_IS</td>
-
+                                    <th scope="col">#</th>
+                                    <th scope="col">Depo Kodu</th>
+                                    <th scope="col">Depo Adı</th>
+                                    <th scope="col">E-Ticaret</th>
+                                    <th scope="col">Tesis Kodu</th>
+                                    <th scope="col">Lokasyon Kodu</th>
+                                    <th scope="col">Personel Id</th>
+                                    <th scope="col">Personel İş</th>
 
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-                else
-                {
-                    <p>Kayıt bulunamadı.</p>
-                }
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data1)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.DEPO_KODU</td>
+                                        <td>@item.DEPO_ADI</td>
+                                        <td>@item.E_TICARET</td>
+                                        <td>@item.TESIS_KODU</td>
+                                        <td>@item.LOKASYON_KODU</td>
+                                        <td>@item.PERSONEL_ID</td>
+                                        <td>@item.PERSONEL_IS</td>
 
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
             </div>
-        </div>*@
+        </div>
 
     </div>
 </div>

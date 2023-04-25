@@ -3,12 +3,15 @@
     Layout = "~/Views/Stock/StockTransactionRecords/_LayoutStockTransactionRecords.cshtml";
     ViewData["Title"] = "stockTransactionRecords";
 }
-
+@model dynamic
  <div class="container"  >
         <div class="row">
             <div class="col-md-12">
-                <form action="post">
-                    <div class="row">
+
+            <form method="post" asp-controller="StockTransactionRecords" asp-action="CreateStockTransactionRecords">
+
+                
+         
                         <div class="col-md-12">
                             <div class="row mt-2">
                              
@@ -19,9 +22,12 @@
                                     <label for="stok_kodu">Stok kodu:</label>
                                 </div>
                                 <div class="col-md-5 text-start">
-                                    <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                    <select id="STOK_KODU" name="STOK_KODU" class="form-control">
                                         <option value="">Seçiniz</option>
-
+                                        @foreach (var item in ViewBag.data1)
+                                        {
+                                            <option value="@item.STOK_KODU">@item.STOK_ADI</option>
+                                        }
                                     </select>
                                 </div>
                               
@@ -38,41 +44,29 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <label for="stok_kodu">Tarih</label>
+                                                <label for="TARIH">Tarih</label>
                                             </div>
                                             <div class="col">
-                                                <input class="form-control " id="stok_kodu" type="number">
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="stok_kodu">Fiş No</label>
-                                            </div>
-                                            <div class="col">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="TARIH" type="text">
                                             </div>
 
                                             <div class="col">
-                                                <label for="stok_kodu">Tip</label>
+                                                <label for="FIS_NO">Fiş No</label>
                                             </div>
                                             <div class="col">
-                                                <div class="custom-select">
-                                                    <select>
-                                                      <option value="0">Ad:</option>
-                                                      <option value="1">Ad</option>
-                                                    </select>
-                                                  </div>
+                                                <input class="form-control " name="FIS_NO" type="number">
                                             </div>
 
                                             <div class="col">
-                                                <label for="stok_kodu">Fiyat</label>
+                                                <label for="FIYAT">Fiyat</label>
                                             </div>
 
                                             <div class="col">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="FIYAT" type="number">
                                             </div>
                                             <div class="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                    <input class="form-check-input" type="radio" name="STOK_HAREKET_DURUMU" id="flexRadioDefault1">
                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                       Giriş
                                                     </label>
@@ -81,19 +75,22 @@
 
                                             <div class="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                    <input class="form-check-input" type="radio" name="STOK_HAREKET_DURUMU" id="flexRadioDefault1">
                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                       Çıkış
                                                     </label>
                                                   </div>
                                             </div>
                                             <div class="col">
-                                                <label for="stok_kodu">Depo</label>
+                                                <label for="DEPO_KODU">Depo</label>
                                             </div>
                                             <div class="col">
-                                                <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                                <select id="DEPO_KODU" name="DEPO_KODU" class="form-control">
                                                     <option value="">Seçiniz</option>
-
+                                                    @foreach (var item in ViewBag.data2)
+                                                    {
+                                                        <option value="@item.DEPO_KODU">@item.DEPO_ADI</option>
+                                                    }
                                                 </select>
                                             </div>
 
@@ -105,54 +102,30 @@
                                             <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col">
-                                                    <label for="stok_kodu">Maliyet</label>
+                                                    <label for="MALIYET">Maliyet</label>
                                                 </div>
 
                                                 <div class="col">
-                                                    <input class="form-control " id="stok_kodu" type="number">
+                                                    <input class="form-control " name="MALIYET" type="number">
                                                 </div>
                                                 
                                                 <div class="col">
-                                                    <label for="stok_kodu">Açıklama</label>
+                                                    <label for="ACIKLAMA">Açıklama</label>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                        <input class="form-control " name="ACIKLAMA" type="text">
                                                 </div>
 
                                                 
+                                          
+                                            
                                                 <div class="col">
-                                                    <label for="stok_kodu">Plasiyer</label>
+                                                    <label for="MALIYET_FIYATI">Maliyet Fiyatı</label>
                                                 </div>
 
                                                 <div class="col">
-                                                        <select id="STOK_ADI" name="STOK_ADI" class="form-control">
-                                                            <option value="">Seçiniz</option>
-
-                                                        </select>
-                                                </div>
-                                                <div class="col">
-                                                    <button type="button" class="btn btn-success">btn</button>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="stok_kodu">Proje Kodu</label>
-                                                </div>
-
-                                                <div class="col">
-                                                        <select id="STOK_ADI" name="STOK_ADI" class="form-control">
-                                                            <option value="">Seçiniz</option>
-
-                                                        </select>
-                                                </div>
-                                                <div class="col">
-                                                    <button type="button" class="btn btn-success">btn</button>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="stok_kodu">Maliyet Fiyatı</label>
-                                                </div>
-
-                                                <div class="col">
-                                                    <input class="form-control " id="stok_kodu" type="number">
+                                                        <input class="form-control " name="MALIYET_FIYATI" type="number">
                                                 </div>
                                               
 
@@ -171,114 +144,44 @@
                                     <thead>
                                       <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">Stok Kodu</th>
                                         <th scope="col">Tarih</th>
                                         <th scope="col">Fiş No</th>
-                                        <th scope="col">Tip</th>
                                         <th scope="col">Fiyat</th>
-                                        <th scope="col">Giriş Miktarı</th>
-                                        <th scope="col">Çıkış Miktarı</th>
-                                        <th scope="col">Bakiye</th>
+                                        <th scope="col">Stok Hareket Durumu</th>
+                                        <th scope="col">Depo Kodu</th>
+                                        <th scope="col">Bakiye Miktarı</th>
+                                        <th scope="col">Maliyet</th>
                                         <th scope="col">Açıklama</th>
-                                        <th scope="col">Depo</th>
-                                        <th scope="col">Pro.</th>
-                                        <th scope="col">Plasiyer</th>
-                                        <th scope="col">Belge Tipi</th>
-                                        <th scope="col">Maliyet Fiyat</th>
-                                        <th scope="col">Döviz Fiyatı</th>
-                                        <th scope="col">Döviz Tipi</th>
-                                        <th scope="col">Şube Kodu</th>
+                                   
+                                     
 
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
-                                        <th scope="row">1</th>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                     
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">3</th>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">4</th>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                      </tr>
-                                    </tbody>
+                                <tbody>
+                                    @foreach (var item in ViewBag.data3)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.Id</th>
+                                            <td>@item.STOK_KODU</td>
+                                            <td>@item.TARIH</td>
+                                            <td>@item.FIS_NO</td>
+                                            <td>@item.FIYAT</td>
+                                            <td>@item.STOK_HAREKET_DURUMU</td>
+                                            <td>@item.DEPO_KODU</td>
+                                            <td>@item.BAKIYE_MIKTARI</td>
+                                            <td>@item.MALIYET</td>
+                                            <td>@item.ACIKLAMA</td>
+                                         
+                                        </tr>
+                                    }
+                                </tbody>
+                                
                                   </table>
+                           
 
                             </div>
                         </div>
-
-
 
                         <div class="row mt-1">
                             <div class="col-md-12">
@@ -286,22 +189,22 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <label for="stok_kodu">Giriş Miktarı</label>
+                                                <label for="GIRIS_MIKTARI">Giriş Miktarı</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="GIRIS_MIKTARI" type="number">
                                             </div>
                                             <div class="col-md-2">
-                                                <label for="stok_kodu">Çıkış Miktarı</label>
+                                                <label for="CIKIS_MIKTARI">Çıkış Miktarı</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="CIKIS_MIKTARI" type="number">
                                             </div>
                                             <div class="col-md-2">
-                                                <label for="stok_kodu">Bakiye Miktarı</label>
+                                                <label for="BAKIYE_MIKTARI">Bakiye Miktarı</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="BAKIYE_MIKTARI" type="number">
                                             </div>
                                         </div>
                                     </div>
@@ -316,16 +219,16 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <label for="stok_kodu">Giriş Tutarı</label>
+                                                <label for="GIRIS_TUTARI">Giriş Tutarı</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="GIRIS_TUTARI" type="number">
                                             </div>
                                             <div class="col-md-2">
-                                                <label for="stok_kodu">Çıkış Tutarı</label>
+                                                <label for="CIKIS_TUTARI">Çıkış Tutarı</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <input class="form-control " id="stok_kodu" type="number">
+                                                <input class="form-control " name="CIKIS_TUTARI" type="number">
                                             </div>
                                             
                                         </div>
@@ -335,7 +238,11 @@
                         </div>
 
 
-
+                    <div class="row mt-2">
+                        <div class="col-md-1 text-start">
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
                          
                     </div>
                  </form>

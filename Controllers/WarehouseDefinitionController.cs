@@ -13,17 +13,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             _warehouseDefinitionRepository = warehouseDefinitionRepository;
         }
-        public IActionResult WarehouseDefinition()
-        {
-            var data = _warehouseDefinitionRepository.GetAll();
-
-            if (data.Count > 0)
-            {
-                return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml", data);
-            }
-            return Ok("Liste Boş");
-
-        }
+   
         public IActionResult CreateWarehouseDefinition(WAREHOUSE_DEFINITION warehouseDefinitionRepository)
         {
             try

@@ -1,7 +1,13 @@
 ﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
+using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
+using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -15,13 +21,25 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IStockCard1Repository _stockCard1Repository;
         private readonly IEmployeeDefinitionRepository _employeeDefinitionRepository;
         private readonly IWarehouseDefinitionRepository _warehouseDefinitionRepository;
+        private readonly IStockCard2Repository _stockCard2Repository;
+        private readonly ICurrentCardIdentificationRepository _currentCardIdentificationRepository;
+ 
+        private readonly IUnitofMeasureDefinitionRepository _unitofMeasureDefinitionRepository;
+        private readonly IStockTransactionRecordsRepository _stockTransactionRecordsRepository;
+        private readonly IGroupCodeRecordsRepository _groupCodeRecordsRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository)
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository )
         {
+        
             _stockInformationRepository = stockInformationRepository;
             _stockCard1Repository = stockCard1Repository;
             _employeeDefinitionRepository = employeeDefinitionRepository;
             _warehouseDefinitionRepository = warehouseDefinitionRepository;
+            _stockCard2Repository = stockCard2Repository;
+            _currentCardIdentificationRepository = currentCardIdentificationRepository;
+            _unitofMeasureDefinitionRepository = unitofMeasureDefinitionRepository;
+            _stockTransactionRecordsRepository = stockTransactionRecordsRepository;
+            _groupCodeRecordsRepository = groupCodeRecordsRepository;
         }
 
         public IActionResult Index()
@@ -55,6 +73,10 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult StockCard2()
         {
+
+            ViewBag.data1 = _stockInformationRepository.GetAll();
+            ViewBag.data2 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
             return View("~/Views/Stock/StockCardRecords/StockCard2.cshtml");
         }
         public IActionResult StockPriceTransaction()
@@ -86,6 +108,11 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult stockTransactionRecords()
         {
+
+            ViewBag.data1 = _stockInformationRepository.GetAll();
+            ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
+            ViewBag.data3 = _stockTransactionRecordsRepository.GetAll(); 
+
             return View("~/Views/Stock/StockTransactionRecords/stockTransactionRecords.cshtml");
         }
 
@@ -93,6 +120,8 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult GroupCodeRecords()
         {
+
+            ViewBag.data1 = _groupCodeRecordsRepository.GetAll();
             return View("~/Views/Stock/StockCodeRecords/GroupCodeRecords.cshtml");
         }
 
@@ -124,8 +153,9 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
         public IActionResult WarehouseDefinition()
         {
-            var data = _employeeDefinitionRepository.GetAll();
-            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml",data);
+            ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
+            ViewBag.data2 = _employeeDefinitionRepository.GetAll();
+            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml");
         }
         
      

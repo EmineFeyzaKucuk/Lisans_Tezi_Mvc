@@ -3,23 +3,26 @@
     Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
     ViewData["Title"] = "StockCard2";
 }
-
+@model dynamic
     <div class="container"  >
         <div class="row">
             <div class="col-md-12">
-               
+                           <form method="post" asp-controller="StockCard2" asp-action="CreateStockCard2">
                 <div class="row">
                     <div class="col-md-12">
 
                         <div class="row mt-2">
                             <div class="col-md-3">
                             
-                                <label for="stok_kodu">Stok kodu:</label>
+                                <label for="STOK_KODU">Stok kodu:</label>
                             </div>
                             <div class="col-md-9 text-start">
-                            <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                <select id="STOK_KODU" name="STOK_KODU" class="form-control">
                                 <option value="">Seçiniz</option>
-                              
+                                @foreach (var item in ViewBag.data1)
+                                {
+                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
+                                }
                             </select>
                             </div>
                         
@@ -34,12 +37,15 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="stok_kodu">Cari/S Kodu</label>
+                                        <label for="CARI_KODU">Cari/S Kodu</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                            <select id="CARI_KODU" name="CARI_KODU" class="form-control">
                                             <option value="">Seçiniz</option>
-
+                                            @foreach (var item in ViewBag.data2)
+                                            {
+                                                    <option value="@item.CARI_KODU">@item.UNVAN</option>
+                                            }
                                         </select>
                                     </div>
                                   
@@ -48,36 +54,39 @@
                               
                                 <div class="row mt-1">
                                     <div class="col-md-2">
-                                        <label for="stok_kodu">Ölçü Birimi</label>
+                                        <label for="OLCU_BIRIMI_KODU">Ölçü Birimi</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <select id="STOK_ADI" name="STOK_ADI" class="form-control">
+                                            <select id="OLCU_BIRIMI_KODU" name="OLCU_BIRIMI_KODU" class="form-control">
                                             <option value="">Seçiniz</option>
-
+                                            @foreach (var item in ViewBag.data3)
+                                            {
+                                                <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_KODU</option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control " id="stok_kodu" type="number">
+                                        <input class="form-control " name="OLC_BR_DEGER" type="number">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
                                     <div class="col-md-1">
-                                        <label for="stok_kodu">En</label>
+                                        <label for="EN">En</label>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control " id="stok_kodu" type="number">
+                                        <input class="form-control " name="EN" type="number">
                                     </div>
                                     <div class="col">
-                                        <label for="stok_kodu">Boy</label>
+                                        <label for="BOY">Boy</label>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control " id="stok_kodu" type="number">
+                                        <input class="form-control " name="BOY" type="number">
                                     </div>
                                     <div class="col">
-                                        <label for="stok_kodu">Yükseklik</label>
+                                        <label for="YUKSEKLIK">Yükseklik</label>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control " id="stok_kodu" type="number">
+                                        <input class="form-control " name="YUKSEKLIK" type="number">
                                     </div>
                                 </div>
                               
@@ -87,18 +96,15 @@
                     </div>
 
 
-
-
-
-
-
-
                 </div>
-                  
-                    
-
+                    </div>
+                <div class="row mt-2">
+                    <div class="col-md-1 text-start">
+                        <button type="submit" class="btn btn-success">Ekle</button>
                     </div>
                 </div>
+                    </form>            
+                    </div>
                 </div>
            
 

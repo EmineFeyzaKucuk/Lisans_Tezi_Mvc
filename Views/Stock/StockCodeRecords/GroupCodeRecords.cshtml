@@ -3,38 +3,30 @@
     Layout = "~/Views/Stock/StockCodeRecords/_LayoutStockCodeRecords.cshtml";
     ViewData["Title"] = "GroupCodeRecords";
 }
+@model dynamic
    <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="post">
+            <form method="post" asp-controller="GroupCodeRecords" asp-action="Add">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row mt-2">
                                 <div class="col-md-2">
-                                    <label for="stok_kodu">Grup Kodu:</label>
+                                    <label for="GRUP_KODU">Grup Kodu:</label>
                                 </div>
                                 <div class="col-md-4 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                    <input class="form-control " name="GRUP_KODU" type="text">
                                 </div>
                                 <div class="col-md-2">
-                                    <label for="stok_kodu">Grup İsmi:</label>
+                                    <label for="GRUP_ADI">Grup İsmi:</label>
                                 </div>
                                 <div class="col-md-4 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                    <input class="form-control " name="GRUP_ADI" type="text">
                                 </div>
                              
                             </div>
 
                         </div>
-
-
-            
-
-
-              
-              
-
-
                             <div class="row mt-2">
                                 <div class="col">
                                  <table class="table">
@@ -46,30 +38,18 @@
                                         
                                        </tr>
                                      </thead>
-                                     <tbody>
-                                       <tr>
-                                         <th scope="row">1</th>
-                                         <td>2</td>
-                                         <td>A</td>
-                                      
-                                       </tr>
-                                       <tr>
-                                        <th scope="row">2</th>
-                                        <td>5</td>
-                                        <td>G</td>
-                                       
-                                       </tr>
-                                       <tr>
-                                        <th scope="row">3</th>
-                                         <td>7</td>
-                                         <td>Z</td>
-                                       </tr>
-                                       <tr>
-                                        <th scope="row">4</th>
-                                         <td>8</td>
-                                         <td>O</td>
-                                       </tr>
-                                     </tbody>
+                                <tbody>
+                                    @foreach (var item in ViewBag.data1)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.Id</th>
+                                            <td>@item.GRUP_KODU</td>
+                                            <td>@item.GRUP_ADI</td>
+                                         
+
+                                        </tr>
+                                    }
+                                </tbody>
                                    </table>
 
 
@@ -77,6 +57,11 @@
                          </div>
                          
                     </div>
+                <div class="row mt-2">
+                    <div class="col-md-1 text-start">
+                        <button type="submit" class="btn btn-success">Ekle</button>
+                    </div>
+                </div>
                            </form>
                 </div>  
             </div>

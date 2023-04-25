@@ -14,45 +14,34 @@
                                     <label for="stok_kodu">Stok Kodu:</label>
                                 </div>
                                 <div class="col-md-3 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                <select id="STOK_KODU" name="STOK_KODU" class="form-control">
+                                    <option value="">Seçiniz</option>
+                                    @foreach (var item in ViewBag.data1)
+                                    {
+                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
+                                    }
+                                </select>
                                 </div>
-                                <div class="col-md-1">
-                                    <button type="button" class="btn btn-primary">btn</button>
-                                </div>
+                              
                                 <div class="col-md-2">
                                     <label for="stok_kodu">Grup Kodu:</label>
                                 </div>
                                 <div class="col-md-3 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                <select id="STOK_KODU" name="STOK_KODU" class="form-control">
+                                    <option value="">Seçiniz</option>
+                                    @foreach (var item in ViewBag.data1)
+                                    {
+                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
+                                    }
+                                </select>
                                 </div>
-                                <div class="col-md-1">
-                                    <button type="button" class="btn btn-primary">btn</button>
-                                </div>
+                             
                              
                             </div>
 
                         </div>
 
 
-                        <div class="row mt-1">
-                            <div class="col-md-12">
-                             
-                                        <div class="row">
-                                            
-                                            <div class="col-md-6">
-                                                <input class="form-control " id="stok_kodu" type="number">
-                                            </div>
-
-                                          
-                                         
-                                            <div class="col-md-6">
-                                                <input class="form-control " id="stok_kodu" type="number">
-                                            </div>
-                                           
-                                        </div>
-                               
-                            </div>
-                        </div>
 
                             <div class="row">
                                 <div class="col">

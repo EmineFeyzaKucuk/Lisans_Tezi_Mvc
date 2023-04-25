@@ -10,9 +10,9 @@ namespace Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo
         {
         }
 
-        public ACCOUNTING_CURRENT_CARD_DEFINITION GetByName(string name)
+        public ACCOUNTING_CURRENT_CARD_DEFINITION GetByName2(string name)
         {
-            var data = _appDbContext.Muhasebe_CariKartTanimlama.ToList();
+            var data = _appDbContext.Muhasebe_CariKartTanimlama_TBL.ToList();
             var currentCardDefinition = data.First(x => x.CARI_KODU == name);
             return currentCardDefinition;
         }
