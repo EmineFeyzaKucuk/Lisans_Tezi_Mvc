@@ -30,7 +30,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             try
             {
-                // return Ok(stockCard2Repository);
+                 return Ok(stockCard2Repository);
                 _stockCard2Repository.Add(stockCard2Repository);
                 return RedirectToAction("StockCard2", "Stock");
             }

@@ -134,10 +134,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCodeRecords/Stock_GroupCodeDefine.cshtml");
         }
-        public IActionResult StockMeasurePrice()
-        {
-            return View("~/Views/Stock/StockCodeRecords/StockMeasurePrice.cshtml");
-        }
+    
         public IActionResult AccountingDetailCodeEntry()
         {
 
