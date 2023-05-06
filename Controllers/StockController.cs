@@ -15,6 +15,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
+
     public class StockController : Controller
     {
         private readonly IStockInformationRepository _stockInformationRepository;
@@ -61,7 +62,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             ViewBag.data1 = _stockInformationRepository.GetAll();
             ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
-            return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml");
+           return View("~/Views/Stock/StockCardRecords/StockCard1.cshtml");
+         
+        }
+
+     
+        public IActionResult StockCardEdit(int stokId)
+        {
+            //StockCardEdit
+            return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml");
+           // return Content("Stok id:" + stokId);
         }
 
         public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)

@@ -20,6 +20,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Stok Kodu</th>
                                 <th scope="col">Stok Adı</th>
+                                <th scope="col">İşlem</th>
 
                             </tr>
                         </thead>
@@ -30,12 +31,19 @@
                                     <th scope="row">@item.Id</th>
                                     <td>@item.STOK_KODU</td>
                                     <td>@item.STOK_ADI</td>
-
+                                    <td>
+                                          <a href="#" data-id="@item.Id" onclick="editStokKart(@item.Id)">
+                                               <i class="fas fa-edit"></i>
+                                           </a>
+                                    </td>
                                 </tr>
                             }
 
                         </tbody>
                     </table>
+                    <form method="post" id="stokKartForm">
+                        <input type="hidden" value="" name="stokId" id="stokId" />
+                    </form>
                 </div>
             </div>
             <div class="row">
@@ -52,3 +60,16 @@
         </div>
     </div>
 </div>
+ <script>
+
+
+    function editStokKart(id) {
+        
+
+        $("#stokKartForm input[name=stokId]").attr("value", id)
+
+        $("#stokKartForm").attr("action", "/Stock/StockCardEdit").submit();
+
+    }
+
+</script>

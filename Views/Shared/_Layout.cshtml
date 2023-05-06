@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  
 </head>
 <body>
     <header style="background:#69AB3D;">
@@ -72,7 +74,7 @@
                                          
                                             <div class="collapse show mx-4" id="saved_collapse">
                                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                                    <li> <a asp-action="StockCard1" asp-controller="Stock" class="link-dark rounded"> Stok Kartı Kayıtları</a> </li>
+                                                    <li> <a asp-action="Index" asp-controller="StockInformation" class="link-dark rounded"> Stok Kartı Kayıtları</a> </li>
                                                     <li> <a asp-action="StockTransactionRecords" asp-controller="Stock" class="link-dark rounded"> Stok Hareket Kayıtları</a> </li>
                                                     <li> <a asp-action="GroupCodeRecords" asp-controller="Stock" class="link-dark rounded"> Stok Kod Kayıtları</a> </li>
                                                     <li> <a asp-action="AccountingDetailCodeEntry" asp-controller="Stock" class="link-dark rounded"> Muhasebe Detay Kod Girişi</a> </li>
@@ -226,6 +228,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
+      <script src="~/lib/font-awesome/js/all.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
