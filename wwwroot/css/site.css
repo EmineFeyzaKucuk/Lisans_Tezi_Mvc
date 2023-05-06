@@ -81,7 +81,21 @@ a{
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
+    color: #fff !important;
     background-color: #007bff;
 }
 
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    margin-bottom:10px;
+
+}
+
+.stokBar{
+    font-size:16px;
+}

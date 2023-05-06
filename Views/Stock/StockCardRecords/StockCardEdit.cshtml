@@ -20,7 +20,7 @@
                             <a data-toggle="tab" class="nav-link active" data-bs-toggle="pill" data-bs-target="#genel" role="tab" aria-controls="genel" aria-selected="true">Genel</a>
                          </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" data-bs-toggle="pill" data-bs-target="#iletisim" role="tab" aria-controls="iletisim" aria-selected="false">İletişim</a>
+                            <a class="nav-link" data-bs-toggle="pill" data-bs-target="#fiyat" role="tab" aria-controls="fiyat" aria-selected="false">Fiyat</a>
                         </li>
                     </ul>
                 </div>
@@ -30,11 +30,123 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="genel" role="tabpanel" aria-labelledby="genel">
-                            <h3>genel</h3>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="stokKodu">Stok Kodu</label>
+                                        <input id="stokKodu" name="stokKodu" readonly type="text" class="form-control " placeholder="0000000001">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stokAdi">Stok Adi</label>
+                                        <input id="stokAdi" name="stokAdi" type="text" class="form-control " >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stokRiskSuresi">Risk Süresi</label>
+                                        <input id="stokRiskSuresi" name="stokRiskSuresi" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Zaman Brimi</label>
+                                        <select id="StokZamanBirimi" class="selectpicker form-control show-tick">
+                                            <option selected>Seçiniz</option>
+                                            <option value="Yıl">Yıl</option>
+                                            <option value="Ay">Ay</option>
+                                            <option value="Hafta">Hafta</option>                                         
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stokMuhasebeKodu">Muhasebe Kodu</label>
+                                        <input id="stokMuhasebeKodu" name="stokMuhasebeKodu" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stokDepoAdi">Depo Adı</label>
+                                        <select id="StokDepoAdi" class="selectpicker form-control show-tick">
+                                            <option selected>Seçiniz</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="stokCari">Cari/Satici Kodu</label>
+                                        <select id="StokDepoAdi" class="selectpicker form-control show-tick">
+                                            <option selected>Seçiniz</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="stokEn">En</label>
+                                                <input id="stokEn" name="stokEn" type="text" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="stokBoy">Boy</label>
+                                                <input id="stokBoy" name="stokBoy" type="text" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="stokYukseklik">Yükseklik</label>
+                                                <input id="stokYukseklik" name="stokYukseklik" type="text" class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label for="stokOlcuBirimi">Miktar</label>
+                                                <input id="stokOlcuBirimi" name="stokOlcuBirimi" type="text" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="stokOlcuBirimiCombo">Birimi</label>
+                                                <select id="stokOlcuBirimiCombo" class="selectpicker form-control show-tick">
+                                                    <option selected>Seçiniz</option>
+                                                    <option value="Kg">Kg</option>
+                                                    <option value="Litre">Litre</option>
+                                                    <option value="Adet">Adet</option>
+                                                    <option value="Koli">Koli</option>
+                                                    <option value="Metre">Metre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>                          
+                             </div>
                         </div>
                         
-                        <div class="tab-pane fade" id="iletisim" role="tabpanel" aria-labelledby="iletisim">
-                            <h3>iletişim</h3>
+                        <div class="tab-pane fade" id="fiyat" role="tabpanel" aria-labelledby="fiyat">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="stokSatisFiyat">Satis Fiyatı</label>
+                                        <input id="stokSatisFiyat" name="stokSatisFiyat"  type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="stokSatisFiyatKDV">Satis Fiyatı KDV</label>
+                                        <input id="stokSatisFiyatKDV" name="stokSatisFiyatKDV"  type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="stokAlisFiyat">Alış Fiyatı</label>
+                                        <input id="stokAlisFiyat" name="stokAlisFiyat"  type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="stokAlisFiyatKDV">Alış Fiyatı KDV</label>
+                                        <input id="stokAlisFiyatKDV" name="stokSatisFiyatKDV"  type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                            </div>
                         </div>
                      </div>
                 </div>
