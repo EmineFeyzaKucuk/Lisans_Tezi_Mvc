@@ -1,9 +1,12 @@
 ﻿@{
     Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
     ViewData["Title"] = "StockCardEdit";
+
 }
 
-@model dynamic
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model StockCardEdit
+
 
 
 <div class="row" style="padding-top: 10px;">
@@ -57,7 +60,10 @@
                                         <label class="form-select-label" for="MuhasebeKodu">Muhasebe Kodu</label>
                                         <select id="MuhasebeKodu" name="MuhasebeKodu" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Muhasebe Kodu  " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
-                                            <option value="10">100</option>                                         
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["Id"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
+                                            }                                       
                                         </select>
                                     </div>
                                     <div class="form-group">

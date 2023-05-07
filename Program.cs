@@ -15,11 +15,21 @@ using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace Lisans_Tezi_Mvc
 {
+public class DBInfo
+    {
+
+          public static string ConnectionString { get; set; }
+    }
+
+
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -46,7 +56,9 @@ namespace Lisans_Tezi_Mvc
             builder.Services.AddScoped<IStockCard1Repository, StockCard1Repository>();
             builder.Services.AddScoped<IStockTransactionRecordsRepository, StockTransactionRecordsRepository>();
             builder.Services.AddScoped<IAccountingDetailCodeEntryRepository, AccountingDetailCodeEntryRepository>();
-            
+
+
+            DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 
 
             var app = builder.Build();

@@ -1,6 +1,14 @@
-﻿namespace Lisans_Tezi_Mvc.Models
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+
+
+
+namespace Lisans_Tezi_Mvc.Models
 {
-    public class StockCardEdit:BaseEntity
+    public class StockCardEdit
     {
         public int Id { get; set; }
         public string STOK_KODU { get; set; }
@@ -15,10 +23,29 @@
         public float BOY { get; set; }
         public float EN { get; set; }
         public float YUKSEKLIK { get; set; }
+
+        
+       public DataSet dt = new DataSet();
+
+        public DataSet tumMuhasebeKodlariniGetir()
+        {
+
+
+            SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString);
+           
+                sqlConn.Open();
+                SqlCommand sqlCmd = new SqlCommand("tumMuhasebeKodlariniGetir", sqlConn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;          
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+                da.Fill(dt);
+           
+
+            return dt;
+        }
+
     }
 }
-
-
 
 
 

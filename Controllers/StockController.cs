@@ -11,6 +11,9 @@ using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.AspNetCore.Mvc;
+using System.Configuration;
+using System.Data;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lisans_Tezi_Mvc.Controllers
@@ -70,8 +73,15 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult StockCardEdit(int stokId)
         {
             //StockCardEdit
-            return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml");
-           // return Content("Stok id:" + stokId);
+            //return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml");
+            //return Content("Stok id:" + stokId);
+
+            StockCardEdit ste = new StockCardEdit();
+            ste.tumMuhasebeKodlariniGetir();
+
+            return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml",ste);
+
+            //return Content("Stok id:" + ste.dt.Tables );
         }
 
         public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
