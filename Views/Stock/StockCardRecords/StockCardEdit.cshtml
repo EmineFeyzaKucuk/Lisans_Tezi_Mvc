@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Zaman Brimi</label>
-                                        <select id="StokZamanBirimi" class="selectpicker form-control show-tick">
+                                        <select id="StokZamanBirimi" class="form-control">
                                             <option selected>Seçiniz</option>
                                             <option value="Yıl">Yıl</option>
                                             <option value="Ay">Ay</option>
@@ -54,12 +54,15 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="stokMuhasebeKodu">Muhasebe Kodu</label>
-                                        <input id="stokMuhasebeKodu" name="stokMuhasebeKodu" type="text" class="form-control ">
+                                        <label class="form-select-label" for="MuhasebeKodu">Muhasebe Kodu</label>
+                                        <select id="MuhasebeKodu" name="MuhasebeKodu" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Muhasebe Kodu  " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            <option value="10">100</option>                                         
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="stokDepoAdi">Depo Adı</label>
-                                        <select id="StokDepoAdi" class="selectpicker form-control show-tick">
+                                        <select id="StokDepoAdi" class="form-control">
                                             <option selected>Seçiniz</option>
                                         </select>
                                     </div>
@@ -68,7 +71,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="stokCari">Cari/Satici Kodu</label>
-                                        <select id="StokDepoAdi" class="selectpicker form-control show-tick">
+                                        <select id="StokDepoAdi" class="form-control ">
                                             <option selected>Seçiniz</option>
                                         </select>
                                     </div>
@@ -102,7 +105,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="stokOlcuBirimiCombo">Birimi</label>
-                                                <select id="stokOlcuBirimiCombo" class="selectpicker form-control show-tick">
+                                                <select id="stokOlcuBirimiCombo" class="form-control">
                                                     <option selected>Seçiniz</option>
                                                     <option value="Kg">Kg</option>
                                                     <option value="Litre">Litre</option>

@@ -5,6 +5,18 @@
     {
       "library": "font-awesome@6.4.0",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "bootstrap-select@1.13.18",
+      "destination": "wwwroot/bootstrap-select/"
+    },
+    {
+      "library": "ajax-bootstrap-select@1.4.5",
+      "destination": "wwwroot/lib/ajax-bootstrap-select/"
+    },
+    {
+      "library": "popper.js@2.11.7",
+      "destination": "wwwroot/lib/popper.js/"
     }
   ]
 }
