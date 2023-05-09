@@ -77,7 +77,14 @@ namespace Lisans_Tezi_Mvc.Controllers
             //return Content("Stok id:" + stokId);
 
             StockCardEdit ste = new StockCardEdit();
-            ste.tumMuhasebeKodlariniGetir();
+            ste.stokKartListeBilgisiGetir();
+
+            ste.dt.Tables[0].TableName = "muhasebeKodllari";
+            ste.dt.Tables[1].TableName = "zamanlar";
+            ste.dt.Tables[2].TableName = "depolar";
+            ste.dt.Tables[3].TableName = "cariler";
+            ste.dt.Tables[4].TableName = "birimler";
+
 
             return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml",ste);
 

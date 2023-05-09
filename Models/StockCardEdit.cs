@@ -27,22 +27,25 @@ namespace Lisans_Tezi_Mvc.Models
         
        public DataSet dt = new DataSet();
 
-        public DataSet tumMuhasebeKodlariniGetir()
+        public DataSet stokKartListeBilgisiGetir()
         {
 
 
             SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString);
            
-                sqlConn.Open();
-                SqlCommand sqlCmd = new SqlCommand("tumMuhasebeKodlariniGetir", sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;          
+            sqlConn.Open();
+            SqlCommand sqlCmd = new SqlCommand("stokKartListeBilgisiGetir", sqlConn);
+            sqlCmd.CommandType = CommandType.StoredProcedure;          
 
-                SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
-                da.Fill(dt);
+            SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+            da.Fill(dt);
            
 
             return dt;
-        }
+        }      
+        
+        
+
 
     }
 }

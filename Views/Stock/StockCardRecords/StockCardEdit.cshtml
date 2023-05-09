@@ -18,13 +18,9 @@
                 <!-- card-header -->
                 <div class="card-header">
                     <h3 class="card-title">Stok Kart Düzenle*</h3>
-                    <ul class="nav nav-pills" style="float: right;" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a data-toggle="tab" class="nav-link active" data-bs-toggle="pill" data-bs-target="#genel" role="tab" aria-controls="genel" aria-selected="true">Genel</a>
-                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" data-bs-toggle="pill" data-bs-target="#fiyat" role="tab" aria-controls="fiyat" aria-selected="false">Fiyat</a>
-                        </li>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#genelTab" data-toggle="tab">Genel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#fiyatTab" data-toggle="tab">Fiyat</a></li>
                     </ul>
                 </div>
                 <!-- /.card-header -->
@@ -32,7 +28,7 @@
                 <!-- card-body -->
                 <div class="card-body">
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="genel" role="tabpanel" aria-labelledby="genel">
+                        <div id="genelTab" class="tab-pane active">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
@@ -41,7 +37,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="stokAdi">Stok Adi</label>
-                                        <input id="stokAdi" name="stokAdi" type="text" class="form-control " >
+                                        <input id="stokAdi" name="stokAdi" type="text" class="form-control ">
                                     </div>
                                     <div class="form-group">
                                         <label for="stokRiskSuresi">Risk Süresi</label>
@@ -49,36 +45,44 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Zaman Brimi</label>
-                                        <select id="StokZamanBirimi" class="form-control">
-                                            <option selected>Seçiniz</option>
-                                            <option value="Yıl">Yıl</option>
-                                            <option value="Ay">Ay</option>
-                                            <option value="Hafta">Hafta</option>                                         
+                                        <select id="zamanBrimi" name="zamanBrimi" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Zamanlar  " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables["zamanlar"].Rows)
+                                            {
+                                                <option value="@row["ID"]">@row["ADI"] </option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-select-label" for="MuhasebeKodu">Muhasebe Kodu</label>
                                         <select id="MuhasebeKodu" name="MuhasebeKodu" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Muhasebe Kodu  " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
-                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables["muhasebeKodllari"].Rows)
                                             {
                                                 <option value="@row["Id"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
-                                            }                                       
+                                            }
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="stokDepoAdi">Depo Adı</label>
-                                        <select id="StokDepoAdi" class="form-control">
-                                            <option selected>Seçiniz</option>
+                                        <select id="depoKodu" name="depoKodu" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables["depolar"].Rows)
+                                            {
+                                                <option value="@row["Id"]" data-subtext="@row["DEPO_KODU"]">@row["DEPO_ADI"] </option>
+                                            }
                                         </select>
                                     </div>
-
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="stokCari">Cari/Satici Kodu</label>
-                                        <select id="StokDepoAdi" class="form-control ">
-                                            <option selected>Seçiniz</option>
+                                        <select id="stokCari" name="stokCari" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Cariler " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables["cariler"].Rows)
+                                            {
+                                                <option value="@row["Id"]" data-subtext="@row["CARI_KODU"]">@row["UNVAN"] </option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="row">
@@ -111,23 +115,20 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="stokOlcuBirimiCombo">Birimi</label>
-                                                <select id="stokOlcuBirimiCombo" class="form-control">
-                                                    <option selected>Seçiniz</option>
-                                                    <option value="Kg">Kg</option>
-                                                    <option value="Litre">Litre</option>
-                                                    <option value="Adet">Adet</option>
-                                                    <option value="Koli">Koli</option>
-                                                    <option value="Metre">Metre</option>
+                                                <select id="stokOlcuBirimiCombo" name="stokOlcuBirimiCombo" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Birimler " title="Seçiniz.">
+                                                    <option value="Seçiniz" selected>Seçiniz.</option>
+                                                    @foreach (System.Data.DataRow row in Model.dt.Tables["birimler"].Rows)
+                                                    {
+                                                        <option value="@row["Id"]">@row["OLCU_BIRIMI_ADI"] </option>
+                                                    }
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                </div>                          
-                             </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="tab-pane fade" id="fiyat" role="tabpanel" aria-labelledby="fiyat">
+                        <div id="fiyatTab" class="tab-pane ">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
@@ -157,10 +158,10 @@
                                 </diV>
                             </div>
                         </div>
-                     </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
-
+             
                 <!-- card-footer -->
                 <div class="card-footer text-right">
                     <button type="button" class="btn btn-danger" id="cariKartSil">
