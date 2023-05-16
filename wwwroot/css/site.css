@@ -99,3 +99,14 @@ label:not(.form-check-label):not(.custom-file-label) {
 .stokBar{
     font-size:16px;
 }
+
+.content-header {
+    padding: 15px 0.5rem;
+
+}
+
+.content-header h1 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+

@@ -11,8 +11,10 @@ using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Configuration;
 using System.Data;
+using System.Reflection.Metadata;
 using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -76,7 +78,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             //return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml");
             //return Content("Stok id:" + stokId);
 
-            StockCardEdit ste = new StockCardEdit();
+            StockCardProcess ste = new StockCardProcess();
             ste.stokKartListeBilgisiGetir();
 
             ste.dt.Tables[0].TableName = "muhasebeKodllari";
@@ -86,12 +88,41 @@ namespace Lisans_Tezi_Mvc.Controllers
             ste.dt.Tables[4].TableName = "birimler";
 
 
-            return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml",ste);
+            return View("~/Views/Stock/StockCardRecords/StockCardProcess.cshtml", ste);
 
+            
             //return Content("Stok id:" + ste.dt.Tables );
         }
 
-        public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
+        public IActionResult StockCardNew()
+        {
+
+            StockCardProcess ste = new StockCardProcess();
+            ste.stokKartListeBilgisiGetir();
+
+            ste.dt.Tables[0].TableName = "muhasebeKodllari";
+            ste.dt.Tables[1].TableName = "zamanlar";
+            ste.dt.Tables[2].TableName = "depolar";
+            ste.dt.Tables[3].TableName = "cariler";
+            ste.dt.Tables[4].TableName = "birimler";
+
+            return View("~/Views/Stock/StockCardRecords/StockCardProcess.cshtml", ste);
+          
+
+        }
+
+        public IActionResult StockCardSave(StockCardProcess stp)
+        {
+
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
+
+
+        }
+
+
+
+            public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
         {
             var depokodu = _warehouseDefinitionRepository.GetById(stockCard1.DEPO_KODU);
             stockCard1.DEPO_KODU = depokodu.DEPO_KODU;

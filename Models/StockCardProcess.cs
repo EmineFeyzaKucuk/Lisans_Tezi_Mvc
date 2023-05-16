@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Lisans_Tezi_Mvc.Models
 {
-    public class StockCardEdit
+    public class StockCardProcess
     {
         public int Id { get; set; }
         public string STOK_KODU { get; set; }
@@ -23,6 +23,10 @@ namespace Lisans_Tezi_Mvc.Models
         public float BOY { get; set; }
         public float EN { get; set; }
         public float YUKSEKLIK { get; set; }
+        public float SATIS_FIYAT { get; set; }
+        public float SATIS_FIYAT_KDY { get; set; }
+        public float ALIS_FIYAT { get; set; }
+        public float ALIS_FIYAT_KDY { get; set; }
 
         
        public DataSet dt = new DataSet();
@@ -45,6 +49,7 @@ namespace Lisans_Tezi_Mvc.Models
         }      
         
         
+
 
 
     }
