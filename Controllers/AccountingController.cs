@@ -3,6 +3,7 @@ using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -37,6 +38,8 @@ namespace Lisans_Tezi_Mvc.Controllers
             var data = _currencyDefinitionRepository.GetAll();
             return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml",data);
         }
+
+      
 
     }
 }

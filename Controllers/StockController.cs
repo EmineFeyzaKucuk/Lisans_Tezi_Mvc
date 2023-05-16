@@ -1,6 +1,8 @@
 ﻿using Lisans_Tezi_Mvc.Models;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
+using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
+using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
@@ -30,14 +32,15 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IWarehouseDefinitionRepository _warehouseDefinitionRepository;
         private readonly IStockCard2Repository _stockCard2Repository;
         private readonly ICurrentCardIdentificationRepository _currentCardIdentificationRepository;
- 
         private readonly IUnitofMeasureDefinitionRepository _unitofMeasureDefinitionRepository;
         private readonly IStockTransactionRecordsRepository _stockTransactionRecordsRepository;
         private readonly IGroupCodeRecordsRepository _groupCodeRecordsRepository;
         private readonly IAccountingDetailCodeEntryRepository _accountingDetailCodeEntryRepository;
         private readonly IAccountingCodeDefinitionRepository _accountingCodeDefinitionRepository;
+        private readonly IBarcodeRecordsRepository _barcodeRecordsRepository;
+        private readonly IBarcodeTypeDefinitionRepository _barcodeTypeDefinitionRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository)
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository, IBarcodeRecordsRepository barcodeRecordsRepository, IBarcodeTypeDefinitionRepository barcodeTypeDefinitionRepository)
         {
         
             _stockInformationRepository = stockInformationRepository;
@@ -51,6 +54,8 @@ namespace Lisans_Tezi_Mvc.Controllers
             _groupCodeRecordsRepository = groupCodeRecordsRepository;
             _accountingDetailCodeEntryRepository = accountingDetailCodeEntryRepository;
             _accountingCodeDefinitionRepository = accountingCodeDefinitionRepository;
+            _barcodeRecordsRepository = barcodeRecordsRepository;
+            _barcodeTypeDefinitionRepository = barcodeTypeDefinitionRepository;
         }
 
         public IActionResult Index()
@@ -114,8 +119,8 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult StockCardSave(StockCardProcess stp)
         {
 
-            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
-            //return Content(a);
+            string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            return Content(a);
 
 
         }
@@ -210,6 +215,12 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult BarcodeRecords()
         {
+
+            ViewBag.data1 = _stockInformationRepository.GetAll();
+            ViewBag.data2 = _barcodeTypeDefinitionRepository.GetAll();
+            ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
+            ViewBag.data4 = _barcodeRecordsRepository.GetAll();
+
             return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml");
         }
 

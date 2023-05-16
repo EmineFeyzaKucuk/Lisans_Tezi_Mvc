@@ -2,6 +2,7 @@ using Lisans_Tezi_Mvc.Data;
 using Lisans_Tezi_Mvc.Repository;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
+using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
@@ -56,6 +57,7 @@ public class DBInfo
             builder.Services.AddScoped<IStockCard1Repository, StockCard1Repository>();
             builder.Services.AddScoped<IStockTransactionRecordsRepository, StockTransactionRecordsRepository>();
             builder.Services.AddScoped<IAccountingDetailCodeEntryRepository, AccountingDetailCodeEntryRepository>();
+            builder.Services.AddScoped<IBarcodeRecordsRepository, BarcodeRecordsRepository>();
 
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
