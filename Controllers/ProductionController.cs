@@ -42,7 +42,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult ProductGroupDefinitions()
         {
-            return View("~/Views/Production/ProductGroupDefinitions/ProductGroupDefinitions.cshtml"; ");
+            return View("~/Views/Production/ProductGroupDefinitions/ProductGroupDefinitions.cshtml" );
         }
 
         public IActionResult ProductionOrderEntry()
