@@ -26,6 +26,8 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<STOCK_CARD1> StokKart1_TBL { get; set; }
         public DbSet<ACCOUNTING_DETAILCODE_ENTRY> MuhasebeDetayKodGiris_TBL { get; set; }
         public DbSet<BARCODE_RECORDS> Stok_BarkodKayitlari_TBL { get; set; }
+        public DbSet<WAREHOUSE_TRANSFER_RECEIPT> DepolarArasıTransferFisi_TBL { get; set; }
+        
 
 
     }

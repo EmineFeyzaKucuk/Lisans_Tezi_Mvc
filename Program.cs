@@ -14,6 +14,7 @@ using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -58,7 +59,7 @@ public class DBInfo
             builder.Services.AddScoped<IStockTransactionRecordsRepository, StockTransactionRecordsRepository>();
             builder.Services.AddScoped<IAccountingDetailCodeEntryRepository, AccountingDetailCodeEntryRepository>();
             builder.Services.AddScoped<IBarcodeRecordsRepository, BarcodeRecordsRepository>();
-
+            builder.Services.AddScoped<IWarehouseTransferReceiptRepository, WarehouseTransferReceiptRepository>();
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

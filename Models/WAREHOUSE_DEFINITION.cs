@@ -11,7 +11,7 @@
         public string LOKASYON_KODU{ get; set; }
      
         public int PERSONEL_ID { get; set; }
-        public string PERSONEL_IS { get; set; }
+        public string PERSONEL_IS{ get; set; }
     
     }
 }

@@ -40,7 +40,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IBarcodeRecordsRepository _barcodeRecordsRepository;
         private readonly IBarcodeTypeDefinitionRepository _barcodeTypeDefinitionRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository, IBarcodeRecordsRepository barcodeRecordsRepository, IBarcodeTypeDefinitionRepository barcodeTypeDefinitionRepository)
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository, IBarcodeRecordsRepository barcodeRecordsRepository, IBarcodeTypeDefinitionRepository barcodeTypeDefinitionRepository  )
         {
         
             _stockInformationRepository = stockInformationRepository;
@@ -227,9 +227,18 @@ namespace Lisans_Tezi_Mvc.Controllers
         //DEPO İŞLEMLERİ
       
 
-       public IActionResult Inter_WarehouseTransferReceipt()
+       public IActionResult WarehouseTransferReceipt()
         {
-            return View("~/Views/Stock/WarehouseOperations/Inter_WarehouseTransferReceipt.cshtml");
+
+
+
+            ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
+            ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
+            ViewBag.data3 = _stockInformationRepository.GetAll();
+            ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
+
+
+            return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt.cshtml");
         }
         public IActionResult WarehouseDefinition()
         {

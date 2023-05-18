@@ -22,8 +22,10 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult ProductStages()
         {
-            return View(" ~/Views/Production/ProductStages/ProductStages.cshtml");
+            return View("~/Views/Production/ProductStages/ProductStages.cshtml");
         }
+
+
               public IActionResult MachineIdentification()
         {
             return View("~/Views/Production/MachineIdentification/MachineIdentification.cshtml");
