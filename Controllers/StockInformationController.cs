@@ -18,9 +18,15 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             var data  = _stockInformationRepository.GetAll();
 
+            StockCardProcess stp = new StockCardProcess();
+            stp.getAllStockCard();
+
+
             if (data.Count>0)
             {
-                return View(data);
+                //return View(data);
+                return View(stp);
+                //return Content(":::::::");
             }
             return Ok("Liste Boş");
 

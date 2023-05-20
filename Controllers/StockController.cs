@@ -12,7 +12,9 @@ using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using System.Configuration;
 using System.Data;
@@ -79,12 +81,10 @@ namespace Lisans_Tezi_Mvc.Controllers
      
         public IActionResult StockCardEdit(int stokId)
         {
-            //StockCardEdit
-            //return View("~/Views/Stock/StockCardRecords/StockCardEdit.cshtml");
-            //return Content("Stok id:" + stokId);
-
+                    
             StockCardProcess ste = new StockCardProcess();
             ste.stokKartListeBilgisiGetir();
+            ste.getStockCard(stokId);
 
             ste.dt.Tables[0].TableName = "muhasebeKodllari";
             ste.dt.Tables[1].TableName = "zamanlar";
@@ -95,8 +95,6 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             return View("~/Views/Stock/StockCardRecords/StockCardProcess.cshtml", ste);
 
-            
-            //return Content("Stok id:" + ste.dt.Tables );
         }
 
         public IActionResult StockCardNew()
@@ -104,6 +102,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             StockCardProcess ste = new StockCardProcess();
             ste.stokKartListeBilgisiGetir();
+            ste.getStockCardCode();
 
             ste.dt.Tables[0].TableName = "muhasebeKodllari";
             ste.dt.Tables[1].TableName = "zamanlar";
@@ -118,16 +117,28 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult StockCardSave(StockCardProcess stp)
         {
+            StockCardProcess ste = new StockCardProcess();
+            ste.saveStockCard(stp);
 
-            string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
-            return Content(a);
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
 
-
+            return Redirect("/StockInformation");
         }
 
+        public IActionResult StockCardDelete(StockCardProcess stp)
+        {
+            StockCardProcess ste = new StockCardProcess();
+            ste.deleteStockCard(stp.Id);
+
+            return Redirect("/StockInformation");
+        }
+            
 
 
-            public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
+
+
+        public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
         {
             var depokodu = _warehouseDefinitionRepository.GetById(stockCard1.DEPO_KODU);
             stockCard1.DEPO_KODU = depokodu.DEPO_KODU;

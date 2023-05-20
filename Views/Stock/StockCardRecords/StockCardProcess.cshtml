@@ -5,6 +5,7 @@
 }
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
 @model StockCardProcess
 
 
@@ -13,7 +14,7 @@
     <!-- left column -->
     <div class="col-md-9">
         <!-- form start -->
-        <form action="/Stock/StockCardSave" method="post" enctype="multipart/form-data" name="yoneticiCRUDform" id="yoneticiCRUDform">
+        <form action="/Stock/StockCardSave" method="post" enctype="multipart/form-data" name="stokForm" id="stokForm">
             <div class="card card-primary card-outline">
                 <!-- card-header -->
                 <div class="card-header">
@@ -33,19 +34,20 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="STOK_KODU">Stok Kodu</label>
-                                        <input id="STOK_KODU" name="STOK_KODU" @(Model.Id == 0 ? "" : "readonly")  type="text" class="form-control " placeholder="0000000001">
+                                        <input asp-is-disabled="@( (Model.Id == 0 ) ? false : true)" asp-for="STOK_KODU" type="text" class="form-control "  >
+                                        <input asp-for="Id" style="display:none;" />
                                     </div>
                                     <div class="form-group">
                                         <label for="STOK_ADI">Stok Adi</label>
-                                        <input id="STOK_ADI" name="STOK_ADI" type="text" class="form-control ">
+                                        <input asp-for="STOK_ADI"  type="text" class="form-control ">
                                     </div>
                                     <div class="form-group">
                                         <label for="RISK_SURESI">Risk Süresi</label>
-                                        <input id="RISK_SURESI" name="RISK_SURESI" type="text" class="form-control ">
+                                        <input asp-for="RISK_SURESI"  type="text" class="form-control ">
                                     </div>
                                     <div class="form-group">
                                         <label>Zaman Brimi</label>
-                                        <select id="ZAMAN_BIRIMI" name="ZAMAN_BIRIMI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Zamanlar  " title="Seçiniz.">
+                                        <select asp-for="ZAMAN_BIRIMI"  class="selectpicker form-control show-tick" data-live-search="true" data-header=" Zamanlar  " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables["zamanlar"].Rows)
                                             {
@@ -55,7 +57,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-select-label" for="MuhasebeKodu">Muhasebe Kodu</label>
-                                        <select id="MUHASEBE_ID" name="MUHASEBE_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Muhasebe Kodu  " title="Seçiniz.">
+                                        <select asp-for="MUHASEBE_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Muhasebe Kodu  " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables["muhasebeKodllari"].Rows)
                                             {
@@ -65,7 +67,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="stokDepoAdi">Depo Adı</label>
-                                        <select id="DEPO_ID" name="DEPO_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                        <select asp-for="DEPO_ID"  class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables["depolar"].Rows)
                                             {
@@ -77,7 +79,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="CARI_ID">Cari/Satici Kodu</label>
-                                        <select id="CARI_ID" name="CARI_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Cariler " title="Seçiniz.">
+                                        <select asp-for="CARI_ID"  class="selectpicker form-control show-tick" data-live-search="true" data-header=" Cariler " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables["cariler"].Rows)
                                             {
@@ -89,19 +91,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="EN">En</label>
-                                                <input id="EN" name="EN" type="text" class="form-control ">
+                                                <input asp-for="EN"  type="text" class="form-control ">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="BOY">Boy</label>
-                                                <input id="BOY" name="BOY" type="text" class="form-control ">
+                                                <input asp-for="BOY"  type="text" class="form-control ">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="YUKSEKLIK">Yükseklik</label>
-                                                <input id="YUKSEKLIK" name="YUKSEKLIK" type="text" class="form-control ">
+                                                <input asp-for="YUKSEKLIK" type="text" class="form-control ">
                                             </div>
                                         </div>
                                     </div>
@@ -109,13 +111,13 @@
                                         <div class="col-md-7">
                                             <div class="form-group">
                                                 <label for="MIKTAR">Miktar</label>
-                                                <input id="MIKTAR" name="MIKTAR" type="text" class="form-control ">
+                                                <input asp-for="MIKTAR"  type="text" class="form-control ">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="MIKTAR_BIRIM_ID">Birimi</label>
-                                                <select id="MIKTAR_BIRIM_ID" name="MIKTAR_BIRIM_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Birimler " title="Seçiniz.">
+                                                <select asp-for="MIKTAR_BIRIM_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Birimler " title="Seçiniz.">
                                                     <option value="Seçiniz" selected>Seçiniz.</option>
                                                     @foreach (System.Data.DataRow row in Model.dt.Tables["birimler"].Rows)
                                                     {
@@ -133,13 +135,13 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="SATIS_FIYAT">Satis Fiyatı</label>
-                                        <input id="SATIS_FIYAT" name="SATIS_FIYAT"  type="text" class="form-control " >
+                                        <input asp-for="SATIS_FIYAT" type="text" class="form-control " >
                                     </div>
                                 </diV>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="SATIS_FIYAT_KDY">Satis Fiyatı KDV</label>
-                                        <input id="SATIS_FIYAT_KDY" name="SATIS_FIYAT_KDY"  type="text" class="form-control " >
+                                        <input asp-for="SATIS_FIYAT_KDY"   type="text" class="form-control " >
                                     </div>
                                 </diV>
                             </div>
@@ -147,13 +149,13 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="ALIS_FIYAT">Alış Fiyatı</label>
-                                        <input id="ALIS_FIYAT" name="ALIS_FIYAT"  type="text" class="form-control " >
+                                        <input asp-for="ALIS_FIYAT"   type="text" class="form-control " >
                                     </div>
                                 </diV>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="ALIS_FIYAT_KDY">Alış Fiyatı KDV</label>
-                                        <input id="ALIS_FIYAT_KDY" name="ALIS_FIYAT_KDY"  type="text" class="form-control " >
+                                        <input asp-for="ALIS_FIYAT_KDY"  type="text" class="form-control " >
                                     </div>
                                 </diV>
                             </div>
@@ -164,15 +166,15 @@
              
                 <!-- card-footer -->
                 <div class="card-footer text-right">
-                    <button type="button" class="btn btn-danger" id="cariKartSil">
+                    <button type="button" class="btn btn-danger" id="stokKartSil">
                         <i class="fas fa-trash-alt"></i>
                         &nbsp;Sil
                     </button>
-                    <button type="button" class="btn btn-primary" id="cariKartVazgec">
+                    <button type="button" class="btn btn-primary" id="stokKartVazgec">
                         <i class="fa fa-backward"></i>
                         &nbsp;Vazgeç
                     </button>
-                    <button type="submit" class="btn btn-primary" id="cariKartKaydet">
+                    <button type="submit" class="btn btn-primary" id="stokKartKaydet">
                         <i class="fa fa-save"></i>
                         &nbsp;Kaydet
                     </button>
@@ -184,3 +186,39 @@
     </div>
 </div>
 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+            
+             $("#stokKartVazgec").click(function () {
+
+                $("#stokForm").attr("action", "/StockInformation").submit()
+
+             });
+
+            $("#stokKartSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Stok Kart Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#stokForm").attr("action", "/Stock/StockCardDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+        
+        })
+    
+   })
+</script>

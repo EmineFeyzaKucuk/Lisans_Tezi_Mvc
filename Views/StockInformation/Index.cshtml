@@ -1,26 +1,26 @@
 ﻿@{
     Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
-    ViewData["Title"] = "Price";
+    ViewData["Title"] = "Stoklar";
 }
-@model dynamic
+@model StockCardProcess
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12">
                     <section class="content-header">
                         <div class="container-fluid">
-                                <div class="row mb-2">
-                                    <div class="col-sm-6">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
                                         <h1>Stok Kartları</h1>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <ol class="breadcrumb float-sm-right">
                                             <li class="breadcrumb-item">
-                                            <form action="/Stock/StockCardNew" method="post">
-                                                    <button type="submit" class="btn btn-block btn-success">Yeni Cari Kart</button>
+                                            <form action="/Stock/StockCardNew" method="post" >
+                                                    <button type="submit" class="btn btn-block btn-success">Yeni Stok Kartı</button>
                                                 </form>
                                             </li>
                                         </ol>
@@ -28,52 +28,57 @@
                                 </div>
                             </div>
                     </section>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Stok Kodu</th>
-                                <th scope="col">Stok Adı</th>
-                                <th scope="col">İşlem</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <th scope="row">@item.Id</th>
-                                    <td>@item.STOK_KODU</td>
-                                    <td>@item.STOK_ADI</td>
-                                    <td>
-                                          <a href="#" data-id="@item.Id" onclick="editStokKart(@item.Id)">
-                                               <i class="fas fa-edit"></i>
-                                           </a>
-                                    </td>
-                                </tr>
-                            }
-
-                        </tbody>
-                    </table>
-                    <form method="post" id="stokKartForm">
-                        <input type="hidden" value="" name="stokId" id="stokId" />
-                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form asp-action="Add" method="post">
-                        <label for="STOK_KODU" class="form-label" />
-                        <input type="text" name="STOK_KODU" class="form-control" />
-                        <label for="STOK_ADI" class="form-label" />
-                        <input type="text" name="STOK_ADI" class="form-control" />
-                        <button type="submit">Ekle</button>
-                    </form>
-                </div>
-            </div>
+
         </div>
     </div>
+
+    <div class="card card-solid">        
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Stok Kodu</th>
+                        <th>Stok Adı</th>
+                        <th>Tedarikçi</th>
+                        <th>Depo Adı</th>
+                        <th>Adet</th>
+                        <th>Brim</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["STOK_KODU"]</td>
+                            <td>@row["STOK_ADI"]</td>
+                            <td>@row["UNVAN"]</td>
+                            <td>@row["DEPO_ADI"]</td>
+                            <td>@row["MIKTAR"]</td>
+                            <td>@row["OLCU_BIRIMI_ADI"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editStokKart(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <form method="post" id="stokKartForm" name="stokKartForm">
+                <input type="hidden" value="" name="stokId" />
+            </form>
+        </div>
+    </div>
+
+
+
 </div>
+
+
  <script>
 
 
