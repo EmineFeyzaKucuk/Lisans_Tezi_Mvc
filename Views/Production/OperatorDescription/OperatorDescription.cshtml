@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = "~/Views/Production/OperatorDescription/_LayoutOperatorDescription.cshtml";
+    ViewData["Title"] = "OperatorDescription";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <form action="post">
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label>OPERATÖR TANIMLAMA</label>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Operatör Kodu:</label>
+                                                </div>
+                                                <div class="col-md-4 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                                <div class="col-md-1 text-start">
+                                                    <button type="button" class="btn btn-success">Seçiniz</button>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <label for="stok_kodu">Operatör Türü:</label>
+                                            </div>
+
+
+                                            <select name="cars" id="cars">
+                                                <option selected disabled value="">Seçiniz...</option>
+                                                <option value="volvo">A</option>
+                                                <option value="saab">B</option>
+                                                <option value="mercedes">C</option>
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Operatör Adı:</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            A/P
+                                                        </label>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

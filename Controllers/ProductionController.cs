@@ -42,6 +42,11 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml");
         }
 
+        public IActionResult OperatorDescription()
+        {
+            return View("~/Views/Production/OperatorDescription/OperatorDescription.cshtml");
+        }
+
         public IActionResult ProductGroupDefinitions()
         {
             return View("~/Views/Production/ProductGroupDefinitions/ProductGroupDefinitions.cshtml" );
