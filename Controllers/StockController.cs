@@ -8,10 +8,12 @@ using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
+using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -41,8 +43,10 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IAccountingCodeDefinitionRepository _accountingCodeDefinitionRepository;
         private readonly IBarcodeRecordsRepository _barcodeRecordsRepository;
         private readonly IBarcodeTypeDefinitionRepository _barcodeTypeDefinitionRepository;
+        private readonly IWarehouseTransferReceiptRepository _warehouseTransferReceiptRepository;
+        private readonly IStockEntryExitMovementsRepository _stockEntryExitMovementsRepository;
 
-        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository, IBarcodeRecordsRepository barcodeRecordsRepository, IBarcodeTypeDefinitionRepository barcodeTypeDefinitionRepository  )
+        public StockController(IStockInformationRepository stockInformationRepository, IStockCard1Repository stockCard1Repository,IEmployeeDefinitionRepository employeeDefinitionRepository,IWarehouseDefinitionRepository warehouseDefinitionRepository,    IStockCard2Repository stockCard2Repository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockTransactionRecordsRepository stockTransactionRecordsRepository, IGroupCodeRecordsRepository groupCodeRecordsRepository , IAccountingDetailCodeEntryRepository accountingDetailCodeEntryRepository, IAccountingCodeDefinitionRepository accountingCodeDefinitionRepository, IBarcodeRecordsRepository barcodeRecordsRepository, IBarcodeTypeDefinitionRepository barcodeTypeDefinitionRepository , IWarehouseTransferReceiptRepository warehouseTransferReceiptRepository,IStockEntryExitMovementsRepository stockEntryExitMovementsRepository  )
         {
         
             _stockInformationRepository = stockInformationRepository;
@@ -58,6 +62,8 @@ namespace Lisans_Tezi_Mvc.Controllers
             _accountingCodeDefinitionRepository = accountingCodeDefinitionRepository;
             _barcodeRecordsRepository = barcodeRecordsRepository;
             _barcodeTypeDefinitionRepository = barcodeTypeDefinitionRepository;
+            _warehouseTransferReceiptRepository = warehouseTransferReceiptRepository;
+            _stockEntryExitMovementsRepository = stockEntryExitMovementsRepository;
         }
 
         public IActionResult Index()
@@ -247,6 +253,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
             ViewBag.data3 = _stockInformationRepository.GetAll();
             ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
+            ViewBag.data5 = _warehouseTransferReceiptRepository.GetAll();
 
 
             return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt.cshtml");
@@ -263,6 +270,12 @@ namespace Lisans_Tezi_Mvc.Controllers
         //STOK GİRİŞ ÇIKIŞ HAREKETLERİ
         public IActionResult StockEntryExitMovements()
         {
+
+
+            ViewBag.data1= _warehouseDefinitionRepository.GetAll();
+            ViewBag.data2 = _stockInformationRepository.GetAll();
+            ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
+            ViewBag.data5 = _stockEntryExitMovementsRepository.GetAll();
             return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements.cshtml");
         }
         //PERSONEL TANIMLAMA

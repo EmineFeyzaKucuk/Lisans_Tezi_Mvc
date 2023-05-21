@@ -7,7 +7,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="StockEntryExitMovements" asp-action="CreateStockEntryExitMovements">
 
                 <div class="row">
                     <div class="col-md-12">
@@ -23,10 +23,10 @@
                                     <div class="col-md-3">
                                         <div class="row mt-2">
                                             <div class="col-md-4">
-                                                <label for="stok_kodu">Fiş No:</label>
+                                                <label for="FIS_NO">Fiş No:</label>
                                             </div>
                                             <div class="col-md-5 text-start">
-                                                <input class="form-control " id="stok_kodu" type="text">
+                                                <input class="form-control " id="FIS_NO" name="FIS_NO" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -35,23 +35,23 @@
                                     <div class="col-md-3">
                                         <div class="row mt-2">
                                             <div class="col-md-3">
-                                                <label for="stok_kodu">Tarih:</label>
+                                                <label for="TARIH">Tarih:</label>
                                             </div>
                                             <div class="col-md-6 text-start">
-                                                <input class="form-control " id="stok_kodu" type="text">
+                                                <input class="form-control " id="TARIH" name="TARIH" type="date">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="row mt-1">
-                                            <label for="cars">Depo:</label>
+                                            <label for="DEPO">Depo:</label>
 
-                                            <select name="cars" id="cars">
-                                                <option selected disabled value="">Seçiniz...</option>
-                                                <option value="volvo">MM</option>
-                                                <option value="saab">YM</option>
-                                                <option value="mercedes">HM</option>
-                                                <option value="audi">IM</option>
+                                            <select id="DEPO" name="DEPO" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (var item in ViewBag.data1)
+                                                {
+                                                    <option value="@item.DEPO_KODU">@item.DEPO_ADI</option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -59,10 +59,10 @@
                                     <div class="col-md-3">
                                         <div class="row mt-2">
                                             <div class="col-md-3">
-                                                <label for="stok_kodu">Not:</label>
+                                                <label for="NOT">Not:</label>
                                             </div>
                                             <div class="col-md-6 text-start">
-                                                <input class="form-control " id="stok_kodu" type="text">
+                                                <input class="form-control " id="NOT"  name="NOT"type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -77,35 +77,25 @@
                                                             <div class="col-md-4">
 
 
-                                                                <label for="cars">Stok Kodu:</label>
-
-                                                                <select name="cars" id="cars">
-                                                                    <option selected disabled value="">Seçiniz</option>
-                                                                    <option value="volvo">1</option>
-                                                                    <option value="saab">2</option>
-                                                                    <option value="mercedes">3</option>
-                                                                    <option value="audi">4</option>
-                                                                </select>
+                                                                <label for="STOK_KODU">Stok Kodu:</label>
+                                                              <select id="STOK_KODU" name="STOK_KODU" class="form-control">
+                                                              <option value="">Seçiniz</option>
+                                                              @foreach (var item in ViewBag.data2)
+                                                                   {
+                                                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
+                                                                   }
+                                                              </select>
 
                                                             </div>
 
+                                                          
                                                             <div class="col-md-4">
 
 
-                                                                <label for="stok_kodu">Stok Adı:</label>
+                                                                <label for="PARTI_NO">Parti No:</label>
 
                                                                 <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="stok_kodu" type="text">
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="col-md-4">
-
-
-                                                                <label for="stok_kodu">Parti No:</label>
-
-                                                                <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                    <input class="form-control " id="PARTI_NO" name="PARTI_NO" type="NUMBER">
                                                                 </div>
 
                                                             </div>
@@ -119,20 +109,20 @@
                                                             <div class="col-md-4">
 
 
-                                                                <label for="stok_kodu">Gelen Miktar:</label>
+                                                                <label for="GELEN_MIKTAR">Gelen Miktar:</label>
 
                                                                 <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                    <input class="form-control " id="GELEN_MIKTAR" name="GELEN_MIKTAR"type="NUMBER">
                                                                 </div>
 
                                                             </div>
                                                             <div class="col-md-4">
 
 
-                                                                <label for="stok_kodu">Çıkan Miktar:</label>
+                                                                <label for="CIKAN_MIKTAR">Çıkan Miktar:</label>
 
                                                                 <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                                    <input class="form-control " id="CIKAN_MIKTAR" name="CIKAN_MIKTAR" type="NUMBER">
                                                                 </div>
 
                                                             </div>
@@ -140,17 +130,18 @@
                                                             <div class="col-md-4">
 
                                                                 <div class="col-md-4">
-                                                                    <label for="stok_kodu">İşlem Birimi:</label>
+                                                                    <label for="ISLEM_BIRIMI">İşlem Birimi:</label>
                                                                 </div>
 
-
-                                                                <select name="cars" id="cars">
-                                                                    <option selected disabled value="">Seçiniz...</option>
-                                                                    <option value="volvo">Adet</option>
-                                                                    <option value="saab">Kilogram</option>
-                                                                    <option value="mercedes">Litre</option>
-                                                                    <option value="audi">Metre</option>
-                                                                </select>
+                                                                   <div class="col-md-4">
+                                                                        <select id="ISLEM_BIRIMI" name="ISLEM_BIRIMI" class="form-control">
+                                                                            <option value="">Seçiniz</option>
+                                                                            @foreach (var item in ViewBag.data3)
+                                                                            {
+                                                                                <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_KODU</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
 
 
                                                             </div>
@@ -158,9 +149,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mt-2">
+                                             <div class="row mt-2">
                                                 <div class="col-md-1 text-start">
-                                                    <button type="button" class="btn btn-success">Kaydet</button>
+                                                    <button type="submit" class="btn btn-success">Ekle</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,6 +166,56 @@
                 </div>
 
             </form>
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data5 != null && ViewBag.data5.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Fiş No</th>
+                                    <th scope="col">Tarih</th>
+                                    <th scope="col">Depo</th>
+                                    <th scope="col">Not</th>
+                                    <th scope="col">Stok Kodu</th>
+                                    <th scope="col">Parti No</th>
+                                    <th scope="col">Gelen Miktar</th>
+                                    <th scope="col">Çıkan Miktar</th>
+                                    <th scope="col">İşlem Birimi</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data5)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.FIS_NO</td>
+                                        <td>@item.TARIH</td>
+                                        <td>@item.DEPO</td>
+                                        <td>@item.[NOT]</td>
+                                        <td>@item.STOK_KODU</td>
+                                        <td>@item.PARTI_NO</td>
+                                        <td>@item.GELEN_MIKTAR</td>
+                                        <td>@item.CIKAN_MIKTAR</td>
+                                        <td>@item.ISLEM_BIRIMI</td>
+
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

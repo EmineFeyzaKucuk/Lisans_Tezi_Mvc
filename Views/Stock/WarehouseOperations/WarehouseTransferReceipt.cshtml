@@ -176,6 +176,56 @@
                         </div>
 
             </form>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data5 != null && ViewBag.data5.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Fiş No</th>
+                                    <th scope="col">Tarih</th>
+                                    <th scope="col"> Gönderen Depo</th>
+                                    <th scope="col">Alan Depo</th>
+                                    <th scope="col">Parti No</th>
+                                    <th scope="col">İşlem Miktarı</th>
+                                    <th scope="col">İşlem Birimi</th>
+                                    <th scope="col">Açıklama</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data5)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.FIS_NO</td>
+                                        <td>@item.TARIH</td>
+                                        <td>@item.GONDEREN_DEPO</td>
+                                        <td>@item.ALAN_DEPO</td>
+                                        <td>@item.STOK_KODU</td>
+                                        <td>@item.PARTI_NO</td>
+                                        <td>@item.ISLEM_MIKTARI</td>
+                                        <td>@item.ISLEM_BIRIMI</td>
+                                        <td>@item.ACIKLAMA</td>
+                                        
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
                     </div>
 
             </div>

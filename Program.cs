@@ -10,6 +10,7 @@ using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
+using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
@@ -60,6 +61,7 @@ public class DBInfo
             builder.Services.AddScoped<IAccountingDetailCodeEntryRepository, AccountingDetailCodeEntryRepository>();
             builder.Services.AddScoped<IBarcodeRecordsRepository, BarcodeRecordsRepository>();
             builder.Services.AddScoped<IWarehouseTransferReceiptRepository, WarehouseTransferReceiptRepository>();
+            builder.Services.AddScoped<IStockEntryExitMovementsRepository, StockEntryExitMovementsRepository>();
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 
