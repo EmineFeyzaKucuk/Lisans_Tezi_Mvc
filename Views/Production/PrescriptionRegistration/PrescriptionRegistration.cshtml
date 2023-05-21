@@ -6,26 +6,26 @@
    <div class="container"  >
         <div class="row">
             <div class="col-md-12">
-                <form action="post">
+            <form method="post" asp-controller="StockEntryExitMovements" asp-action="CreateStockEntryExitMovements">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row mt-2">
                                 <div class="col-md-2">
-                                    <label for="stok_kodu">Mamul Kodu:</label>
+                                    <label for="MAMUL_KODU">Mamul Kodu:</label>
                                 </div>
                                 <div class="col-md-3 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                    <input class="form-control " id="MAMUL_KODU" name="MAMUL_KODU" type="text">
                                 </div>
                                 <div class="col-md-1">
                                     <button type="button" class="btn btn-success">btn</button>
                                 </div>
 
                                 <div class="col-md-2">
-                                    <label for="stok_kodu">Mamul İsmi:</label>
+                                    <label for="MAMUL_ISMI">Mamul İsmi:</label>
                                 </div>
                                
                                 <div class="col-md-4 text-start">
-                                    <input class="form-control " id="stok_kodu" type="text">
+                                    <input class="form-control " id="MAMUL_ISMI"  name="MAMUL_ISMI"type="text">
                                 </div>
                             </div>
 
@@ -38,7 +38,7 @@
                                     <div class="card-body">  
                                         <div class="row">
                                             <div class="col-md-1">
-                                                <label for="stok_kodu">Reçete Top.</label>
+                                                <label for="RECETE">Reçete Top.</label>
                                             </div>
                                             <div class="col-md-4">
                                                 <input class="form-control " id="stok_kodu" type="number">

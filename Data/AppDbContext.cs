@@ -9,6 +9,8 @@ namespace Lisans_Tezi_Mvc.Data
         {
             
         }
+
+//****************STOK****************************************************************************
         public DbSet<STOCK_INFORMATION> StokBilgisi_TBL { get; set; }
         public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
 
@@ -29,7 +31,9 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<WAREHOUSE_TRANSFER_RECEIPT> DepolarArasıTransferFisi_TBL { get; set; }
         public DbSet<STOCK_IN_AND_OUT> Stok_GirisCikis_TBL { get; set; }
 
+ //*************ÜRETÜM*******************************************************************************
 
+        public DbSet<MACHINE_IDENTIFICATION> Uretim_MakineTanimlama_TBL { get; set; }
 
     }
 
