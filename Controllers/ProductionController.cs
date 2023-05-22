@@ -6,6 +6,7 @@ using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
+using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -20,11 +21,13 @@ namespace Lisans_Tezi_Mvc.Controllers
     public class ProductionController : Controller
     {
         private readonly IMachineIdentificationRepository _machineIdentificationRepository;
+        private readonly IOperationDescriptionRepository _operationDescriptionRepository;
 
-        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository)
+        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository)
         {
 
             _machineIdentificationRepository = machineIdentificationRepository;
+            _operationDescriptionRepository = operationDescriptionRepository;
         }
 
 
@@ -58,6 +61,10 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult OperationDescription()
         {
+
+
+            ViewBag.data1 = _operationDescriptionRepository.GetAll();
+
             return View("~/Views/Production/OperationDescription/OperationDescription.cshtml");
         }
 

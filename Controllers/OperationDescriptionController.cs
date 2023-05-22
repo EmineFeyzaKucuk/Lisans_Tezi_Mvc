@@ -21,7 +21,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             try
             {
-                // branch açtık
+              
                 //  return Ok(stock_in_and_out);
                 _operationDescriptionRepository.Add(operationDescription);
                 return RedirectToAction("OperationDescription", "Production");

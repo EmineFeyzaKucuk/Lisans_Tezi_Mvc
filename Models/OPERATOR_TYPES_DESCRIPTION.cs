@@ -4,6 +4,7 @@
     {
         public string OPERATOR_TUR_KODU { get; set; }
         public string OPERATOR_TUR_ADI { get; set; }
+        public bool A_P { get; set; }
 
 
     }

@@ -46,11 +46,15 @@
 
                                             <div class="row-mt-3">
                                                 <div class="col">
-                                                    <label>Kapasite (Saat):</label>
 
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <label for="KAPASITE">Kapasite (Saat):</label>
+                                                    </div>
                                                     <div class="col-md-4 text-start">
                                                         <input class="form-control " id="KAPASITE" name="KAPASITE" type="text">
                                                     </div>
+                                                </div>
 
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
@@ -145,7 +149,7 @@
                                                             <th scope="col">Kapasite  </th>
                                                             <th scope="col">Normal İş Günleri </th>
                                                            <th scope="col">Cumartesi </th>
-                                                         <th scope="col">Pazar  </th>
+                                                            <th scope="col">Pazar  </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -157,6 +161,7 @@
                                         <td>@item.OPERASYON_ADI</td>
                                         <td>@item.A_P</td>
                                         <td>@item.HAFTALIK_KAPASITE</td>
+                                        <td>@item.KAPASITE</td>
                                         <td>@item.NORMAL_IS_GUNLERI</td>
                                         <td>@item.CUMARTESI</td>
                                         <td>@item.PAZAR</td>

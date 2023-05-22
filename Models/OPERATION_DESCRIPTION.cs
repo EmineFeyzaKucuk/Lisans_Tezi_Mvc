@@ -4,7 +4,7 @@
     {
         public string OPERASYON_KODU { get; set; }
         public string OPERASYON_ADI { get; set; }
-        public string A_P { get; set; }
+        public bool A_P { get; set; }
         public string NORMAL_IS_GUNLERI { get; set; }
         public string CUMARTESI { get; set; }
         public string PAZAR { get; set; }
