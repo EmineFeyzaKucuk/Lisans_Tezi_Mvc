@@ -58,46 +58,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col">
-
-                                            @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
-                                            {
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Operatör Kodu  </th>
-                                                            <th scope="col">Operatör Adı </th>
-                                                            <th scope="col">A/P </th>
-
-
-
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach (var item in ViewBag.data1)
-                                                        {
-                                                            <tr>
-                                                                <th scope="row">@item.Id</th>
-                                                                <td>@item.OPERATOR_KODU</td>
-                                                                <td>@item.OPERATOR_ADI</td>
-                                                                <td>@item.A_P</td>
-                                                            </tr>
-                                                        }
-                                                    </tbody>
-                                                </table>
-                                            }
-                                            else
-                                            {
-                                                <p>Kayıt bulunamadı.</p>
-                                            }
-
+                                    <div class="row mt-2">
+                                        <div class="col-md-1 text-start">
+                                            <button type="submit" class="btn btn-success">Ekle</button>
                                         </div>
-
                                     </div>
-
+                                   
                                 </div>
                             </div>
                         </div>
@@ -105,6 +71,47 @@
                 </div>
 
             </form>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Operatör Tür Kodu  </th>
+                                    <th scope="col">Operatör Tür Adı </th>
+                                    <th scope="col">A/P </th>
+
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data1)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.OPERATOR_TUR_KODU</td>
+                                        <td>@item.OPERATOR_TUR_ADI</td>
+                                        <td>@item.A_P</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>

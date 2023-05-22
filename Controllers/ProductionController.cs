@@ -7,6 +7,8 @@ using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
+using Lisans_Tezi_Mvc.Repository.OperatorDescriptionRepo;
+using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -22,12 +24,16 @@ namespace Lisans_Tezi_Mvc.Controllers
     {
         private readonly IMachineIdentificationRepository _machineIdentificationRepository;
         private readonly IOperationDescriptionRepository _operationDescriptionRepository;
+        private readonly IOperatorTypesDescriptionRepository _operatorTypesDescriptionRepository;
+        private readonly IOperatorDescriptionRepository _operatorDescriptionRepository;
 
-        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository)
+        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository)
         {
 
             _machineIdentificationRepository = machineIdentificationRepository;
             _operationDescriptionRepository = operationDescriptionRepository;
+            _operatorTypesDescriptionRepository = operatorTypesDescriptionRepository;
+            _operatorDescriptionRepository = operatorDescriptionRepository;
         }
 
 
@@ -70,11 +76,17 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult OperatorTypesDescription()
         {
+
+            ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
             return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml");
         }
 
         public IActionResult OperatorDescription()
         {
+            ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
+            ViewBag.data2 = _operatorDescriptionRepository.GetAll();
+
+            
             return View("~/Views/Production/OperatorDescription/OperatorDescription.cshtml");
         }
 

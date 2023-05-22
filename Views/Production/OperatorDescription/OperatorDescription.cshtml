@@ -9,7 +9,7 @@
         <div class="col-md-12">
 
 
-            <form action="post">
+            <form method="post" asp-controller="OperatorDescription" asp-action="CreateOperatorDescription">
                 <div class="row">
                     <div class="row mt-2">
                         <div class="col-md-12">
@@ -25,28 +25,24 @@
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Operatör Kodu:</label>
+                                                    <label for="OPERATOR_KODU">Operatör Kodu:</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="OPERATOR_KODU" name="OPERATOR_KODU" type="text">
                                                 </div>
-                                                <div class="col-md-1 text-start">
-                                                    <button type="button" class="btn btn-success">Seçiniz</button>
-                                                </div>
+                                              
                                             </div>
 
 
                                             <div class="col-md-4">
-                                                <label for="stok_kodu">Operatör Türü:</label>
+                                                <label for="OPERATOR_TUR_KOD">Operatör Türü:</label>
                                             </div>
-
-
-                                            <select name="cars" id="cars">
-                                                <option selected disabled value="">Seçiniz...</option>
-                                                <option value="volvo">A</option>
-                                                <option value="saab">B</option>
-                                                <option value="mercedes">C</option>
-
+                                            <select id="OPERATOR_TUR_KODU" name="OPERATOR_TUR_KODU" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (var item in ViewBag.data1)
+                                                {
+                                                    <option value="@item.OPERATOR_TUR_KODU">@item.OPERATOR_TUR_ADI</option>
+                                                }
                                             </select>
 
                                         </div>
@@ -55,24 +51,20 @@
 
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Operatör Adı:</label>
+                                                    <label for="OPERATOR_ADI">Operatör Adı:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="OPERATOR_ADI" name="OPERATOR_ADI" type="text">
                                                 </div>
                                             </div>
 
-                                            <div class="row mt-2">
-                                                <div class="col-md-3 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
-                                                </div>
-                                            </div>
+                                         
 
                                             <div class="row mt-3">
                                                 <div class="col">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                        <input class="form-check-input" type="checkbox" value="true" id="A_P" name="A_P">
+                                                        <label class="form-check-label" for="A_P">
                                                             A/P
                                                         </label>
                                                     </div>
@@ -86,14 +78,59 @@
 
 
                                         </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-1 text-start">
+                                                <button type="submit" class="btn btn-success">Ekle</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+
+                  
                 </div>
             </form>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data2 != null && ViewBag.data2.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Operator Kodu</th>
+                                    <th scope="col">Operator Adı</th>
+                                    <th scope="col">Operator Tür Kodu</th>
+                                    <th scope="col">A/P</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data2)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.OPERATOR_KODU</td>
+                                        <td>@item.OPERATOR_ADI</td>
+                                        <td>@item.OPERATOR_TUR_KODU</td>
+                                        <td>@item.A_P</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
 
         </div>
     </div>
