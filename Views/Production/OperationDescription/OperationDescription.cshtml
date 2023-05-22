@@ -2,10 +2,10 @@
     Layout = "~/Views/Production/OperationDescription/_LayoutOperationDescription.cshtml";
     ViewData["Title"] = "OperationDescription";
 }
-<div class="container" style="background-color: grey;">
+<div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="OperationDescription" asp-action="CreateOperationDescription">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -23,21 +23,19 @@
 
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Operasyon Kodu:</label>
+                                                    <label for="OPERASYON_KODU">Operasyon Kodu:</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="OPERASYON_KODU" NAME="OPERASYON_KODU"type="text">
                                                 </div>
-                                                <div class="col-md-1 text-start">
-                                                    <button type="button" class="btn btn-success">Seçiniz</button>
-                                                </div>
+                                               
                                             </div>
                                             <div class="row mt-3">
                                                 <div class="col">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label" for="flexCheckDefault">
-                                                            A/P
+                                                        <input class="form-check-input" type="checkbox" value="true" name="A_P" id="A_P">
+                                                        <label class="form-check-label" for="A_P">
+                                                           A/P
                                                         </label>
                                                     </div>
 
@@ -50,36 +48,40 @@
                                                 <div class="col">
                                                     <label>Kapasite (Saat):</label>
 
+                                                    <div class="col-md-4 text-start">
+                                                        <input class="form-control " id="KAPASITE" name="KAPASITE" type="text">
+                                                    </div>
+
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
-                                                            <label for="stok_kodu">Normal İş Günleri:</label>
+                                                            <label for="NORMAL_IS_GUNLERI">Normal İş Günleri:</label>
                                                         </div>
                                                         <div class="col-md-4 text-start">
-                                                            <input class="form-control " id="stok_kodu" type="text">
+                                                            <input class="form-control " id="NORMAL_IS_GUNLERI" name="NORMAL_IS_GUNLERI" type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
-                                                            <label for="stok_kodu">Cumartesi :</label>
+                                                            <label for="CUMARTESI">Cumartesi :</label>
                                                         </div>
                                                         <div class="col-md-4 text-start">
-                                                            <input class="form-control " id="stok_kodu" type="text">
+                                                            <input class="form-control " id="CUMARTESI" name="CUMARTESI" type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
-                                                            <label for="stok_kodu">Pazar :</label>
+                                                            <label for="PAZAR">Pazar :</label>
                                                         </div>
                                                         <div class="col-md-4 text-start">
-                                                            <input class="form-control " id="stok_kodu" type="text">
+                                                            <input class="form-control " id="PAZAR" name="PAZAR" type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
-                                                            <label for="stok_kodu">Haftalık Kapasite:</label>
+                                                            <label for="HAFTALIK_KAPASITE">Haftalık Kapasite:</label>
                                                         </div>
                                                         <div class="col-md-4 text-start">
-                                                            <input class="form-control " id="stok_kodu" type="text">
+                                                            <input class="form-control " id="HAFTALIK_KAPASITE" name="HAFTALIK_KAPASITE" type="text">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,18 +95,18 @@
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Operasyon Adı:</label>
+                                                    <label for="OPERASYON_ADI">Operasyon Adı:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="OPERASYON_ADI" name="OPERASYON_ADI" type="text">
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Operasyon Açıklama:</label>
+                                                    <label for="OPERASYON_ACIKLAMA">Operasyon Açıklama:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="OPERASYON_ACIKLAMA" NAME="OPERASYON_ACIKLAMA"type="text">
                                                 </div>
                                             </div>
 
@@ -112,45 +114,9 @@
 
                                         </div>
 
-
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Operasyon Kodu  </th>
-                                                            <th scope="col">Operasyon Adı </th>
-
-
-
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-
-
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td colspan="2">Larry the Bird</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-
-
+                                        <div class="row mt-2">
+                                            <div class="col-md-1 text-start">
+                                                <button type="submit" class="btn btn-success">Ekle</button>
                                             </div>
                                         </div>
                                     </div>
@@ -161,6 +127,53 @@
                 </div>
 
             </form>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  
+                                <th scope="col">#</th>
+                                                            <th scope="col">Operasyon Kodu  </th>
+                                                            <th scope="col">Operasyon Adı </th>
+                                                            <th scope="col">A/P  </th>
+                                                            <th scope="col">Haftalık Kapasite </th>
+                                                            <th scope="col">Kapasite  </th>
+                                                            <th scope="col">Normal İş Günleri </th>
+                                                           <th scope="col">Cumartesi </th>
+                                                         <th scope="col">Pazar  </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data1)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.OPERASYON_KODU</td>
+                                        <td>@item.OPERASYON_ADI</td>
+                                        <td>@item.A_P</td>
+                                        <td>@item.HAFTALIK_KAPASITE</td>
+                                        <td>@item.NORMAL_IS_GUNLERI</td>
+                                        <td>@item.CUMARTESI</td>
+                                        <td>@item.PAZAR</td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

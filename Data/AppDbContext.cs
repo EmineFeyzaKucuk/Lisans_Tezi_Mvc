@@ -30,11 +30,17 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<BARCODE_RECORDS> Stok_BarkodKayitlari_TBL { get; set; }
         public DbSet<WAREHOUSE_TRANSFER_RECEIPT> DepolarArasıTransferFisi_TBL { get; set; }
         public DbSet<STOCK_IN_AND_OUT> Stok_GirisCikis_TBL { get; set; }
+     
 
- //*************ÜRETÜM*******************************************************************************
+    
+
+        //*************ÜRETÜM*******************************************************************************
 
         public DbSet<MACHINE_IDENTIFICATION> Uretim_MakineTanimlama_TBL { get; set; }
+        public DbSet<OPERATION_DESCRIPTION> Uretim_OperasyonTanimlama_TBL { get; set; }
+        public DbSet<OPERATOR_DESCRIPTION> Uretim_OperatorTanimlama_TBL { get; set; }
 
+        
     }
 
 }

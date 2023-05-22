@@ -23,7 +23,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             {
                //  return Ok(warhouseTransferReceipt);
                 _warehouseTransferReceiptRepository.Add(warhouseTransferReceipt);
-                return RedirectToAction("WarehouseTransferReceipt", "Production");
+                return RedirectToAction("WarehouseTransferReceipt", "Stock");
             }
             catch (Exception)
             {
