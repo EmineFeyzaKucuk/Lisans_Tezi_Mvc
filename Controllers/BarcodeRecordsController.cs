@@ -30,6 +30,16 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+        public ActionResult BarcodeRecordsDelete() 
+        {
+            int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
+
+
+            _barcodeRecordsRepository.Delete(stokKodu);
+
+            return RedirectToAction("BarcodeRecords", "Stock");
+
+        }
 
 
 

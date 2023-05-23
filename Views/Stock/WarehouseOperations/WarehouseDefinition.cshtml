@@ -8,7 +8,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="WarehouseDefinition" asp-action="CreateWarehouseDefinition">
+            <form method="post"id="formP" asp-controller="WarehouseDefinition" asp-action="CreateWarehouseDefinition">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -148,6 +148,11 @@
                                                 <button type="submit" class="btn btn-success">Ekle</button>
                                             </div>
                                         </div>
+                                        <div class="row mt-2">
+                                            <div class="col-md-1 text-start">
+                                                <button type="submit" class="btn btn-success" id="silP">Sil</button>
+                                            </div>
+                                        </div>
 
 
 
@@ -212,4 +217,40 @@
 
     </div>
 </div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+
+
+            $("#silP").click(function (e) {
+                e.preventDefault();
+
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Depo Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#formP").attr("action", "/Stock/WareHouseDefinition/WarehouseDefinitionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+
+            });
+
+        })
+
+    })
+</script>
 

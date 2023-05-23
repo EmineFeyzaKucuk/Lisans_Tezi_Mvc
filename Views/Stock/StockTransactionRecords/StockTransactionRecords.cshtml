@@ -3,13 +3,16 @@
     Layout = "~/Views/Stock/StockTransactionRecords/_LayoutStockTransactionRecords.cshtml";
     ViewData["Title"] = "stockTransactionRecords";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
 @model dynamic
+
  <div class="container"  >
         <div class="row">
             <div class="col-md-12">
 
-            <form method="post" asp-controller="StockTransactionRecords" asp-action="CreateStockTransactionRecords">
-
+            <form method="post" id="formP" asp-controller="StockTransactionRecords" asp-action="CreateStockTransactionRecords">
+            
                 
          
                         <div class="col-md-12">
@@ -241,8 +244,14 @@
                     <div class="row mt-2">
                         <div class="col-md-1 text-start">
                             <button type="submit" class="btn btn-success">Ekle</button>
+                            <button type="submit" class="btn btn-success" id="silP" > Sil </button>
+                            
                         </div>
+
                     </div>
+
+                  
+              
                          
                     </div>
                  </form>
@@ -250,4 +259,45 @@
                 </div>  
              </div>       
           </div>
+
+
+ </div>
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+ 
+
+            $("#silP").click(function (e) {
+                e.preventDefault();
+
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Stok Kart Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#formP").attr("action", "/StockTransactionRecords/StockCardDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+             
+            });
+
+        })
+
+    })
+</script>
 
