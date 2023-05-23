@@ -12,6 +12,7 @@ using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
+using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -72,7 +73,7 @@ public class DBInfo
             builder.Services.AddScoped<IOperationDescriptionRepository, OperationDescriptionRepository>();
             builder.Services.AddScoped<IOperatorTypesDescriptionRepository, OperatorTypesDescriptionRepository>();
             builder.Services.AddScoped<IOperatorDescriptionRepository, OperatorDescriptionRepository>();
-
+            builder.Services.AddScoped<IProductGroupDefinitionsRepository, ProductGroupDefinitionsRepository>();
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

@@ -9,6 +9,7 @@ using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
+using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -26,14 +27,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IOperationDescriptionRepository _operationDescriptionRepository;
         private readonly IOperatorTypesDescriptionRepository _operatorTypesDescriptionRepository;
         private readonly IOperatorDescriptionRepository _operatorDescriptionRepository;
+        private readonly IProductGroupDefinitionsRepository _productGroupDefinitionsRepository;
 
-        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository)
+        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository, IProductGroupDefinitionsRepository productGroupDefinitionsRepository)
         {
 
             _machineIdentificationRepository = machineIdentificationRepository;
             _operationDescriptionRepository = operationDescriptionRepository;
             _operatorTypesDescriptionRepository = operatorTypesDescriptionRepository;
             _operatorDescriptionRepository = operatorDescriptionRepository;
+            _productGroupDefinitionsRepository = productGroupDefinitionsRepository;
         }
 
 
@@ -92,6 +95,9 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult ProductGroupDefinitions()
         {
+
+
+            ViewBag.data1 = _productGroupDefinitionsRepository.GetAll();
             return View("~/Views/Production/ProductGroupDefinitions/ProductGroupDefinitions.cshtml" );
         }
 

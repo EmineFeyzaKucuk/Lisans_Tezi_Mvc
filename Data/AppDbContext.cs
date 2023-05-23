@@ -40,7 +40,8 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<OPERATION_DESCRIPTION> Uretim_OperasyonTanimlama_TBL { get; set; }
         public DbSet<OPERATOR_DESCRIPTION> Uretim_OperatorTanimlama_TBL { get; set; }
         public DbSet<OPERATOR_TYPES_DESCRIPTION> Uretim_OperatorTuruTanimlama_TBL { get; set; }
-     
+        public DbSet<PRODUCT_GROUP_DEFINITIONS> Uretim_UrunGrubuTanimlamalari_TBL { get; set; }
+
 
 
     }

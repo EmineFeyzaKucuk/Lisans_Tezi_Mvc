@@ -3,10 +3,10 @@
     ViewData["Title"] = "ProductGroupDefinitions";
 }
 
-<div class="container" style="background-color: grey;">
+<div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="ProductGroupDefinitions" asp-action="CreateProductGroupDefinitions">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -22,10 +22,10 @@
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Ürün Grubu Kodu:</label>
+                                                    <label for="URUN_GRUBU_KODU">Ürün Grubu Kodu:</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="URUN_GRUBU_KODU" name="URUN_GRUBU_KODU" type="text">
                                                 </div>
 
                                             </div>
@@ -36,7 +36,7 @@
                                                     <label for="stok_kodu">Açıklama:</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
                                                 </div>
 
                                             </div>
@@ -44,56 +44,16 @@
 
 
 
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Ürün Grubu Kodu  </th>
-                                                            <th scope="col">Açıklama </th>
-
-
-
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-
-
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td colspan="2">Larry the Bird</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-
-
-                                            </div>
-                                        </div>
-
-
+                                       
                                         <div class="col-md-12">
                                             <div class="row mt-3">
 
 
-
-                                                <div class="col-md-1 text-start">
-                                                    <button type="button" class="btn btn-secondary">Kaydet</button>
-                                                </div>
+                                          
+                                                    <div class="col-md-1 text-start">
+                                                        <button type="submit" class="btn btn-success">Ekle</button>
+                                                    </div>
+                                    
 
                                                 <div class="col-md-1 text-start">
                                                     <button type="button" class="btn btn-secondary">Sil</button>
@@ -116,6 +76,43 @@
                 </div>
 
             </form>
+
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ürün Grubu Kodu</th>
+                                    <th scope="col">Açıklama</th>
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data1)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.URUN_GRUBU_KODU</td>
+                                        <td>@item.ACIKLAMA</td>
+                                    
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

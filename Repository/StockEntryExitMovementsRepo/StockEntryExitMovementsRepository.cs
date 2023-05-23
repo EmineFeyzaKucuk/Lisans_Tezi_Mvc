@@ -18,6 +18,7 @@ namespace Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo
         }
 
 
+    
 
         public WAREHOUSE_DEFINITION GetById(int id)
         {
