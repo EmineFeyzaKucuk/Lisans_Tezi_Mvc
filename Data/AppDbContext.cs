@@ -10,16 +10,19 @@ namespace Lisans_Tezi_Mvc.Data
             
         }
 
-//****************STOK****************************************************************************
+        //*************Genel İşlemler
+
+        public DbSet<GENERAL_MADE_OF_DEFINITION> Genel_MamulKoduTanimlama_TBL { get; set; }
+        public DbSet<GENERAL_CURRENCY_DEFINITION> Genel_ParaBirimiTanimlama_TBL { get; set; }
+        public DbSet<GENERAL_BARCODE_TYPE_DEFINITION> Genel_BarkodTipiTanimlama_TBL { get; set; }
+
+        public DbSet<GENERAL_MEASUREMENT_UNIT> Genel_OlcuBirimiTanimlama_TBL { get; set; }
+        //****************STOK****************************************************************************
         public DbSet<STOCK_INFORMATION> StokBilgisi_TBL { get; set; }
         public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
 
         public DbSet<EMPLOYEE_DEFINITION> Personel_TBL { get; set; }
 
-        public DbSet<GENERAL_CURRENCY_DEFINITION> Genel_ParaBirimiTanimlama_TBL { get; set; }
-        public DbSet<GENERAL_BARCODE_TYPE_DEFINITION> Genel_BarkodTipiTanimlama_TBL { get; set; }
-        
-        public DbSet<GENERAL_MEASUREMENT_UNIT> Genel_OlcuBirimiTanimlama_TBL { get; set; }
         public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama_TBL { get; set; }
         public DbSet<WAREHOUSE_DEFINITION> DepoTanimlama_TBL { get; set; }
         public DbSet<STOCK_TRANSACTION_RECORDS_ENTRY> Stok_IslemHareketKayitlari_TBL { get; set; }
@@ -41,6 +44,9 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<OPERATOR_DESCRIPTION> Uretim_OperatorTanimlama_TBL { get; set; }
         public DbSet<OPERATOR_TYPES_DESCRIPTION> Uretim_OperatorTuruTanimlama_TBL { get; set; }
         public DbSet<PRODUCT_GROUP_DEFINITIONS> Uretim_UrunGrubuTanimlamalari_TBL { get; set; }
+        public DbSet<PRODUCTION_ORDER_ENTRY> Uretim_UretimEmriGiris_TBL { get; set; }
+        public DbSet<PRODUCTION_RECORD> Uretim_UretimKaydi_TBL { get; set; }
+        public DbSet<WORKSTATION_IDENTIFICATION> Uretim_IsIstasyonuTanimlama_TBL { get; set; }
 
 
 

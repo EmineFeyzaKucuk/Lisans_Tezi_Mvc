@@ -9,10 +9,13 @@ using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
+using Lisans_Tezi_Mvc.Repository.MadeOfDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
+using Lisans_Tezi_Mvc.Repository.ProductionOrderEntryRepo;
+using Lisans_Tezi_Mvc.Repository.ProductionRecordRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -21,6 +24,7 @@ using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
+using Lisans_Tezi_Mvc.Repository.WorkstationIdentificationRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -59,6 +63,7 @@ public class DBInfo
             builder.Services.AddScoped<IWarehouseDefinitionRepository, WarehouseDefinitonRepository>();
             builder.Services.AddScoped<ICurrencyDefinitionRepository, CurrencyDefinitionRepository>();
             builder.Services.AddScoped<IUnitofMeasureDefinitionRepository, UnitofMeasureDefinitionRepository>();
+            builder.Services.AddScoped<IMadeOfDefinitionRepository, MadeOfDefinitionRepository>();
             builder.Services.AddScoped<ICurrentCardIdentificationRepository, CurrentCardIdentificationRepository>();
             builder.Services.AddScoped<IStockCard2Repository, StockCard2Repository>();
             builder.Services.AddScoped<IGroupCodeRecordsRepository, GroupCodeRecordsRepository>();
@@ -74,6 +79,9 @@ public class DBInfo
             builder.Services.AddScoped<IOperatorTypesDescriptionRepository, OperatorTypesDescriptionRepository>();
             builder.Services.AddScoped<IOperatorDescriptionRepository, OperatorDescriptionRepository>();
             builder.Services.AddScoped<IProductGroupDefinitionsRepository, ProductGroupDefinitionsRepository>();
+            builder.Services.AddScoped<IProductionOrderEntryRepository, ProductionOrderEntryRepository>();
+            builder.Services.AddScoped<IProductionRecordRepository, ProductionRecordRepository>();
+            builder.Services.AddScoped<IWorkstationIdentificationRepository, WorkstationIdentificationRepository>();
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

@@ -20,9 +20,6 @@ namespace Lisans_Tezi_Mvc.Repository.ProductionOrderEntryRepo
 
         public GENERAL_MEASUREMENT_UNIT GetByName3(string name)
         {
-
-
-
             var data3 = _appDbContext.Genel_OlcuBirimiTanimlama_TBL.ToList();
             var olcuBirimiKodu = data3.First(x => x.OLCU_BIRIMI_KODU == name);
             return olcuBirimiKodu;

@@ -2,7 +2,7 @@
     Layout = "~/Views/Production/ProductionOrderEntry/_LayoutProductionOrderEntry.cshtml";
     ViewData["Title"] = "ProductionOrderEntry";
 }
-
+@model dynamic
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -50,7 +50,7 @@
                                                     <label for="TARIH">Tarih:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="TARIH" name="TARIH" type="text">
+                                                    <input class="form-control " id="TARIH" name="TARIH" type="date">
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -113,7 +113,7 @@
                                                                             <option value="">Seçiniz</option>
                                                                             @foreach (var item in ViewBag.data2)
                                                                             {
-                                                                                <option value="@item.CAR_KODU">@item.UNVAN</option>
+                                                                                <option value="@item.CARI_KODU">@item.UNVAN</option>
                                                                             }
                                                                         </select>
                                                                     </div>
@@ -174,11 +174,11 @@
                                                                 <div class="row mt-3">
                                                                     <div class="col-md-6">
                                                                         <label for="ISLEM_BIRIMI">İşlem Birimi:</label>
-                                                                        <select id="OLCU_BIRIMI_KODU" name="OLCU_BIRIMI_KODU" class="form-control">
+                                                                        <select id="ISLEM_BIRIMI" name="ISLEM_BIRIMI" class="form-control">
                                                                             <option value="">Seçiniz</option>
                                                                             @foreach (var item in ViewBag.data4)
                                                                             {
-                                                                                <option value="@item.ISLEM_BIRIMI">@item.OLCU_BIRIMI_ADI</option>
+                                                                                <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_ADI</option>
                                                                             }
                                                                         </select>
                                                                     </div>
@@ -241,6 +241,7 @@
                                     <th scope="col">Üretim Emri Veren</th>
                                     <th scope="col">Açıklama</th>
                                     <th scope="col">Stok İçin Üretim</th>
+                                    <th scope="col">Sipariş İçin Üretim</th>
                                     <th scope="col">Sipariş No</th>
                                     <th scope="col">Cari Hesap Kodu</th>
                                     <th scope="col">Stok Kodu</th>
