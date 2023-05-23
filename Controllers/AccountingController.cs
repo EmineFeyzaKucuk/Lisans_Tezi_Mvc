@@ -33,13 +33,54 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CurrentCardIdentification()
         {
-
-    
             var data = _currencyDefinitionRepository.GetAll();
             return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml",data);
         }
 
-      
+
+        public IActionResult UniformChartOfAccountsEntry()
+        {
+            return View("~/Views/Accounting/UniformChartOfAccountsEntry/UniformChartOfAccountsEntry.cshtml");
+        }
+
+        public IActionResult OffsetReceiptEntry()
+        {
+            return View("~/Views/Accounting/OffsetReceiptEntry/OffsetReceiptEntry.cshtml");
+        }
+
+
+        public IActionResult IncomingTransfer()
+        {
+            return View("~/Views/Accounting/IncomingTransfer/IncomingTransfer.cshtml");
+        }
+
+        public IActionResult OutgoingRemittance()
+        {
+            return View("~/Views/Accounting/OutgoingRemittance/OutgoingRemittance.cshtml");
+        }
+
+
+        public IActionResult AlternativeChartOfAccountsEntry()
+        {
+            return View("~/Views/Accounting/AlternativeChartOfAccountsEntry/AlternativeChartOfAccountsEntry.cshtml");
+        }
+
+
+        public IActionResult CreditNote()
+        {
+            return View("~/Views/Accounting/CreditNote/CreditNote.cshtml");
+        }
+
+        public IActionResult CurrentTransferVir()
+        {
+            return View("~/Views/Accounting/CurrentTransferVir/CurrentTransferVir.cshtml");
+        }
+
+        public IActionResult DebitMemo()
+        {
+            return View("~/Views/Accounting/DebitMemo/DebitMemo.cshtml");
+        }
+
 
     }
 }

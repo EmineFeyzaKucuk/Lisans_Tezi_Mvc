@@ -116,9 +116,17 @@
                                         
                                         <li> <a asp-action="CurrentCardIdentification" asp-controller="Accounting" class="link-dark rounded"> Cari Kart Tanımlama</a> </li>
                                         <li> <a asp-action="AccountingCodeDefinition" asp-controller="AccountingCodeDefinition" class="link-dark rounded"> Muhasebe Kod Tanımlama</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Weekly</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Monthly</a> </li>
-                                        <li> <a href="#" class="link-dark rounded"> Annually</a> </li>
+                                        <li> <a asp-action="UniformChartOfAccountsEntry" asp-controller="Accounting" class="link-dark rounded">Tek Düzen Hesap Planı Girişi</a> </li>
+                                        <li> <a asp-action="AlternativeChartOfAccountsEntry" asp-controller="Accounting" class="link-dark rounded"> Alternatif Hesap Planı Girişi</a> </li>
+                                        <li> <a asp-action="CreditNote" asp-controller="Accounting" class="link-dark rounded">Borç Dekontu</a> </li>
+                                        <li> <a asp-action="DebitMemo" asp-controller="Accounting" class="link-dark rounded">Alacak Dekontu</a> </li>
+                                        <li> <a asp-action="CurrentTransferVir" asp-controller="Accounting" class="link-dark rounded"> Cari Virman</a> </li>
+                                
+                                        <li> <a asp-action="IncomingTransfer" asp-controller="Accounting" class="link-dark rounded">Gelen Havale</a> </li>
+                                        <li> <a asp-action="OutgoingRemittance" asp-controller="Accounting" class="link-dark rounded">Giden Havale</a> </li>
+                                        <li> <a asp-action="OffsetReceiptEntry" asp-controller="Accounting" class="link-dark rounded">Mahsup Fiş Girişi</a> </li>
+                             
+                       
                                     </ul>
                                 </div>
                             </li>

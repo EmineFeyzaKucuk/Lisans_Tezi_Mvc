@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "~/Views/Accounting/CurrentTransferVir/_LayoutCurrentTransferVir.cshtml";
+    ViewData["Title"] = "CurrentTransferVir";
+}
+@model dynamic
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+
+            <form action="post">
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body"><label>CARİ VİRMAN FİŞİ</label></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Belge No :</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Alacaklı Hesap Kodu :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Borçlu Hesap Kodu :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Borç Tutarı :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Açıklama :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Tarih :</label>
+                                                </div>
+                                                <div class="col-md-4 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Alacaklı Hesap Adı :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">Borçlu Hesap Adı :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="row mt-1">
+
+                                                    <label for="cars">Para Birimi:</label>
+
+                                                    <select name="cars" id="cars">
+                                                        <option selected disabled value="">Seçiniz...</option>
+                                                        <option value="volvo">TL</option>
+                                                        <option value="saab">USD</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Accounting/AlternativeChartOfAccountsEntry/_LayoutAlternativeChartOfAccountsEntry.cshtml";
+    ViewData["Title"] = "AlternativeChartOfAccountsEntry";
+}
+@model dynamic
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body"><label>ALTERNATİF HESAP PLANI GİRİŞİ</label></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">HESAP NUMARASI:</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">HESAP ADI :</label>
+                                                </div>
+                                                <div class="col-md-6 text-start">
+                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            A/P
+                                                        </label>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <label for="stok_kodu">ANA/DETAY:</label>
+
+
+
+                                                    <select name="cars" id="cars">
+
+                                                        <option value="saab">D</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
