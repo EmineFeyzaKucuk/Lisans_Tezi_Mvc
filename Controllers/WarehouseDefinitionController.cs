@@ -29,7 +29,15 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+        public IActionResult WarehouseDefinitionDelete()
+        {
+            int depoKodu = Convert.ToInt32(Request.Form["DEPO_KODU_LBL"].ToString());
 
+
+            _warehouseDefinitionRepository.Delete(depoKodu);
+
+            return RedirectToAction("WareHouseDefinition", "Stock");
+        }
 
 
 

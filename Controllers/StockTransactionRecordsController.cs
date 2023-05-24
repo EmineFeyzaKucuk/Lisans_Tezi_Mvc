@@ -1,4 +1,5 @@
-﻿using Lisans_Tezi_Mvc.Models;
+﻿//using AspNetCore;
+using Lisans_Tezi_Mvc.Models;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +24,31 @@ namespace Lisans_Tezi_Mvc.Controllers
                 _stockTransactionRecordsRepository.Add(stockTransactionRecordsRepository);
                 return RedirectToAction("StockTransactionRecords", "Stock");
             }
-            catch (Exception)
+             catch (Exception)
             {
-
-                return BadRequest("Eklenemedi");
+               
+               return BadRequest("Eklenemedi");
             }
+            
+
+        }
+
+        //public IActionResult Delete(int Id)
+        //    {
+        //        _stockTransactionRecordsRepository.Delete(Id);
+        //        return RedirectToAction("StockTransactionRecords", "Stock");
+
+        //    }
+
+        public IActionResult StockCardDelete()
+        {
+            int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
+
+
+            _stockTransactionRecordsRepository.Delete(stokKodu);
+
+            return RedirectToAction("StockTransactionRecords", "Stock");
+
 
         }
     }

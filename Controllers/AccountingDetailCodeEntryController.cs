@@ -31,6 +31,15 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+        public IActionResult AccountingCodeDelete()
+        {
+            int muhasebeKodu = Convert.ToInt32(Request.Form["MUHASEBE_KODU"].ToString());
+
+
+            _accountingDetailCodeEntryRepository.Delete(muhasebeKodu);
+
+            return RedirectToAction("AccountingDetailCodeEntry", "Stock");
+        }
 
 
 

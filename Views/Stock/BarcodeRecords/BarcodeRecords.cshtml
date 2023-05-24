@@ -8,7 +8,7 @@
     <div class="container"  >
         <div class="row">
             <div class="col-md-12">
-            <form method="post" asp-controller="BarcodeRecords" asp-action="CreateBarcodeRecords">
+            <form method="post"id="formP" asp-controller="BarcodeRecords" asp-action="CreateBarcodeRecords">
                     <div class="row">
                         <div class="col-md-12">
                   
@@ -141,9 +141,45 @@
                 <div class="row mt-2">
                     <div class="col-md-1 text-start">
                         <button type="submit" class="btn btn-success">Ekle</button>
+                        <button type="submit" class="btn btn-success" id="silP">Sil</button>
                     </div>
                 </div>
             </form>
               </div>    
             </div>
         </div>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+
+
+            $("#silP").click(function (e) {
+                e.preventDefault();
+
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Barkod Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#formP").attr("action", "/Stock/BarcodeRecords/BarcodeRecordsDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+
+            });
+
+        })
+
+    })
+</script>

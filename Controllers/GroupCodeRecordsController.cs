@@ -37,5 +37,15 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+
+        public IActionResult GrupCodeDelete(GROUP_CODE_DEFINITIONS groupCodeDefinition)
+        {
+            int grupKodu = Convert.ToInt32(Request.Form["GRUP_KODU"].ToString());
+
+
+            _groupCodeRecordsRepository.Delete(grupKodu);
+
+            return RedirectToAction("GroupCodeRecords", "Stock");
+        }
     }
 }

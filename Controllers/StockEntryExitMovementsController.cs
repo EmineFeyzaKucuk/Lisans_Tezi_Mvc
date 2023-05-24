@@ -32,6 +32,16 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         }
 
+        public IActionResult StockEntriyExitMovementsDelete()
+        {
+            int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
+
+
+            _stockEntryExitMovementsRepository.Delete(stokKodu);
+
+            return RedirectToAction("StockEntryExitMovements", "Stock");
+        }
+
 
     }
 }

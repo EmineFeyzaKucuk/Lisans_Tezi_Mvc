@@ -1,4 +1,13 @@
-﻿namespace Lisans_Tezi_Mvc.Models
+﻿using Microsoft.AspNetCore.Hosting;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
+namespace Lisans_Tezi_Mvc.Models
 {
     public class STOCK_TRANSACTION_RECORDS_ENTRY : BaseEntity
     {

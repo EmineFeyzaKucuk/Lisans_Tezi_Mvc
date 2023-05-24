@@ -12,4 +12,6 @@
         public string OLCU_BIRIMI_KODU { get; set; }
     
     }
+
+    
 }

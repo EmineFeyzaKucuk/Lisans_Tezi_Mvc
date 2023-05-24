@@ -1,4 +1,5 @@
-﻿using Lisans_Tezi_Mvc.Models;
+﻿//using AspNetCore;
+using Lisans_Tezi_Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -29,4 +30,6 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
+   
 }

@@ -7,7 +7,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="StockEntryExitMovements" asp-action="CreateStockEntryExitMovements">
+            <form method="post" int="formP" asp-controller="StockEntryExitMovements" asp-action="CreateStockEntryExitMovements">
 
                 <div class="row">
                     <div class="col-md-12">
@@ -153,7 +153,11 @@
                                                 <div class="col-md-1 text-start">
                                                     <button type="submit" class="btn btn-success">Ekle</button>
                                                 </div>
+                                                <div class="col-md-1 text-start">
+                                                    <button type="submit" class="btn btn-success" int="silP">Sil</button>
+                                                </div>
                                             </div>
+                                           
                                         </div>
                                     </div>
 
@@ -220,3 +224,38 @@
     </div>
 </div>
 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+
+
+            $("#silP").click(function (e) {
+                e.preventDefault();
+
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'İşlem Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#formP").attr("action", "/Stock/StockEntryExitMovements/StockEntriyExitMovementsDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+
+            });
+
+        })
+
+    })
+</script>
