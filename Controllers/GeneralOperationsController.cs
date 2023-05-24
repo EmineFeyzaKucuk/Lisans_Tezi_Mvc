@@ -27,10 +27,10 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         //Tip Tanımlama
 
-        public IActionResult TypeDefinition()
+        public IActionResult MadeOfDefinition()
         {
 
-            return View("~/Views/GeneralOperations/Definitions/TypeDefinition.cshtml");
+            return View("~/Views/GeneralOperations/Definitions/MadeOfDefinition.cshtml");
         }
         //Ölçü Birimi Tanımlama
 

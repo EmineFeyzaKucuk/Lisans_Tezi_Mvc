@@ -1,0 +1,74 @@
+﻿@model List<GENERAL_MADE_OF_DEFINITION>
+@{
+    Layout = "~/Views/GeneralOperations/Definitions/_LayoutDefinitions.cshtml";
+    ViewData["Title"] = "MadeOfDefinition";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Add" method="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+
+                            <label for="MAMUL_KODU">Mamul Kodu:</label>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="MAMUL_KODU" name="MAMUL_KODU" type="text">
+                        </div>
+                        <div class="col-md-2">
+
+                            <label for="MAMUL_ADI">Mamul Adı:</label>
+                        </div>
+
+                        <div class="col-md-4 text-start">
+                            <input class="form-control " id="MAMUL_ADI" name="MAMUL_ADI" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button type="submit">Ekle</button>
+
+            </form>
+
+            <div class="row mt-1">
+                <div class="col">
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Mamul Kodu</th>
+                                    <th scope="col">Mamul Adı</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.MAMUL_KODU</td>
+                                        <td>@item.MAMUL_ADI</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
