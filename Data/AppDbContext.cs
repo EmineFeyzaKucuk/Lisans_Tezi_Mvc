@@ -1,4 +1,5 @@
-﻿using Lisans_Tezi_Mvc.Models;
+﻿using AspNetCore;
+using Lisans_Tezi_Mvc.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lisans_Tezi_Mvc.Data
@@ -19,11 +20,11 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<GENERAL_MEASUREMENT_UNIT> Genel_OlcuBirimiTanimlama_TBL { get; set; }
         //****************STOK****************************************************************************
         public DbSet<STOCK_INFORMATION> StokBilgisi_TBL { get; set; }
-        public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
+
 
         public DbSet<EMPLOYEE_DEFINITION> Personel_TBL { get; set; }
 
-        public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama_TBL { get; set; }
+ 
         public DbSet<WAREHOUSE_DEFINITION> DepoTanimlama_TBL { get; set; }
         public DbSet<STOCK_TRANSACTION_RECORDS_ENTRY> Stok_IslemHareketKayitlari_TBL { get; set; }
         public DbSet<GROUP_CODE_DEFINITIONS> Stok_GrupKodTanimlama_TBL { get; set; }
@@ -48,7 +49,11 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<PRODUCTION_RECORD> Uretim_UretimKaydi_TBL { get; set; }
         public DbSet<WORKSTATION_IDENTIFICATION> Uretim_IsIstasyonuTanimlama_TBL { get; set; }
 
+        //**************MUHASEBE**************************************************************************************
+        public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama_TBL { get; set; }
+        public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
 
+     //   public DbSet<ACCOUNT> MuhasebeKodTanimlama_TBL { get; set; }
 
     }
 
