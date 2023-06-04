@@ -5,7 +5,7 @@
 
         public string STOK_KODU { get; set; }
     
-        public string BARKOD { get; set; }
+        public int BARKOD { get; set; }
         public string ACIKLAMA { get; set; }
         public DateTime KAYIT_TARIHI { get; set; }
         public string BARKOD_TIPI { get; set; }
