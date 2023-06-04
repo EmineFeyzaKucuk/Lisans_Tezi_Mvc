@@ -5,6 +5,8 @@ using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
+using Lisans_Tezi_Mvc.Repository.UniformChartOfAccountsEntryRepo;
+using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -12,12 +14,16 @@ namespace Lisans_Tezi_Mvc.Controllers
     {
         private readonly ICurrentCardIdentificationRepository _currentCardIdentificationRepository;
         private readonly ICurrencyDefinitionRepository _currencyDefinitionRepository;
+        private readonly IUniformChartOfAccountsEntryRepository _uniformChartOfAccountsEntryRepository;
+        private readonly IAlternativeChartOfAccountsEntryRepository _alternativeChartOfAccountsEntryRepository;
+        private readonly AlternativeChartOfAccountsEntryController _alternativeChartOfAccountsEntry;
 
-
-        public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository)
+        public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUniformChartOfAccountsEntryRepository uniformChartOfAccountsEntryRepository,IAlternativeChartOfAccountsEntryRepository alternativeChartOfAccountsEntryRepository)
         {
             _currentCardIdentificationRepository = currentCardIdentificationRepository;
             _currencyDefinitionRepository = currencyDefinitionRepository;
+            _uniformChartOfAccountsEntryRepository = uniformChartOfAccountsEntryRepository;
+            _alternativeChartOfAccountsEntryRepository = alternativeChartOfAccountsEntryRepository;
         }
 
         public IActionResult Index()
@@ -44,6 +50,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult UniformChartOfAccountsEntry()
         {
+            ViewBag.data1 = _uniformChartOfAccountsEntryRepository.GetAll();
             return View("~/Views/Accounting/UniformChartOfAccountsEntry/UniformChartOfAccountsEntry.cshtml");
         }
 
@@ -66,6 +73,9 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult AlternativeChartOfAccountsEntry()
         {
+
+            ViewBag.data1 = _alternativeChartOfAccountsEntryRepository.GetAll();
+            
             return View("~/Views/Accounting/AlternativeChartOfAccountsEntry/AlternativeChartOfAccountsEntry.cshtml");
         }
 

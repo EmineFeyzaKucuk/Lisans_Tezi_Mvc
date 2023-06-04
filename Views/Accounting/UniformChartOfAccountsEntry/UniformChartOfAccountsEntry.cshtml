@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form action="post">
+            <form method="post" asp-controller="UniformChartOfAccountsEntry" asp-action="CreateUniformChartOfAccountsEntry">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -22,18 +22,18 @@
                                             <div class="row mt-1">
                                                 
                                                 <div class="col">
-                                                    <label for="stok_kodu">HESAP NUMARASI:</label>
+                                                    <label for="HESAP_NUMARASI">HESAP NUMARASI:</label>
                                                 </div>
                                                 <div class="col text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="HESAP_NUMARASI" name="HESAP_NUMARASI" type="text">
                                                 </div>
                                             
                                             
                                                 <div class="col">
-                                                    <label for="stok_kodu">HESAP ADI :</label>
+                                                    <label for="HESAP_ADI">HESAP ADI :</label>
                                                     </div>
                                                     <div class="col text-start">
-                                                        <input class="form-control " id="stok_kodu" type="text">
+                                                        <input class="form-control " id="HESAP_ADI" name="HESAP_ADI" type="text">
                                                     </div>
                                                 </div>
                                                
@@ -44,39 +44,99 @@
                                   
                                         </div>
                                     <div class="row mt-1">
-
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    A/P
-                                                </label>
-                                            </div>
-
-
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <label for="stok_kodu">ANA/DETAY:</label>
-                                            <select name="cars" id="cars">
-                                                <option selected disabled value="">Seçiniz...</option>
-                                                <option value="volvo">A</option>
-                                                <option value="saab">D</option>
-
-                                            </select>
-                                        </div>
+                                    <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="true" name="A_P" id="A_P">
+                                        <label class="form-check-label" for="A_P">
+                                            A/P
+                                        </label>
+                                    </div>
+                                    
+                                    </div>
 
                                     </div>
 
 
+                                <div class="row mt-1">
+
+                                <div class="col-md-12">
+
+                                    <div>
+                                        <label for="A_D">
+                                            <input type="radio" name="A_D" value="Ana" /> Ana Seçenek
+                                        </label>
                                     </div>
+                                    <div>
+                                        <label for="A_D">
+                                            <input type="radio" name="A_D" value="Detay" /> Detay Seçenek
+                                        </label>
+                                    </div>
+
+                                </div>
+                                </div>
+
                                 </div>
                             </div>
                         </div>
-            </form>
+                        </div>
+                 <div class="row mt-2">
+                        <div class="col-md-12 text-start">
+                    <div class="col-md-1 text-start">
+                        <button type="submit" class="btn btn-success">Ekle</button>
+                    </div>
 
+                    <div class="col-md-1 text-start">
+                        <button type="submit" class="btn btn-success">Sil</button>
+
+
+                    </div>
+                    </div>
+                </div>
+                
+             
+            </form>
+      
+    </div>
+    </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+
+            @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Hesap Numarası</th>
+                            <th scope="col">Hesap Adı</th>
+                            <th scope="col">A/P</th>
+                            <th scope="col">A/D</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.data1)
+                        {
+                            <tr>
+                                <th scope="row">@item.Id</th>
+                                <td>@item.HESAP_NUMARASI</td>
+                                <td>@item.HESAP_ADI</td>
+                                <td>@item.A_P</td>
+                                <td>@item.A_D</td>
+                            
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Kayıt bulunamadı.</p>
+            }
 
         </div>
     </div>
-</div>
+
+

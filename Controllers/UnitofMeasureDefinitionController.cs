@@ -25,11 +25,11 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Ok("Liste Boş");
 
         }
-        public IActionResult Add(GENERAL_MEASUREMENT_UNIT unitofMeasureDefinition)
+        public IActionResult Add(GENERAL_MEASUREMENT_UNIT measurementunit)
         {
             try
             {
-                _unitofMeasureDefinitionRepository.Add(unitofMeasureDefinition);
+                _unitofMeasureDefinitionRepository.Add(measurementunit);
                 return RedirectToAction("UnitofMeasureDefinition");
             }
             catch (Exception)
@@ -39,5 +39,6 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+
     }
 }
