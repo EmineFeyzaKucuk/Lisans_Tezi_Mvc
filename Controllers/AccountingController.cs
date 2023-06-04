@@ -4,16 +4,19 @@ using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
     public class AccountingController :Controller
     {
+        private readonly ICurrentCardIdentificationRepository _currentCardIdentificationRepository;
         private readonly ICurrencyDefinitionRepository _currencyDefinitionRepository;
 
 
-        public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository)
+        public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository)
         {
+            _currentCardIdentificationRepository = currentCardIdentificationRepository;
             _currencyDefinitionRepository = currencyDefinitionRepository;
         }
 
@@ -33,8 +36,9 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CurrentCardIdentification()
         {
-            var data = _currencyDefinitionRepository.GetAll();
-            return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml",data);
+            ViewBag.data1 = _currencyDefinitionRepository.GetAll();
+            ViewBag.data2 = _currentCardIdentificationRepository.GetAll();
+            return View("~/Views/Accounting/CurrentCardIdentification/CurrentCardIdentification.cshtml");
         }
 
 

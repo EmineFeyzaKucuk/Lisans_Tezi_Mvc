@@ -10,24 +10,38 @@
         <div class="col-md-12">
             <div class="row mt-2">
                 <form asp-action="Add" method="post">
-                    <div class="col-md-2">
+                    <div class="row mt-2">
+                        
+                    <div class="col-md-4">
                         <label for="MUHASEBE_KODU_lbl">Muhasebe Kodu:</label>
                     </div>
-                    <div class="col-md-4 text-start">
+                    <div class="col-md-8 text-start">
                         <input class="form-control " name="MUHASEBE_KODU" type="text">
                     </div>
-                    <div class="col-md-2">
+
+
+                    </div>
+
+                    <div class="row mt-2">
+                    <div class="col-md-4">
                         <label for="MUHASEBE_ADI_lbl">Muhasebe Adı:</label>
                     </div>
-                    <div class="col-md-4 text-start">
+                    <div class="col-md-8 text-start">
                         <input class="form-control " name="MUHASEBE_ADI" type="text">
                     </div>
-                    <button type="submit">Ekle</button>
+              
+                    </div>
+
+                    <div class="row mt-2">
+                      
+                            <div class="col-md-1 text-start">
+                                <button type="submit" class="btn btn-success">Ekle</button>
+                    </div>
+                    </div>
                 </form>
             </div>
        
-
-            <div class="row mt-1">
+               <div class="row mt-1">
                 <div class="col">
                     @if (Model != null && Model.Count > 0)
                     {

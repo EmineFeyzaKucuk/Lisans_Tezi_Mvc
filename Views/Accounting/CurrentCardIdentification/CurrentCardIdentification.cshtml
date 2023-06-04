@@ -5,45 +5,39 @@
 @model dynamic
 
 
-<div class="container" >
+<div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
             <form method="post"  asp-controller="AccountingCurrentCardIdentification" asp-action="CreateAccountingCurrentCardDefinition">
-
-                <div class="row">
-                    <div class="row mt-2">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <label>CARİ KART TANIMLARI</label>
+                                <div class="col-md-12"><label>CARİ KART TANIMLARI</label></div>
                                 </div>
                             </div>
-
+                  
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="row mt-2">
+                                                <div class="col-md-2">
                                                     <label for="CARI_KODU">Cari Kodu:</label>
                                                 </div>
 
-                                                <div class="col-md-6 text-start">
+                                                <div class="col-md-4 text-start">
                                                     <input class="form-control " name="CARI_KODU" type="text">
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
+                                                <div class="col-md-2">
                                                     <label for="UNVAN">Ünvan:</label>
                                                 </div>
-                                                <div class="col-md-6 text-start">
+                                                <div class="col-md-4 text-start">
                                                     <input class="form-control " name="UNVAN" type="text">
                                                 </div>
-                                            </div>
                                         </div>
-                                     
+                                        </div>
+                                        </div>
                                         <div class="row mt-2">
                                             <div class="col-md-12">
                                                 <div class="card">
@@ -61,7 +55,7 @@
                                                             <div class="col-md-4">
                                                                 <label for="POSTA_KODU">Posta Kodu:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
+                                                            <div class="col-md-8 text-start">
                                                                 <input class="form-control " name="POSTA_KODU" type="text">
                                                             </div>
                                                         </div>
@@ -69,7 +63,7 @@
                                                             <div class="col-md-4">
                                                                 <label for="VERGI_ADRESI">Vergi Dairesi:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
+                                                            <div class="col-md-8 text-start">
                                                                 <input class="form-control " name="VERGI_ADRESI" type="text">
                                                             </div>
                                                         </div>
@@ -77,7 +71,7 @@
                                                             <div class="col-md-4">
                                                                 <label for="VERGI_NO">Vergi No:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
+                                                            <div class="col-md-8 text-start">
                                                                 <input class="form-control " name="VERGI_NO" type="text">
                                                             </div>
                                                         </div>
@@ -85,15 +79,15 @@
                                                             <div class="col-md-4">
                                                                 <label for="TELEFON">Telefon:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
-                                                                <input class="form-control " name="TELEFON" type="text">
+                                                            <div class="col-md-8 text-start">
+                                                                <input class="form-control " name="TELEFON" id="TELEFON" type="TEXT">
                                                             </div>
                                                         </div>
                                                         <div class="row mt-1">
                                                             <div class="col-md-4">
                                                                 <label for="FAX">Fax:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
+                                                            <div class="col-md-8 text-start">
                                                                 <input class="form-control " name="FAX" type="text">
                                                             </div>
                                                         </div>
@@ -102,7 +96,7 @@
                                                             <div class="col-md-4">
                                                                 <label for="MUH_DETAY">Muhasebe Detay Kodu:</label>
                                                             </div>
-                                                            <div class="col-md-4 text-start">
+                                                            <div class="col-md-8 text-start">
                                                                 <input class="form-control " name="MUH_DETAY" type="text">
                                                             </div>
                                                         </div>
@@ -113,10 +107,10 @@
                                                             </div>
 
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-8">
                                                                 <select id="PARA_BIRIMI" name="PARA_BIRIMI" class="form-control">
                                                                     <option value="">Seçiniz</option>
-                                                                    @foreach (var item in Model)
+                                                                    @foreach (var item in ViewBag.data1)
                                                                     {
                                                                         <option value="@item.PARA_BIRIMI_KODU">@item.PARA_BIRIMI_KODU</option>
                                                                     }
@@ -137,45 +131,63 @@
 
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-1 text-start">
-                                        <button type="submit" class="btn btn-success">Ekle</button>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-1 text-start">
-                                        <button type="submit" class="btn btn-success" >Sil</button>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    
                     </div>
-                </div>
 
+                    <div class="row mt-2">
+                        <div class="col-md-1 text-start">
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+
+                        <div class="col-md-1 text-start">
+                            <button type="submit" class="btn btn-success">Sil</button>
+
+
+                        </div>
+
+                    </div>
+        
             </form>
+
+    </div>
+
         </div>
 
-        <div class="row mt-1">
+        <div class="row mt-3">
             <div class="col">
-                @if (Model != null && Model.Count > 0)
+
+                @if (ViewBag.data2 != null && ViewBag.data2.Count > 0)
                 {
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Muhasebe Kodu</th>
-                                <th scope="col">Muhasebe Adı</th>
+                                <th scope="col">Cari Kodu</th>
+                                <th scope="col">Unvan</th>
+                                <th scope="col">Adres</th>
+                                <th scope="col">Posta Kodu</th>
+                                <th scope="col">Vergi Adresi</th>
+                                <th scope="col">Vergi No</th>
+                                <th scope="col">Telefon</th>
+                                <th scope="col">Fax</th>
+                                <th scope="col">Muhasebe Detay</th>
+                                <th scope="col">Para Birimi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @foreach (var item in ViewBag.data2)
                             {
                                 <tr>
                                     <th scope="row">@item.Id</th>
                                     <td>@item.CARI_KODU</td>
                                     <td>@item.UNVAN</td>
+                                    <td>@item.ADRES</td>
+                                    <td>@item.POSTA_KODU</td>
+                                    <td>@item.VERGI_ADRESI</td>
+                                    <td>@item.VERGI_NO</td>
+                                    <td>@item.TELEFON</td>
+                                    <td>@item.FAX</td>
+                                    <td>@item.MUH_DETAY</td>
+                                    <td>@item.PARA_BIRIMI</td>
                                 </tr>
                             }
                         </tbody>
@@ -185,11 +197,13 @@
                 {
                     <p>Kayıt bulunamadı.</p>
                 }
+
             </div>
         </div>
 
        
     </div>
+
+
+
 </div>
-
-

@@ -28,6 +28,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             try
             {
+               //   return Ok(accountingCodeDefinition);
                 _accountingCodeDefinitionRepository.Add(accountingCodeDefinition);
                 return RedirectToAction("AccountingCodeDefinition");
             }

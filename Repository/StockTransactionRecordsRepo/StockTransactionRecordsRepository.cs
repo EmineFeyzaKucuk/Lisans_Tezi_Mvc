@@ -10,8 +10,7 @@ namespace Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo
         {
         }
 
-        public STOCK_INFORMATION GetByName(string name)
-
+    
         public STOCK_CARD_PROCESS_Framework GetByName(string name)
         {
             var data1 = _appDbContext.StokKart1_TBL.ToList();
