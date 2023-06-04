@@ -1,4 +1,4 @@
-﻿using AspNetCore;
+﻿
 using Lisans_Tezi_Mvc.Models;
 using Microsoft.EntityFrameworkCore;
 
