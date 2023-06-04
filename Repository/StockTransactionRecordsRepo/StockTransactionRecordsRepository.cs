@@ -11,9 +11,9 @@ namespace Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo
         }
 
 
-        public STOCK_INFORMATION GetByName(string name)
+        public STOCK_CARD_PROCESS_Framework GetByName(string name)
         {
-            var data1 = _appDbContext.StokBilgisi_TBL.ToList();
+            var data1 = _appDbContext.StokKart1_TBL.ToList();
             var stokKodu = data1.First(x => x.STOK_ADI == name);
             return stokKodu;
         }
@@ -22,10 +22,6 @@ namespace Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo
             var data2 = _appDbContext.DepoTanimlama_TBL.ToList();
             var warehouseefinition2 = data2.First(x => x.DEPO_KODU == id);
             return warehouseefinition2;
-
-
         }
-
-
     }
 }
