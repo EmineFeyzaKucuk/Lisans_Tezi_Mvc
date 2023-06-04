@@ -4,7 +4,7 @@
     ViewData["Title"] = "AccountingDetailCodeEntry";
 }
 
-@model dynamic
+@model Accounting_Detail_Code_Entry
  <div class="container" >
         <div class="row">
             <div class="col-md-12">
@@ -135,7 +135,8 @@
 
                             </div>
                         </div>
-              </div>
+                     </div>
+               </div>
                 </div>
                     <div class="row mt-2">
                         <div class="col-md-1 text-start">
@@ -156,8 +157,7 @@
         $(document).ready(function () {
 
 
-
-            $("#silP").click(function (e) {
+             $("#silP").click(function (e) {
                 e.preventDefault();
 
 
@@ -169,7 +169,7 @@
                         evet: {
                             text: 'Evet',
                             action: function () {
-                                $("#formP").attr("action", "/Stock/AccountingDetailCodeEntry/AccountingCodeDelete").submit()
+                                $("#formP").attr("action", "/Stock/AccountingDetailCodeEntry/deleteAccountingDetailCodeEntry").submit()
                             }
                         },
                         hayir: {

@@ -82,6 +82,7 @@ public class DBInfo
             builder.Services.AddScoped<IProductionOrderEntryRepository, ProductionOrderEntryRepository>();
             builder.Services.AddScoped<IProductionRecordRepository, ProductionRecordRepository>();
             builder.Services.AddScoped<IWorkstationIdentificationRepository, WorkstationIdentificationRepository>();
+            
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

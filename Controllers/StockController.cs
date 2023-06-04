@@ -199,10 +199,18 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             ViewBag.data1 = _stockInformationRepository.GetAll();
             ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
-            ViewBag.data3 = _stockTransactionRecordsRepository.GetAll(); 
+            ViewBag.data3 = _stockTransactionRecordsRepository.GetAll();
 
-            return View("~/Views/Stock/StockTransactionRecords/stockTransactionRecords.cshtml");
+            StockTransactionRecords1 str = new StockTransactionRecords1();
+            str.stokHareketBilgiGetir();
+
+
+            
+           return View("~/Views/Stock/StockTransactionRecords/stockTransactionRecords.cshtml",str);
         }
+
+    
+
 
         //Stock Kod Kayıtları
 
@@ -281,6 +289,15 @@ namespace Lisans_Tezi_Mvc.Controllers
             ViewBag.data5 = _stockEntryExitMovementsRepository.GetAll();
             return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements.cshtml");
         }
+
+        public IActionResult StockEntriyExitMovementsDelete(STOCK_IN_AND_OUT stock_in_and_out)
+        {
+            StockCardProcess ste = new StockCardProcess();
+            ste.deleteStockCard(stock_in_and_out.Id);
+
+            return Redirect("/StockEntriyExitMovements");
+        }
+
         //PERSONEL TANIMLAMA
         public IActionResult EmployeeDefinition()
         {
@@ -295,6 +312,7 @@ namespace Lisans_Tezi_Mvc.Controllers
   
 
     }
+
 
 }
 

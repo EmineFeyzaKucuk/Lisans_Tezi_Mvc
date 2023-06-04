@@ -5,6 +5,7 @@
        
         public string GRUP_KODU { get; set; }
         public string GRUP_ADI { get; set; }
-        
+
+   
     }
 }

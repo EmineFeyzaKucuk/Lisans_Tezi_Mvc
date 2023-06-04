@@ -4,10 +4,11 @@
 }
 @model dynamic
 
+
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="AccountingCurrentCardIdentification" asp-action="CreateAccountingCurrentCardDefinition">
+            <form method="post"  asp-controller="AccountingCurrentCardIdentification" asp-action="CreateAccountingCurrentCardDefinition">
 
                 <div class="row">
                     <div class="row mt-2">
@@ -44,7 +45,7 @@
                                         </div>
                                      
                                         <div class="row mt-2">
-                                            <div class="col-md-8">
+                                            <div class="col-md-12">
                                                 <div class="card">
                                                     <h5 class="card-header">Tanımlamalar</h5>
                                                     <div class="card-body">
@@ -119,12 +120,16 @@
                                                                     {
                                                                         <option value="@item.PARA_BIRIMI_KODU">@item.PARA_BIRIMI_KODU</option>
                                                                     }
+                                                              
+
                                                                 </select>
                                                             </div>
                                                         </div>
 
                                                     </div>
                                                 </div>
+
+                                               
                                             </div>
                                         </div>
 
@@ -137,6 +142,11 @@
                                         <button type="submit" class="btn btn-success">Ekle</button>
                                     </div>
                                 </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-1 text-start">
+                                        <button type="submit" class="btn btn-success" >Sil</button>
+                                    </div>
+                                </div>
                             </div>
                            
                         </div>
@@ -146,5 +156,40 @@
 
             </form>
         </div>
+
+        <div class="row mt-1">
+            <div class="col">
+                @if (Model != null && Model.Count > 0)
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Muhasebe Kodu</th>
+                                <th scope="col">Muhasebe Adı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Id</th>
+                                    <td>@item.CARI_KODU</td>
+                                    <td>@item.UNVAN</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>Kayıt bulunamadı.</p>
+                }
+            </div>
+        </div>
+
+       
     </div>
 </div>
+
+

@@ -11,7 +11,8 @@ namespace Lisans_Tezi_Mvc.Models
 {
     public class STOCK_TRANSACTION_RECORDS_ENTRY : BaseEntity
     {
-    
+
+        public int Id { get; set; }
         public string STOK_KODU { get; set; }
         public DateTime TARIH { get; set; }
         public string FIS_NO { get; set; }
@@ -26,5 +27,13 @@ namespace Lisans_Tezi_Mvc.Models
         public decimal GIRIS_TUTARI{ get; set; }
         public decimal CIKIS_TUTARI { get; set; }
         public int BAKIYE_MIKTARI { get; set; }
+
+
+
+    
+
+
     }
+
+
 }
