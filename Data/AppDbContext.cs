@@ -17,6 +17,7 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<GENERAL_BARCODE_TYPE_DEFINITION> Genel_BarkodTipiTanimlama_TBL { get; set; }
 
         public DbSet<GENERAL_MEASUREMENT_UNIT> Genel_OlcuBirimiTanimlama_TBL { get; set; }
+        
         //****************STOK****************************************************************************
         public DbSet<STOCK_INFORMATION> StokBilgisi_TBL { get; set; }
         public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
@@ -47,6 +48,8 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<PRODUCTION_ORDER_ENTRY> Uretim_UretimEmriGiris_TBL { get; set; }
         public DbSet<PRODUCTION_RECORD> Uretim_UretimKaydi_TBL { get; set; }
         public DbSet<WORKSTATION_IDENTIFICATION> Uretim_IsIstasyonuTanimlama_TBL { get; set; }
+        
+
 
 
 

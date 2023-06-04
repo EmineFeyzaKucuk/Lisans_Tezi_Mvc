@@ -167,7 +167,7 @@ namespace Lisans_Tezi_Mvc.Models
             }
         }
 
-
+      
     }
 
 

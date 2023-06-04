@@ -1,4 +1,5 @@
 ﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +29,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             try
             {
                 _groupCodeRecordsRepository.Add(groupCodeDefinition);
-                return RedirectToAction("GroupCodeRecords","Stock");
+                return RedirectToAction("GroupCodeRecords", "Stock");
             }
             catch (Exception)
             {
@@ -38,14 +39,26 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         }
 
-        public IActionResult GrupCodeDelete(GROUP_CODE_DEFINITIONS groupCodeDefinition)
+        //public IActionResult GrupCodeDelete(GROUP_CODE_DEFINITIONS groupCodeDefinition)
+        //{
+        //    int grupKodu = Convert.ToInt32(Request.Form["GRUP_KODU"].ToString());
+
+
+        //    _groupCodeRecordsRepository.Delete(grupKodu);
+
+        //    return RedirectToAction("GroupCodeRecords", "Stock");
+        //}
+
+        public IActionResult deleteGroupCodeRecords(GROUP_CODE_RECORDS groupCodeRecordsRepository)
         {
-            int grupKodu = Convert.ToInt32(Request.Form["GRUP_KODU"].ToString());
+            GROUP_CODE_RECORDS gc = new GROUP_CODE_RECORDS();
 
+            gc.deleteGroupCodeRecords(groupCodeRecordsRepository.GRUP_KODU);
+            
 
-            _groupCodeRecordsRepository.Delete(grupKodu);
-
-            return RedirectToAction("GroupCodeRecords", "Stock");
+            return RedirectToAction("GroupCodeRecords", "Stock/StockCodeRecords");
         }
+
     }
 }
+

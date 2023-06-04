@@ -5,37 +5,43 @@
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, Lisans_Tezi_Mvc
-@model dynamic
+@model StockTransactionRecords1
 
- <div class="container"  >
+<div class="container"  >
         <div class="row">
             <div class="col-md-12">
 
             <form method="post" id="formP" asp-controller="StockTransactionRecords" asp-action="CreateStockTransactionRecords">
-            
-                
+          
          
                         <div class="col-md-12">
                             <div class="row mt-2">
                              
 
-
                             <div class="row mt-2">
-                                <div class="col-md-2">
+                                <div class="col-md-12">
                                     <label for="stok_kodu">Stok kodu:</label>
                                 </div>
-                                <div class="col-md-5 text-start">
+                                <div class="col-md-10 text-start">
                                     <select id="STOK_KODU" name="STOK_KODU" class="form-control">
                                         <option value="">Seçiniz</option>
-                                        @foreach (var item in ViewBag.data1)
-                                        {
-                                            <option value="@item.STOK_KODU">@item.STOK_ADI</option>
-                                        }
-                                    </select>
+                                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                    {
+                                        <option value="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                    }
+
+                                 </select>
+                                
+                                
+
                                 </div>
+                 
                               
                              
                             </div>
+
+
+
 
                         </div>
 
@@ -87,7 +93,7 @@
                                             <div class="col">
                                                 <label for="DEPO_KODU">Depo</label>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-3">
                                                 <select id="DEPO_KODU" name="DEPO_KODU" class="form-control">
                                                     <option value="">Seçiniz</option>
                                                     @foreach (var item in ViewBag.data2)
@@ -96,6 +102,7 @@
                                                     }
                                                 </select>
                                             </div>
+
 
 
                                            
@@ -244,11 +251,12 @@
                     <div class="row mt-2">
                         <div class="col-md-1 text-start">
                             <button type="submit" class="btn btn-success">Ekle</button>
-                            <button type="submit" class="btn btn-success" id="silP" > Sil </button>
-                            
+                            <button type="submit" class="btn btn-success" id="silP"> Sil </button>
+
                         </div>
 
                     </div>
+
 
                   
               
@@ -259,9 +267,7 @@
                 </div>  
              </div>       
           </div>
-
-
- </div>
+</div>
 
 
 
@@ -284,7 +290,7 @@
                         evet: {
                             text: 'Evet',
                             action: function () {
-                                $("#formP").attr("action", "/StockTransactionRecords/StockCardDelete").submit()
+                                $("#formP").attr("action", "/StockTransactionRecords/deleteStockTransactionRecords").submit()
                             }
                         },
                         hayir: {

@@ -10,7 +10,6 @@ namespace Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo
         {
         }
 
-
         public STOCK_INFORMATION GetByName(string name)
         {
             var data1 = _appDbContext.StokBilgisi_TBL.ToList();

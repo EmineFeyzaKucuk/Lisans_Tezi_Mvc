@@ -2,6 +2,7 @@
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.WebRequestMethods;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -32,7 +33,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         }
 
-        public IActionResult StockEntriyExitMovementsDelete()
+        public IActionResult StockEntriyExitMovementsDelete(STOCK_IN_AND_OUT stock_in_and_out)
         {
             int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
 
@@ -41,6 +42,17 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             return RedirectToAction("StockEntryExitMovements", "Stock");
         }
+
+        //public IActionResult StockEntriyExitMovementsDelete(STOCK_IN_AND_OUT stock_in_and_out)
+        //{
+        //    StockCardProcess ste = new StockCardProcess();
+        //    ste.deleteStockCard(stock_in_and_out.Id);
+
+        //    return Redirect("/StockEntriyExitMovements");
+        //}
+
+
+
 
 
     }

@@ -31,16 +31,25 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
-        public IActionResult AccountingCodeDelete()
+        //public IActionResult AccountingCodeDelete()
+        //{
+        //    int muhasebeKodu = Convert.ToInt32(Request.Form["MUHASEBE_KODU"].ToString());
+
+
+        //    _accountingDetailCodeEntryRepository.Delete(muhasebeKodu);
+
+        //    return RedirectToAction("AccountingDetailCodeEntry", "Stock");
+        //}
+
+        public IActionResult deleteAccountingDetailCodeEntry(Accounting_Detail_Code_Entry accounting_Detail_Code_Entry)
         {
-            int muhasebeKodu = Convert.ToInt32(Request.Form["MUHASEBE_KODU"].ToString());
+            Accounting_Detail_Code_Entry ac = new Accounting_Detail_Code_Entry();
 
+            ac.deleteAccountingDetailCodeEntry(accounting_Detail_Code_Entry.MUHASEBE_KODU);
 
-            _accountingDetailCodeEntryRepository.Delete(muhasebeKodu);
 
             return RedirectToAction("AccountingDetailCodeEntry", "Stock");
         }
-
 
 
     }
