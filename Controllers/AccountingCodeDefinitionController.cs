@@ -39,8 +39,40 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
-     
+
+        [HttpDelete]
+        public IActionResult DeleteAccountingCodeDefinition(int id)
+        {
+            try
+            {
+               
+                _accountingCodeDefinitionRepository.Delete(id);
+                return RedirectToAction("AccountingCodeDefinition");
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("silinemedi");
+            }
+        }
+
+        public IActionResult EditAccountingCodeDefinition()
+        {
+            var id = Convert.ToInt32(Request.Query["id"]);
+            TempData["id"] = id;
+            ACCOUNTING_CODE_DEFINITION gelen = _accountingCodeDefinitionRepository.GetById(id);
+            return View("~/Views/Accounting/AccountingCodeDefinition/EditAccountingCodeDefinition.cshtml", gelen);
+        }
+        public IActionResult UpdateAccountingCodeDefinition(ACCOUNTING_CODE_DEFINITION  editAccounting)
+        {
+            int id = Convert.ToInt32(TempData["id"]);
+            ACCOUNTING_CODE_DEFINITION gelen = _accountingCodeDefinitionRepository.GetById(id);
+            gelen.MUHASEBE_KODU = editAccounting.MUHASEBE_KODU;
+            gelen.MUHASEBE_ADI = editAccounting.MUHASEBE_ADI;
+            _accountingCodeDefinitionRepository.Update(gelen, id);
+            return RedirectToAction("AccountingCodeDefinition");
 
 
+        }
     }
 }
