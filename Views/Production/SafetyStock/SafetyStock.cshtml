@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Production/SafetyStock/_LayoutSafetyStock.cshtml";
+    ViewData["Title"] = "SafetyStock";
+}
+@model SAFETY_STOCK
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" asp-controller="SafetyStock" asp-action="CreateSafetyStock">
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body"><label>GÜVENLİK STOĞU HESAPLAMA</label></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="gunlukTalep">Ortalama Günlük Talep(m²/gün):</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="gunlukTalep" name="gunlukTalep" type="number">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="gdkatsayi">Güven Düzeyi Katsayısı(%95(Z)):</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="gdkatsayi" type="number" name="gdkatsayi" value="2.58" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="standartSapma">Standart Sapma Değeri(σL (gün):</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="standartSapma" name="standartSapma" type="number">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <label for="teslimSuresi">Teslim Süresi (gün):</label>
+                                                </div>
+                                                <div class="col-md-3 text-start">
+                                                    <input class="form-control " id="teslimSuresi" name="teslimSuresi" type="number">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">Sonuc</span>
+                                                        <input type="number" class="form-control" name="result" id="result" value="0" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success">Ekle</button>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    @if (ViewBag.data3 != null && ViewBag.data3.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Günlük Talep</th>
+                                    <th scope="col">Güven Düzeyi Katsayı</th>
+                                    <th scope="col">Standart Sapma</th>
+                                    <th scope="col">Teslim Süresi</th>
+                                    <th scope="col">Sonuç</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.data3)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.gunlukTalep</td>
+                                        <td>@item.gdkatsayi</td>
+                                        <td>@item.standartSapma</td>
+                                        <td>@item.teslimSuresi</td>
+                                        <td>@item.result</td>
+                                      
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+    
+    let standardDeviation = $("#standartSapma");
+    let varyans = 0;
+    let guvenDuzeyi = $("#gdkatsayi");
+    let teslimSuresi = $("#teslimSuresi");
+    let talepOrt = $("#gunlukTalep");
+
+    const sonuc = $('#result');
+
+    function hesapla(){
+        let standardDeviationValue = Number(standardDeviation.val());
+        let guvenDuzeyiValue = Number(guvenDuzeyi.val());
+        let teslimSuresiValue = Number(teslimSuresi.val());
+        let talepOrtValue = Number(talepOrt.val());
+
+        var varyans = standardDeviationValue * standardDeviationValue;
+        var talepKare = talepOrtValue * talepOrtValue;
+        var result = (guvenDuzeyiValue * (Math.sqrt((varyans * teslimSuresiValue) + (talepKare * teslimSuresiValue)))).toFixed(4);
+        sonuc.val(result);
+        console.log(result)
+
+    }
+    guvenDuzeyi.on('input', hesapla);
+    teslimSuresi.on('input', hesapla);
+    talepOrt.on('input', hesapla);
+    standardDeviation.on('input', hesapla);
+
+</script>
