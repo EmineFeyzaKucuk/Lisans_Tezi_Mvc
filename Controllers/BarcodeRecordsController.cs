@@ -30,16 +30,81 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
-        public ActionResult BarcodeRecordsDelete() 
+
+
+        public IActionResult BarcodeRecordsNew()
         {
-            int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
+
+            BarcodeRecords sbk = new BarcodeRecords();
+            sbk.barkodBilgisiGetir();
 
 
-            _barcodeRecordsRepository.Delete(stokKodu);
+            sbk.dt.Tables[0].TableName = "Stokkodları";
+            sbk.dt.Tables[1].TableName = "barkod";
+            sbk.dt.Tables[1].TableName = "olcuBirimi";
 
-            return RedirectToAction("BarcodeRecords", "Stock");
+            return View("~/Views/Stock/BarcodeRecords/BarcodeRecords1.cshtml", sbk);
+            // return Content("burasır55rrrrrrrrr");
 
         }
+        public IActionResult BarcodeRecordsSave(BarcodeRecords sbk)
+        {
+            BarcodeRecords ste = new BarcodeRecords();
+            sbk.saveBarcodeRecords(sbk);
+
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
+
+            return Redirect("/Stock/BarcodeRecords");
+        }
+        public IActionResult BarcodeRecordsDelete(BarcodeRecords sbk)
+        {
+            BarcodeRecords ste = new BarcodeRecords();
+            sbk.deleteBarcodeRecords(sbk.STOK_KODU);
+
+            return Redirect("/Stock/BarcodeRecords");
+        }
+
+        public IActionResult BarcodeRecordsEdit(int sbkId)
+        {
+
+            BarcodeRecords ste = new BarcodeRecords();
+            ste.barkodBilgisiGetir();
+            ste.getBarcodeRecords(sbkId);
+
+            ste.dt.Tables[0].TableName = "Stokkodları";
+            ste.dt.Tables[1].TableName = "barkod";
+            ste.dt.Tables[2].TableName = "olcuBirimi";
+           
+
+
+            return View("~/Views/Stock/BarcodeRecords/BarcodeRecords1.cshtml", ste);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public ActionResult BarcodeRecordsDelete() 
+        //{
+        //    int stokKodu = Convert.ToInt32(Request.Form["STOK_KODU"].ToString());
+
+
+        //    _barcodeRecordsRepository.Delete(stokKodu);
+
+        //    return RedirectToAction("BarcodeRecords", "Stock");
+
+        //}
 
 
 

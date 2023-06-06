@@ -33,11 +33,20 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
             catch (Exception)
             {
-
+                
                 return BadRequest("Eklenemedi");
             }
 
         }
+
+        public IActionResult GroupCodeDelete(GROUP_CODE_RECORDS gcr)
+        {
+            GROUP_CODE_RECORDS ste = new GROUP_CODE_RECORDS();
+            gcr.deleteGroupCodeRecords(gcr.GRUP_KODU);
+
+            return Redirect("/Stock/GroupCodeRecords");
+        }
+
 
         //public IActionResult GrupCodeDelete(GROUP_CODE_DEFINITIONS groupCodeDefinition)
         //{
@@ -56,9 +65,11 @@ namespace Lisans_Tezi_Mvc.Controllers
             gc.deleteGroupCodeRecords(groupCodeRecordsRepository.GRUP_KODU);
             
 
-            return RedirectToAction("GroupCodeRecords", "Stock/StockCodeRecords");
+            return RedirectToAction("GroupCodeRecords", " /Stock/GroupCodeRecords");
         }
 
+
+       
     }
 }
 

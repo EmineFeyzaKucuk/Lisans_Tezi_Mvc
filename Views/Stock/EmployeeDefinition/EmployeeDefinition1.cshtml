@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "~/Views/Stock/EmployeeDefinition/_LayoutEmployeeDefinition.cshtml";
+    ViewData["Title"] = "EmployeeDefinition1";
+}
+
+
+
+@model EmployeeDefinition
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/EmployeeDefinition/EmployeeDefinitionSave" method="post" enctype="multipart/form-data" name="employeeForm" id="employeeForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Personel Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="PERSONEL_ISIM">Personel İsim</label>
+                                        <input asp-for="PERSONEL_ISIM" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ADRES">Adres</label>
+                                        <input asp-for="ADRES" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="POSTA_KODU">Posta Kodu</label>
+                                        <input asp-for="POSTA_KODU" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="GSM">GSM No</label>
+                                        <input asp-for="GSM" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="E_POSTA">E-Posta</label>
+                                        <input asp-for="E_POSTA" type="text" class="form-control ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="employeeSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="employeeVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="employeeKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#employeeVazgec").click(function () {
+
+                $("#employeeForm").attr("action", "/EmployeeDefinition/EmployeeDefinition").submit()
+
+            });
+
+            $("#employeeSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Personel Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#employeeForm").attr("action", "/EmployeeDefinition/EmployeeDefinition/EmployeeDefinitionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+

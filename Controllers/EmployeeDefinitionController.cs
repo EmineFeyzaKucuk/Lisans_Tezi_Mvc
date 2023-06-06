@@ -18,15 +18,65 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
         public IActionResult EmployeeDefinition()
         {
-            var data = _employeeDefinitionRepository.GetAll();
+            EmployeeDefinition adc = new EmployeeDefinition();
 
-            if (data.Count > 0)
-            {
-                return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition.cshtml", data);
-            }
-            return Ok("Liste Boş");
+            adc.getAllEmployeeDefinition();
+
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition.cshtml",adc);
+           
+        }
+
+        public IActionResult EmployeeDefinitionNew()
+        {
+
+            EmployeeDefinition ste = new EmployeeDefinition();
+            ste.PersonelBilgisi();
+
+
+            ste.dt.Tables[0].TableName = "personel";
+
+
+
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition1.cshtml", ste);
+
 
         }
+        public IActionResult EmployeeDefinitionSave(EmployeeDefinition sbk)
+        {
+            EmployeeDefinition ste = new Models.EmployeeDefinition();
+            sbk.saveEmployeeDefinition(sbk);
+
+           
+
+            return Redirect("/EmployeeDefinition/EmployeeDefinition");
+        }
+
+        public IActionResult EmployeeDefinitionDelete(EmployeeDefinition sbk)
+        {
+            EmployeeDefinition ste = new EmployeeDefinition();
+            sbk.deleteEmployeeDefinition(sbk.Id);
+
+            return Redirect("/EmployeeDefinition/EmployeeDefinition");
+        }
+
+
+        public IActionResult EmployeeDefinitionEdit(int Id)
+        {
+
+            EmployeeDefinition ste = new EmployeeDefinition();
+            ste.PersonelBilgisi();
+            ste.getEmployeeDefinition(Id);
+
+            ste.dt.Tables[0].TableName = "personel";
+
+
+
+
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition1.cshtml", ste);
+
+        }
+
+
         public IActionResult Add(EMPLOYEE_DEFINITION employeeDefinitionRepository)
         {
             try

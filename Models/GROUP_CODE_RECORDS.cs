@@ -28,7 +28,7 @@ namespace Lisans_Tezi_Mvc.Models
         }
 
 
-        public void getStockTransactionRecords(int id)
+        public void getGroupCodeRecords(int id)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -60,7 +60,7 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("GrupCodeRecordsCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 1);
-                sqlCmd.Parameters.AddWithValue("@GRUP_KODU", GrupKodu);
+                sqlCmd.Parameters.AddWithValue("@pGRUP_KODU", GrupKodu); 
 
                 sqlCmd.ExecuteNonQuery();
 

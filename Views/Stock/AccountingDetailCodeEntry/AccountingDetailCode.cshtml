@@ -1,0 +1,174 @@
+﻿@{
+    Layout = "~/Views/Stock/AccountingDetailCodeEntry/_LayoutAccountingDetailCodeEntry.cshtml";
+    ViewData["Title"] = "AccountingDetailCode";
+}
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
+
+
+@model Accounting_Detail_Code_Entry
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/AccountingDetailCodeEntry/AccountingDetailCodeSave" method="post" enctype="multipart/form-data" name="accountingForm" id="accountingForm">
+
+            <div class="card card-primary card-outline">
+
+                <div class="card-header">
+                    <h3 class="card-title">Muhasebe Kod Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+                        
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                           
+                                    <div class="col-md-12">
+                                        <label for="MUHASEBE_KODU">Muhasebe Kodu:</label>
+                                    </div>
+                                    <div class="col-md-12 text-start">
+                                        <select id="MUHASEBE_KODU" name="MUHASEBE_KODU" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="ALIS_HESABI">Alış Hesabı:</label>
+                                    </div>
+                                    <div class="col-md-12 text-start">
+                                        <select id="ALIS_HESABI" name="ALIS_HESABI" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="ALISTAN_IADE_HESABI">Alıstan İade Hesabı:</label>
+                                    </div>
+                                    <div class="col-md-12 text-start">
+                                        <select id="ALISTAN_IADE_HESABI" name="ALISTAN_IADE_HESABI" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="SATIS_HESABI">Satış Hesabı:</label>
+                                    </div>
+                                    <div class="col-md-12 text-start">
+                                        <select id="SATIS_HESABI" name="SATIS_HESABI" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="SATISTAN_IADE_HESABI">Satıştan İade Hesabı:</label>
+                                    </div>
+                                    <div class="col-md-12 text-start">
+                                        <select id="SATISTAN_IADE_HESABI" name="SATISTAN_IADE_HESABI" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                
+                  
+                                </div>
+
+                             
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="accountingDetailSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="accountingDetailVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="accountingDetailKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+             </form>
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#accountingDetailVazgec").click(function () {
+
+                $("#accountingForm").attr("action", "/Stock/AccountingDetailCodeEntry").submit()
+
+            });
+
+            $("#accountingDetailSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Muhasebe Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#accountingForm").attr("action", "/ Stock / AccountingDetailCodeEntry/StockTransactionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>
+

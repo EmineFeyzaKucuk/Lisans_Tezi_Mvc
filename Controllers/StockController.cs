@@ -139,9 +139,9 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             return Redirect("/StockInformation");
         }
-            
 
 
+     
 
 
         public IActionResult AddStockCard1(STOCK_CARD1 stockCard1)
@@ -194,19 +194,24 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult stockTransactionRecords()
         {
 
-            ViewBag.data1 = _stockInformationRepository.GetAll();
+           /* ViewBag.data1 = _stockInformationRepository.GetAll();
             ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
             ViewBag.data3 = _stockTransactionRecordsRepository.GetAll();
+           */
 
             StockTransactionRecords1 str = new StockTransactionRecords1();
-            str.stokHareketBilgiGetir();
+            //str.stokHareketBilgiGetir();
+            str.getAllStockTransactionRecords();
+
 
 
             
-           return View("~/Views/Stock/StockTransactionRecords/stockTransactionRecords.cshtml",str);
+          return View("~/Views/Stock/StockTransactionRecords/StockTransactionRecords.cshtml",str);
         }
 
-    
+     
+
+
 
 
         //Stock Kod Kayıtları
@@ -222,31 +227,43 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             return View("~/Views/Stock/StockCodeRecords/Stock_GroupCodeDefine.cshtml");
         }
+
+
+        //ACCOUNTING DETAİL CODE ENTRY
     
         public IActionResult AccountingDetailCodeEntry()
         {
 
-            ViewBag.data1 = _accountingCodeDefinitionRepository.GetAll();
-            ViewBag.data2 = _accountingCodeDefinitionRepository.GetAll();
-            ViewBag.data3 = _accountingCodeDefinitionRepository.GetAll();
-            ViewBag.data4 = _accountingCodeDefinitionRepository.GetAll();
-            ViewBag.data5 = _accountingCodeDefinitionRepository.GetAll();
-            ViewBag.data6= _accountingDetailCodeEntryRepository.GetAll();
-        
+            //ViewBag.data1 = _accountingCodeDefinitionRepository.GetAll();
+            //ViewBag.data2 = _accountingCodeDefinitionRepository.GetAll();
+            //ViewBag.data3 = _accountingCodeDefinitionRepository.GetAll();
+            //ViewBag.data4 = _accountingCodeDefinitionRepository.GetAll();
+            //ViewBag.data5 = _accountingCodeDefinitionRepository.GetAll();
+            //ViewBag.data6= _accountingDetailCodeEntryRepository.GetAll();
 
-            return View("~/Views/Stock/AccountingDetailCodeEntry/AccountingDetailCodeEntry.cshtml");
+
+            Accounting_Detail_Code_Entry adc = new Accounting_Detail_Code_Entry();
+            
+            adc.getAllAccountingDetailCodeEntry();
+
+
+            return View("~/Views/Stock/AccountingDetailCodeEntry/AccountingDetailCodeEntry.cshtml",adc);
         }
         //BARKOD KAYITLARI
 
         public IActionResult BarcodeRecords()
         {
 
-            ViewBag.data1 = _stockInformationRepository.GetAll();
-            ViewBag.data2 = _barcodeTypeDefinitionRepository.GetAll();
-            ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
-            ViewBag.data4 = _barcodeRecordsRepository.GetAll();
+            //ViewBag.data1 = _stockInformationRepository.GetAll();
+            //ViewBag.data2 = _barcodeTypeDefinitionRepository.GetAll();
+            //ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
+            //ViewBag.data4 = _barcodeRecordsRepository.GetAll();
 
-            return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml");
+            BarcodeRecords sbk = new BarcodeRecords();
+
+            sbk.getAllBarcodeRecords();
+
+            return View("~/Views/Stock/BarcodeRecords/BarcodeRecords.cshtml",sbk);
         }
 
         //DEPO İŞLEMLERİ
@@ -257,20 +274,29 @@ namespace Lisans_Tezi_Mvc.Controllers
 
 
 
-            ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
-            ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
-            ViewBag.data3 = _stockInformationRepository.GetAll();
-            ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
-            ViewBag.data5 = _warehouseTransferReceiptRepository.GetAll();
+            //ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
+            //ViewBag.data2 = _warehouseDefinitionRepository.GetAll();
+            //ViewBag.data3 = _stockInformationRepository.GetAll();
+            //ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
+            //ViewBag.data5 = _warehouseTransferReceiptRepository.GetAll();
+
+            WarewhouseTransferReceipt sbk = new WarewhouseTransferReceipt();
+
+            sbk.getAllWarehouseTransferReceipt();
 
 
-            return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt.cshtml");
+            return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt.cshtml",sbk);
         }
         public IActionResult WarehouseDefinition()
         {
-            ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
-            ViewBag.data2 = _employeeDefinitionRepository.GetAll();
-            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml");
+            //ViewBag.data1 = _warehouseDefinitionRepository.GetAll();
+            //ViewBag.data2 = _employeeDefinitionRepository.GetAll();
+
+            WarehouseDefinition sbk = new WarehouseDefinition();
+
+            sbk.getAllWarehouseDefinition();
+
+            return View("~/Views/Stock/WarehouseOperations/WarehouseDefinition.cshtml",sbk);
         }
         
      
@@ -280,11 +306,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
 
 
-            ViewBag.data1= _warehouseDefinitionRepository.GetAll();
-            ViewBag.data2 = _stockInformationRepository.GetAll();
-            ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
-            ViewBag.data5 = _stockEntryExitMovementsRepository.GetAll();
-            return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements.cshtml");
+            //ViewBag.data1= _warehouseDefinitionRepository.GetAll();
+            //ViewBag.data2 = _stockInformationRepository.GetAll();
+            //ViewBag.data3 = _unitofMeasureDefinitionRepository.GetAll();
+            //ViewBag.data5 = _stockEntryExitMovementsRepository.GetAll();
+
+            StockInAndOut sbk = new StockInAndOut();
+
+            sbk.getAllStockInAndOut();
+
+            return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements.cshtml",sbk);
         }
 
         public IActionResult StockEntriyExitMovementsDelete(STOCK_IN_AND_OUT stock_in_and_out)
@@ -296,12 +327,20 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
 
         //PERSONEL TANIMLAMA
-        public IActionResult EmployeeDefinition()
-        {
-            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition.cshtml");
-        }
+
+
+        //public IActionResult EmployeeDefinition()
+        //{
+
+            
+        //    return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition.cshtml");
+        //}
+            
+
+
+
         //RİSKLİ MALZEME GRUBU TANIMLAMA
-              public IActionResult RiskyMaterialGroupDefinition()
+        public IActionResult RiskyMaterialGroupDefinition()
         {
             return View("~/Views/Stock/RiskyMaterialGroupDefinition/RiskyMaterialGroupDefinition.cshtml");
         }

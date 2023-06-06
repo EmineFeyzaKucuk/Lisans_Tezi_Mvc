@@ -1,0 +1,230 @@
+﻿@{
+    Layout = "~/Views/Stock/StockTransactionRecords/_LayoutStockTransactionRecords.cshtml";
+    ViewData["Title"] = "StockTransactionRecordsNew";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
+@model StockTransactionRecords1
+
+
+
+
+<div class="row" style="padding-top: 10px;">
+
+    <div class="col-md-9">
+        <form action="/StockTransactionRecords/StockTransactionSave" method="post" enctype="multipart/form-data" name="stokTForm" id="stokTForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Stok Hareket Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#genelTab" data-toggle="tab">Genel</a></li>
+                        <li class="nav-item"><a class="nav-link " href="#detayTab" data-toggle="tab">Detay</a></li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="genelTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="FIS_NO">Fiş No</label>
+                                        <input asp-is-disabled="@( (Model.Id == 0 ) ? false : true)" asp-for="FIS_NO" type="text" class="form-control ">
+                                        <input asp-for="Id" style="display:none;" />
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="stok_kodu">Stok kodu:</label>
+                                        </div>
+                                        <div class="col-md-12 text-start">
+                                            <select id="STOK_KODU" name="STOK_KODU" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                                {
+                                                    <option value="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+
+                                         </div>
+                                    <div class="form-group">
+                                        <label for="TARIH">Tarih</label>
+                                        <input asp-for="TARIH" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FIYAT">Fiyat</label>
+                                        <input asp-for="FIYAT" type="text" class="form-control ">
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="STOK_HAREKET_DURUMU" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Giriş
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="STOK_HAREKET_DURUMU" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Çıkış
+                                            </label>
+                                        </div>
+                                    </div>
+                                   
+                                  
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="MALIYET">Maliyet</label>
+                                        <input asp-for="MALIYET" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="MALIYET_FIYATI">Maliyet Fiyatı</label>
+                                        <input asp-for="MALIYET_FIYATI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BAKIYE_MIKTARI">Bakiye Miktarı</label>
+                                        <input asp-for="BAKIYE_MIKTARI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ACIKLAMA">Açıklama</label>
+                                        <input asp-for="ACIKLAMA" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stokDepoAdi">Depo Adı</label>
+                                        <select asp-for="DEPO_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables["depolar"].Rows)
+                                            {
+                                                <option value="@row["Id"]" data-subtext="@row["DEPO_KODU"]">@row["DEPO_ADI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                   
+                              
+
+                            </div>
+                         
+                        </div>
+
+                        <div id="detayTab" class="tab-pane">
+
+                            
+                                             <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="GIRIS_MIKTARI">Giriş Miktarı</label>
+                                        <input asp-for="GIRIS_MIKTARI" type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="GIRIS_TUTARI">Giriş Tutarı</label>
+                                        <input asp-for="GIRIS_TUTARI"   type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                            </div>
+                                 <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="CIKIS_MIKTARI">Çıkış Miktarı</label>
+                                        <input asp-for="CIKIS_MIKTARI" type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CIKIS_TUTARI">Çıkış Tutarı</label>
+                                        <input asp-for="CIKIS_TUTARI"   type="text" class="form-control " >
+                                    </div>
+                                </diV>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                       
+                                    <div class="form-group">
+                                        <label for="BAKIYE_MIKTARI">Bakiye Miktarı</label>
+                                        <input asp-for="BAKIYE_MIKTARI" type="text" class="form-control " >
+                                    </div>
+                                
+                                </div>
+                            </div>
+                              
+                               
+                            
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+                 <div class="card-footer text-right">
+                    <button type="button" class="btn btn-danger" id="stokHareketSil">
+                        <i class="fas fa-trash-alt"></i>
+                        &nbsp;Sil
+                    </button>
+                    <button type="button" class="btn btn-primary" id="stokHareketVazgec">
+                        <i class="fa fa-backward"></i>
+                        &nbsp;Vazgeç
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="stokHareketKaydet">
+                        <i class="fa fa-save"></i>
+                        &nbsp;Kaydet
+                    </button>
+                </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+            
+             $("#stokHareketVazgec").click(function () {
+
+                $("#stokTForm").attr("action", "/Stock/StockTransactionRecords").submit() 
+
+             });
+
+            $("#stokHareketSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Stok Hareket Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#stokTForm").attr("action", "/Stock/StockTransactionRecords/StockTransactionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+        
+        })
+    
+   })
+   </script>
