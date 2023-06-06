@@ -48,8 +48,8 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<PRODUCTION_ORDER_ENTRY> Uretim_UretimEmriGiris_TBL { get; set; }
         public DbSet<PRODUCTION_RECORD> Uretim_UretimKaydi_TBL { get; set; }
         public DbSet<WORKSTATION_IDENTIFICATION> Uretim_IsIstasyonuTanimlama_TBL { get; set; }
-        
-
+        public DbSet<WATER_FOOTPRINT> Uretim_SuAyakIzi_TBL { get; set; }
+        public DbSet<SAFETY_STOCK> GuvenlikStogu_TBL { get; set; }
 
         //**************MUHASEBE**************************************************************************************
         public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama_TBL { get; set; }

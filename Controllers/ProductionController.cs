@@ -13,6 +13,7 @@ using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionOrderEntryRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionRecordRepo;
+using Lisans_Tezi_Mvc.Repository.SafetyStockRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -21,6 +22,7 @@ using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
+using Lisans_Tezi_Mvc.Repository.WaterFootPrintRepo;
 using Lisans_Tezi_Mvc.Repository.WorkstationIdentificationRepo;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +30,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 {
     public class ProductionController : Controller
     {
+        private readonly IWaterFootPrintRepository _waterFootPrintRepository;
         private readonly IMachineIdentificationRepository _machineIdentificationRepository;
         private readonly IOperationDescriptionRepository _operationDescriptionRepository;
         private readonly IOperatorTypesDescriptionRepository _operatorTypesDescriptionRepository;
@@ -42,10 +45,11 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IWarehouseDefinitionRepository _warehouseDefinitionRepository;
         private readonly IProductionRecordRepository _productionRecordRepository;
         private readonly IWorkstationIdentificationRepository _workstationIdentificationRepository;
+        private readonly ISafetyStockRepository _safetyStockRepository;
 
-        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository, IProductGroupDefinitionsRepository productGroupDefinitionsRepository,IEmployeeDefinitionRepository employeeDefinitionRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockInformationRepository stockInformationRepository , ICurrentCardIdentificationRepository currentCardIdentificationRepository, IProductionOrderEntryRepository productionOrderEntryRepository,IMadeOfDefinitionRepository madeOfDefinitionRepository, IWarehouseDefinitionRepository warehouseDefinitionRepository,IProductionRecordRepository productionRecordRepository,IWorkstationIdentificationRepository workstationIdentificationRepository)
+        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository, IProductGroupDefinitionsRepository productGroupDefinitionsRepository,IEmployeeDefinitionRepository employeeDefinitionRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockInformationRepository stockInformationRepository , ICurrentCardIdentificationRepository currentCardIdentificationRepository, IProductionOrderEntryRepository productionOrderEntryRepository,IMadeOfDefinitionRepository madeOfDefinitionRepository, IWarehouseDefinitionRepository warehouseDefinitionRepository,IProductionRecordRepository productionRecordRepository,IWorkstationIdentificationRepository workstationIdentificationRepository,IWaterFootPrintRepository waterFootPrintRepository, ISafetyStockRepository safetyStockRepository)
         {
-
+            _waterFootPrintRepository = waterFootPrintRepository;
             _machineIdentificationRepository = machineIdentificationRepository;
             _operationDescriptionRepository = operationDescriptionRepository;
             _operatorTypesDescriptionRepository = operatorTypesDescriptionRepository;
@@ -60,6 +64,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             _warehouseDefinitionRepository = warehouseDefinitionRepository;
             _productionRecordRepository = productionRecordRepository;
             _workstationIdentificationRepository = workstationIdentificationRepository;
+            _safetyStockRepository = safetyStockRepository;
         }
 
 
@@ -159,6 +164,17 @@ namespace Lisans_Tezi_Mvc.Controllers
             return View("~/Views/Production/WorkstationIdentification/WorkstationIdentification.cshtml");
         }
 
-      
+        public IActionResult WaterFootPrint()
+        {
+            ViewBag.data3 = _waterFootPrintRepository.GetAll();
+            return View("~/Views/Production/WaterFootPrint/WaterFootPrint.cshtml");
+        }
+
+
+        public IActionResult SafetyStock()
+        {
+            ViewBag.data3 = _safetyStockRepository.GetAll();
+            return View("~/Views/Production/SafetyStock/SafetyStock.cshtml");
+        }
     }
 }

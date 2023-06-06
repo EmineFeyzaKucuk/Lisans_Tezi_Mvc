@@ -17,6 +17,7 @@ using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionOrderEntryRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionRecordRepo;
+using Lisans_Tezi_Mvc.Repository.SafetyStockRepo;
 using Lisans_Tezi_Mvc.Repository.StockCard1Repo;
 using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
@@ -26,6 +27,7 @@ using Lisans_Tezi_Mvc.Repository.UniformChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
+using Lisans_Tezi_Mvc.Repository.WaterFootPrintRepo;
 using Lisans_Tezi_Mvc.Repository.WorkstationIdentificationRepo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
@@ -84,7 +86,8 @@ public class DBInfo
             builder.Services.AddScoped<IProductionOrderEntryRepository, ProductionOrderEntryRepository>();
             builder.Services.AddScoped<IProductionRecordRepository, ProductionRecordRepository>();
             builder.Services.AddScoped<IWorkstationIdentificationRepository, WorkstationIdentificationRepository>();
-
+            builder.Services.AddScoped<IWaterFootPrintRepository, WaterFootPrintRepository>();
+            builder.Services.AddScoped<ISafetyStockRepository, SafetyStockRepository>();
             //******************MUHASEBE 
             builder.Services.AddScoped<IUniformChartOfAccountsEntryRepository, UniformChartOfAccountsEntryRepository>();
             builder.Services.AddScoped<IAlternativeChartOfAccountsEntryRepository, AlternativeChartOfAccountsEntryRepository>();
