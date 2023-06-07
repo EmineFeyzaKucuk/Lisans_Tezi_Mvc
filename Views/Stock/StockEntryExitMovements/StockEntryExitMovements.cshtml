@@ -4,258 +4,99 @@
     ViewData["Title"] = "StockEntryExitMovements";
 }
 
-<div class="container" >
+@model StockInAndOut
+
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" int="formP" asp-controller="StockEntryExitMovements" asp-action="CreateStockEntryExitMovements">
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col-md-12"><label>STOK GİRİŞ/ÇIKIŞ HAREKETLERİ</label></div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="row mt-2">
-                                            <div class="col-md-4">
-                                                <label for="FIS_NO">Fiş No:</label>
-                                            </div>
-                                            <div class="col-md-5 text-start">
-                                                <input class="form-control " id="FIS_NO" name="FIS_NO" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Stok Giriş Çıkış Hareketleri</h1>
+                                </div>
 
 
-                                    <div class="col-md-3">
-                                        <div class="row mt-2">
-                                            <div class="col-md-3">
-                                                <label for="TARIH">Tarih:</label>
-                                            </div>
-                                            <div class="col-md-6 text-start">
-                                                <input class="form-control " id="TARIH" name="TARIH" type="date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="row mt-1">
-                                            <label for="DEPO">Depo:</label>
-
-                                            <select id="DEPO" name="DEPO" class="form-control">
-                                                <option value="">Seçiniz</option>
-                                                @foreach (var item in ViewBag.data1)
-                                                {
-                                                    <option value="@item.DEPO_KODU">@item.DEPO_ADI</option>
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="row mt-2">
-                                            <div class="col-md-3">
-                                                <label for="NOT">Not:</label>
-                                            </div>
-                                            <div class="col-md-6 text-start">
-                                                <input class="form-control " id="NOT"  name="NOT"type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mt-2">
-                                        <div class="col-md-12">
-                                            <div class="card">
-                                                <h5 class="card-header">Detay</h5>
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="row mt-2">
-                                                            <div class="col-md-4">
-
-
-                                                                <label for="STOK_KODU">Stok Kodu:</label>
-                                                              <select id="STOK_KODU" name="STOK_KODU" class="form-control">
-                                                              <option value="">Seçiniz</option>
-                                                              @foreach (var item in ViewBag.data2)
-                                                                   {
-                                                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
-                                                                   }
-                                                              </select>
-
-                                                            </div>
-
-                                                          
-                                                            <div class="col-md-4">
-
-
-                                                                <label for="PARTI_NO">Parti No:</label>
-
-                                                                <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="PARTI_NO" name="PARTI_NO" type="NUMBER">
-                                                                </div>
-
-                                                            </div>
-
-
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="row mt-2">
-                                                            <div class="col-md-4">
-
-
-                                                                <label for="GELEN_MIKTAR">Gelen Miktar:</label>
-
-                                                                <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="GELEN_MIKTAR" name="GELEN_MIKTAR"type="NUMBER">
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="col-md-4">
-
-
-                                                                <label for="CIKAN_MIKTAR">Çıkan Miktar:</label>
-
-                                                                <div class="col-md-6 text-start">
-                                                                    <input class="form-control " id="CIKAN_MIKTAR" name="CIKAN_MIKTAR" type="NUMBER">
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-md-4">
-
-                                                                <div class="col-md-4">
-                                                                    <label for="ISLEM_BIRIMI">İşlem Birimi:</label>
-                                                                </div>
-
-                                                                   <div class="col-md-4">
-                                                                        <select id="ISLEM_BIRIMI" name="ISLEM_BIRIMI" class="form-control">
-                                                                            <option value="">Seçiniz</option>
-                                                                            @foreach (var item in ViewBag.data3)
-                                                                            {
-                                                                                <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_KODU</option>
-                                                                            }
-                                                                        </select>
-                                                                    </div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <div class="row mt-2">
-                                                <div class="col-md-1 text-start">
-                                                    <button type="submit" class="btn btn-success">Ekle</button>
-                                                </div>
-                                                <div class="col-md-1 text-start">
-                                                    <button type="submit" class="btn btn-success" int="silP">Sil</button>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-
-
-
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/StockEntryExitMovements/StockInAndOutNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Hareket Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-            </form>
-            <div class="row mt-3">
-                <div class="col">
-
-                    @if (ViewBag.data5 != null && ViewBag.data5.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Fiş No</th>
-                                    <th scope="col">Tarih</th>
-                                    <th scope="col">Depo</th>
-                                    <th scope="col">Not</th>
-                                    <th scope="col">Stok Kodu</th>
-                                    <th scope="col">Parti No</th>
-                                    <th scope="col">Gelen Miktar</th>
-                                    <th scope="col">Çıkan Miktar</th>
-                                    <th scope="col">İşlem Birimi</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in ViewBag.data5)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.FIS_NO</td>
-                                        <td>@item.TARIH</td>
-                                        <td>@item.DEPO</td>
-                                        <td>@item.[NOT]</td>
-                                        <td>@item.STOK_KODU</td>
-                                        <td>@item.PARTI_NO</td>
-                                        <td>@item.GELEN_MIKTAR</td>
-                                        <td>@item.CIKAN_MIKTAR</td>
-                                        <td>@item.ISLEM_BIRIMI</td>
-
-
-
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
+
         </div>
     </div>
-</div>
 
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        
+                        <th>Fiş No</th>
+                        <th>Tarih</th>
+                        <th>Depo</th>
+                        <th>Stok Kodu</th>                       
+                        <th>Not</th>
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["FIS_NO"]</td>
+                            <td>@row["TARIH"]</td>
+                            <td>@row["DEPO"]</td>                         
+                            <td>@row["STOK_KODU"]</td>                            
+                            <td>@row["NOT"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editStokGirisCikis(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                    
+
+
+            </table>
+
+            <form method="post" id="stokGirisCıkısForm" name="stokGirisCıkısForm">
+                <input type="hidden" value="" name="stokId" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
+</div>
 <script>
 
-    document.addEventListener("DOMContentLoaded", function (event) {
-        $(document).ready(function () {
+
+    function editStokGirisCikis(id) {
 
 
+        $("#stokGirisCıkısForm input[name=stokId]").attr("value", id)
 
-            $("#silP").click(function (e) {
-                e.preventDefault();
+        $("#stokGirisCıkısForm").attr("action", "/StockEntryExitMovements/StockEntryExitMovementsEdit").submit();
 
+    }
 
-                $.confirm({
-                    theme: 'supervan',
-                    title: 'Uyarı!',
-                    content: 'İşlem Silinecek!',
-                    buttons: {
-                        evet: {
-                            text: 'Evet',
-                            action: function () {
-                                $("#formP").attr("action", "/Stock/StockEntryExitMovements/StockEntriyExitMovementsDelete").submit()
-                            }
-                        },
-                        hayir: {
-                            text: 'Hayır',
-
-                        }
-                    }
-                });
-
-            });
-
-        })
-
-    })
 </script>

@@ -7,7 +7,7 @@ namespace Lisans_Tezi_Mvc.Models
     public class Accounting_Detail_Code_Entry
     {
         public int Id { get; set; }
-        public string MUHASEBE_KODU { get; set; }
+        public int MUHASEBE_KODU { get; set; }
         public string ALIS_HESABI { get; set; }
         public string ALISTAN_IADE_HESABI { get; set; }
         public string SATIS_HESABI { get; set; }
@@ -31,7 +31,7 @@ namespace Lisans_Tezi_Mvc.Models
             return dt;
         }
 
-        public void saveAccountingDetailCodeEntry(Accounting_Detail_Code_Entry adc)
+        public void saveAccountingDetailCodeEntry(Accounting_Detail_Code_Entry mdk)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -39,12 +39,12 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("StokMuhasebeBilgisiCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 1);
-                sqlCmd.Parameters.AddWithValue("@pId", adc.Id);
-                sqlCmd.Parameters.AddWithValue("@pMUHASEBE_KODU", adc.MUHASEBE_KODU);
-                sqlCmd.Parameters.AddWithValue("@pALIS_HESABI", adc.ALIS_HESABI);
-                sqlCmd.Parameters.AddWithValue("@pALISTAN_IADE_HESABI", adc.ALISTAN_IADE_HESABI);
-                sqlCmd.Parameters.AddWithValue("@pSATIS_HESABI", adc.SATIS_HESABI);
-                sqlCmd.Parameters.AddWithValue("@pSATISTAN_IADE_HESABI", adc.SATISTAN_IADE_HESABI);
+                sqlCmd.Parameters.AddWithValue("@pId", mdk.Id);
+                sqlCmd.Parameters.AddWithValue("@pMUHASEBE_KODU", mdk.MUHASEBE_KODU);
+                sqlCmd.Parameters.AddWithValue("@pALIS_HESABI", mdk.ALIS_HESABI);
+                sqlCmd.Parameters.AddWithValue("@pALISTAN_IADE_HESABI", mdk.ALISTAN_IADE_HESABI);
+                sqlCmd.Parameters.AddWithValue("@pSATIS_HESABI", mdk.SATIS_HESABI);
+                sqlCmd.Parameters.AddWithValue("@pSATISTAN_IADE_HESABI", mdk.SATISTAN_IADE_HESABI);
                 sqlCmd.ExecuteNonQuery();
             }
         }
@@ -66,7 +66,7 @@ namespace Lisans_Tezi_Mvc.Models
 
         }
 
-        public void getAccountingDetailCodeEntry(int id)
+        public void getAccountingDetailCodeEntry(int muhasebeKodu)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -74,14 +74,14 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("StokMuhasebeBilgisiCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 0);
-                sqlCmd.Parameters.AddWithValue("@pId", id);
+                sqlCmd.Parameters.AddWithValue("@pMUHASEBE_KODU", muhasebeKodu);
 
                 SqlDataReader readData = sqlCmd.ExecuteReader();
 
                 if (readData.Read())
                 {
-                    this.Id = (int)readData["stkID"];
-                    this.MUHASEBE_KODU = (String)readData["MUHASEBE_KODU"];
+                    this.Id = (int)readData["mdkID"];
+                    this.MUHASEBE_KODU = (int)readData["MUHASEBE_KODU"];
                     this.ALIS_HESABI = (String)readData["ALIS_HESABI"];
                     this.ALISTAN_IADE_HESABI = (String)readData["ALISTAN_IADE_HESABI"];
                     this.SATIS_HESABI = (String)readData["SATIS_HESABI"];
@@ -93,14 +93,14 @@ namespace Lisans_Tezi_Mvc.Models
 
         }
 
-        public void deleteAccountingDetailCodeEntry(String muhasebeKodu)
+        public void deleteAccountingDetailCodeEntry(int muhasebeKodu)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
                 sqlConn.Open();
                 SqlCommand sqlCmd = new SqlCommand("StokMuhasebeBilgisiCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@pPorcessType", 1);
+                sqlCmd.Parameters.AddWithValue("@pPorcessType", 2);
                 sqlCmd.Parameters.AddWithValue("@pMUHASEBE_KODU", muhasebeKodu);
 
                 sqlCmd.ExecuteNonQuery();

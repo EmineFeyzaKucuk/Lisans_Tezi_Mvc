@@ -2,6 +2,7 @@
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -41,15 +42,73 @@ namespace Lisans_Tezi_Mvc.Controllers
         //    return RedirectToAction("AccountingDetailCodeEntry", "Stock");
         //}
 
-        public IActionResult deleteAccountingDetailCodeEntry(Accounting_Detail_Code_Entry accounting_Detail_Code_Entry)
+
+        public IActionResult AcountingDetailCodeEdit(int muhasebeKodu)
         {
-            Accounting_Detail_Code_Entry ac = new Accounting_Detail_Code_Entry();
 
-            ac.deleteAccountingDetailCodeEntry(accounting_Detail_Code_Entry.MUHASEBE_KODU);
+            Accounting_Detail_Code_Entry mdk = new Accounting_Detail_Code_Entry();
+            mdk.StokMuhasebeBilgisiGetir();
+            mdk.getAccountingDetailCodeEntry(muhasebeKodu);
 
 
-            return RedirectToAction("AccountingDetailCodeEntry", "Stock");
+            mdk.dt.Tables[0].TableName = "muhasebeKodlari";
+
+
+            return View("~/Views/Stock/AccountingDetailCodeEntry/AccountingDetailCode.cshtml", mdk);
+
         }
+
+        public IActionResult AccountingDetailCodeNew()
+        {
+
+            Accounting_Detail_Code_Entry mdk = new Accounting_Detail_Code_Entry();
+            mdk.StokMuhasebeBilgisiGetir();
+            //mdk.getAccountingDetailCodeEntry();
+
+            mdk.dt.Tables[0].TableName = "muhasebeKodlari";
+
+           
+
+            return View("~/Views/Stock/AccountingDetailCodeEntry/AccountingDetailCode.cshtml", mdk); 
+
+
+        }
+
+        public IActionResult AccountingDetailCodeSave(Accounting_Detail_Code_Entry adc)
+        {
+            Accounting_Detail_Code_Entry ste = new Accounting_Detail_Code_Entry();
+            adc.saveAccountingDetailCodeEntry(adc);
+
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
+
+            return Redirect("/Stock/AccountingDetailCodeEntry");
+        }
+
+
+        public IActionResult AccountingDetailCodeDelete(Accounting_Detail_Code_Entry adc)
+        {
+            Accounting_Detail_Code_Entry ste = new Accounting_Detail_Code_Entry();
+            adc.deleteAccountingDetailCodeEntry(adc.MUHASEBE_KODU);
+
+            return Redirect("/ Stock / AccountingDetailCodeEntry");
+        }
+
+
+
+
+
+
+
+        //public IActionResult deleteAccountingDetailCodeEntry(Accounting_Detail_Code_Entry accounting_Detail_Code_Entry)
+        //{
+        //    Accounting_Detail_Code_Entry ac = new Accounting_Detail_Code_Entry();
+
+        //    ac.deleteAccountingDetailCodeEntry(accounting_Detail_Code_Entry.MUHASEBE_KODU);
+
+
+        //    return RedirectToAction("AccountingDetailCodeEntry", "Stock");
+        //}
 
 
     }

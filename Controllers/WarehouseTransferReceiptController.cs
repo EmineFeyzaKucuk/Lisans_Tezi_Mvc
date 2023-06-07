@@ -2,6 +2,7 @@
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -32,6 +33,64 @@ namespace Lisans_Tezi_Mvc.Controllers
             }
 
         }
+
+
+        public IActionResult WarehouseTransferReceiptnew()
+        {
+
+            WarewhouseTransferReceipt dp = new WarewhouseTransferReceipt();
+            dp.depoTransferBilgisi();
+            dp.getStockTransactionRecordsCode();
+
+            dp.dt.Tables[0].TableName = "depo";
+            dp.dt.Tables[1].TableName = "stokkodlari";
+            dp.dt.Tables[2].TableName = "olcu";
+
+
+            return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt1.cshtml", dp);
+
+
+        }
+
+        public IActionResult WarehouseTransferReceiptSave(WarewhouseTransferReceipt dp)
+        {
+            WarewhouseTransferReceipt ste = new WarewhouseTransferReceipt();
+            dp.saveWarehouseTransferReceipt(dp);
+
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
+
+            return Redirect("/Stock/WarehouseOperation/WarehouseTransferReceipt");
+        }
+
+        public IActionResult WarehouseTransferReceiptDelete(WarewhouseTransferReceipt dp)
+        {
+            WarewhouseTransferReceipt ste = new WarewhouseTransferReceipt();
+            dp.deleteWarehouseTransferReceipt(dp.FIS_NO);
+
+            return Redirect("/Stock/WarehouseTransferReceipt");
+        }
+
+        public IActionResult WarehouseTransferReceiptEdit(string fısNo)
+        {
+
+            WarewhouseTransferReceipt ste = new WarewhouseTransferReceipt();
+            ste.depoTransferBilgisi();
+            ste.getWarehouseTransferReceiptCode(fısNo);
+
+
+            ste.dt.Tables[0].TableName = "depo";
+            ste.dt.Tables[1].TableName = "stokkodlari";
+            ste.dt.Tables[2].TableName = "olcu";
+
+
+
+            return View("~/Views/Stock/WarehouseOperations/WarehouseTransferReceipt1.cshtml", ste);
+
+        }
+
+
+
 
     }
 

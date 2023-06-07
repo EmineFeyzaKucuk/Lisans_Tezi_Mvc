@@ -1,187 +1,101 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Stock/AccountingDetailCodeEntry/_LayoutAccountingDetailCodeEntry.cshtml";
     ViewData["Title"] = "AccountingDetailCodeEntry";
 }
 
 @model Accounting_Detail_Code_Entry
- <div class="container" >
-        <div class="row">
-            <div class="col-md-12">
-            <form method="post" id="formP" asp-controller="AccountingDetailCodeEntry" asp-action="CreateAccountingDetilCodeControllerDefinition">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row mt-2">
-                                <div class="col-md-2">
-                                    <label for="MUHASEBE_KODU"> Muhasebe Kodu:</label>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Muhasebe Kod Kayıtları</h1>
                                 </div>
-                                <div class="col-md-4 text-start">
-                                <select id="MUHASEBE_KODU" name="MUHASEBE_KODU" class="form-control">
-                                    <option value="">Seçiniz</option>
-                                    @foreach (var item in ViewBag.data1)
-                                    {
-                                        <option value="@item.MUHASEBE_KODU">@item.MUHASEBE_KODU</option>
-                                    }
-                                </select>
-                                </div>
-                             
-                            </div>
 
-                        </div>
-                        <div class="row mt-1">
-                            <div class="col-md-12">
-                                <div class="card">
-                                   
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="row">
-                                            <div class="col">
-                                                <label for="ALIS_HESABI">Alış Hesabı</label>
-                                            </div>
-                                            <div class="col">
-                                                    <select id="ALIS_HESABI" name="ALIS_HESABI" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data2)
-                                                        {
-                                                            <option value="@item.MUHASEBE_KODU">@item.MUHASEBE_KODU</option>
-                                                        }
-                                                    </select>
-                                            </div>
-                                        
-                                        
-                                        </div>
-                                        <div class="row mt-1">
-                                            <div class="col">
-                                                <label for="ALISTAN_IADE_HESABI">Alıştan İade Hesabı</label>
-                                            </div>
-                                            <div class="col">
-                                                    <select id="ALISTAN_IADE_HESABI" name="ALISTAN_IADE_HESABI" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data3)
-                                                        {
-                                                            <option value="@item.MUHASEBE_KODU">@item.MUHASEBE_KODU</option>
-                                                        }
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="row mt-1">
-                                            <div class="col">
-                                                <label for="SATIS_HESABI">Satış Hesabı</label>
-                                            </div>
-                                            <div class="col">
-                                                    <select id="SATIS_HESABI" name="SATIS_HESABI" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data4)
-                                                        {
-                                                            <option value="@item.MUHASEBE_KODU">@item.MUHASEBE_KODU</option>
-                                                        }
-                                                    </select>
-                                            </div>
-                                            
-                                      
 
-                                        </div>
-                                        <div class="row mt-1">
-                                            <div class="col">
-                                                <label for="SATISTAN_IADE_HESABI">Satıştan İade Hesabı</label>
-                                            </div>
-                                            <div class="col">
-                                                    <select id="SATISTAN_IADE_HESABI" name="SATISTAN_IADE_HESABI" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data5)
-                                                        {
-                                                            <option value="@item.MUHASEBE_KODU">@item.MUHASEBE_KODU</option>
-                                                        }
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        </div>
-
-                                    
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/AccountingDetailCodeEntry/AccountingDetailCodeNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Muhasebe Kodu</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
+                    </section>
 
-                        <div class="row mt-1">
-                            <div class="col">
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Muhasebe Kodu</th>
-                                        <th scope="col">Alış Hesabı</th>
-                                        <th scope="col">Alıştan İade Hesabı</th>
-                                        <th scope="col">Satış Hesabı</th>
-                                        <th scope="col">Satıştan İade Hesabı</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                            @foreach (var item in ViewBag.data6)
-                                            {
-                                                <tr>
-                                                    <th scope="row">@item.Id</th>
-                                                    <td>@item.MUHASEBE_KODU</td>
-                                                    <td>@item.ALIS_HESABI</td>
-                                                    <td>@item.ALISTAN_IADE_HESABI</td>
-                                                    <td>@item.SATIS_HESABI</td>
-                                                    <td>@item.SATISTAN_IADE_HESABI</td>
-                                                </tr>
-                                            }
-                                    </tbody>
-                                  </table>
-
-                            </div>
-                        </div>
-                     </div>
-               </div>
                 </div>
-                    <div class="row mt-2">
-                        <div class="col-md-1 text-start">
-                            <button type="submit" class="btn btn-success">Ekle</button>
-                            <button type="submit" class="btn btn-success" id="silP">Sil</button>
-
-                        </div>
-                    </div>
-
-            </form>
-              </div>
             </div>
+
         </div>
+        </div>
+
+
+   <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Muhasebe Kodu</th>
+                        <th>Alış Hesabı</th>
+                        <th>Alıştan İade Hesabı</th>
+                        <th>Satış Hesabı</th>
+                        <th>Satıştan İade Hesabı</th>
+                        <th>İşlem</th>
+                    
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["MUHASEBE_KODU"]</td>
+                            <td>@row["ALIS_HESABI"]</td>
+                            <td>@row["ALISTAN_IADE_HESABI"]</td>
+                            <td>@row["SATIS_HESABI"]</td>
+                            <td>@row["SATISTAN_IADE_HESABI"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editAccountingDetail(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="accountingForm" name="accountingForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+</div>
+</div>
 
 <script>
 
-    document.addEventListener("DOMContentLoaded", function (event) {
-        $(document).ready(function () {
+
+    function editAccountingDetail(id) {
 
 
-             $("#silP").click(function (e) {
-                e.preventDefault();
+        $("#accountingForm input[name=Id]").attr("value", id)
 
+        $("#accountingForm").attr("action", "/AccountingDetailCodeEntry/AcountingDetailCodeEdit").submit();
 
-                $.confirm({
-                    theme: 'supervan',
-                    title: 'Uyarı!',
-                    content: 'Stok Kart Silinecek!',
-                    buttons: {
-                        evet: {
-                            text: 'Evet',
-                            action: function () {
-                                $("#formP").attr("action", "/Stock/AccountingDetailCodeEntry/deleteAccountingDetailCodeEntry").submit()
-                            }
-                        },
-                        hayir: {
-                            text: 'Hayır',
+    }
 
-                        }
-                    }
-                });
-
-            });
-
-        })
-
-    })
 </script>

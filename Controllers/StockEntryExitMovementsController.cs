@@ -43,13 +43,59 @@ namespace Lisans_Tezi_Mvc.Controllers
             return RedirectToAction("StockEntryExitMovements", "Stock");
         }
 
-        //public IActionResult StockEntriyExitMovementsDelete(STOCK_IN_AND_OUT stock_in_and_out)
-        //{
-        //    StockCardProcess ste = new StockCardProcess();
-        //    ste.deleteStockCard(stock_in_and_out.Id);
+        public IActionResult StockInAndOutNew()
+        {
 
-        //    return Redirect("/StockEntriyExitMovements");
-        //}
+            StockInAndOut ste = new StockInAndOut();
+            ste.depoTransferBilgisi();
+            ste.getStockInAndOutCode();
+
+            ste.dt.Tables[0].TableName = "depo";
+            ste.dt.Tables[1].TableName = "stok";
+            ste.dt.Tables[2].TableName = "olcu";
+          
+
+            return View("~/Views/Stock/StockEntryExitMovements/StockEntryExitMovements1.cshtml", ste);
+
+
+        }
+        public IActionResult StockInAndOutSave(StockInAndOut stp) 
+        {
+            StockInAndOut ste = new StockInAndOut();
+            ste.saveStockInAndOut(stp);
+
+            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
+            //return Content(a);
+
+            return Redirect("/Stock/StockTransactionRecords");
+        }
+
+
+        public IActionResult StockInAndOutDelete(StockInAndOut stp)
+        {
+            StockInAndOut ste = new StockInAndOut();
+            ste.deleteStockInAndOut(stp.FIS_NO);
+
+            return Redirect("/Stock/StockTransactionRecords");
+        }
+
+        public IActionResult StockEntryExitMovementsEdit(string fısKodu)
+        {
+
+            StockInAndOut ste = new StockInAndOut();
+            ste.depoTransferBilgisi();
+            ste.getStockInAndOut(fısKodu);
+
+            ste.dt.Tables[0].TableName = "depo";
+            ste.dt.Tables[1].TableName = "stok";
+            ste.dt.Tables[2].TableName = "olcu";
+
+
+
+
+            return View("~/Views/Stock/StockEntryExitmovements/StockEntryExitmovements1.cshtml", ste);
+
+        }
 
 
 

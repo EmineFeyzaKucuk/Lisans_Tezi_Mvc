@@ -1,185 +1,103 @@
-﻿
-@{
-
+﻿@{
     Layout = "~/Views/Stock/BarcodeRecords/_LayoutBarcodeRecords.cshtml";
     ViewData["Title"] = "BarcodeRecords";
 }
 
-    <div class="container"  >
-        <div class="row">
-            <div class="col-md-12">
-            <form method="post"id="formP" asp-controller="BarcodeRecords" asp-action="CreateBarcodeRecords">
-                    <div class="row">
-                        <div class="col-md-12">
-                  
+@model BarcodeRecords
 
-
-                            <div class="row mt-2">
-                                <div class="col-md-2">
-                                <label for="STOK_KODU">Stok Kodu:</label>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Barkod Kayıtları</h1>
                                 </div>
-                                <div class="col-md-4 text-start">
-                                <select id="STOK_KODU" name="STOK_KODU" class="form-control">
-                                    <option value="">Seçiniz</option>
-                                    @foreach (var item in ViewBag.data1)
-                                    {
-                                        <option value="@item.STOK_KODU">@item.STOK_ADI</option>
-                                    }
-                                </select>
-                                </div>
-                             
-                            </div>
 
-                        </div>
-                        <div class="row mt-1">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body"> 
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <label for="BARKOD">Barkod</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                            <input class="form-control " id="BARKOD" name="BARKOD" type="text">
-                                            </div>
-                                       
-                                        </div>
 
-                                        <div class="row mt-1">
-                                            <div class="col-md-2">
-                                                <label for="ACIKLAMA">Açıklama</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                            <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label for="KAYIT_TARIHI">Kayıt Tarihi</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                            <input class="form-control " id="KAYIT_TARIHI" name="KAYIT_TARIHI" type="date">
-                                            </div>
-                                       
-                                        </div>
-
-                                        
-                                        <div class="row mt-1">
-                                            <div class="col-md-2">
-                                                <label for="BARKOD_TIPI">Barkod Tipi</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                              
-                                                <select id="BARKOD_TIPI" name="BARKOD_TIPI" class="form-control">
-                                                    <option value="">Seçiniz</option>
-                                                    @foreach (var item in ViewBag.data2)
-                                                    {
-                                                        <option value="@item.BARKOD_TIPI">@item.BARKOD_TIPI</option>
-                                                    }
-                                                </select>
-                                             
-                                            </div>
-                                           
-                                        
-                                       
-                                        </div>
-
-                                        <div class="row mt-1">
-                                            <div class="col-md-2">
-                                                <label for="OLCU_BIRIMI_KODU">Ölçü Birimi</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                            <select id="OLCU_BIRIMI_KODU" name="OLCU_BIRIMI_KODU" class="form-control">
-                                                <option value="">Seçiniz</option>
-                                                @foreach (var item in ViewBag.data3)
-                                                {
-                                                    <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_KODU</option>
-                                                }
-                                            </select>
-                                            </div>
-                                      
-                                       
-                                        </div>
-                                    
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/BarcodeRecords/BarcodeRecordsNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Barkod Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
+                    </section>
 
-                        <div class="row mt-1">
-                            <div class="col">
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Stok Kodu</th>
-                                        <th scope="col">Barkod</th>
-                                        <th scope="col">Açıklama</th>
-                                        <th scope="col">Kayıt Tarihi</th>
-                                        <th scope="col">Barkod Tipi</th>
-                                        <th scope="col">Ölçü Birimi</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in ViewBag.data4)
-                                        {
-                                            <tr>
-                                                <th scope="row">@item.Id</th>
-                                                <td>@item.STOK_KODU</td>
-                                                <td>@item.BARKOD</td>
-                                                <td>@item.ACIKLAMA</td>
-                                                <td>@item.KAYIT_TARIHI</td>
-                                                <td>@item.BARKOD_TIPI</td>
-                                                <td>@item.OLCU_BIRIMI_KODU</td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                  </table>
-
-                            </div>
-                        </div>
-              </div>
                 </div>
-
-                <div class="row mt-2">
-                    <div class="col-md-1 text-start">
-                        <button type="submit" class="btn btn-success">Ekle</button>
-                        <button type="submit" class="btn btn-success" id="silP">Sil</button>
-                    </div>
-                </div>
-            </form>
-              </div>    
             </div>
+
         </div>
+    </div>
+
+   <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Stok Kodu</th>
+                        <th>Barkod</th>
+                        <th>Tarih</th>
+                        <th>Barkod Tipi</th>
+                        <th>Ölçü Birimi</th>
+                        <th>Açıklama</th>
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["STOK_KODU"]</td>
+                            <td>@row["BARKOD"]</td>
+                            <td>@row["TARIH"]</td>
+                            <td>@row["BARKOD_TIPI"]</td>
+                            <td>@row["OLCU_BIRIMI_KODU"]</td>
+                            <td>@row["ACIKLAMA"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editBarkodKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="barcodeForm" name="barcodeForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
 <script>
 
-    document.addEventListener("DOMContentLoaded", function (event) {
-        $(document).ready(function () {
+
+    function editBarkodKayıt(id) {
 
 
+        $("#barcodeForm input[name=stokId]").attr("value", id)
 
-            $("#silP").click(function (e) {
-                e.preventDefault();
+        $("#barcodeForm").attr("action", "/BarcodeRecords/BarcodeRecordsEdit").submit();
 
+    }
 
-                $.confirm({
-                    theme: 'supervan',
-                    title: 'Uyarı!',
-                    content: 'Barkod Kaydı Silinecek!',
-                    buttons: {
-                        evet: {
-                            text: 'Evet',
-                            action: function () {
-                                $("#formP").attr("action", "/Stock/BarcodeRecords/BarcodeRecordsDelete").submit()
-                            }
-                        },
-                        hayir: {
-                            text: 'Hayır',
-
-                        }
-                    }
-                });
-
-            });
-
-        })
-
-    })
 </script>
