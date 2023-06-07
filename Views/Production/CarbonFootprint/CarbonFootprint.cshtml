@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "~/Views/Production/CarbonFootPrint/_LayoutCarbonFootPrint.cshtml";
+    ViewData["Title"] = "CarbonFootPrint";
+}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" asp-controller="CarbonFootPrint" asp-action="CreateCarbonFootPrint">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label>KARBON AYAK İZİ HESAPLAMA</label>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mt-1">
+                                                <div class="col-md-10">
+                                                    <label for="TUKETIM_SEKLI">Tüketim Şekli:</label>
+
+
+
+                                                    <select name="TUKETIM_SEKLI" id="TUKETIM_SEKLI">
+                                                        <option selected disabled value="">Seçiniz...</option>
+                                                        <option value="Elektrik Tüketimi">Elektrik Tüketimi</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                           
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">Yıllık Toplam Tüketim</span>
+                                                    <input type="number" class="form-control" id="ToplamTuketimInput" name="YILLIK_TOPLAM_TUKETIM" placeholder="(kwt)" aria-label="Boyama L/KG" aria-describedby="basic-addon1">
+                                                    <input type="number" class="form-control" id="ToplamTuketimKatsayi" value="0.472" readonly>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+
+
+                                            <div class="row mt-3" >
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">Karbon Ayak İzi Toplam</span>
+                                                        <input type="number" class="form-control" name="KARBON_AYAK_IZI_HESAPLAMA" id="toplamResult" value="0" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                 
+
+                                        <div class="row mt-3">
+                                            <div class="col">
+
+                                                @if (ViewBag.data3 != null && ViewBag.data3.Count > 0)
+                                                {
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Tüketim Şekli</th>
+                                                                <th scope="col">Yıllık Toplam Tüketim</th>
+                                                                <th scope="col">Karbon Ayak İzi Toplam</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in ViewBag.data3)
+                                                            {
+                                                                <tr>
+                                                                    <th scope="row">@item.Id</th>
+                                                                    <td>@item.TUKETIM_SEKLI</td>
+                                                                    <td>@item.YILLIK_TOPLAM_TUKETIM</td>
+                                                                    <td>@item.KARBON_AYAK_IZI_HESAPLAMA</td>
+                                                                   
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                }
+                                                else
+                                                {
+                                                    <p>Kayıt bulunamadı.</p>
+                                                }
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        let ToplamTuketimInput = $('#ToplamTuketimInput');
+        let ToplamTuketimKatsayi = $('#ToplamTuketimKatsayi');
+        let toplamResult = $('#toplamResult');
+
+
+        function hesaplaToplam() {
+            let ToplamTuketimInputValue = parseFloat(ToplamTuketimInput.val());
+            let ToplamTuketimKatsayiValue = parseFloat(ToplamTuketimKatsayi.val());
+            let toplam = ToplamTuketimInputValue * ToplamTuketimKatsayiValue;
+
+
+            
+            toplamResult.val(toplam.toFixed(2))
+
+        }
+
+        ToplamTuketimInput.on('input', hesaplaToplam);
+   
+
+    });
+</script>
