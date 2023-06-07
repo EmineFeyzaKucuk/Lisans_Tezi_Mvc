@@ -27,6 +27,33 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Ok("Liste Boş");
 
         }
+
+        public IActionResult EmployeeDefinitionDelete(EmployeeDefinition sbk)
+        {
+            EmployeeDefinition ste = new EmployeeDefinition();
+            sbk.deleteEmployeeDefinition(sbk.PERSONEL_ISIM);
+
+            return Redirect("/EmployeeDefinition/EmployeeDefinition");
+        }
+
+
+        public IActionResult EmployeeDefinitionEdit(int Id)
+        {
+
+            EmployeeDefinition ste = new EmployeeDefinition();
+            ste.PersonelBilgisi();
+            ste.getEmployeeDefinition(Id);
+
+            ste.dt.Tables[0].TableName = "personel";
+
+
+
+
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition1.cshtml", ste);
+
+        }
+
+
         public IActionResult Add(EMPLOYEE_DEFINITION employeeDefinitionRepository)
         {
             try
@@ -45,7 +72,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
 
 
-
+        
 
     }
 }
