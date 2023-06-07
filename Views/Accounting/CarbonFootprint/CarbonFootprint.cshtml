@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Accounting/CarbonFootprint/_LayoutCarbonFootprint.cshtml";
+    ViewData["Title"] = "CarbonFootprint";
+}
+@model dynamic
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="post">
+
+                <div class="row">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label>KARBON AYAK İZİ HESAPLAMA</label>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mt-1">
+                                                <div class="col-md-10">
+                                                    <label for="TUKETIM_SEKLI">Tüketim Şekli:</label>
+
+
+
+                                                    <select name="cars" id="cars">
+                                                        <option selected disabled value="">Seçiniz...</option>
+                                                        <option value="ELEKTRIK_TUKETIMI">Elektrik Tüketimi</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-4">
+                                                    <label for="YILLIK_TOPLAM_TUKETIM">Yıllık Toplam Tüketim (kwH):</label>
+                                                </div>
+                                                <div class="col-md-5 text-start">
+                                                    <input class="form-control " id="YILLIK_TOPLAM_TUKETIM" name="YILLIK_TOPLAM_TUKETIM" type="text">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Tüketim Tipi</th>
+                                                    <th scope="col">CO2 Salınımı</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td colspan="2"></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
