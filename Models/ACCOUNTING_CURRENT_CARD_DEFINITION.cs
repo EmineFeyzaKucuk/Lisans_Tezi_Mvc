@@ -13,7 +13,7 @@ namespace Lisans_Tezi_Mvc.Models
         public string POSTA_KODU { get; set; }
         public string VERGI_ADRESI { get; set; }
         public int VERGI_NO{ get; set; }
-        public int TELEFON { get; set; }
+        public string TELEFON { get; set; }
         public int FAX { get; set; }
         public int MUH_DETAY { get; set; }
         public string PARA_BIRIMI { get; set; }

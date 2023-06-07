@@ -4,30 +4,44 @@
     Layout = "~/Views/Accounting/AccountingCodeDefinition/_LayoutAccountingCodeDefinition.cshtml";
     ViewData["Title"] = "AccountingCodeDefinition";
 }
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.10/dist/sweetalert2.min.css">
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="row mt-2">
                 <form asp-action="Add" method="post">
-                    <div class="col-md-2">
+                    <div class="row mt-2">
+                        
+                    <div class="col-md-4">
                         <label for="MUHASEBE_KODU_lbl">Muhasebe Kodu:</label>
                     </div>
-                    <div class="col-md-4 text-start">
+                    <div class="col-md-8 text-start">
                         <input class="form-control " name="MUHASEBE_KODU" type="text">
                     </div>
-                    <div class="col-md-2">
+
+
+                    </div>
+
+                    <div class="row mt-2">
+                    <div class="col-md-4">
                         <label for="MUHASEBE_ADI_lbl">Muhasebe Adı:</label>
                     </div>
-                    <div class="col-md-4 text-start">
+                    <div class="col-md-8 text-start">
                         <input class="form-control " name="MUHASEBE_ADI" type="text">
                     </div>
-                    <button type="submit">Ekle</button>
+              
+                    </div>
+
+                    <div class="row mt-2">
+                      
+                            <div class="col-md-1 text-start">
+                                <button type="submit" class="btn btn-success">Ekle</button>
+                    </div>
+                    </div>
                 </form>
             </div>
        
-
-            <div class="row mt-1">
+               <div class="row mt-1">
                 <div class="col">
                     @if (Model != null && Model.Count > 0)
                     {
@@ -46,6 +60,7 @@
                                         <th scope="row">@item.Id</th>
                                         <td>@item.MUHASEBE_KODU</td>
                                         <td>@item.MUHASEBE_ADI</td>
+                                        <td><button class="btn btn-warning btnDelete" value="@item.Id">sil</button><a class="btn btn-info btnEdit" href="/AccountingCodeDefinition/EditAccountingCodeDefinition/id?id=@item.Id">Güncelle</a></td>
                                     </tr>
                                 }
                             </tbody>
@@ -61,3 +76,46 @@
         </div>
     </div>
 </div>
+@*<script src="~/lib/jquery/jquery.min.js"></script>*@
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.10/dist/sweetalert2.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $(".btnDelete").click(function () {
+                var id = $(this).val();
+                var row = $(this).closest("tr"); // Silinecek satırı bulmak için en yakın "tr" elementini seçiyoruz
+
+                Swal.fire({
+                    title: 'Uyarı!',
+                    text: 'Muhasebe kart Silinecek!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Evet',
+                    cancelButtonText: 'Hayır'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/AccountingCodeDefinition/DeleteAccountingCodeDefinition',
+                            method: 'DELETE',
+                            data: { id: id },
+                            success: function () {
+                                console.log("Silindi");
+                                row.remove(); // Silinen satırı kaldır
+                                // Silme işlemi başarılı olduğunda yapılması gereken işlemler
+                                Swal.fire('Başarılı', 'Silme işlemi tamamlandı.', 'success');
+                            },
+                            error: function (xhr, status, error) {
+                                console.log("Hata: " + error);
+                                // Silme işlemi sırasında bir hata oluştuğunda yapılması gereken işlemler
+                                Swal.fire('Hata', 'Silme işlemi sırasında bir hata oluştu.', 'error');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+}

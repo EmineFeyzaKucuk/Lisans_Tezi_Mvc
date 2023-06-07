@@ -2,6 +2,7 @@ using Lisans_Tezi_Mvc.Data;
 using Lisans_Tezi_Mvc.Repository;
 using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
+using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
@@ -21,6 +22,7 @@ using Lisans_Tezi_Mvc.Repository.StockCard2Repo;
 using Lisans_Tezi_Mvc.Repository.StockEntryExitMovementsRepo;
 using Lisans_Tezi_Mvc.Repository.StockInformationRepo;
 using Lisans_Tezi_Mvc.Repository.StockTransactionRecordsRepo;
+using Lisans_Tezi_Mvc.Repository.UniformChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.UnitofMeasureDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.WarehouseTransferReceiptRepo;
@@ -82,7 +84,11 @@ public class DBInfo
             builder.Services.AddScoped<IProductionOrderEntryRepository, ProductionOrderEntryRepository>();
             builder.Services.AddScoped<IProductionRecordRepository, ProductionRecordRepository>();
             builder.Services.AddScoped<IWorkstationIdentificationRepository, WorkstationIdentificationRepository>();
-            
+
+            //******************MUHASEBE 
+            builder.Services.AddScoped<IUniformChartOfAccountsEntryRepository, UniformChartOfAccountsEntryRepository>();
+            builder.Services.AddScoped<IAlternativeChartOfAccountsEntryRepository, AlternativeChartOfAccountsEntryRepository>();
+
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

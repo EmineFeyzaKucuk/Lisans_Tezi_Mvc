@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Accounting/AccountingCodeDefinition/_LayoutAccountingCodeDefinition.cshtml";
+    ViewData["Title"] = "EditAccountingCodeDefinition";
+}
+
+@model ACCOUNTING_CODE_DEFINITION
+
+
+<h2>Edit Accounting Code Definition</h2>
+
+<form asp-action="UpdateAccountingCodeDefinition" method="post">
+    <div class="form-group">
+        <label asp-for="MUHASEBE_KODU">Accounting Code</label>
+        <input asp-for="MUHASEBE_KODU" class="form-control" value="@Model.MUHASEBE_KODU" />
+        <span asp-validation-for="MUHASEBE_KODU" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MUHASEBE_ADI">Accounting Name</label>
+        <input asp-for="MUHASEBE_ADI" class="form-control" value="@Model.MUHASEBE_ADI" />
+        <span asp-validation-for="MUHASEBE_ADI" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
