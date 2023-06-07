@@ -1,0 +1,162 @@
+﻿@{
+    Layout = "~/Views/Stock/WarehouseOperations/_LayoutWarehouseOperations.cshtml";
+    ViewData["Title"] = "WarehouseDefinition1";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
+@model WarehouseDefinition
+
+<div class="row" style="padding-top: 10px;">
+
+    <div class="col-md-12">
+        <form action="/WarehouseDefinition/WarehouseDefinitionSave" method="post" enctype="multipart/form-data" name="depoForm" id="depoForm">
+             
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Depo Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#genelTab" data-toggle="tab">Genel</a></li>
+                        <li class="nav-item"><a class="nav-link " href="#detayTab" data-toggle="tab">Detay</a></li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="genelTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="DEPO_KODU">Depo Kodu</label>
+                                        <input asp-for="DEPO_KODU" type="text" class="form-control ">
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <label for="TESIS_KODU">Hangi Tesisin/Şubenin Deposu</label>
+                                        <input asp-for="TESIS_KODU" type="text" class="form-control ">
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true" name="E_TICARET" id="E_TICARET">
+                                                <label class="form-check-label" for="E_TICARET">
+                                                    <h6>E-ticaret için kullanılacak mı?</h6>
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                             
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="DEPO_ADI">Depo Adı</label>
+                                        <input asp-for="DEPO_ADI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="LOKASYON_KODU">Depo Lokasyon Kodu</label>
+                                        <input asp-for="LOKASYON_KODU" type="text" class="form-control ">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="detayTab" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-5">
+
+                                    <div class="form-group">
+                                        <label for="PERSONEL_ID">Personel ID:</label>
+                                        <select asp-for="PERSONEL_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" personel " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["Id"]" data-subtext="@row["PERSONEL_ISIM"]"> </option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PERSONEL_IS">Personel İş Tanımı</label>
+                                        <input asp-for="PERSONEL_IS" type="text" class="form-control ">
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+         
+
+                    
+                </div>
+
+
+
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="depoSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="depoVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="depoKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+         
+         </form>
+    </div>
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#depoVazgec").click(function () {
+
+                $("#depoForm").attr("action", "/Stock/WarehouseDefinition").submit()
+
+            });
+
+            $("#depoSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Depo Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#depoForm").attr("action", "/Stock/WarehouseDefinition/StockTransactionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>

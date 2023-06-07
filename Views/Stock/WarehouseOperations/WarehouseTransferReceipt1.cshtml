@@ -1,0 +1,200 @@
+﻿@{
+    Layout = "~/Views/Stock/WarehouseOperations/_LayoutWarehouseOperations.cshtml";
+    ViewData["Title"] = "WarehouseTransferReceipt1";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mv
+
+@model WarewhouseTransferReceipt
+
+<div class="row" style="padding-top: 10px;">
+
+    <div class="col-md-12">
+        <form action="/WarehouseTransferReceipt/WarehouseTransferReceiptSave" method="post" enctype="multipart/form-data" name="depoTransferForm" id="depoTransferForm">
+            
+            <div class="card card-primary card-outline">
+
+                <div class="card-header">
+                    <h3 class="card-title">Depo Transfer Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#genelTab" data-toggle="tab">Genel</a></li>
+                        
+                    </ul>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="genelTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="FIS_NO">Fiş No</label>
+                                        <input asp-is-disabled="@( (Model.Id == 0 ) ? false : true)" asp-for="FIS_NO" type="text" class="form-control ">
+                                        <input asp-for="Id" style="display:none;" />
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="stok_kodu">Stok kodu:</label>
+                                        </div>
+                                        <div class="col-md-12 text-start">
+                                            <select id="STOK_KODU" name="STOK_KODU" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (System.Data.DataRow row in Model.dt.Tables[1].Rows)
+                                                {
+                                                    <option value="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PARTI_NO">Parti No</label>
+                                        <input asp-for="PARTI_NO" type="text" class="form-control ">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="GONDEREN_DEPO">Gönderen Depo:</label>
+                                        </div>
+                                        <div class="col-md-12 text-start">
+                                            <select id="GONDEREN_DEPO" name="GONDEREN_DEPO" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                                {
+                                                    <option value="@row["DEPO_KODU"]">@row["DEPO_ADI"] </option>
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="TARIH">Tarih:</label>
+                                        <input asp-for="TARIH" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ISLEM_MIKTARI">İşlem Miktarı:</label>
+                                        <input asp-for="ISLEM_MIKTARI" type="text" class="form-control ">
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="ISLEM_BIRIMI">İşlem Birimi:</label>
+                                        </div>
+                                        <div class="col-md-12 text-start">
+                                            <select id="ISLEM_BIRIMI" name="ISLEM_BIRIMI" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (System.Data.DataRow row in Model.dt.Tables[2].Rows)
+                                                {
+                                                    <option value="@row["OLCU_BIRIMI_KODU"]">@row["OLCU_BIRIMI_KODU"] </option>
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="ALAN_DEPO">Alan Depo:</label>
+                                        </div>
+                                        <div class="col-md-12 text-start">
+                                            <select id="ALAN_DEPO" name="ALAN_DEPO" class="form-control">
+                                                <option value="">Seçiniz</option>
+                                                @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                                {
+                                                    <option value="@row["DEPO_KODU"]">@row["DEPO_ADI"] </option>
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label for="ACIKLAMA">Ne İçin Transfer Edilecek?:</label>
+                                        <input asp-for="ACIKLAMA" type="text" class="form-control ">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="depoTransferSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="depoTransferVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="depoTransferKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+
+
+            </form>
+    </div>
+    </div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#depoTransferVazgec").click(function () {
+
+                $("#depoTransferForm").attr("action", "/Stock/WarehouseTransferReceipt").submit()
+
+            });
+
+            $("#depoTransferSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Depo Fişi Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#depoTransferForm").attr("action", "/Stock/WarehouseTransferReceipt/WarehouseTransferReceiptDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>
+

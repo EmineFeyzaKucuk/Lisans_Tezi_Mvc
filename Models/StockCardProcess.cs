@@ -150,7 +150,7 @@ namespace Lisans_Tezi_Mvc.Models
             }
         }
 
-
+       
         public void getStockCardCode()
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))

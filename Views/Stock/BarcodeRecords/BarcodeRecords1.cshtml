@@ -1,0 +1,152 @@
+﻿@{
+    Layout = "~/Views/Stock/BarcodeRecords/_LayoutBarcodeRecords.cshtml";
+    ViewData["Title"] = "BarcodeRecords1";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Lisans_Tezi_Mvc
+@model BarcodeRecords
+
+
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/BarcodeRecords/BarcodeRecordsSave" method="post" enctype="multipart/form-data" name="barcodeForm" id="barcodeForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Barkod Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+                       
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Stok Kodu</label>
+                                        <select asp-for="STOK_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header="  StokKart  " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                   
+                                    <div class="form-group">
+                                        <label for="ACIKLAMA">Acıklama</label>
+                                        <input asp-for="ACIKLAMA" type="text" class="form-control ">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Barkod Tipi</label>
+                                        <select asp-for="BARKOD_TIPI" class="selectpicker form-control show-tick" data-live-search="true" data-header="  barkod  " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[1].Rows)
+                                            {
+                                                <option value="@row["BARKOD_TIPI"]">@row["BARKOD_TIPI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                       
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="BARKOD">Barkod</label>
+                                        <input asp-for="BARKOD" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="KAYIT_TARIHI">Kayıt Tarihi</label>
+                                        <input asp-for="KAYIT_TARIHI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ölçü Birimi</label>
+                                        <select asp-for="OLCU_BIRIMI_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header="  olcuBırımı  " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[2].Rows)
+                                            {
+                                                <option value="@row["OLCU_BIRIMI_KODU"]">@row["OLCU_BIRIMI_KODU"] </option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="barcodeSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="barcodeVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="barcodeKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+    
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#barcodeVazgec").click(function () {
+
+                $("#barcodeForm").attr("action", "/Stock/BarcodeRecords").submit()
+
+            });
+
+            $("#barcodeSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Barkod Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#barcodeForm").attr("action", "/Stock/BarcodeRecords/BarcodeRecordsDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>

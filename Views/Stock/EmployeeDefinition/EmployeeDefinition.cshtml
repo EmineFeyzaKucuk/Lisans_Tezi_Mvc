@@ -1,156 +1,98 @@
-﻿@model List<EMPLOYEE_DEFINITION>
-@{
+﻿@{
     Layout = "~/Views/Stock/EmployeeDefinition/_LayoutEmployeeDefinition.cshtml";
     ViewData["Title"] = "EmployeeDefinition";
 }
+@model EmployeeDefinition
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
- 
-
-                <div class="row">
-                     <form asp-action="Add" method="post" >
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col-md-12"><label>PERSONEL TANIMLARI</label></div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                               
-
-                                    <div class="col-md-12">
-                                        <div class="row mt-2">
-                                            <div class="col-md-2">
-                                                <label for="PERSONEL_ISIM_LBL">Personel İsim :</label>
-                                            </div>
-                                            <div class="col-md-4 text-start">
-                                                <input class="form-control " name="PERSONEL_ISIM" type="text">
-                                            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Personel Kayıtları</h1>
+                                </div>
 
 
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-md-12">
-                                        <div class="row mt-2">
-                                            <div class="col-md-2">
-                                                <label for="ADRES_LBL">Adres :</label>
-                                            </div>
-                                            <div class="col-md-4 text-start">
-                                                <input class="form-control " name="ADRES" type="text">
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row mt-2">
-                                            <div class="col-md-2">
-                                                <label for="POSTA_KODU_LBL">Posta Kodu :</label>
-                                            </div>
-                                            <div class="col-md-2 text-start">
-                                                <input class="form-control " name="POSTA_KODU" type="text">
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row mt-2">
-                                            <div class="col-md-2">
-                                                <label for="GSM_NO_LBL">GSM No :</label>
-                                            </div>
-                                            <div class="col-md-4 text-start">
-                                                <input class="form-control " name="GSM" type="text">
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row mt-2">
-                                            <div class="col-md-2">
-                                                <label for="EPOSTA_LBL">E-posta :</label>
-                                            </div>
-                                            <div class="col-md-4 text-start">
-                                                <input class="form-control " name="E_POSTA" type="text">
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                    </div>
-                             
-
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/EmployeeDefinition/EmployeeDefinitionNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Personel Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <button type="submit">Ekle</button>
-                   
-
-           
-                </form>
-                </div>
-            <div class="row mt-3">
-                <div class="col">
-
-                      @if (Model != null && Model.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Personel İsim </th>
-                                    <th scope="col">Adres</th>
-                                    <th scope="col">Posta Kodu</th>
-                                    <th scope="col">GSM No </th>
-                                    <th scope="col">E-posta</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.PERSONEL_ISIM</td>
-                                        <td>@item.ADRES</td>
-                                        <td>@item.POSTA_KODU</td>
-                                        <td>@item.GSM</td>
-                                        <td>@item.E_POSTA</td>
-
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
-       
+
         </div>
     </div>
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Personel İsim<th>
+                        <th>GSM No </th>
+                        <th>E- Posta</th>
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["Id"]</td>
+                            <td>@row["PERSONEL_ISIM"]</td>
+                            <td>@row["GSM"]</td>
+                            <td>@row["E_POSTA"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editPersonelKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+            <form method="post" id="employeeForm" name="employeeForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+
+        </div>
+
+
+
+    </div>
+
 </div>
+<script>
+
+
+    function editPersonelKayıt(id) {
+
+
+        $("#employeeForm input[name=Id]").attr("value", id)
+
+        $("#employeeForm").attr("action", "/EmployeeDefinition/EmployeeDefinitionEdit").submit();
+
+    }
+
+</script>
+   
