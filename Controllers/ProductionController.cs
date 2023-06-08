@@ -1,7 +1,9 @@
-﻿using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.CarbonFootprintRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
@@ -46,8 +48,9 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IProductionRecordRepository _productionRecordRepository;
         private readonly IWorkstationIdentificationRepository _workstationIdentificationRepository;
         private readonly ISafetyStockRepository _safetyStockRepository;
+        private readonly ICarbonFootprintRepository _carbonFootprintRepository;
 
-        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository, IProductGroupDefinitionsRepository productGroupDefinitionsRepository,IEmployeeDefinitionRepository employeeDefinitionRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockInformationRepository stockInformationRepository , ICurrentCardIdentificationRepository currentCardIdentificationRepository, IProductionOrderEntryRepository productionOrderEntryRepository,IMadeOfDefinitionRepository madeOfDefinitionRepository, IWarehouseDefinitionRepository warehouseDefinitionRepository,IProductionRecordRepository productionRecordRepository,IWorkstationIdentificationRepository workstationIdentificationRepository,IWaterFootPrintRepository waterFootPrintRepository, ISafetyStockRepository safetyStockRepository)
+        public ProductionController(IMachineIdentificationRepository machineIdentificationRepository,IOperationDescriptionRepository operationDescriptionRepository, IOperatorTypesDescriptionRepository operatorTypesDescriptionRepository, IOperatorDescriptionRepository operatorDescriptionRepository, IProductGroupDefinitionsRepository productGroupDefinitionsRepository,IEmployeeDefinitionRepository employeeDefinitionRepository, IUnitofMeasureDefinitionRepository unitofMeasureDefinitionRepository, IStockInformationRepository stockInformationRepository , ICurrentCardIdentificationRepository currentCardIdentificationRepository, IProductionOrderEntryRepository productionOrderEntryRepository,IMadeOfDefinitionRepository madeOfDefinitionRepository, IWarehouseDefinitionRepository warehouseDefinitionRepository,IProductionRecordRepository productionRecordRepository,IWorkstationIdentificationRepository workstationIdentificationRepository,IWaterFootPrintRepository waterFootPrintRepository, ISafetyStockRepository safetyStockRepository, ICarbonFootprintRepository carbonFootprintRepository)
         {
             _waterFootPrintRepository = waterFootPrintRepository;
             _machineIdentificationRepository = machineIdentificationRepository;
@@ -65,6 +68,10 @@ namespace Lisans_Tezi_Mvc.Controllers
             _productionRecordRepository = productionRecordRepository;
             _workstationIdentificationRepository = workstationIdentificationRepository;
             _safetyStockRepository = safetyStockRepository;
+            _carbonFootprintRepository = carbonFootprintRepository;
+
+
+
         }
 
 
@@ -87,12 +94,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
 
 
-              public IActionResult MachineIdentification()
+        public IActionResult MachineIdentification()
         {
-            ViewBag.data1 = _machineIdentificationRepository.GetAll();
+            //ViewBag.data1 = _machineIdentificationRepository.GetAll();
 
-            
-            return View("~/Views/Production/MachineIdentification/MachineIdentification.cshtml");
+            MachineIdentification adc = new MachineIdentification();
+
+            adc.getAllMachineIdentification();
+
+
+            return View("~/Views/Production/MachineIdentification/MachineIdentification.cshtml",adc);
         }
 
 
@@ -100,16 +111,25 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
 
 
-            ViewBag.data1 = _operationDescriptionRepository.GetAll();
+            // ViewBag.data1 = _operationDescriptionRepository.GetAll();
 
-            return View("~/Views/Production/OperationDescription/OperationDescription.cshtml");
+            OperationDescription adc = new OperationDescription();
+
+            adc.getAllOperationDescription();
+
+            return View("~/Views/Production/OperationDescription/OperationDescription.cshtml",adc);
         }
 
         public IActionResult OperatorTypesDescription()
         {
 
-            ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
-            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml");
+            //ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
+
+            OperatorTypesDescription adc = new OperatorTypesDescription();
+
+            adc.getAllOperatorTypesDescription();
+
+            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml",adc);
         }
 
         public IActionResult OperatorDescription()
@@ -176,5 +196,12 @@ namespace Lisans_Tezi_Mvc.Controllers
             ViewBag.data3 = _safetyStockRepository.GetAll();
             return View("~/Views/Production/SafetyStock/SafetyStock.cshtml");
         }
+
+        public IActionResult CarbonFootprint()
+        {
+            ViewBag.data3 = _carbonFootprintRepository.GetAll();
+            return View("~/Views/Production/CarbonFootprint/CarbonFootprint.cshtml");
+        }
+
     }
 }

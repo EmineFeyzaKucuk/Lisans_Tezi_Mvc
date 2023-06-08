@@ -86,6 +86,15 @@ namespace Lisans_Tezi_Mvc.Controllers
         //    return Redirect("/EmployeeDefinition/EmployeeDefinition");
         //}
 
+        //        public IActionResult Add(EMPLOYEE_DEFINITION employeeDefinitionRepository)
+        //        {
+        //            try
+        //            {
+        //                _employeeDefinitionRepository.Add(employeeDefinitionRepository);
+        //                return RedirectToAction("EmployeeDefinition");
+        //            }
+        //            catch (Exception)
+        //            {
 
         //public IActionResult EmployeeDefinitionEdit(int Id)
         //{
@@ -122,7 +131,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
 
 
-        
+
 
     }
 }

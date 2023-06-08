@@ -1,0 +1,119 @@
+﻿@{
+    Layout = "~/Views/Production/OperatorTypesDescription/_LayoutOperatorTypesDescription.cshtml";
+    ViewData["Title"] = "OperatorTypesDescription1";
+}
+
+@model OperatorTypesDescription
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/OperatorTypesDescription/OperatorTypesDescriptionSave" method="post" enctype="multipart/form-data" name="operatorTypesForm" id="operatorTypesForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Operatör Tür Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="OPERATOR_TUR_KODU">Operatör Tür Kodu</label>
+                                        <input asp-for="OPERATOR_TUR_KODU" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="OPERATOR_TUR_ADI">Operatör Tür Adı</label>
+                                        <input asp-for="OPERATOR_TUR_ADI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="A_P" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Aktif
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="A_P" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Pasif
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="typeSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="typeVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="typeKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#typeVazgec").click(function () {
+
+                $("#operatorTypesForm").attr("action", "/Production/OperatorTypesDescription").submit()
+
+            });
+
+            $("#typeSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Makine Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#operatorTypesForm").attr("action", "/Production/OperatorTypesDescription/OperatorTypesDescriptionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>

@@ -50,7 +50,7 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<WORKSTATION_IDENTIFICATION> Uretim_IsIstasyonuTanimlama_TBL { get; set; }
         public DbSet<WATER_FOOTPRINT> Uretim_SuAyakIzi_TBL { get; set; }
         public DbSet<SAFETY_STOCK> GuvenlikStogu_TBL { get; set; }
-
+        public DbSet<CARBON_FOOTPRINT> KarbonAyakIzi_TBL { get; set; }
         //**************MUHASEBE**************************************************************************************
         public DbSet<ACCOUNTING_CURRENT_CARD_DEFINITION> Muhasebe_CariKartTanimlama_TBL { get; set; }
         public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }

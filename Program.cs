@@ -5,6 +5,7 @@ using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.CarbonFootprintRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
@@ -88,6 +89,7 @@ public class DBInfo
             builder.Services.AddScoped<IWorkstationIdentificationRepository, WorkstationIdentificationRepository>();
             builder.Services.AddScoped<IWaterFootPrintRepository, WaterFootPrintRepository>();
             builder.Services.AddScoped<ISafetyStockRepository, SafetyStockRepository>();
+            builder.Services.AddScoped<ICarbonFootprintRepository, CarbonFootprintRepository>();
             //******************MUHASEBE 
             builder.Services.AddScoped<IUniformChartOfAccountsEntryRepository, UniformChartOfAccountsEntryRepository>();
             builder.Services.AddScoped<IAlternativeChartOfAccountsEntryRepository, AlternativeChartOfAccountsEntryRepository>();

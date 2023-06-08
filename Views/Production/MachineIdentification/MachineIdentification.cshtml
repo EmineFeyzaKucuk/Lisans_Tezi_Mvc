@@ -3,180 +3,105 @@
     ViewData["Title"] = "MachineIdentification";
 }
 
-<div class="container" >
+@model MachineIdentification
+
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-
-            <form method="post" asp-controller="MachineIdentification" asp-action="CreateMachineIdentification">
-                <div class="row">
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <label>MAKİNE TANIMLAMA</label>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Makine Tanımlama</h1>
                                 </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="MAKINE_KODU">Makine Kodu:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="MAKINE_KODU" NAME="MAKINE_KODU" type="text">
-                                                </div>
-                                              
-                                            </div>
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="MAKINE_SAYISI">Makine Sayısı:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="MAKINE_SAYISI" name="MAKINE_SAYISI" type="text">
-                                                </div>
-                                            </div>
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="TARIH">Tarih:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="TARIH"  name="TARIH"type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="URETIM_SURESI">Üretim Süresi:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="URETIM_SURESI" name="URETIM_SURESI" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="HAZIRLIK_SURESI">Hazırlık Süresi:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="HAZIRLIK_SURESI" name="HAZIRLIK_SURESI" type="text">
-                                                </div>
-                                            </div>
-
-                                        </div>
 
 
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="MAKINE_ADI">Makine Adı:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="MAKINE_ADI" name="MAKINE_ADI" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <div class="col">
-                                                  
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="true" name="A_P" id="A_P">
-                                                        <label class="form-check-label" for="A_P">
-                                                            A/P
-                                                        </label>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="ACIKLAMA">Açıklama:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
-                                                </div>
-                                            </div>
-
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row mt-3">
-
-
-
-                                            <div class="row mt-2">
-                                                <div class="col-md-1 text-start">
-                                                    <button type="submit" class="btn btn-success">Ekle</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Sil</button>
-                                            </div>
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Güncelle</button>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/MachineIdentification/MachineıdentificationNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Makine Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </form>
-
-            <div class="row mt-3">
-                <div class="col">
-
-                    @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Makine Kodu</th>
-                                    <th scope="col">Makine Adı</th>
-                                    <th scope="col">A_P</th>
-                                    <th scope="col">Makine Sayısı</th>
-                                    <th scope="col">Açıklama</th>
-                                    <th scope="col">Üretim Süresi</th>
-                                    <th scope="col">Hazırlık Süresi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in ViewBag.data1)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.MAKINE_KODU</td>
-                                        <td>@item.MAKINE_ADI</td>
-                                        <td>@item.A_P</td>
-                                        <td>@item.MAKINE_SAYISI</td>
-                                        <td>@item.ACIKLAMA</td>
-                                        <td>@item.URETIM_SURESI</td>
-                                        <td>@item.HAZIRLIK_SURESI</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Makine Kodu</th>
+                        <th>Makine Adı</th>
+                        <th>A/P</th>
+                        <th>Açıklama</th>                        
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["MAKINE_KODU"]</td>
+                            <td>@row["MAKINE_ADI"]</td>                            
+
+                            @if (row["A_P"] == "false")
+                            {
+                                <td> Aktif </td>
+                            }
+                            else
+                            {
+                                <td> Pasif </td>
+                            }
+                            <td>@row["ACIKLAMA"]</td>                      
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editMakineKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="machineForm" name="machineForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
 </div>
+
+<script>
+
+
+    function editMakineKayıt(id) {
+
+
+        $("#machineForm input[name=Id]").attr("value", id)
+
+        $("#machineForm").attr("action", "/MachineIdentification/MachineIdentificationEdit").submit();
+
+    }
+
+</script>
