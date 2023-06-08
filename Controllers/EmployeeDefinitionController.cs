@@ -80,25 +80,25 @@ namespace Lisans_Tezi_Mvc.Controllers
 
 
 
-        public IActionResult Add(EMPLOYEE_DEFINITION employeeDefinitionRepository)
-        {
-            try
-            {
-                _employeeDefinitionRepository.Add(employeeDefinitionRepository);
-                return RedirectToAction("EmployeeDefinition");
-            }
-            catch (Exception)
-            {
+        //        public IActionResult Add(EMPLOYEE_DEFINITION employeeDefinitionRepository)
+        //        {
+        //            try
+        //            {
+        //                _employeeDefinitionRepository.Add(employeeDefinitionRepository);
+        //                return RedirectToAction("EmployeeDefinition");
+        //            }
+        //            catch (Exception)
+        //            {
 
-                return BadRequest("Eklenemedi");
-            }
+        //                return BadRequest("Eklenemedi");
+        //            }
 
-        }
-
-
+        //        }
 
 
-        
+
+
+
 
     }
 }
