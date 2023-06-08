@@ -27,5 +27,56 @@ namespace Lisans_Tezi_Mvc.Controllers
                 return BadRequest("Eklenemedi");
             }
         }
+        public IActionResult OperatorTypesDescriptionNew()
+        {
+
+            OperatorTypesDescription str = new OperatorTypesDescription();
+            str.operatorTurBilgisiGetir();
+
+
+
+
+            str.dt.Tables[0].TableName = "opreratorTur";
+
+
+            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription1.cshtml", str);
+           
+
+        }
+        public IActionResult OperatorTypesDescriptionSave(OperatorTypesDescription str)
+        {
+            OperatorTypesDescription ste = new OperatorTypesDescription();
+            str.saveOperatorTypesDescription(str);
+
+
+            return Redirect("/Production/OperatorTypesDescription");
+        }
+        public IActionResult OperatorTypesDescriptionDelete(OperatorTypesDescription str)
+        {
+            OperatorTypesDescription ste = new OperatorTypesDescription();
+            str.deleteOperatorTypesDescription(str.Id);
+
+            return Redirect("/Production/OperatorTypesDescription");
+        }
+
+        public IActionResult OperatorTypesDescriptionEdit(int Id)
+        {
+
+            OperatorTypesDescription str = new OperatorTypesDescription();
+            str.operatorTurBilgisiGetir();
+            str.getOperatorTypesDescription(Id);
+
+            str.dt.Tables[0].TableName = "opreratorTur";
+
+
+
+            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription1.cshtml", str);
+
+        }
+
+        
+
+
+
     }
 }

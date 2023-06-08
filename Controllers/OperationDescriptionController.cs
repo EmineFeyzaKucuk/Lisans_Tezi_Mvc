@@ -34,6 +34,54 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         }
 
+        public IActionResult OperationDescriptionNew()
+        {
+
+            OperationDescription str = new OperationDescription();
+            str.operasyonBilgisiGetir();
+
+
+
+
+            str.dt.Tables[0].TableName = "operasyon";
+
+
+            return View("~/Views/Production/OperationDescription/OperationDescription1.cshtml", str);
+            
+
+        }
+        public IActionResult OperationDescriptionSave(OperationDescription str)
+        {
+            OperationDescription ste = new OperationDescription();
+            str.saveOperationDescription(str);
+
+
+            return Redirect("/Production/OperationDescription");
+        }
+
+        public IActionResult OperationDescriptionDelete(OperationDescription str)
+        {
+            MachineIdentification ste = new MachineIdentification();
+            str.deleteOperationDescription(str.Id);
+
+            return Redirect("/Production/OperationDescription");
+        }
+
+        public IActionResult OperationDescriptionEdit(int Id)
+        {
+
+            OperationDescription str = new OperationDescription();
+            str.operasyonBilgisiGetir();
+            str.getOperationDescription(Id);
+
+            str.dt.Tables[0].TableName = "operasyon";
+
+
+
+            return View("~/Views/Production/OperationDescription/OperationDescription1.cshtml", str);
+
+        }
+
 
     }
 }

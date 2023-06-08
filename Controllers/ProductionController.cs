@@ -1,4 +1,5 @@
-﻿using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
+﻿using Lisans_Tezi_Mvc.Models;
+using Lisans_Tezi_Mvc.Repository.AccountingCodeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.AccountingDetailCodeEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
@@ -87,12 +88,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
 
 
-              public IActionResult MachineIdentification()
+        public IActionResult MachineIdentification()
         {
-            ViewBag.data1 = _machineIdentificationRepository.GetAll();
+            //ViewBag.data1 = _machineIdentificationRepository.GetAll();
 
-            
-            return View("~/Views/Production/MachineIdentification/MachineIdentification.cshtml");
+            MachineIdentification adc = new MachineIdentification();
+
+            adc.getAllMachineIdentification();
+
+
+            return View("~/Views/Production/MachineIdentification/MachineIdentification.cshtml",adc);
         }
 
 
@@ -100,16 +105,25 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
 
 
-            ViewBag.data1 = _operationDescriptionRepository.GetAll();
+            // ViewBag.data1 = _operationDescriptionRepository.GetAll();
 
-            return View("~/Views/Production/OperationDescription/OperationDescription.cshtml");
+            OperationDescription adc = new OperationDescription();
+
+            adc.getAllOperationDescription();
+
+            return View("~/Views/Production/OperationDescription/OperationDescription.cshtml",adc);
         }
 
         public IActionResult OperatorTypesDescription()
         {
 
-            ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
-            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml");
+            //ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
+
+            OperatorTypesDescription adc = new OperatorTypesDescription();
+
+            adc.getAllOperatorTypesDescription();
+
+            return View("~/Views/Production/OperatorTypesDescription/OperatorTypesDescription.cshtml",adc);
         }
 
         public IActionResult OperatorDescription()

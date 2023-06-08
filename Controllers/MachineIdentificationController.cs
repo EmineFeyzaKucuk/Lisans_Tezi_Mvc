@@ -31,6 +31,54 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             }
 
+        public IActionResult MachineıdentificationNew()
+        {
+
+            MachineIdentification str = new MachineIdentification();
+            str.makineBilgisiGetir();
+            
+
+
+
+            str.dt.Tables[0].TableName = "makine";
+            
+
+            return View("~/Views/Production/MachineIdentification/MachineIdentification1.cshtml", str);
+            // return Content("burasır55rrrrrrrrr");
+
+        }
+        public IActionResult MachineIdentificationSave(MachineIdentification str)
+        {
+            MachineIdentification ste = new MachineIdentification();
+            str.saveMachineIdentification(str);
+
+           
+            return Redirect("/Production/MachineIdentification");
+        }
+        public IActionResult MachineIdentificationDelete(MachineIdentification str)
+        {
+            MachineIdentification ste = new MachineIdentification();
+            str.deleteMachineIdentification(str.Id);
+
+            return Redirect("/Production/MachineIdentification");
+        }
+
+        public IActionResult MachineIdentificationEdit(int Id)
+        {
+
+            MachineIdentification str = new MachineIdentification();
+            str.makineBilgisiGetir();
+            str.getMachineIdentification(Id);
+
+            str.dt.Tables[0].TableName = "makine";
+
+
+
+            return View("~/Views/Production/MachineIdentification/MachineIdentification1.cshtml", str);
+
+        }
+
+
 
 
 

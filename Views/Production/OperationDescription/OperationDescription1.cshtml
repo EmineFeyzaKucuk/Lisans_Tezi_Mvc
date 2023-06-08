@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "~/Views/Production/OperationDescription/_LayoutOperationDescription.cshtml";
+    ViewData["Title"] = "OperationDescription1";
+}
+
+@model OperationDescription
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/OperationDescription/OperationDescriptionSave" method="post" enctype="multipart/form-data" name="operationForm" id="operationForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Operasyon Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="OPERASYON_KODU">Operasyon Kodu</label>
+                                        <input asp-for="OPERASYON_KODU" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="KAPASITE">Kapasite (saat)</label>
+                                        <input asp-for="KAPASITE" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="NORMAL_IS_GUNLERI">Normal İş Günleri</label>
+                                        <input asp-for="NORMAL_IS_GUNLERI" type="text" class="form-control ">
+                                    </div>
+                                        <div class="form-group">
+                                        <label for="CUMARTESI">CUMARTESİ</label>
+                                        <input asp-for="CUMARTESI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PAZAR">Pazar</label>
+                                        <input asp-for="PAZAR" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="HAFTALIK_KAPASITE">Haftalık Kapasite</label>
+                                        <input asp-for="HAFTALIK_KAPASITE" type="text" class="form-control ">
+                                    </div>
+                                
+
+                               
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="OPERASYON_ADI">Operasyon Adı</label>
+                                        <input asp-for="OPERASYON_ADI" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="OPERASYON_ACIKLAMA">Operasyon Açıklama</label>
+                                        <input asp-for="OPERASYON_ACIKLAMA" type="text" class="form-control ">
+                                    </div>
+                                    
+                              
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="operationSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="operationVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="operationKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#operationVazgec").click(function () {
+
+                $("#operationForm").attr("action", "/Production/OperationDescription").submit()
+
+            });
+
+            $("#operationSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Operasyon Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#operationForm").attr("action", "/Production/OperationDescription/OperationDescriptionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>
+
