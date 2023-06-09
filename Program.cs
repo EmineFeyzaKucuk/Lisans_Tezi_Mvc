@@ -6,8 +6,10 @@ using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.BarcodeTypeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CarbonFootprintRepo;
+using Lisans_Tezi_Mvc.Repository.CreditNoteRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
+using Lisans_Tezi_Mvc.Repository.DebitMemoRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
@@ -93,7 +95,8 @@ public class DBInfo
             //******************MUHASEBE 
             builder.Services.AddScoped<IUniformChartOfAccountsEntryRepository, UniformChartOfAccountsEntryRepository>();
             builder.Services.AddScoped<IAlternativeChartOfAccountsEntryRepository, AlternativeChartOfAccountsEntryRepository>();
-
+            builder.Services.AddScoped<IDebitMemoRepository, DebitMemoRepository>();
+            builder.Services.AddScoped<ICreditNoteRepository, CreditNoteRepository>();
 
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 

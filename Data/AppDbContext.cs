@@ -56,6 +56,8 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<ACCOUNTING_CODE_DEFINITION> MuhasebeKodTanimlama_TBL { get; set; }
         public DbSet<ACCOUNTING_UNIFORM_CHART_OF_ACCOUNTS_ENTRY> MuhasebeTekDüzenHesapPlanıGiris_TBL { get; set; }
         public DbSet<ALTERNATIVE_CHART_OF_ACCOUNTS_ENTRY> MuhasebeAlternatifHesapPlaniGiris_TBL { get; set; }
+        public DbSet<DEBIT_MEMO> FinansBorcDekontu_TBL { get; set; }
+        public DbSet<CREDIT_NOTE> FinansAlacakDekontu_TBL { get; set; }
         //   public DbSet<ACCOUNT> MuhasebeKodTanimlama_TBL { get; set; }
 
     }

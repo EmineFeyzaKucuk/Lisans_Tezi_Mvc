@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.UniformChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
+using Lisans_Tezi_Mvc.Repository.CreditNoteRepo;
+using Lisans_Tezi_Mvc.Repository.DebitMemoRepo;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -16,16 +18,22 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly ICurrencyDefinitionRepository _currencyDefinitionRepository;
         private readonly IUniformChartOfAccountsEntryRepository _uniformChartOfAccountsEntryRepository;
         private readonly IAlternativeChartOfAccountsEntryRepository _alternativeChartOfAccountsEntryRepository;
+        private readonly IDebitMemoRepository _debitMemoRepository;
+        private readonly ICreditNoteRepository _creditNoteRepository;
         private readonly AlternativeChartOfAccountsEntryController _alternativeChartOfAccountsEntry;
 
-        public AccountingController( ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUniformChartOfAccountsEntryRepository uniformChartOfAccountsEntryRepository,IAlternativeChartOfAccountsEntryRepository alternativeChartOfAccountsEntryRepository)
+        public AccountingController(ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUniformChartOfAccountsEntryRepository uniformChartOfAccountsEntryRepository, IAlternativeChartOfAccountsEntryRepository alternativeChartOfAccountsEntryRepository, IDebitMemoRepository debitMemoRepository, ICreditNoteRepository creditNoteRepository)
         {
             _currentCardIdentificationRepository = currentCardIdentificationRepository;
             _currencyDefinitionRepository = currencyDefinitionRepository;
             _uniformChartOfAccountsEntryRepository = uniformChartOfAccountsEntryRepository;
             _alternativeChartOfAccountsEntryRepository = alternativeChartOfAccountsEntryRepository;
-        }
+            _debitMemoRepository = debitMemoRepository;
+            _creditNoteRepository = creditNoteRepository;
+            {
+            }
 
+        }
         public IActionResult Index()
         {
             return View();
@@ -82,6 +90,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CreditNote()
         {
+            ViewBag.data1 = _creditNoteRepository.GetAll();
             return View("~/Views/Accounting/CreditNote/CreditNote.cshtml");
         }
 
@@ -92,6 +101,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult DebitMemo()
         {
+            ViewBag.data1 = _debitMemoRepository.GetAll();
             return View("~/Views/Accounting/DebitMemo/DebitMemo.cshtml");
         }
 
