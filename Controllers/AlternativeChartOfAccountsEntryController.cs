@@ -19,8 +19,16 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CreateAlternativeChartOfAccountsEntry(ALTERNATIVE_CHART_OF_ACCOUNTS_ENTRY alternativeChartOfAccountsEntry)
         {
+
+         
+
+
             try
             {
+                if (alternativeChartOfAccountsEntry.A_P == null)
+                {
+                    alternativeChartOfAccountsEntry.A_P = "false";
+                }
                 //  return Ok(uniformChartOfAccountsEntry);
                 _alternativeChartOfAccountsEntryRepository.Add(alternativeChartOfAccountsEntry);
                 return RedirectToAction("AlternativeChartOfAccountsEntry", "Accounting");

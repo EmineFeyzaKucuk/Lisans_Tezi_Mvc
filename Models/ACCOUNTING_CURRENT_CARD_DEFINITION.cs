@@ -3,10 +3,10 @@ using System.Data;
 
 namespace Lisans_Tezi_Mvc.Models
 {
-    public class ACCOUNTING_CURRENT_CARD_DEFINITION : BaseEntity
+    public class ACCOUNTING_CURRENT_CARD_DEFINITION: BaseEntity
     {
 
-        public int Id { get; set; }
+      
         public string CARI_KODU { get; set; }
         public string UNVAN { get; set; }
         public string ADRES { get; set; }
