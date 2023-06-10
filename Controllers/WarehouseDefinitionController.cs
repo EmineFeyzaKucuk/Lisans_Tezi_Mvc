@@ -55,7 +55,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
             //return Content(a);
 
-            return Redirect("/Stock/WarehouseOperation/WarehouseDefinition");
+            return Redirect("/Stock/WarehouseDefinition");
         }
         public IActionResult WarehouseDefinitionDelete(WarehouseDefinition dp)
         {

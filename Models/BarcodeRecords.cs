@@ -48,7 +48,7 @@ namespace Lisans_Tezi_Mvc.Models
                 sqlCmd.Parameters.AddWithValue("@pSTOK_KODU", sbk.STOK_KODU);
                 sqlCmd.Parameters.AddWithValue("@pBARKOD", sbk.BARKOD);
                 sqlCmd.Parameters.AddWithValue("@pKAYIT_TARIHI", sbk.KAYIT_TARIHI);
-                sqlCmd.Parameters.AddWithValue("@BARKOD_TIPI", sbk.BARKOD_TIPI);
+                sqlCmd.Parameters.AddWithValue("@pBARKOD_TIPI", sbk.BARKOD_TIPI);
                 sqlCmd.Parameters.AddWithValue("@pOLCU_BIRIMI_KODU", sbk.OLCU_BIRIMI_KODU);
            
                 sqlCmd.ExecuteNonQuery();
