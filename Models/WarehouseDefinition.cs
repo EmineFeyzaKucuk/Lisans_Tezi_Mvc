@@ -13,7 +13,7 @@ namespace Lisans_Tezi_Mvc.Models
         public string TESIS_KODU { get; set; }
         public string LOKASYON_KODU { get; set; }
 
-        public string PERSONEL_ID { get; set; }
+        public int PERSONEL_ID { get; set; }
         public string PERSONEL_IS { get; set; }
 
 
@@ -92,7 +92,7 @@ namespace Lisans_Tezi_Mvc.Models
                     this.E_TICARET                  = (bool)readData["E_TICARET"];
                     this.TESIS_KODU                 = (String)readData["TESIS_KODU"];
                     this.LOKASYON_KODU              = (String)readData["LOKASYON_KODU"];
-                    this.PERSONEL_ID                = (string)readData["PERSONEL_ID"];
+                    this.PERSONEL_ID                = (int)readData["PERSONEL_ID"];
                     this.PERSONEL_IS                = (String)readData["PERSONEL_IS"];
 
 
