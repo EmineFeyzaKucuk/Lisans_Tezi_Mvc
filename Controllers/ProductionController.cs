@@ -134,11 +134,14 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult OperatorDescription()
         {
-            ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
-            ViewBag.data2 = _operatorDescriptionRepository.GetAll();
+            //ViewBag.data1 = _operatorTypesDescriptionRepository.GetAll();
+            //ViewBag.data2 = _operatorDescriptionRepository.GetAll();
 
-            
-            return View("~/Views/Production/OperatorDescription/OperatorDescription.cshtml");
+            OperatorDescription adc = new OperatorDescription();
+
+            adc.getAllOperatorDescription();
+
+            return View("~/Views/Production/OperatorDescription/OperatorDescription.cshtml",adc);
         }
 
         public IActionResult ProductGroupDefinitions()
@@ -152,15 +155,19 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult ProductionOrderEntry()
         {
 
-            ViewBag.data1 = _employeeDefinitionRepository.GetAll();
-            ViewBag.data2 = _currentCardIdentificationRepository.GetAll();
-            ViewBag.data3 = _stockInformationRepository.GetAll();
-            ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
+            //ViewBag.data1 = _employeeDefinitionRepository.GetAll();
+            //ViewBag.data2 = _currentCardIdentificationRepository.GetAll();
+            //ViewBag.data3 = _stockInformationRepository.GetAll();
+            //ViewBag.data4 = _unitofMeasureDefinitionRepository.GetAll();
 
-            ViewBag.data5 = _productionOrderEntryRepository.GetAll();
- 
+            //ViewBag.data5 = _productionOrderEntryRepository.GetAll();
 
-            return View("~/Views/Production/ProductionOrderEntry/ProductionOrderEntry.cshtml");
+            ProductionOrderEntry adc = new ProductionOrderEntry();
+
+            adc.getAllProductionOrderEntry();
+
+
+            return View("~/Views/Production/ProductionOrderEntry/ProductionOrderEntry.cshtml",adc);
         }
 
         public IActionResult ProductionRecord()
@@ -177,11 +184,16 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult WorkstationIdentification()
         {
-            ViewBag.data1 = _operatorDescriptionRepository.GetAll();
-            ViewBag.data2 = _machineIdentificationRepository.GetAll();
-            ViewBag.data3 = _workstationIdentificationRepository.GetAll();
-      
-            return View("~/Views/Production/WorkstationIdentification/WorkstationIdentification.cshtml");
+            //ViewBag.data1 = _operatorDescriptionRepository.GetAll();
+            //ViewBag.data2 = _machineIdentificationRepository.GetAll();
+            //ViewBag.data3 = _workstationIdentificationRepository.GetAll();
+
+
+            WorkstationIdentification adc = new WorkstationIdentification();
+
+            adc.getAllWorkstationIdentification();
+
+            return View("~/Views/Production/WorkstationIdentification/WorkstationIdentification.cshtml",adc);
         }
 
         public IActionResult WaterFootPrint()

@@ -43,12 +43,12 @@ namespace Lisans_Tezi_Mvc.Controllers
         //}
 
 
-        public IActionResult AcountingDetailCodeEdit(int muhasebeKodu)
+        public IActionResult AcountingDetailCodeEdit(int Id)
         {
 
             Accounting_Detail_Code_Entry mdk = new Accounting_Detail_Code_Entry();
             mdk.StokMuhasebeBilgisiGetir();
-            mdk.getAccountingDetailCodeEntry(muhasebeKodu);
+            mdk.getAccountingDetailCodeEntry(Id);
 
 
             mdk.dt.Tables[0].TableName = "muhasebeKodlari";
@@ -63,7 +63,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             Accounting_Detail_Code_Entry mdk = new Accounting_Detail_Code_Entry();
             mdk.StokMuhasebeBilgisiGetir();
-            //mdk.getAccountingDetailCodeEntry();
+            
 
             mdk.dt.Tables[0].TableName = "muhasebeKodlari";
 
@@ -79,9 +79,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             Accounting_Detail_Code_Entry ste = new Accounting_Detail_Code_Entry();
             adc.saveAccountingDetailCodeEntry(adc);
 
-            //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
-            //return Content(a);
-
+          
             return Redirect("/Stock/AccountingDetailCodeEntry");
         }
 
@@ -91,7 +89,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             Accounting_Detail_Code_Entry ste = new Accounting_Detail_Code_Entry();
             adc.deleteAccountingDetailCodeEntry(adc.MUHASEBE_KODU);
 
-            return Redirect("/ Stock / AccountingDetailCodeEntry");
+            return Redirect("/Stock/AccountingDetailCodeEntry");
         }
 
 

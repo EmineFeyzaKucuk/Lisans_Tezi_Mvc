@@ -29,5 +29,54 @@ namespace Lisans_Tezi_Mvc.Controllers
                 }
 
             }
+
+
+        public IActionResult OperatorDescriptionNew()
+        {
+
+            OperatorDescription str = new OperatorDescription();
+            str.operasyonBilgisiGetir();
+
+
+
+
+            str.dt.Tables[0].TableName = "operatorTkod";
+
+
+            return View("~/Views/Production/OperatorDescription/OperatorDescription1.cshtml", str);
+
+
         }
+        public IActionResult OperatorDescriptionSave(OperatorDescription str)
+        {
+            OperatorDescription ste = new OperatorDescription();
+            str.saveOperatorDescription(str);
+
+
+            return Redirect("/Production/OperatorDescription");
+        }
+
+        public IActionResult OperatorDescriptionDelete(OperatorDescription str)
+        {
+            OperatorDescription ste = new OperatorDescription();
+            str.deleteOperatorDescription(str.OPERATOR_KODU);
+
+            return Redirect("/Production/OperatorDescription");
+        }
+
+        public IActionResult OperatorDescriptionEdit(int Id)
+        {
+
+            OperatorDescription str = new OperatorDescription();
+            str.operasyonBilgisiGetir();
+            str.getOperatorDescription(Id);
+
+            str.dt.Tables[0].TableName = "operatorTkod";
+
+
+
+            return View("~/Views/Production/OperatorDescription/OperatorDescription1.cshtml", str);
+
+        }
+    }
 }

@@ -141,7 +141,7 @@ namespace Lisans_Tezi_Mvc.Models
         }
 
 
-        public void deleteStockTransactionRecords(String stokKodu)
+        public void deleteStockTransactionRecords(String fisno)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -149,7 +149,7 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("stokHareketCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 2);
-                sqlCmd.Parameters.AddWithValue("@pSTOK_KODU", stokKodu);
+                sqlCmd.Parameters.AddWithValue("@pFIS_NO", fisno);
 
                 sqlCmd.ExecuteNonQuery();
             }

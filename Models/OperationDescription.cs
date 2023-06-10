@@ -80,7 +80,7 @@ namespace Lisans_Tezi_Mvc.Models
                 sqlConn.Open();
                 SqlCommand sqlCmd = new SqlCommand("operasyonCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@pPorcessType", 0);
+                sqlCmd.Parameters.AddWithValue("@pPorcessType", 3);
                 sqlCmd.Parameters.AddWithValue("@pId", id);
 
                 SqlDataReader readData = sqlCmd.ExecuteReader();
@@ -106,7 +106,7 @@ namespace Lisans_Tezi_Mvc.Models
         }
 
 
-        public void deleteOperationDescription(int Id)
+        public void deleteOperationDescription(string operasyonkodu)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -114,7 +114,7 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("operasyonCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 2);
-                sqlCmd.Parameters.AddWithValue("@pId", Id);
+                sqlCmd.Parameters.AddWithValue("@pOPERASYON_KODU", operasyonkodu);
 
                 sqlCmd.ExecuteNonQuery();
             }

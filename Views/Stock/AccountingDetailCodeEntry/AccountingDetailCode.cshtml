@@ -30,75 +30,65 @@
                             <div class="row">
                                 <div class="col-md-5">
                            
-                                    <div class="col-md-12">
-                                        <label for="MUHASEBE_KODU">Muhasebe Kodu:</label>
-                                    </div>
-                                    <div class="col-md-12 text-start">
-                                        <select id="MUHASEBE_KODU" name="MUHASEBE_KODU" class="form-control">
-                                            <option value="">Seçiniz</option>
+               
+                                   <div class="form-group">
+                                        <label for="MUHASEBE_KODU">Muhasebe Kodu</label>
+                                        <select asp-for="MUHASEBE_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" muhasebe " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                                <option value="@row["MUHASEBE_KODU"]"  data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"]</option>
                                             }
-
                                         </select>
-
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="ALIS_HESABI">Alış Hesabı:</label>
-                                    </div>
-                                    <div class="col-md-12 text-start">
-                                        <select id="ALIS_HESABI" name="ALIS_HESABI" class="form-control">
-                                            <option value="">Seçiniz</option>
+                                   <div class="form-group">
+                                        <label for="ALIS_HESABI">Alış Hesabı</label>
+                                        <select asp-for="ALIS_HESABI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" muhasebe " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                                <option value="@row["MUHASEBE_KODU"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
                                             }
-
                                         </select>
+                                    </div>
+           
 
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="ALISTAN_IADE_HESABI">Alıstan İade Hesabı:</label>
-                                    </div>
-                                    <div class="col-md-12 text-start">
-                                        <select id="ALISTAN_IADE_HESABI" name="ALISTAN_IADE_HESABI" class="form-control">
-                                            <option value="">Seçiniz</option>
+                                    
+                                   <div class="form-group">
+                                        <label for="ALISTAN_IADE_HESABI">Alıştan İade Hesabı:</label>
+                                        <select asp-for="ALISTAN_IADE_HESABI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" muhasebe " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                                <option value="@row["MUHASEBE_KODU"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
                                             }
-
                                         </select>
+                                    </div>
+                         
+                                    
 
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="SATIS_HESABI">Satış Hesabı:</label>
-                                    </div>
-                                    <div class="col-md-12 text-start">
-                                        <select id="SATIS_HESABI" name="SATIS_HESABI" class="form-control">
-                                            <option value="">Seçiniz</option>
+                                    
+                                    <div class="form-group">
+                                        <label for="SATIS_HESABI">Satış Hesabı</label>
+                                        <select asp-for="SATIS_HESABI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                                <option value="@row["MUHASEBE_KODU"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
                                             }
-
                                         </select>
-
                                     </div>
-                                    <div class="col-md-12">
+   
+                                    
+                                   <div class="form-group">
                                         <label for="SATISTAN_IADE_HESABI">Satıştan İade Hesabı:</label>
-                                    </div>
-                                    <div class="col-md-12 text-start">
-                                        <select id="SATISTAN_IADE_HESABI" name="SATISTAN_IADE_HESABI" class="form-control">
-                                            <option value="">Seçiniz</option>
+                                        <select asp-for="SATISTAN_IADE_HESABI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" muhasebe " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["MUHASEBE_KODU"]">@row["MUHASEBE_KODU"]</option>
+                                                <option value="@row["MUHASEBE_KODU"]" data-subtext="@row["MUHASEBE_ADI"]">@row["MUHASEBE_KODU"] </option>
                                             }
-
                                         </select>
-
                                     </div>
                                 
                   
@@ -114,26 +104,29 @@
 
             </div>
 
-            <div class="card-footer text-right">
-                <button type="button" class="btn btn-danger" id="accountingDetailSil">
-                    <i class="fas fa-trash-alt"></i>
-                    &nbsp;Sil
-                </button>
-                <button type="button" class="btn btn-primary" id="accountingDetailVazgec">
-                    <i class="fa fa-backward"></i>
-                    &nbsp;Vazgeç
-                </button>
-                <button type="submit" class="btn btn-primary" id="accountingDetailKaydet">
-                    <i class="fa fa-save"></i>
-                    &nbsp;Kaydet
-                </button>
-            </div>
+                <div class="card-footer text-right">
+                    <button type="button" class="btn btn-danger" id="accountingDetailSil">
+                        <i class="fas fa-trash-alt"></i>
+                        &nbsp;Sil
+                    </button>
+                    <button type="button" class="btn btn-primary" id="accountingDetailVazgec">
+                        <i class="fa fa-backward"></i>
+                        &nbsp;Vazgeç
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="accountingDetailKaydet">
+                        <i class="fa fa-save"></i>
+                        &nbsp;Kaydet
+                    </button>
+                </div>
 
-             </form>
+         
+
+        </form>
     </div>
-
-
 </div>
+
+
+
 
 <script>
 
@@ -156,7 +149,7 @@
                         evet: {
                             text: 'Evet',
                             action: function () {
-                                $("#accountingForm").attr("action", "/ Stock / AccountingDetailCodeEntry/StockTransactionDelete").submit()
+                                $("#accountingForm").attr("action", "/AccountingDetailCodeEntry/AccountingDetailCodeDelete").submit() 
                             }
                         },
                         hayir: {

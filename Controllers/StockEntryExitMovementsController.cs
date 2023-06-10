@@ -47,7 +47,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
 
             StockInAndOut ste = new StockInAndOut();
-            ste.depoTransferBilgisi();
+            ste.stokGirisCıkısBilgisi();
             ste.getStockInAndOutCode();
 
             ste.dt.Tables[0].TableName = "depo";
@@ -67,7 +67,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
             //return Content(a);
 
-            return Redirect("/Stock/StockTransactionRecords");
+            return Redirect("/Stock/StockEntryExitMovements");
         }
 
 
@@ -76,15 +76,15 @@ namespace Lisans_Tezi_Mvc.Controllers
             StockInAndOut ste = new StockInAndOut();
             ste.deleteStockInAndOut(stp.FIS_NO);
 
-            return Redirect("/Stock/StockTransactionRecords");
+            return Redirect("/Stock/StockEntryExitMovements");
         }
 
-        public IActionResult StockEntryExitMovementsEdit(string fısKodu)
+        public IActionResult StockEntryExitMovementsEdit(int Id)
         {
 
             StockInAndOut ste = new StockInAndOut();
-            ste.depoTransferBilgisi();
-            ste.getStockInAndOut(fısKodu);
+            ste.stokGirisCıkısBilgisi();
+            ste.getStockInAndOut(Id);
 
             ste.dt.Tables[0].TableName = "depo";
             ste.dt.Tables[1].TableName = "stok";

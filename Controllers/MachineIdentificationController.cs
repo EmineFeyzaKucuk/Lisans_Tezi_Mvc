@@ -58,7 +58,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult MachineIdentificationDelete(MachineIdentification str)
         {
             MachineIdentification ste = new MachineIdentification();
-            str.deleteMachineIdentification(str.Id);
+            str.deleteMachineIdentification(str.MAKINE_KODU);
 
             return Redirect("/Production/MachineIdentification");
         }

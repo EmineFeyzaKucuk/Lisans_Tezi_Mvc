@@ -2,6 +2,7 @@
 {
     public class PRODUCTION_RECORD : BaseEntity
     {
+               
         public string BELGE_NO { get; set; }
         public string TARIH { get; set; }
         public string URETIM_EMRI_NO { get; set; }

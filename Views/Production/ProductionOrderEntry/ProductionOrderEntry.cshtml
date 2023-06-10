@@ -2,290 +2,104 @@
     Layout = "~/Views/Production/ProductionOrderEntry/_LayoutProductionOrderEntry.cshtml";
     ViewData["Title"] = "ProductionOrderEntry";
 }
-@model dynamic
+
+@model ProductionOrderEntry
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="ProductionOrderEntry" asp-action="CreateProductionOrderEntry">
-                <div class="row">
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <label>Üretim Emri Girişiaabba</label>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Üretim Emri Girişi</h1>
                                 </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="URETIM_EMRI_NO">Üretim Emri No:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="URETIM_EMRI_NO" name="URETIM_EMRI_NO" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2">
-                                                <div class="col-md-6">
-                                                    <label for="URETIM_EMRI_VEREN">Üretim Emri Veren:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-
-                                                    <select id="URETIM_EMRI_VEREN" name="URETIM_EMRI_VEREN" class="form-control">
-                                                            <option value="">Seçiniz</option>
-                                                            @foreach (var item in ViewBag.data1)
-                                                            {
-                                                                <option value="@item.Id">@item.PERSONEL_ISIM</option>
-                                                            }
-                                                        </select>
-                                                 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="TARIH">Tarih:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="TARIH" name="TARIH" type="date">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-2">
-                                                <div class="col-md-6">
-                                                    <label for="ACIKLAMA">Açıklama:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-12">
-                                                <div class="card">
-                                                    <h5 class="card-header">DETAY</h5>
-                                                    <div class="card-body">
-                                                        <div class="row mt-3">
-                                                            <div class="col-md-6">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="true" name="STOK_ICIN_URETIM" id="STOK_ICIN_URETIM">
-                                                                    <label class="form-check-label" for="STOK_ICIN_URETIM">
-                                                                        Stok İçin Üretim
-                                                                    </label>
-                                                                </div>
 
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mt-3">
-                                                            <div class="col-md-6">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="true" id="SIPARIS_ICIN_URETIM" name="SIPARIS_ICIN_URETIM">
-                                                                    <label class="form-check-label" for="SIPARIS_ICIN_URETIM">
-                                                                        Sipariş İçin Üretim
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mt-2">
-
-                                                            <div class="col-md-3">
-                                                                <label for="SIPARIS_NO">Sipariş No:</label>
-                                                            </div>
-                                                            <div class="col-md-2 text-start">
-                                                                <input class="form-control " id="SIPARIS_NO" name="SIPARIS_NO" type="text">
-                                                            </div>
-
-                                                        </div>
-
-
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <label for="CARI_HESAP_KODU">Cari Hesap Kodu:</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <select id="CARI_HESAP_KODU" name="CARI_HESAP_KODU" class="form-control">
-                                                                            <option value="">Seçiniz</option>
-                                                                            @foreach (var item in ViewBag.data2)
-                                                                            {
-                                                                                <option value="@item.CARI_KODU">@item.UNVAN</option>
-                                                                            }
-                                                                        </select>
-                                                                    </div>
-                                                                   
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <label for="STOK_KODU">Stok Kodu:</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <select id="STOK_KODU" name="STOK_KODU" class="form-control">
-                                                                            <option value="">Seçiniz</option>
-                                                                            @foreach (var item in ViewBag.data3)
-                                                                            {
-                                                                                <option value="@item.STOK_KODU">@item.STOK_ADI</option>
-                                                                            }
-                                                                        </select>
-                                                                    </div>
-                                                                
-                                                                </div>
-
-
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <label for="ISLEM_MIKTARI">İşlem Miktarı:</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <input class="form-control " id="ISLEM_MIKTARI" name="ISLEM_MIKTARI" type="number">
-                                                                    </div>
-
-                                                                </div>
-
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <label for="IMALAT_TESLIM_TARIHI">İmalat Teslim Tarihi:</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <input class="form-control " id="IMALAT_TESLIM_TARIHI" name="IMALAT_TESLIM_TARIHI" type="date">
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <label for="PLANLANAN_URETIM_MIKTARI">Planlanan Üretim Miktarı :</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <input class="form-control " id="PLANLANAN_URETIM_MIKTARI" name="PLANLANAN_URETIM_MIKTARI" type="text">
-                                                                    </div>
-
-                                                                </div>
-
-
-
-
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                            
-                                                                <div class="row mt-3">
-                                                                    <div class="col-md-6">
-                                                                        <label for="ISLEM_BIRIMI">İşlem Birimi:</label>
-                                                                        <select id="ISLEM_BIRIMI" name="ISLEM_BIRIMI" class="form-control">
-                                                                            <option value="">Seçiniz</option>
-                                                                            @foreach (var item in ViewBag.data4)
-                                                                            {
-                                                                                <option value="@item.OLCU_BIRIMI_KODU">@item.OLCU_BIRIMI_ADI</option>
-                                                                            }
-                                                                        </select>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="row mt-3">
-                                                                    <div class="col-md-6">
-                                                                        <label for="MUSTERIYE_TESLIM_TARIHI">Müşteriye Teslim Tarihi:</label>
-                                                                    </div>
-                                                                    <div class="col-md-4 text-start">
-                                                                        <input class="form-control " id="MUSTERIYE_TESLIM_TARIHI" name="MUSTERIYE_TESLIM_TARIHI" type="date">
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row mt-2">
-                                            <div class="col-md-1 text-start">
-                                                <button type="submit" class="btn btn-success">Ekle</button>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Güncelle</button>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Sil</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/ProductionOrderEntry/ProductionOrderEntrynew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Üretim Girişi</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-            </form>
-
-
-            <div class="row mt-3">
-                <div class="col">
-
-                    @if (ViewBag.data5 != null && ViewBag.data5.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Üretim Emri No</th>
-                                    <th scope="col">Tarih</th>
-                                    <th scope="col">Üretim Emri Veren</th>
-                                    <th scope="col">Açıklama</th>
-                                    <th scope="col">Stok İçin Üretim</th>
-                                    <th scope="col">Sipariş İçin Üretim</th>
-                                    <th scope="col">Sipariş No</th>
-                                    <th scope="col">Cari Hesap Kodu</th>
-                                    <th scope="col">Stok Kodu</th>
-                                    <th scope="col">İşlem Miktarı</th>
-                                    <th scope="col">İşlem Birimi</th>
-                                    <th scope="col">İmalat Teslim Tarihi</th>
-                                    <th scope="col">Müşteriye Teslim Tarihi</th>
-                                    <th scope="col">Planlanan Üretim Miktarı</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in ViewBag.data5)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.URETIM_EMRI_NO</td>
-                                        <td>@item.TARIH</td>
-                                        <td>@item.URETIM_EMRI_VEREN</td>
-                                        <td>@item.ACIKLAMA</td>
-                                        <td>@item.STOK_ICIN_URETIM</td>
-                                        <td>@item.SIPARIS_ICIN_URETIM</td>
-                                        <td>@item.SIPARIS_NO</td>
-                                        <td>@item.CARI_HESAP_KODU</td>
-                                        <td>@item.STOK_KODU</td>
-                                        <td>@item.ISLEM_MIKTARI</td>
-                                        <td>@item.ISLEM_BIRIMI</td>
-                                        <td>@item.IMALAT_TESLIM_TARIHI</td>
-                                        <td>@item.MUSTERIYE_TESLIM_TARIHI</td>
-                                        <td>@item.PLANLANAN_URETIM_MIKTARI</td>
-                                     
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Üretim Emri No</th>
+                        <th>Tarih</th>
+                        <th>Stok için Üretim</th>
+                        <th>Sipariş İçin Üretim</th>
+                        <th>Stok kodu</th>
+                        <th>İmalat Teslim Tarihi</th>
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <th>@row["Id"]</th>
+                            <th>@row["URETIM_EMRI_NO"]</th>
+                            <th>@row["TARIH"]</th>
+                            <th>@row["STOK_ICIN_URETIM"]</th>
+                            <th>@row["SIPARIS_ICIN_URETIM"]</th>
+                            <td>@row["STOK_KODU"]</td>
+                            <td>@row["IMALAT_TESLIM_TARIHI"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editUretimEmriKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="uretimEmriForm" name="uretimEmriForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
 </div>
+
+<script>
+
+
+    function editUretimEmriKayıt(id) {
+
+
+        $("#uretimEmriForm input[name=Id]").attr("value", id)
+
+        $("#uretimEmriForm").attr("action", "/ProductionOrderEntry/ProductionOrderEntryEdit").submit();
+
+    }
+
+</script>

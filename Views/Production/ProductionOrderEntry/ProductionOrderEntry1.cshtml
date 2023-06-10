@@ -1,0 +1,230 @@
+﻿@{
+    Layout = "~/Views/Production/ProductionOrderEntry/_LayoutProductionOrderEntry.cshtml";
+    ViewData["Title"] = "ProductionOrderEntry1";
+}
+
+@model ProductionOrderEntry
+
+
+<div class="row" style="padding-top: 10px;">
+
+    <div class="col-md-9">
+        <form action="/ProductionOrderEntry/ProductionOrderEntrySave" method="post" enctype="multipart/form-data" name="uretimEForm" id="uretimEForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Üretim Emri Girişi</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#genelTab" data-toggle="tab">Genel</a></li>
+                        <li class="nav-item"><a class="nav-link " href="#detayTab" data-toggle="tab">Detay</a></li>
+                    </ul>
+                </div>
+
+             <div class="card-body">
+              <div class="tab-content">
+                        <div id="genelTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                            
+                                    <div class="form-group">
+                                        <label for="URETIM_EMRI_NO">Üretim Emri No</label>
+                                        <input asp-for="URETIM_EMRI_NO" type="text" class="form-control ">
+                                    </div>
+  
+
+                                     <div class="form-group">
+                                        <label for="URETIM_EMRI_VEREN">Üretim Emri Veren</label>
+                                        <select asp-for="URETIM_EMRI_VEREN" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value= "@row["PERSONEL_ISIM"]" data-subtext="@row["ID"]">@row["PERSONEL_ISIM"] </option>
+                                            }
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="TARIH">Tarih</label>
+                                        <input asp-for="TARIH" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ACIKLAMA">Açıklama</label>
+                                        <input asp-for="ACIKLAMA" type="text" class="form-control ">
+                                    </div>
+
+                                  
+                                   
+                                  
+                                </div>
+                      
+
+                   
+                              
+
+                            </div>
+                         
+                        </div>
+
+                        <div id="detayTab" class="tab-pane">
+
+                            
+                         <div class="row">
+                            <div class="col-md-5">
+                                 <div class="col-md-12">
+                                   
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="true" id="STOK_ICIN_URETIM" name="STOK_ICIN_URETIM">
+                                        <label class="form-check-label" for="STOK_ICIN_URETIM">
+                                            Stok İçin Üretim
+                                        </label>
+                                    </div>
+
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="true" id="SIPARIS_ICIN_URETIM" name="SIPARIS_ICIN_URETIM">
+                                        <label class="form-check-label" for="SIPARIS_ICIN_URETIM">
+                                            Sipariş İçin Üretim
+                                        </label>
+                                    </div>
+                               
+                                 </diV>
+                                    <div class="form-group">
+                                        <label for="CARI_HESAP_KODU">Cari Hesap Kodu</label>
+                                        <select asp-for="CARI_HESAP_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>                                         
+                                              @foreach (System.Data.DataRow row in Model.dt.Tables[1].Rows)
+                                            {
+                                                <option value= "@row["CARI_KODU"]" data-subtext="@row["CARI_KODU"]">@row["UNVAN"] </option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    
+                                    <div class="form-group">
+                                        <label for="STOK_KODU">Stok Kodu</label>
+                                        <select asp-for="STOK_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[2].Rows)
+                                            {
+                                                <option value= "@row["STOK_ADI"]" data-subtext="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+                             </div>                         
+                                                    
+
+                                 
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="ISLEM_MIKTARI">iŞLEM Miktarı</label>
+                                        <input asp-for="ISLEM_MIKTARI" type="text" class="form-control " >
+                                    </div>
+                                          <div class="form-group">
+                                        <label for="ISLEM_BIRIMI">İşlem Birimi</label>
+                                        <select asp-for="ISLEM_BIRIMI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[3].Rows)
+                                            {
+                                                <option value= "@row["OLCU_BIRIMI_KODU"]" data-subtext="@row["OLCU_BIRIMI_KODU"]">@row["OLCU_BIRIMI_ADI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+                               
+                                
+                                    <div class="form-group">
+                                        <label for="IMALAT_TESLIM_TARIHI">İmalat Teslim tarihi</label>
+                                        <input asp-for="IMALAT_TESLIM_TARIHI"   type="text" class="form-control " >
+                                    </div>                           
+                            
+                                       
+                                    <div class="form-group">
+                                        <label for="MUSTERIYE_TESLIM_TARIHI">Müşteriye Teslim tarihi</label>
+                                        <input asp-for="MUSTERIYE_TESLIM_TARIHI" type="text" class="form-control " >
+                                    </div>
+                                
+                                </div>                                                     
+                     
+
+
+                     </div>
+                </div>
+
+
+                        <div class="card-footer text-right">
+                            <button type="button" class="btn btn-danger" id="uretimEmriSil">
+                                <i class="fas fa-trash-alt"></i>
+                                &nbsp;Sil
+                            </button>
+                            <button type="button" class="btn btn-primary" id="uretimEmriVazgec">
+                                <i class="fa fa-backward"></i>
+                                &nbsp;Vazgeç
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="uretimEmriKaydet">
+                                <i class="fa fa-save"></i>
+                                &nbsp;Kaydet
+                            </button>
+                        </div>
+
+               </div>
+              </div>
+              </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+            
+             $("#uretimEmriVazgec").click(function () {
+
+                $("#uretimEForm").attr("action", "/Production/ProductionOrderEntry").submit() 
+
+             });
+
+            $("#uretimEmriSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Üretim Emri Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#uretimEForm").attr("action", "/ProductionOrderEntry/ProductionOrderEntryDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+        
+        })
+    
+   })
+   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

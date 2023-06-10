@@ -4,134 +4,95 @@
     ViewData["Title"] = "OperatorDescription";
 }
 
+@model OperatorDescription
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>Operator Tanımlama</h1>
+                                </div>
 
 
-            <form method="post" asp-controller="OperatorDescription" asp-action="CreateOperatorDescription">
-                <div class="row">
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <label>OPERATÖR TANIMLAMA</label>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/OperatorDescription/OperatorDescriptionNew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni Operator Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="OPERATOR_KODU">Operatör Kodu:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="OPERATOR_KODU" name="OPERATOR_KODU" type="text">
-                                                </div>
-                                              
-                                            </div>
-
-
-                                            <div class="col-md-4">
-                                                <label for="OPERATOR_TUR_KOD">Operatör Türü:</label>
-                                            </div>
-                                            <select id="OPERATOR_TUR_KODU" name="OPERATOR_TUR_KODU" class="form-control">
-                                                <option value="">Seçiniz</option>
-                                                @foreach (var item in ViewBag.data1)
-                                                {
-                                                    <option value="@item.OPERATOR_TUR_KODU">@item.OPERATOR_TUR_ADI</option>
-                                                }
-                                            </select>
-
-                                        </div>
-
-                                        <div class="col-md-6">
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="OPERATOR_ADI">Operatör Adı:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="OPERATOR_ADI" name="OPERATOR_ADI" type="text">
-                                                </div>
-                                            </div>
-
-                                         
-
-                                            <div class="row mt-3">
-                                                <div class="col">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="true" id="A_P" name="A_P">
-                                                        <label class="form-check-label" for="A_P">
-                                                            A/P
-                                                        </label>
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-md-1 text-start">
-                                                <button type="submit" class="btn btn-success">Ekle</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-
-                  
-                </div>
-            </form>
-
-            <div class="row mt-3">
-                <div class="col">
-
-                    @if (ViewBag.data2 != null && ViewBag.data2.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Operator Kodu</th>
-                                    <th scope="col">Operator Adı</th>
-                                    <th scope="col">Operator Tür Kodu</th>
-                                    <th scope="col">A/P</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in ViewBag.data2)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.OPERATOR_KODU</td>
-                                        <td>@item.OPERATOR_ADI</td>
-                                        <td>@item.OPERATOR_TUR_KODU</td>
-                                        <td>@item.A_P</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Operatör Kodu</th>
+                        <th>Operatör Adı</th>                        
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <th>@row["Id"]</th>
+                            <td>@row["OPERATOR_KODU"]</td>
+                            <td>@row["OPERATOR_ADI"]</td>                            
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editOperatorKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="operatorForm" name="operatorForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
 </div>
+
+<script>
+
+
+    function editOperatorKayıt(id) {
+
+
+        $("#operatorForm input[name=Id]").attr("value", id)
+
+        $("#operatorForm").attr("action", "/OperatorDescription/OperatorDescriptionEdit").submit();
+
+    }
+
+</script>

@@ -43,7 +43,7 @@
             <table id="stokCardTable" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        
+                        <th>#</th>
                         <th>Fiş No</th>
                         <th>Tarih</th>
                         <th>Depo</th>
@@ -57,6 +57,7 @@
                     @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                     {
                         <tr>
+                            <td>@row["Id"]</td>
                             <td>@row["FIS_NO"]</td>
                             <td>@row["TARIH"]</td>
                             <td>@row["DEPO"]</td>                         
@@ -76,7 +77,7 @@
             </table>
 
             <form method="post" id="stokGirisCıkısForm" name="stokGirisCıkısForm">
-                <input type="hidden" value="" name="stokId" />
+                <input type="hidden" value="" name="Id" />
             </form>
 
 
@@ -93,7 +94,7 @@
     function editStokGirisCikis(id) {
 
 
-        $("#stokGirisCıkısForm input[name=stokId]").attr("value", id)
+        $("#stokGirisCıkısForm input[name=Id]").attr("value", id)
 
         $("#stokGirisCıkısForm").attr("action", "/StockEntryExitMovements/StockEntryExitMovementsEdit").submit();
 

@@ -42,6 +42,7 @@
             <table id="stokCardTable" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Depo Kodu</th>
                         <th>Depo Adı</th>
                         <th>İşlem</th>
@@ -53,6 +54,7 @@
                     @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                     {
                         <tr>
+                            <td>@row["Id"]</td>
                             <td>@row["DEPO_KODU"]</td>
                             <td>@row["DEPO_ADI"]</td>
                             <td style="width:50px;">
@@ -67,7 +69,7 @@
             </table>
 
             <form method="post" id="depoForm" name="depoForm">
-                <input type="hidden" value="" name="depoId" />
+                <input type="hidden" value="" name="Id" />
             </form>
           
 
@@ -85,7 +87,7 @@
     function editDepoKayıt(id) {
 
 
-        $("#depoForm input[name=depoId]").attr("value", id)
+        $("#depoForm input[name=Id]").attr("value", id)
 
         $("#depoForm").attr("action", "/WarehouseDefinition/WarehouseDefinitionEdit").submit();
 
