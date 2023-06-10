@@ -66,7 +66,7 @@ namespace Lisans_Tezi_Mvc.Models
 
         }
 
-        public void getAccountingDetailCodeEntry(int muhasebeKodu)
+        public void getAccountingDetailCodeEntry(int Id)
         {
             using (SqlConnection sqlConn = new SqlConnection(DBInfo.ConnectionString))
             {
@@ -74,7 +74,7 @@ namespace Lisans_Tezi_Mvc.Models
                 SqlCommand sqlCmd = new SqlCommand("StokMuhasebeBilgisiCRUD", sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@pPorcessType", 0);
-                sqlCmd.Parameters.AddWithValue("@pMUHASEBE_KODU", muhasebeKodu);
+                sqlCmd.Parameters.AddWithValue("@pId", Id);
 
                 SqlDataReader readData = sqlCmd.ExecuteReader();
 

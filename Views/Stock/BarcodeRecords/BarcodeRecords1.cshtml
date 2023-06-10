@@ -27,16 +27,19 @@
                         <div id="tanımTab" class="tab-pane active">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>Stok Kodu</label>
-                                        <select asp-for="STOK_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header="  StokKart  " title="Seçiniz.">
+                
+                                                     <div class="form-group">
+                                        <label for="STOK_KODU">Stok Kodu</label>
+                                        <select asp-for="STOK_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
+                                                <option value="@row["STOK_KODU"]" data-subtext="@row["STOK_KODU"]">@row["STOK_ADI"] </option>
                                             }
                                         </select>
                                     </div>
+                                    
+                                 
 
                                    
                                     <div class="form-group">
@@ -45,13 +48,14 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label>Barkod Tipi</label>
-                                        <select asp-for="BARKOD_TIPI" class="selectpicker form-control show-tick" data-live-search="true" data-header="  barkod  " title="Seçiniz.">
+                        
+                                                     <div class="form-group">
+                                        <label for="BARKOD_TIPI">Barkod Tipi</label>
+                                        <select asp-for="BARKOD_TIPI" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[1].Rows)
                                             {
-                                                <option value="@row["BARKOD_TIPI"]">@row["BARKOD_TIPI"] </option>
+                                                <option value="@row["BARKOD_TIPI"]" data-subtext="@row["BARKOD_TIPI"]">@row["BARKOD_TIPI"] </option>
                                             }
                                         </select>
                                     </div>
@@ -69,13 +73,24 @@
                                         <label for="KAYIT_TARIHI">Kayıt Tarihi</label>
                                         <input asp-for="KAYIT_TARIHI" type="text" class="form-control ">
                                     </div>
-                                    <div class="form-group">
+                                @*    <div class="form-group">
                                         <label>Ölçü Birimi</label>
                                         <select asp-for="OLCU_BIRIMI_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header="  olcuBırımı  " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[2].Rows)
                                             {
                                                 <option value="@row["OLCU_BIRIMI_KODU"]">@row["OLCU_BIRIMI_KODU"] </option>
+                                            }
+                                        </select>
+                                    </div>*@
+
+                                                        <div class="form-group">
+                                        <label for="OLCU_BIRIMI_KODU">Ölçü Birimi Kodu</label>
+                                        <select asp-for="OLCU_BIRIMI_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[2].Rows)
+                                            {
+                                                <option value="@row["OLCU_BIRIMI_KODU"]" data-subtext="@row["OLCU_BIRIMI_KODU"]">@row["OLCU_BIRIMI_KODU"] </option>
                                             }
                                         </select>
                                     </div>
@@ -135,7 +150,7 @@
                         evet: {
                             text: 'Evet',
                             action: function () {
-                                $("#barcodeForm").attr("action", "/Stock/BarcodeRecords/BarcodeRecordsDelete").submit()
+                                $("#barcodeForm").attr("action", "/BarcodeRecords/BarcodeRecordsDelete").submit()
                             }
                         },
                         hayir: {

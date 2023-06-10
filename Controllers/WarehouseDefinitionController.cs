@@ -65,12 +65,12 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Redirect("/Stock/WarehouseDefinition");
         }
 
-        public IActionResult WarehouseDefinitionEdit(int depokodu)
+        public IActionResult WarehouseDefinitionEdit(int Id)
         {
 
             WarehouseDefinition ste = new WarehouseDefinition();
             ste.DepoBilgisiGetir();
-            ste.getWarehouseDefinition(depokodu);
+            ste.getWarehouseDefinition(Id);
 
             ste.dt.Tables[0].TableName = "personel";
             

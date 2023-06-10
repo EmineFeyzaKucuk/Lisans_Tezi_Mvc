@@ -54,7 +54,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult OperatorTypesDescriptionDelete(OperatorTypesDescription str)
         {
             OperatorTypesDescription ste = new OperatorTypesDescription();
-            str.deleteOperatorTypesDescription(str.Id);
+            str.deleteOperatorTypesDescription(str.OPERATOR_TUR_KODU);
 
             return Redirect("/Production/OperatorTypesDescription");
         }

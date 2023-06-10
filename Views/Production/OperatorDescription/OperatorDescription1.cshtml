@@ -1,0 +1,133 @@
+﻿@{
+    Layout = "~/Views/Production/OperatorDescription/_LayoutOperatorDescription.cshtml";
+    ViewData["Title"] = "OperatorDescription1";
+}
+
+
+@model OperatorDescription
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-9">
+        <form action="/OperatorDescription/OperatorDescriptionSave" method="post" enctype="multipart/form-data" name="operatorForm" id="operatorForm">
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Operatör Kayıtları</h3>
+                    <ul class="nav nav-pills" style="float: right;">
+                        <li class="nav-item"><a class="nav-link active" href="#tanımTab" data-toggle="tab">Tanım</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="tanımTab" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="OPERATOR_KODU">Operatör Kodu</label>
+                                        <input asp-for="OPERATOR_KODU" type="text" class="form-control ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="OPERATOR_ADI">Operatör Adı</label>
+                                        <input asp-for="OPERATOR_ADI" type="text" class="form-control ">
+                                    </div>
+                                   
+                                                 <div class="form-group">
+                                        <label for="OPERATOR_TUR_KODU">Operatör Tür Kodu</label>
+                                        <select asp-for="OPERATOR_TUR_KODU" class="selectpicker form-control show-tick" data-live-search="true" data-header=" Depo " title="Seçiniz.">
+                                            <option value="Seçiniz" selected>Seçiniz.</option>
+                                            @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                                            {
+                                                <option value="@row["OPERATOR_TUR_KODU"]" data-subtext="@row["OPERATOR_TUR_KODU"]">@row["OPERATOR_TUR_ADI"] </option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="true" id="A_P" name="A_P">
+                                            <label class="form-check-label" for="A_P">
+                                                A/P
+                                            </label>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+                                </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-danger" id="operatorSil">
+                    <i class="fas fa-trash-alt"></i>
+                    &nbsp;Sil
+                </button>
+                <button type="button" class="btn btn-primary" id="operatorVazgec">
+                    <i class="fa fa-backward"></i>
+                    &nbsp;Vazgeç
+                </button>
+                <button type="submit" class="btn btn-primary" id="operatorKaydet">
+                    <i class="fa fa-save"></i>
+                    &nbsp;Kaydet
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(document).ready(function () {
+
+            $("#operatorVazgec").click(function () {
+
+                $("#operatorForm").attr("action", "/Production/OperatorDescription").submit()
+
+            });
+
+            $("#operatorSil").click(function () {
+
+                $.confirm({
+                    theme: 'supervan',
+                    title: 'Uyarı!',
+                    content: 'Operasyon Kaydı Silinecek!',
+                    buttons: {
+                        evet: {
+                            text: 'Evet',
+                            action: function () {
+                                $("#operatorForm").attr("action", "/OperatorDescription/OperatorDescriptionDelete").submit()
+                            }
+                        },
+                        hayir: {
+                            text: 'Hayır',
+
+                        }
+                    }
+                });
+            });
+
+        })
+
+    })
+</script>
+
+
+
+
+
