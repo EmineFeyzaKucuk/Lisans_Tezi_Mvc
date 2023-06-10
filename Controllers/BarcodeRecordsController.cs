@@ -41,7 +41,7 @@ namespace Lisans_Tezi_Mvc.Controllers
 
             sbk.dt.Tables[0].TableName = "Stokkodları";
             sbk.dt.Tables[1].TableName = "barkod";
-            sbk.dt.Tables[1].TableName = "olcuBirimi";
+            sbk.dt.Tables[2].TableName = "olcuBirimi";
 
             return View("~/Views/Stock/BarcodeRecords/BarcodeRecords1.cshtml", sbk);
             // return Content("burasır55rrrrrrrrr");
@@ -65,12 +65,12 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Redirect("/Stock/BarcodeRecords");
         }
 
-        public IActionResult BarcodeRecordsEdit(int sbkId)
+        public IActionResult BarcodeRecordsEdit(string stokkodu)
         {
 
             BarcodeRecords ste = new BarcodeRecords();
             ste.barkodBilgisiGetir();
-            ste.getBarcodeRecords(sbkId);
+            ste.getBarcodeRecords(stokkodu);
 
             ste.dt.Tables[0].TableName = "Stokkodları";
             ste.dt.Tables[1].TableName = "barkod";

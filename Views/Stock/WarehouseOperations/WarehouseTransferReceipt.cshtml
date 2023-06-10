@@ -43,6 +43,7 @@
             <table id="stokCardTable" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Fiş No</th>
                         <th>Tarih</th>
                         <th>Gönderen Depo</th>
@@ -57,6 +58,7 @@
                     @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                     {
                         <tr>
+                            <td>@row["Id"]</td>
                             <td>@row["FIS_NO"]</td>
                             <td>@row["TARIH"]</td>
                             <td>@row["GONDEREN_DEPO"]</td>
@@ -77,7 +79,7 @@
             </table>
 
             <form method="post" id="transferForm" name="transferForm">
-                <input type="hidden" value="" name="stokId" />
+                <input type="hidden" value="" name="Id" />
             </form>
            
 
@@ -95,7 +97,7 @@
     function editDepoTransfer(id) {
 
 
-        $("#transferForm input[name=stokId]").attr("value", id)
+        $("#transferForm input[name=Id]").attr("value", id)
 
         $("#transferForm").attr("action", "/warehouseTransferReceipt/WarehouseTransferReceiptEdit").submit();
 

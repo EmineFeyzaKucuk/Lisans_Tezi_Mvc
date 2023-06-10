@@ -3,180 +3,97 @@
     ViewData["Title"] = "WorkstationIdentification";
 }
 
-<div class="container" >
+@model WorkstationIdentification
+
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="WorkstationIdentification" asp-action="CreateWorkstationIdentification">
-
-                <div class="row">
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <div class=" card">
-                                <div class=" card-body">
-                                    <label>İŞ İSTASYONU TANIMLAMAA</label>
-                                </div>
-                            </div>
-
-                            <div class=" card">
-                                <div class=" card-body">
-                                    <div class=" row">
-                                        <div class="col-md-6">
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="ISTASYON_KODU">İstasyon Kodu:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="ISTASYON_KODU" name="ISTASYON_KODU" type="text">
-                                                </div>
-                                              
-                                            </div>
-
-
-
-                                            <div class="row mt-3">
-                                                <div class="col">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="true" id="A_P" name="A_P">
-                                                        <label class="form-check-label" for="A_P">
-                                                            A/P
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class=" col-md-6">
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="ISTASYON_ADI">İstasyon Adı:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="ISTASYON_ADI" name="ISTASYON_ADI" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="OPERATOR_KODU">Operatör Kodu:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <select id="OPERATOR_KODU" name="OPERATOR_KODU" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data1)
-                                                        {
-                                                            <option value="@item.OPERATOR_KODU">@item.OPERATOR_ADI</option>
-                                                        }
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="stok_kodu">Makine Kodu:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <select id="MAKINE_KODU" name="MAKINE_KODU" class="form-control">
-                                                        <option value="">Seçiniz</option>
-                                                        @foreach (var item in ViewBag.data2)
-                                                        {
-                                                            <option value="@item.MAKINE_KODU">@item.MAKINE_ADI</option>
-                                                        }
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="URETIM_SURESI">Üretim Süresi:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="URETIM_SURESI" name="URETIM_SURESI" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="HAZIRLIK_SURESI">Hazırlık Süresi:</label>
-                                                </div>
-                                                <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="HAZIRLIK_SURESI" name="HAZIRLIK_SURESI" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row mt-3">
-
-
-
-
-                                                <div class="col-md-1 text-start">
-                                                    <button type="submit" class="btn btn-success">Ekle</button>
-                                                </div>
-                                    
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Sil</button>
-                                            </div>
-                                            <div class="col-md-1 text-start">
-                                                <button type="button" class="btn btn-secondary">Güncelle</button>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6 ">
+                                    <h1>İş İstasyonu Tanımlama</h1>
                                 </div>
 
+
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item">
+                                            <form action="/WorkstationIdentification/WorkstationIdentificationnew" method="post">
+                                                <button type="submit" class="btn btn-block btn-success">Yeni İstasyon Kaydı</button>
+                                            </form>
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-            </form>
-
-            <div class="row mt-3">
-                <div class="col">
-
-                    @if (ViewBag.data3 != null && ViewBag.data3.Count > 0)
-                    {
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">İstasyon Kodu</th>
-                                    <th scope="col">İstasyon Adı</th>
-                                    <th scope="col">A/P</th>
-                                    <th scope="col">Operator Kodu</th>
-                                    <th scope="col">Makine Kodu</th>
-                                    <th scope="col">Üretim Süresi</th>
-                                    <th scope="col">Hazırlık Süresi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in ViewBag.data3)
-                                {
-                                    <tr>
-                                        <th scope="row">@item.Id</th>
-                                        <td>@item.ISTASYON_KODU</td>
-                                        <td>@item.ISTASYON_ADI</td>
-                                        <td>@item.A_P</td>
-                                        <td>@item.OPERATOR_KODU</td>
-                                        <td>@item.MAKINE_KODU</td>
-                                        <td>@item.URETIM_SURESI</td>
-                                        <td>@item.HAZIRLIK_SURESI<td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <p>Kayıt bulunamadı.</p>
-                    }
+                    </section>
 
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <table id="stokCardTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>İstasyon Kodu</th>
+                        <th>İstasyon Adı</th>
+                        <th>Makine Sayısı</th>
+                        <th>İşlem</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
+                    {
+                        <tr>
+                            <th>@row["Id"]</th>
+                            <td>@row["ISTASYON_KODU"]</td>
+                            <td>@row["ISTASYON_ADI"]</td>
+                            <td>@row["MAKINE_SAYISI"]</td>
+                            <td style="width:50px;">
+                                <a href="#" data-id="@row["Id"]" onclick="editIstasyonKayıt(@row["Id"])">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+            <form method="post" id="ıstasyonForm" name="ıstasyonForm">
+                <input type="hidden" value="" name="Id" />
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
 </div>
+
+<script>
+
+
+    function editIstasyonKayıt(id) {
+
+
+        $("#ıstasyonForm input[name=Id]").attr("value", id)
+
+        $("#ıstasyonForm").attr("action", "/WorkstationIdentification/WorkstationIdentificationEdit").submit();
+
+    }
+
+</script>

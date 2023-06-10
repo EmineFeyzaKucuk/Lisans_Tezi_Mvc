@@ -61,8 +61,8 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult OperationDescriptionDelete(OperationDescription str)
         {
-            MachineIdentification ste = new MachineIdentification();
-            str.deleteOperationDescription(str.Id);
+            OperationDescription ste = new OperationDescription();
+            str.deleteOperationDescription(str.OPERASYON_KODU);
 
             return Redirect("/Production/OperationDescription");
         }

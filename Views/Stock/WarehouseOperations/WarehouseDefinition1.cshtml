@@ -69,14 +69,16 @@
                         <div id="detayTab" class="tab-pane">
                             <div class="row">
                                 <div class="col-md-5">
+       
+
 
                                     <div class="form-group">
-                                        <label for="PERSONEL_ID">Personel ID:</label>
-                                        <select asp-for="PERSONEL_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" personel " title="Seçiniz.">
+                                        <label for="PERSONEL_ID">Satıştan Personel:</label>
+                                        <select asp-for="PERSONEL_ID" class="selectpicker form-control show-tick" data-live-search="true" data-header=" muhasebe " title="Seçiniz.">
                                             <option value="Seçiniz" selected>Seçiniz.</option>
                                             @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                                             {
-                                                <option value="@row["Id"]" data-subtext="@row["PERSONEL_ISIM"]"> </option>
+                                                <option value="@row["PERSONEL_ISIM"]" data-subtext="@row["Id"]">@row["PERSONEL_ISIM"] </option>
                                             }
                                         </select>
                                     </div>
@@ -145,7 +147,7 @@
                         evet: {
                             text: 'Evet',
                             action: function () {
-                                $("#depoForm").attr("action", "/Stock/WarehouseDefinition/StockTransactionDelete").submit()
+                                $("#depoForm").attr("action", "/WarehouseDefinition/WarehouseDefinitionDelete").submit()
                             }
                         },
                         hayir: {

@@ -51,10 +51,10 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Redirect("/EmployeeDefinition/EmployeeDefinition");
         }
 
-        public IActionResult EmployeeDefinitionDelete(EmployeeDefinition sbk)
+        public IActionResult EmployeeDefinitionDelete(EmployeeDefinition ed)
         {
             EmployeeDefinition ste = new EmployeeDefinition();
-            sbk.deleteEmployeeDefinition(sbk.Id);
+            ed.deleteEmployeeDefinition(ed.Id);
 
             return Redirect("/EmployeeDefinition/EmployeeDefinition");
         }
@@ -63,16 +63,16 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult EmployeeDefinitionEdit(int Id)
         {
 
-            EmployeeDefinition ste = new EmployeeDefinition();
-            ste.PersonelBilgisi();
-            ste.getEmployeeDefinition(Id);
+            EmployeeDefinition ed = new EmployeeDefinition();
+            ed.PersonelBilgisi();
+            ed.getEmployeeDefinition(Id);
 
-            ste.dt.Tables[0].TableName = "personel";
-
-
+            ed.dt.Tables[0].TableName = "personel";
 
 
-            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition1.cshtml", ste);
+
+
+            return View("~/Views/Stock/EmployeeDefinition/EmployeeDefinition1.cshtml", ed);
 
         }
 

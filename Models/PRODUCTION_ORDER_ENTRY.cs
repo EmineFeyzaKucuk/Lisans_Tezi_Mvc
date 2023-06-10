@@ -15,6 +15,6 @@
         public string ISLEM_BIRIMI { get; set; }
         public DateTime IMALAT_TESLIM_TARIHI { get; set; }
         public DateTime MUSTERIYE_TESLIM_TARIHI { get; set; }
-        public int PLANLANAN_URETIM_MIKTARI { get; set; }
+        //public int PLANLANAN_URETIM_MIKTARI { get; set; }
     }
 }

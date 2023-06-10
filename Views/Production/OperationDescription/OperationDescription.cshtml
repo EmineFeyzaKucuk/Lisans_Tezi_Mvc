@@ -42,6 +42,7 @@
             <table id="stokCardTable" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Operasyon Kodu</th>
                         <th>Operayon Adı</th>
                         <th>Açıklama</th>
@@ -55,6 +56,7 @@
                     @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                     {
                         <tr>
+                            <th>@row["Id"]</th>
                             <td>@row["OPERASYON_KODU"]</td>
                             <td>@row["OPERASYON_ADI"]</td>
                             <td>@row["OPERASYON_ACIKLAMA"]</td>

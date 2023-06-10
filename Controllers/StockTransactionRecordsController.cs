@@ -80,7 +80,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         public IActionResult StockTransactionDelete(StockTransactionRecords1 str) 
         {
             StockTransactionRecords1 ste = new StockTransactionRecords1();
-            str.deleteStockTransactionRecords(str.STOK_KODU);
+            str.deleteStockTransactionRecords(str.FIS_NO);
 
             return Redirect("/Stock/StockTransactionRecords");
         }

@@ -34,6 +34,54 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
 
 
+        public IActionResult WorkstationIdentificationEdit(int Id)
+        {
+
+            WorkstationIdentification str = new WorkstationIdentification();
+            str.IstasyonBilgisiGetir();
+            str.getWorkstationIdentification(Id);
+
+            str.dt.Tables[0].TableName = "operator";
+            str.dt.Tables[1].TableName = "makine";
+
+
+
+            return View("~/Views/Production/WorkstationIdentification/WorkstationIdentification1.cshtml", str);
+
+        }
+
+        public IActionResult WorkstationIdentificationnew()
+        {
+
+            WorkstationIdentification str = new WorkstationIdentification();
+            str.IstasyonBilgisiGetir();
+
+            str.dt.Tables[0].TableName = "operator";
+            str.dt.Tables[1].TableName = "makine";
+           
+
+            return View("~/Views/Production/WorkstationIdentification/WorkstationIdentification1.cshtml", str);
+
+
+        }
+        public IActionResult WorkstationIdentificationSave(WorkstationIdentification str)
+        {
+            WorkstationIdentification ste = new WorkstationIdentification();
+            str.saveWorkstationIdentification(str);
+
+
+            return Redirect("/Production/WorkstationIdentification");
+        }
+
+        public IActionResult WorkstationIdentificationDelete(WorkstationIdentification str)
+        {
+            WorkstationIdentification ste = new WorkstationIdentification();
+            str.deleteWorkstationIdentification(str.ISTASYON_KODU);
+
+            return Redirect("/Production/WorkstationIdentification");
+        }
+
+
 
 
 

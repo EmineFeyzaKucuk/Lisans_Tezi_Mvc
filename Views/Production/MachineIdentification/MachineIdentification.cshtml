@@ -42,6 +42,7 @@
             <table id="stokCardTable" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Makine Kodu</th>
                         <th>Makine Adı</th>
                         <th>A/P</th>
@@ -55,10 +56,11 @@
                     @foreach (System.Data.DataRow row in Model.dt.Tables[0].Rows)
                     {
                         <tr>
+                            <td>@row["Id"]</td>
                             <td>@row["MAKINE_KODU"]</td>
                             <td>@row["MAKINE_ADI"]</td>                            
 
-                            @if (row["A_P"] == "false")
+                            @if (row["A_P"] == "true")
                             {
                                 <td> Aktif </td>
                             }

@@ -60,7 +60,7 @@ namespace Lisans_Tezi_Mvc.Controllers
             //string a = JsonConvert.SerializeObject(stp, Formatting.Indented);
             //return Content(a);
 
-            return Redirect("/Stock/WarehouseOperation/WarehouseTransferReceipt");
+            return Redirect("/Stock/WarehouseTransferReceipt");
         }
 
         public IActionResult WarehouseTransferReceiptDelete(WarewhouseTransferReceipt dp)
@@ -71,12 +71,12 @@ namespace Lisans_Tezi_Mvc.Controllers
             return Redirect("/Stock/WarehouseTransferReceipt");
         }
 
-        public IActionResult WarehouseTransferReceiptEdit(string fısNo)
+        public IActionResult WarehouseTransferReceiptEdit(int Id)
         {
 
             WarewhouseTransferReceipt ste = new WarewhouseTransferReceipt();
             ste.depoTransferBilgisi();
-            ste.getWarehouseTransferReceiptCode(fısNo);
+            ste.getWarehouseTransferReceiptCode(Id);
 
 
             ste.dt.Tables[0].TableName = "depo";
