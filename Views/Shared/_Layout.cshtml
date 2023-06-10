@@ -118,12 +118,12 @@
                                         <li> <a asp-action="AccountingCodeDefinition" asp-controller="AccountingCodeDefinition" class="link-dark rounded"> Muhasebe Kod Tanımlama</a> </li>
                                         <li> <a asp-action="UniformChartOfAccountsEntry" asp-controller="Accounting" class="link-dark rounded">Tek Düzen Hesap Planı Girişi</a> </li>
                                         <li> <a asp-action="AlternativeChartOfAccountsEntry" asp-controller="Accounting" class="link-dark rounded"> Alternatif Hesap Planı Girişi</a> </li>
-                                        <li> <a asp-action="CreditNote" asp-controller="Accounting" class="link-dark rounded">Borç Dekontu</a> </li>
-                                        <li> <a asp-action="DebitMemo" asp-controller="Accounting" class="link-dark rounded">Alacak Dekontu</a> </li>
+                                        <li> <a asp-action="CreditNote" asp-controller="Accounting" class="link-dark rounded">Alacak Dekontu</a> </li>
+                                        <li> <a asp-action="DebitMemo" asp-controller="Accounting" class="link-dark rounded">Borç Dekontu</a> </li>
                                         <li> <a asp-action="CurrentTransferVir" asp-controller="Accounting" class="link-dark rounded"> Cari Virman</a> </li>
-                                
-                                        <li> <a asp-action="IncomingTransfer" asp-controller="Accounting" class="link-dark rounded">Gelen Havale</a> </li>
-                                        <li> <a asp-action="OutgoingRemittance" asp-controller="Accounting" class="link-dark rounded">Giden Havale</a> </li>
+                                @*
+                                        <li> <a asp-action="GelenTransfer" asp-controller="Accounting" class="link-dark rounded">Gelen Havale</a> </li>
+                                        <li> <a asp-action="OutgoingRemittance" asp-controller="Accounting" class="link-dark rounded">Giden Havale</a> </li>*@
                                         <li> <a asp-action="OffsetReceiptEntry" asp-controller="Accounting" class="link-dark rounded">Mahsup Fiş Girişi</a> </li>
                              
                        
@@ -158,9 +158,8 @@
                             </li>
                          
 
-                            <li class="border-top my-3"> </li>
                         
-                            <li class="mb-1">
+                          @*  <li class="mb-1">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" style="background-color:white;font-size:18px" data-toggle="collapse" href="#raporlar-collapse" aria-expanded="false">
                                     Raporlar
                                 </button>
@@ -182,9 +181,9 @@
                                     </ul>
                                 </div>
 
-                            </li>
+                            </li>*@
 
-                            <li class="border-top my-3"> </li>
+                           <li class="border-top my-3"> </li>
 
                             <li class="mb-1">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" style="background-color:white;font-size:18px" data-toggle="collapse" href="#genel-collapse" aria-expanded="false">

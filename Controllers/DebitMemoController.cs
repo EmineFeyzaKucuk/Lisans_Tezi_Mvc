@@ -19,7 +19,7 @@ namespace Lisans_Tezi_Mvc.Controllers
         {
             try
             {
-                //  return Ok(uniformChartOfAccountsEntry);
+                 // return Ok(debitMemo);
                 _debitMemoRepository.Add(debitMemo);
                 return RedirectToAction("DebitMemo", "Accounting");
             }

@@ -32,12 +32,12 @@
                                                     <label for="CARI_HESAP_KODU">Cari Hesap Kodu :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                   
-                                                        <select id="CARI_KODU" name="CARI_KODU" class="form-control">
+
+                                                    <select id="ALACAKLI_HESAP_KODU" name="ALACAKLI_HESAP_KODU" class="form-control">
                                                             <option value="">Seçiniz</option>
                                                             @foreach (var item in ViewBag.data1)
                                                             {
-                                                                <option value="@item.CARI_HESAP_KODU">@item.UNVAN</option>
+                                                                <option value="@item.CARI_KODU">@item.UNVAN</option>
                                                             }
                                                         </select>
                                                    
@@ -49,13 +49,13 @@
                                                 <div class="col-md-12">
 
                                                     <div>
-                                                        <label for="A_D">
-                                                            <input type="radio" name="NITELIK" value="Ana" /> Havale
+                                                        <label for="NITELIK">
+                                                            <input type="radio" name="NITELIK" value="Havale" /> Havale
                                                         </label>
                                                     </div>
                                                     <div>
-                                                        <label for="A_D">
-                                                            <input type="radio" name="NITELIK" value="Detay" /> Eft
+                                                        <label for="NITELIK">
+                                                            <input type="radio" name="NITELIK" value="Eft" /> Eft
                                                         </label>
                                                     </div>
 
@@ -66,7 +66,7 @@
                                                     <label for="DEKONT_TUTARI">Dekont Tutarı :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="DEKONT_TUTARI" name="DEKONT=TUTARI" type="text">
+                                                    <input class="form-control " id="DEKONT_TUTARI" name="DEKONT_TUTARI" type="number">
                                                 </div>
                                             </div>
 
@@ -77,7 +77,7 @@
                                                     <label for="TARIH">Tarih :</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="TARIH" name="TARIH" type="text">
+                                                    <input class="form-control " id="TARIH" name="TARIH" type="date">
                                                 </div>
                                             </div>
                                           
@@ -86,7 +86,7 @@
                                                     <label for="ACIKLAMA">Açıklama :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="ACIKLAMA" name="TOPLAM_BORC" type="text">
+                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
@@ -94,7 +94,7 @@
                                                     <label for="TOPLAM_BORC">Toplam Borç:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="TOPLAM_BORC" name="TOPLAM_BORC" type="text">
+                                                    <input class="form-control " id="TOPLAM_BORC" name="TOPLAM_BORC" type="number">
                                                 </div>
                                             </div>
                                         </div>
@@ -106,15 +106,14 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 text-start">
-                        <div class="col-md-1 text-start">
+                        
                             <button type="submit" class="btn btn-success">Ekle</button>
-                        </div>
+                        
 
-                        <div class="col-md-1 text-start">
+                        
                             <button type="submit" class="btn btn-success">Sil</button>
 
-
-                        </div>
+-
                     </div>
                 </div>
             </form>
@@ -125,7 +124,7 @@
 <div class="row mt-3">
     <div class="col">
 
-        @if (ViewBag.data1 != null && ViewBag.data1.Count > 0)
+        @if (ViewBag.data2 != null && ViewBag.data2.Count > 0)
         {
             <table class="table">
                 <thead>
@@ -133,8 +132,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Belge Numarası</th>
                         <th scope="col">Tarih</th>
-                        <th scope="col">Cari Hesap Kodu</th>
-                        <th scope="col">Cari Hesap Adı</th>
+                        <th scope="col">Alacaklı Kodu</th>
                         <th scope="col"> Nitelik</th>
                         <th scope="col">Açıklama</th>
                         <th scope="col">Dekont Tutarı</th>
@@ -143,16 +141,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in ViewBag.data1)
+                    @foreach (var item in ViewBag.data2)
                     {
                         <tr>
                             <th scope="row">@item.Id</th>
                             <td>@item.BELGE_NO</td>
                             <td>@item.TARIH</td>
-                            <td>@item.CARI_HESAP_KODU</td>
-                            <td>@item.CARI_HESAP_ADI</td>
-                            <td>@item.NITELIK
-                            <td>
+                            <td>@item.ALACAKLI_HESAP_KODU</td>
+                            <td>@item.NITELIK</td>
                             <td>@item.ACIKLAMA</td>
                             <td>@item.DEKONT_TUTARI</td>
                             <td>@item.TOPLAM_BORC</td>

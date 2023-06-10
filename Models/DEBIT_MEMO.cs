@@ -4,7 +4,7 @@
     {
 
         public string BELGE_NO { get; set; }
-        public string TARIH { get; set; }
+        public DateTime TARIH { get; set; }
         public string CARI_HESAP_KODU { get; set; }
     
 

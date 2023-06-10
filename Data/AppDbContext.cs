@@ -58,6 +58,12 @@ namespace Lisans_Tezi_Mvc.Data
         public DbSet<ALTERNATIVE_CHART_OF_ACCOUNTS_ENTRY> MuhasebeAlternatifHesapPlaniGiris_TBL { get; set; }
         public DbSet<DEBIT_MEMO> FinansBorcDekontu_TBL { get; set; }
         public DbSet<CREDIT_NOTE> FinansAlacakDekontu_TBL { get; set; }
+        public DbSet<ACCOUNTING_CURRENT_TRANSFER_VIR> FinansCariVirmanFisi_TBL { get; set; }
+        public DbSet<GELEN_TRANSFER> FinansGelenHavale_TBL { get; set; }
+        public DbSet<OUTGOING_REMITTANCE> FinansGidenHavale_TBL { get; set; }
+
+
+
         //   public DbSet<ACCOUNT> MuhasebeKodTanimlama_TBL { get; set; }
 
     }

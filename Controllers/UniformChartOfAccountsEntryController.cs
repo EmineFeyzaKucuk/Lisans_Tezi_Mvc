@@ -17,6 +17,14 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CreateUniformChartOfAccountsEntry(ACCOUNTING_UNIFORM_CHART_OF_ACCOUNTS_ENTRY uniformChartOfAccountsEntry)
         {
+
+            if (uniformChartOfAccountsEntry.A_P == null)
+            {
+                uniformChartOfAccountsEntry.A_P = "false";
+            }
+
+
+
             try
             {
                 //  return Ok(uniformChartOfAccountsEntry);

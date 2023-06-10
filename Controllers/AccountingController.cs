@@ -9,6 +9,9 @@ using Lisans_Tezi_Mvc.Repository.UniformChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.AlternativeChartOfAccountsEntryRepo;
 using Lisans_Tezi_Mvc.Repository.CreditNoteRepo;
 using Lisans_Tezi_Mvc.Repository.DebitMemoRepo;
+using Lisans_Tezi_Mvc.Repository.CurrentTransferVirRepo;
+using Lisans_Tezi_Mvc.Repository.OutgoingRemittanceRepo;
+using Lisans_Tezi_Mvc.Repository.GelenTransferRepo;
 
 namespace Lisans_Tezi_Mvc.Controllers
 {
@@ -20,9 +23,20 @@ namespace Lisans_Tezi_Mvc.Controllers
         private readonly IAlternativeChartOfAccountsEntryRepository _alternativeChartOfAccountsEntryRepository;
         private readonly IDebitMemoRepository _debitMemoRepository;
         private readonly ICreditNoteRepository _creditNoteRepository;
+        private readonly ICurrentTransferVirRepository _currentTransferVirRepository;
+        private readonly IOutgoingRemittanceRepository _outgoingRemittanceRepository;
+        private readonly IGelenTransferRepository _gelenTransferRepository;
+  
         private readonly AlternativeChartOfAccountsEntryController _alternativeChartOfAccountsEntry;
 
-        public AccountingController(ICurrencyDefinitionRepository currencyDefinitionRepository, ICurrentCardIdentificationRepository currentCardIdentificationRepository, IUniformChartOfAccountsEntryRepository uniformChartOfAccountsEntryRepository, IAlternativeChartOfAccountsEntryRepository alternativeChartOfAccountsEntryRepository, IDebitMemoRepository debitMemoRepository, ICreditNoteRepository creditNoteRepository)
+        public AccountingController(ICurrencyDefinitionRepository currencyDefinitionRepository,
+         ICurrentCardIdentificationRepository currentCardIdentificationRepository, 
+         IUniformChartOfAccountsEntryRepository uniformChartOfAccountsEntryRepository,
+         IAlternativeChartOfAccountsEntryRepository alternativeChartOfAccountsEntryRepository,
+         IDebitMemoRepository debitMemoRepository, ICreditNoteRepository creditNoteRepository,
+         ICurrentTransferVirRepository currentTransferVirRepository, 
+         IGelenTransferRepository gelenTransferRepository, 
+         IOutgoingRemittanceRepository outgoingRemittanceRepository )
         {
             _currentCardIdentificationRepository = currentCardIdentificationRepository;
             _currencyDefinitionRepository = currencyDefinitionRepository;
@@ -30,8 +44,9 @@ namespace Lisans_Tezi_Mvc.Controllers
             _alternativeChartOfAccountsEntryRepository = alternativeChartOfAccountsEntryRepository;
             _debitMemoRepository = debitMemoRepository;
             _creditNoteRepository = creditNoteRepository;
-            {
-            }
+            _currentTransferVirRepository = currentTransferVirRepository;
+            _outgoingRemittanceRepository = outgoingRemittanceRepository;
+            _gelenTransferRepository = gelenTransferRepository;
 
         }
         public IActionResult Index()
@@ -68,13 +83,18 @@ namespace Lisans_Tezi_Mvc.Controllers
         }
 
 
-        public IActionResult IncomingTransfer()
+        public IActionResult GelenTransfer()
         {
-            return View("~/Views/Accounting/IncomingTransfer/IncomingTransfer.cshtml");
+
+            ViewBag.data1 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data2 = _gelenTransferRepository.GetAll();
+            return View("~/Views/Accounting/GelenTransfer/GelenTransfer.cshtml");
         }
 
         public IActionResult OutgoingRemittance()
         {
+            ViewBag.data1 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data2 = _outgoingRemittanceRepository.GetAll();
             return View("~/Views/Accounting/OutgoingRemittance/OutgoingRemittance.cshtml");
         }
 
@@ -90,18 +110,26 @@ namespace Lisans_Tezi_Mvc.Controllers
 
         public IActionResult CreditNote()
         {
-            ViewBag.data1 = _creditNoteRepository.GetAll();
+        
+
+            ViewBag.data1 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data2 = _creditNoteRepository.GetAll();
             return View("~/Views/Accounting/CreditNote/CreditNote.cshtml");
         }
 
         public IActionResult CurrentTransferVir()
         {
+            ViewBag.data1 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data2 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data3 = _currencyDefinitionRepository.GetAll();
+            ViewBag.data4 = _currentTransferVirRepository.GetAll();
             return View("~/Views/Accounting/CurrentTransferVir/CurrentTransferVir.cshtml");
         }
 
         public IActionResult DebitMemo()
         {
-            ViewBag.data1 = _debitMemoRepository.GetAll();
+            ViewBag.data1 = _currentCardIdentificationRepository.GetAll();
+            ViewBag.data2 = _debitMemoRepository.GetAll();
             return View("~/Views/Accounting/DebitMemo/DebitMemo.cshtml");
         }
 

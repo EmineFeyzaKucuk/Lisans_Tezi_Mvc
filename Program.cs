@@ -9,14 +9,17 @@ using Lisans_Tezi_Mvc.Repository.CarbonFootprintRepo;
 using Lisans_Tezi_Mvc.Repository.CreditNoteRepo;
 using Lisans_Tezi_Mvc.Repository.CurrencyDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.CurrentCardIdentificationRepo;
+using Lisans_Tezi_Mvc.Repository.CurrentTransferVirRepo;
 using Lisans_Tezi_Mvc.Repository.DebitMemoRepo;
 using Lisans_Tezi_Mvc.Repository.EmployeeDefinitionRepo;
+using Lisans_Tezi_Mvc.Repository.GelenTransferRepo;
 using Lisans_Tezi_Mvc.Repository.GroupCodeRecordsRepo;
 using Lisans_Tezi_Mvc.Repository.MachineIdentificationRepo;
 using Lisans_Tezi_Mvc.Repository.MadeOfDefinitionRepo;
 using Lisans_Tezi_Mvc.Repository.OperationDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorDescriptionRepo;
 using Lisans_Tezi_Mvc.Repository.OperatorTypesDescriptionRepo;
+using Lisans_Tezi_Mvc.Repository.OutgoingRemittanceRepo;
 using Lisans_Tezi_Mvc.Repository.ProductGroupDefinitionsRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionOrderEntryRepo;
 using Lisans_Tezi_Mvc.Repository.ProductionRecordRepo;
@@ -39,7 +42,7 @@ using System.Configuration;
 
 namespace Lisans_Tezi_Mvc
 {
-public class DBInfo
+    public class DBInfo
     {
 
           public static string ConnectionString { get; set; }
@@ -97,7 +100,10 @@ public class DBInfo
             builder.Services.AddScoped<IAlternativeChartOfAccountsEntryRepository, AlternativeChartOfAccountsEntryRepository>();
             builder.Services.AddScoped<IDebitMemoRepository, DebitMemoRepository>();
             builder.Services.AddScoped<ICreditNoteRepository, CreditNoteRepository>();
+            builder.Services.AddScoped<ICurrentTransferVirRepository, CurrentTransferVirRepository>();
 
+            builder.Services.AddScoped<IGelenTransferRepository, GelenTransferRepository>();
+            builder.Services.AddScoped<IOutgoingRemittanceRepository, OutgoingRemittanceRepository>();
             DBInfo.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnecion"];
 
 

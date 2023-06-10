@@ -1,19 +1,19 @@
 ﻿@{
-    Layout = "~/Views/Accounting/DebitMemo/_LayoutDebitMemo.cshtml";
-    ViewData["Title"] = "DebitMemo";
+    Layout = "~/Views/Accounting/GelenTransfer/_LayoutGelenTransfer.cshtml";
+    ViewData["Title"] = "GelenTransfer";
 }
 @model dynamic
 
-<div class="container" >
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" asp-controller="DebitMemo" asp-action="CreateDebitMemo">
+            <form method="post" asp-controller="GelenTransfer" asp-action="CreateGelenTransfer">
 
                 <div class="row">
                     <div class="row mt-2">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-body"><label>BORÇ DEKONTU</label></div>
+                                <div class="card-body"><label>GELEN HAVALE</label></div>
                             </div>
                             <div class="card">
                                 <div class="card-body">
@@ -21,18 +21,18 @@
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="BELGE_NO">Belge No :</label>
+                                                    <label for="FIS_NO">Fiş No :</label>
                                                 </div>
                                                 <div class="col-md-3 text-start">
-                                                    <input class="form-control " id="BELGE_NO" name="BELGE_NO" type="text">
+                                                    <input class="form-control " id="FIS_NO" name="FIS_NO" type="text">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="CARI_HESAP_KODU">Cari Hesap Kodu :</label>
+                                                    <label for="ALACAKLI_BANKA_HESAP_KODU">Alacaklı Banka Hesap Kodu :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <select id="CARI_HESAP_KODU" name="CARI_HESAP_KODU" class="form-control">
+                                                    <select id="ALACAKLI_HESAP_KODU" name="ALACAKLI_HESAP_KODU" class="form-control">
                                                         <option value="">Seçiniz</option>
                                                         @foreach (var item in ViewBag.data1)
                                                         {
@@ -41,11 +41,9 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <div class="row mt-1">
-
-                                                <div class="col-md-12">
-
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <label for="NITELIK">Nitelik:</label>
                                                     <div>
                                                         <label for="NITELIK">
                                                             <input type="radio" name="NITELIK" value="Havale" /> Havale
@@ -56,69 +54,48 @@
                                                             <input type="radio" name="NITELIK" value="Eft" /> Eft
                                                         </label>
                                                     </div>
+                                                </div>
 
-                                                </div>
                                             </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="DEKONT_TUTARI">Dekont Tutarı :</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="DEKONT_TUTARI" name="DEKONT_TUTARI" type="number">
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
                                                     <label for="TARIH">Tarih :</label>
                                                 </div>
-                                                <div class="col-md-4 text-start">
+                                                <div class="col-md-6 text-start">
                                                     <input class="form-control " id="TARIH" name="TARIH" type="date">
                                                 </div>
                                             </div>
-                                           
+                                        
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="ACIKLAMA">Açıklama :</label>
+                                                    <label for="TUTAR">Tutar:</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
+                                                    <input class="form-control " id="TUTAR" name="TUTAR"type="text">
                                                 </div>
                                             </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="TOPLAM_BORC">Toplam Borç:</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="TOPLAM_BORC" name="TOPLAM_BORC" type="number">
+
+                                            <div class="row mt-2">
+
+                                                <div class="col-md-3 text-start">
+                                                    <button type="submit" class="btn btn-success">Kaydet</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-12 text-start">
 
-                            <button type="submit" class="btn btn-success">Ekle</button>
-                       
-
-                       
-                            <button type="submit" class="btn btn-success">Sil</button>
-
-
-                    </div>
-                </div>
             </form>
         </div>
     </div>
 </div>
-
 <div class="row mt-3">
     <div class="col">
 
@@ -128,14 +105,12 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Belge Numarası</th>
+                        <th scope="col">Fiş No</th>
                         <th scope="col">Tarih</th>
-                        <th scope="col">Cari Hesap Kodu</th>
-               
+                        <th scope="col">Alacaklı Banka Hesap Kodu</th>
                         <th scope="col"> Nitelik</th>
-                        <th scope="col">Açıklama</th>
-                        <th scope="col">Dekont Tutarı</th>
-                        <th scope="col">Toplam Borç</th>
+                        <th scope="col">Tutar</th>
+
 
                     </tr>
                 </thead>
@@ -144,15 +119,11 @@
                     {
                         <tr>
                             <th scope="row">@item.Id</th>
-                            <td>@item.BELGE_NO</td>
+                            <td>@item.FIS_NO</td>
                             <td>@item.TARIH</td>
-                            <td>@item.CARI_HESAP_KODU</td>
-                        
+                            <td>@item.ALACAKLI_BANKA_HESAP_KODU</td>
                             <td>@item.NITELIK</td>
-                            <td>@item.ACIKLAMA</td>
-                            <td>@item.DEKONT_TUTARI</td>
-                            <td>@item.TOPLAM_BORC</td>
-                            
+                            <td>@item.TUTAR</td>
 
                         </tr>
                     }

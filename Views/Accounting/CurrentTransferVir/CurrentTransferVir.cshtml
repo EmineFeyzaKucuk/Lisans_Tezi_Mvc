@@ -7,8 +7,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-
-            <form action="post">
+            <form method="post" asp-controller="CurrentTransferVir" asp-action="CreateCurrentTransferVir">
                 <div class="row">
                     <div class="row mt-2">
                         <div class="col-md-12">
@@ -21,81 +20,82 @@
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Belge No :</label>
+                                                    <label for="BELGE_NO">Belge No :</label>
                                                 </div>
                                                 <div class="col-md-3 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="BELGE_NO" name="BELGE_NO" type="text">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Alacaklı Hesap Kodu :</label>
+                                                    <label for="ALACAKLI_HESAP_KODU">Alacaklı Hesap Kodu :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <select id="ALACAKLI_HESAP_KODU" name="ALACAKLI_HESAP_KODU" class="form-control">
+                                                        <option value="">Seçiniz</option>
+                                                        @foreach (var item in ViewBag.data1)
+                                                        {
+                                                            <option value="@item.CARI_KODU">@item.UNVAN</option>
+                                                        }
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Borçlu Hesap Kodu :</label>
+                                                    <label for="BORCLU_HESAP_KODU">Borçlu Hesap Kodu :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <select id="BORCLU_HESAP_KODU" name="BORCLU_HESAP_KODU" class="form-control">
+                                                        <option value="">Seçiniz</option>
+                                                        @foreach (var item in ViewBag.data2)
+                                                        {
+                                                            <option value="@item.CARI_KODU">@item.UNVAN</option>
+                                                        }
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Borç Tutarı :</label>
+                                                    <label for="BORC_TUTARI">Borç Tutarı :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="BORC_TUTARI" name="BORC_TUTARI" type="number">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Açıklama :</label>
+                                                    <label for="ACIKLAMA">Açıklama :</label>
                                                 </div>
                                                 <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="ACIKLAMA" name="ACIKLAMA" type="text">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row mt-1">
                                                 <div class="col-md-6">
-                                                    <label for="stok_kodu">Tarih :</label>
+                                                    <label for="TARIH">Tarih :</label>
                                                 </div>
                                                 <div class="col-md-4 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
+                                                    <input class="form-control " id="TARIH" name="TARIH" type="date">
                                                 </div>
                                             </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="stok_kodu">Alacaklı Hesap Adı :</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6">
-                                                    <label for="stok_kodu">Borçlu Hesap Adı :</label>
-                                                </div>
-                                                <div class="col-md-6 text-start">
-                                                    <input class="form-control " id="stok_kodu" type="text">
-                                                </div>
-                                            </div>
+                                         
                                             <div class="col-md-3">
                                                 <div class="row mt-1">
 
                                                     <label for="cars">Para Birimi:</label>
 
-                                                    <select name="cars" id="cars">
-                                                        <option selected disabled value="">Seçiniz...</option>
-                                                        <option value="volvo">TL</option>
-                                                        <option value="saab">USD</option>
+                                                        <select id="PARA_BIRIMI" name="PARA_BIRIMI" class="form-control">
+                                                            <option value="">Seçiniz</option>
+                                                            @foreach (var item in ViewBag.data3)
+                                                            {
+                                                                <option value="@item.PARA_BIRIMI_KODU">@item.PARA_BIRIMI_KODU</option>
+                                                            }
 
-                                                    </select>
+
+                                                        </select>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -106,8 +106,65 @@
 
                     </div>
                 </div>
+                <div class="row mt-2">
+                    <div class="col-md-12 text-start">
+
+                        <button type="submit" class="btn btn-success">Ekle</button>
+
+
+
+                        <button type="submit" class="btn btn-success">Sil</button>
+
+                        
+                    </div>
+                </div>
             </form>
 
         </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col">
+
+        @if (ViewBag.data4 != null && ViewBag.data4.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Belge Numarası</th>
+                        <th scope="col">Tarih</th>
+                        <th scope="col">Alacaklı Hesap Kodu</th>
+                        <th scope="col">Borçlu Hesap Kodu</th>
+                        <th scope="col">Borç Tutarı</th>
+                        <th scope="col">Para Birimi</th>
+                        <th scope="col">Açıklama</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.data4)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.BELGE_NO</td>
+                            <td>@item.TARIH</td>
+                            <td>@item.ALACAKLI_HESAP_KODU</td>
+                            <td>@item.BORCLU_HESAP_KODU</td>
+                            <td>@item.BORC_TUTARI</td>
+                            <td>@item.PARA_BIRIMI</td>
+                            <td>@item.ACIKLAMA</td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Kayıt bulunamadı.</p>
+        }
+
     </div>
 </div>

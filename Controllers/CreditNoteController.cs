@@ -15,11 +15,11 @@ namespace Lisans_Tezi_Mvc.Controllers
             _creditNoteRepository = creditNoteRepository;
         }
 
-        public IActionResult CreateDebitMemo(CREDIT_NOTE creditNote)
+        public IActionResult CreateCreditNote(CREDIT_NOTE creditNote)
         {
             try
             {
-                //  return Ok(uniformChartOfAccountsEntry);
+               //  return Ok(creditNote);
                 _creditNoteRepository.Add(creditNote);
                 return RedirectToAction("CreditNote", "Accounting");
             }
